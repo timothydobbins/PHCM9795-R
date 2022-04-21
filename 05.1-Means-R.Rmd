@@ -1,0 +1,106 @@
+# Comparing two means
+
+## Checking data for the independent samples t-test
+
+### Producing histograms and boxplots by a second variable
+
+We can create histograms and boxplots separated by a second variable in (at least) two ways: using Base R or `ggplot2` graphics. We will demonstrate using the birthweight data in `Example_5.1.dta`.
+
+```{r}
+library(haven)
+library(labelled)
+library(skimr)
+library(ggplot2)
+library(jmv)
+
+bwt <- read_dta("data/examples/Example_5.1.dta") %>% 
+  unlabelled()
+
+skim(bwt)
+summary(bwt$gender)
+```
+
+To use Base R graphics, we can create subsets of the birthweight data, subsetted for males and females separately. Note here that `gender` is a factor, so we need to select based on the factor labels, not the underlying numeric code.
+
+```{r}
+bwt_m <- subset(bwt, bwt$gender=="Male")
+bwt_f <- subset(bwt, bwt$gender=="Female")
+```
+
+We can now create hisotgrams and boxplots for males and females separately, in the usual way. To place the graphs next to each other in a single figure, we can use the `par` function. The `par` function sets the graphics parameters. Essentially, we want to tell R to split a plot window into a matrix with *nr* rows and *nc* columns, and we can decide to fill the cells by rows (`mfrow`) or columns (`mfcols`). For example, to plot four figures in a single plot, filled by rows, we use `par(mfrow=c(2,2))`.
+
+When we are done plotting multiple graphs, we can reset the plot window by submitting `par(mfrow=c(1,1))`.
+
+```{r}
+par(mfrow=c(2,2))
+hist(bwt_m$birthweight, xlim=c(2.5, 4.5), xlab="Birthweight (kg)", main="Males")
+hist(bwt_f$birthweight, xlim=c(2.5, 4.5), xlab="Birthweight (kg)", main="Females")
+
+boxplot(bwt_m$birthweight, ylim=c(2.5, 4.5), ylab="Birthweight (kg)", main="Males")
+boxplot(bwt_f$birthweight, ylim=c(2.5, 4.5), ylab="Birthweight (kg)", main="Females")
+par(mfrow=c(1,1))
+```
+
+To produce separate histograms in `ggplot2`, we use the `facet_wrap` function to create a grid of plots. We can define the variable(s) to be plotted by in the `vars()`, and optionally, the number of rows (`nrow=`) and number of columns (`ncol=`).
+
+```{r}
+# Overall histogram of birthweight
+ggplot(bwt, aes(x=birthweight)) + 
+  geom_histogram(breaks=seq(2.5, 4.5, 0.25), colour="black", fill="grey") + 
+  labs(x="Birthweight (kg)", y="Frequency") +
+  theme_classic()
+
+# Histogram by gender
+ggplot(bwt, aes(x=birthweight)) + 
+  geom_histogram(breaks=seq(2.5, 4.5, 0.25), colour="black", fill="grey") + 
+  facet_wrap(vars(gender), nrow=1, ncol=2) +
+  labs(x="Birthweight (kg)", y="Frequency") +
+  theme_classic()
+```
+
+While it is possible to use `facet_wrap` to produce separate boxplots, we can use the fact that the boxplot allows an `x` variable to be assigned to the ggplot aesthetic. By defining `birthweight` as the `y` variable and `gender` as the `x` variable, we can produce two boxplots in the same figure:
+
+```{r}
+ggplot(bwt, aes(x=gender, y=birthweight)) +
+  geom_boxplot() +
+  labs(y="Birthweight (kg)", x="Gender") +
+  theme_classic()
+```
+
+
+### Producing split summary statistics
+
+The `descriptives` function within the `jmv` function allows summary statistics to be calculated within subgroups using the `splitBy` argument:
+
+```{r}
+descriptives(data=bwt, vars=birthweight, splitBy=gender)
+```
+
+## Independent samples t-test
+
+```{r}
+ttestIS(data=bwt, vars=birthweight, group=gender)
+ttestIS(data=bwt, vars=birthweight, group=gender, meanDiff=TRUE, ci=TRUE)
+ttestIS(data=bwt, vars=birthweight, group=gender, meanDiff=TRUE, ci=TRUE, welchs=TRUE)
+```
+
+
+## Checking the assumptions for a Paired t-test
+
+Before performing a paired t-test, you must check that the assumptions for the test have been met. Using the dataset `Example_5.2.dta` to show that the difference between the pair of measurements between the sites is normally distributed, we first need to compute a new variable of the differences and examine its histogram.
+
+```{r}
+sbp <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_5.2.dta")
+sbp$diff = sbp$sbp_dp - sbp$sbp_tp
+hist(sbp$diff, xlab="Blood pressure (mmHg)", main="Difference in systolic blood pressure")
+```
+
+ 
+## Paired t-Test
+
+To perform a paired t-test we will use the dataset `Example_5.2.dta`.
+
+```{r}
+ttestPS(data=sbp, pairs=list(list(i1 = 'sbp_dp', i2 = 'sbp_tp')), meanDiff=TRUE, ci=TRUE, norm=TRUE)
+```
+

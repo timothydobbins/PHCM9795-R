@@ -1,0 +1,80 @@
+# Proportions
+
+## 95% confidence intervals for proportions
+We can use the `BinomCI(x=, n=, method=)` function within the `DescTools` package to compute 95% confidence intervals for proportions. Here we specify `x`: the number of successes, `n`: the sample size, and optionally, the `method` (which defaults to Wilson's method).
+
+```{r}
+library(DescTools)
+
+BinomCI(x=47, n=215, method='wald')
+BinomCI(x=47, n=215, method='wilson')
+```
+
+## Significance test for single proportion
+We can use the `binom.test` function to perform a significance test for a single proportion: `binom.test(x=, n=, p=)`. Here we specify `x`: the number of successes, `n`: the sample size, and `p`: the hypothesised proportion (which defaults to 0.5 if nothing is entered).
+
+```{r}
+binom.test(x=54, n=300, p=0.2)
+```
+
+## Computing a relative risk and its 95% confidence interval
+
+```{r}
+library(haven)
+library(labelled)
+library(jmv)
+
+drug <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_6.4.dta") %>% 
+  unlabelled()
+
+head(drug)
+
+table(drug$group)
+table(drug$side_effect)
+table(drug$group, drug$side_effect)
+
+drug$group <- relevel(drug$group, ref="Active")
+drug$side_effect <- relevel(drug$side_effect, ref="Nausea")
+
+table(drug$group)
+table(drug$side_effect)
+table(drug$group, drug$side_effect)
+
+contTables(data=drug, rows=group, cols=side_effect, pcRow=TRUE, relRisk = TRUE, diffProp = TRUE)
+```
+
+If you only have the cross-tabulated data (i.e. aggregated), you will need to enter your data into a new data frame.
+
+```{r}
+drug_aggregated <- data.frame(
+  group = c(1, 1, 0, 0),
+  side_effect = c(1, 0, 1, 0),
+  n = c(15, 35, 4, 46)
+)
+
+drug_aggregated$group <- factor(drug_aggregated$group, levels=c(1,0), labels=c("Active", "Placebo"))
+drug_aggregated$side_effect <- factor(drug_aggregated$side_effect, levels=c(1,0), labels=c("Nausea", "No nausea"))
+
+drug_aggregated
+
+contTables(data=drug_aggregated, rows=group, cols=side_effect, count=n, pcRow=TRUE, relRisk = TRUE, diffProp = TRUE)
+```
+
+## Computing an odds ratio and its 95%CI
+
+We can use the `contTables` function To obtain an odds ratio and its 95% CI, by specifying `odds=TRUE`:
+
+```{r}
+hpv <- data.frame(
+  cancer = c(1, 1, 0, 0),
+  hpv = c(1, 0, 1, 0),
+  n = c(57, 14, 43, 186)
+)
+
+hpv$cancer <- factor(hpv$cancer, levels=c(1,0), labels=c("Case", "Control"))
+hpv$hpv <- factor(hpv$hpv, levels=c(1,0), labels=c("HPV +", "HPV -"))
+
+hpv
+
+contTables(data=hpv, rows=hpv, cols=cancer, count=n, odds = TRUE)
+```
