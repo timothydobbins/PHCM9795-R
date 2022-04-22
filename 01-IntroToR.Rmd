@@ -1,0 +1,269 @@
+# Introduction to R and RStudio
+
+## Learning outcomes  {-}
+
+By the end of this Module, you will be able to:
+
+-   understand the difference between R and RStudio
+-   navigate the RStudio interface
+-   input and import data into R
+-   use R to summarise data
+-   perform basic data transformations
+-   assign variable and value labels
+-   understand the difference between saving R data and saving R output
+-   copy R output to a standard word processing package
+
+## Introduction
+
+"R is a language and environment for statistical computing and graphics." [ref to https://www.r-project.org/about.html]. It is an open-source programming language, used mainly for statistics. It is increasingly used in health research, as well as in other fields such as econometrics and social science. The aim of these notes is to introduce the R language within the RStudio environment, and to introduce the commands and procedures that are directly relevant to this course. There is so much more to R than we can cover in these notes. Relevant information will be provided throughout the course, and we will provide further references that you can explore if you are interested.
+
+## R vs RStudio
+
+At its heart, R is a programming language. When you install R on your computer, you are installing the language and its resources, as well as a very basic interface for using R. You can write and run R code using R, but we don't recommend it.
+
+RStudio is an "Integrated Development Environment" that runs R while also providing useful tools to help you as you're writing code and analysing data. Think of R as the engine which does the work, and RStudio as the wrapper which provides a more user-friendly way to interact with R.
+
+## Installing R and RSudio
+
+```{r, figures-side, fig.show="hold", out.width="80%"}
+par(mar = c(4, 4, .1, .1))
+knitr::include_graphics(here::here("img", "Rlogo.svg"))
+knitr::include_graphics(here::here("img", "RStudio-logo-flat.png"))
+```
+
+To install R on your computer:
+
+1. Download the R installer:
+    a. for Windows:
+    b. for MacOS:
+2. Install R by running the installer and following the installation instructions. Note, the default settings are fine.
+3. Open the R program. You should see a screen as below:
+
+At the end of the text you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
+
+`## [1] 3`
+
+At this point, close R - we will not interact with R like this in the future.
+
+To install RStudio on your computer:
+
+1. Make sure you have already installed R, and verified that it is working.
+2. Download the RStudio desktop installer at: https://www.rstudio.com/products/rstudio/download. Ensure that you select the RStudio Desktop (Free) installer in the first column.
+3. Install RStudio by running the installer and following the installation instructions. Note, the default settings are fine.
+4. Open RStudio, which will appear as below:
+
+Locate the command line symbol ">" at the bottom of the left-hand panel. Type `1 + 2` into the command line and hit enter, and you will see:
+
+`## [1] 3`
+
+This confirms that RStudio is running correctly, and calling the R language to correctly calculate the sum between 1 and 2!
+
+RStudio currently comprises three window panes, and we will discuss these later.
+
+## A simple R analysis
+
+In this very brief section, we will introduce R by calculating the average of six ages.
+
+To begin, open a new R Script by choosing **File > New file > R Script **. A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the **New File** button at the top of the RStudio window.
+
+You should now see four window panes, as below. In the top-left window, type the following (replacing my name with yours, and including today's date:
+
+```{r eval=FALSE}
+# Author: Timothy Dobbins
+# Date: 5 April 2022
+# Purpose: My first R script
+
+age <- c(20, 25, 23, 29, 21, 27)
+summary(age)
+```
+
+To run your script, choose **Code > Run Region > Run All**. You will see your code appear in the bottom-right window, with the following output:
+
+```{r eval=FALSE}
+> # Author: Timothy Dobbins
+> # Date: 5 April 2022
+> # Purpose: My first R script
+> 
+> age <- c(20, 25, 23, 29, 21, 27)
+
+> summary(age)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  20.00   21.50   24.00   24.17   26.50   29.00 
+```
+
+We will explain the key parts of this script later, but for now, you have entered six ages and calculated the mean age (along with five other summary statistics).
+
+## The RStudio environment
+
+Now that we have seen a simple example of how to use R within RStudio, let's describe the RStudio environment. Let's assume that you have opened a new script editor, and you have four windows as below.
+
+The **Script** window is where you will write and edit your R scripts. The R script can be saved by clicking on File -> Save As or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example name_of_script.R. Give it a meaningful title and remember to periodically save as you go.
+
+In RStudio, the name of the script will be black when it has been saved, and will change to red if you have any unsaved changes.
+
+The **Console** window, at the bottom right, contains the command line which is indicated with the symbol >. You can type commands here, but anything executed directly from the console is not saved and therefore is lost when the session ends (when you exit RStudio). You should always run your commands from a script file which you can save and use again later. When you run commands from a script, the output and any notes/errors are shown in the console. The Terminal and Jobs tabs will not be used in this course.
+
+The **Environment** window at the top-right shows a list of objects that have been created during your session. When you close your RStudio session these objects will disappear. We will not use the History or Connections tabs in this course.
+
+The bottom right corner contains some useful tabs, in particular the **Help** tab. When you are troubleshooting errors or learning how to use a function, the Help tab should be the first place you visit. Here you can search the help documents for all the packages you have installed. Whenever you create plots in R, these will be shown in the **Plots** tab. The **Packages** tab contains a list of installed packages and indicates which ones are currently in use (we will learn about packages later). Packages which are loaded, i.e. in use, are indicated with a tick. Some packages are in use by default when you begin a new session. You can access information about a package by clicking on its name. The **Files** tab provides a shortcut to access your files. The Viewer tab will not be used in this course.
+
+## Some R basics
+
+### Objects
+
+Assigning
+
+### Functions
+
+### Packages
+
+### Many ways to do one thing - embrace inconsistency
+
+## Part 2: Obtaining basic descriptive statistics
+
+In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from @therneau_grambsch10, Modeling Survival Data: Extending the Cox Model. By the end of this exercise, we will have completed the following table.
+
+```{r echo=FALSE}
+library(huxtable)
+library(tidyverse)
+
+tab <- tibble::tribble(
+                     ~Characteristic,                   ~` `,                    ~Summary,
+                       "Age (years)",                     NA, "Mean (SD) or Median [IQR]",
+                               "Sex",                 "Male",                     "n (%)",
+                               "Sex",               "Female",                     "n (%)",
+                       "AST* (U/ml)",                     NA, "Mean (SD) or Median [IQR]",
+                   "Serum bilirubin",                     NA, "Mean (SD) or Median [IQR]",
+                             "Stage",                    "I",                     "n (%)",
+                             "Stage",                   "II",                     "n (%)",
+                             "Stage",                  "III",                     "n (%)",
+                             "Stage",                 "IIIV",                     "n (%)",
+         "Vital status at study end", "Alive: no transplant",                     "n (%)",
+         "Vital status at study end",    "Alive: transplant",                     "n (%)",
+         "Vital status at study end",             "Deceased",                     "n (%)"
+         )
+
+huxtable(tab) %>% 
+  theme_article() %>% 
+  merge_repeated_rows(everywhere, 1) %>% 
+  set_width(0.95) %>% 
+  set_caption("Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)") %>% 
+  add_footnote("* asparate aminotransferase")
+```
+This table is available in Table1.docx, saved on Moodle.
+
+### Opening a data file
+
+Typing data directly into R is not common; we usually open data that have been saved as a Stata data file, or import data that have been entered into another package. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix).
+
+Step 1: Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt
+
+Step 2: In Stata, choose File ▶︎ Open. Browse to where you stored the dataset and click Open.
+
+Step 3: You may get an error: "Data in memory have changed". This means that you have not saved a copy of your current data, and by importing a new dataset, your changes will be lost. As Stata can only open one set of data at a time, you can choose to: Save your current data, Don't Save your current data, or Cancel. We don't need to save the data from our simple analysis (the six ages), so we can choose Don't Save.
+
+After opening the data successfully, there will be 418 rows of data, and 20 variables. Examine the pbc_info.txt file for a description of each variable.
+
+```{r}
+library(haven)
+library(labelled)
+library(skimr)
+
+pbc <- read_dta("data/examples/pbc.dta") %>% 
+  unlabelled()
+
+skim(pbc)
+```
+
+
+### Summarising continuous variables
+
+One of the most flexible functions for summarising continuous variables is the `descriptives` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
+
+- `data` specifies the dataframe to be analysed
+- `vars` specifies the variable(s) of interest, with multiple variables combined using the `c()` function
+
+We can summarise the three continuous variables in the pbc data: age, AST and serum bilirubin, as shown below.
+
+```{r}
+library(jmv)
+
+descriptives(data=pbc, vars=c(age, ast, bili))
+```
+
+By default, the `descriptives` function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles [ADD MORE HERE]:
+
+```{r}
+descriptives(data=pbc, vars=c(age, ast, bili), pc=TRUE)
+```
+
+### Producing a histogram
+
+We can use the `hist` function to produce a histogram, specifying the dataframe to use and the variable to be plotted as `dataframe$variable`:
+
+```{r}
+hist(pbc$age)
+```
+
+The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=` and `main=` to assign labels for the x-axis and overall title respectively:
+
+```{r}
+hist(pbc$age, xlab="Age (years)", main="Histogram of participant age from pbc study data")
+```
+
+### Producing a boxplot
+
+The `boxplot` function is used to produce boxplots, again specifying the dataframe to use and the variable to be plotted as `dataframe$variable`. Labels can be applied in the same way as the histogram:
+
+```{r}
+boxplot(pbc$age, xlab="Age (years)", main="Boxplot of participant age from pbc study data")
+```
+
+### Producing a one-way frequency table
+
+We have three categorical variables to summarise in Table 1: sex, stage and vital status. These variables are best summarised using one-way frequency tables.
+
+```{r}
+library(summarytools)
+
+freq(pbc$sex)
+```
+
+## Defning categorical variables as factors
+
+You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a **factor** using the `factor` function:
+
+`factor(variable=, levels=, labels=)`
+
+We specify:
+
+- `levels`: the values the categorical variable uses can take
+- `labels`: the labels corresponding to each of the levels (*entered in the same order as the levels*)
+
+To define our variable sex as a factor, we use:
+
+```{r}
+pbc$sex <- factor(pbc$sex, levels=c(1, 2), labels=c("Male", "Female"))
+```
+
+We can confirm the coding by re-running a frequency table:
+
+```{r}
+freq(pbc$sex)
+```
+
+Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
+
+Saving data from Stata
+
+Now that you have made some changes to the pbc data, it is good practice to save the dataset. Stata uses its own file format to save data. Data saved from Stata will end with the .dta suffix, and will contain useful information such as variable labels, value labels. However, data saved by Stata will only be able to be opened by Stata - you will not easily be able to share your data with colleagues who do not have Stata. To save a Stata dataset, choose File ▶︎ Save.
+
+Copying output from Stata
+
+It is important to note that saving data in Stata will not save your output. Stata data and output are completely separate to one another. The easiest way to retain the output of your analyses is to copy the output into a word processor package (e.g. Microsoft Word) before closing Stata. Once Stata is closed, all the output (that is, all your hard work!) is lost.
+
+To copy output from Stata, you can select the output and choose Edit \> Copy. This will copy the output as plain text for pasting into a Word document. As this is a table, you can also Copy table or Copy table as HTML. For this course, we recommend that you Copy table as HTML for pasting into Word. Whichever way you do it, you will need to make sure you reformat the table and relabel your header row and column properly for your assignments as described in Module 1. Alternatively, you can copy with the Copy table option for pasting into an Excel worksheet and reformat your table in Excel before pasting into Word.
+
+Copying output from Stata can get a little complicated to explain. We have included a video on Moodle to summarise the different ways output can be copied.
+
+Task: complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.

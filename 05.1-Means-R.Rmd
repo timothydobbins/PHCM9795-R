@@ -101,6 +101,12 @@ hist(sbp$diff, xlab="Blood pressure (mmHg)", main="Difference in systolic blood 
 To perform a paired t-test we will use the dataset `Example_5.2.dta`.
 
 ```{r}
-ttestPS(data=sbp, pairs=list(list(i1 = 'sbp_dp', i2 = 'sbp_tp')), meanDiff=TRUE, ci=TRUE, norm=TRUE)
+ttestPS(data=sbp, pairs=list(list(i1 = 'sbp_dp', i2 = 'sbp_tp')), meanDiff=TRUE, ci=TRUE)
+```
+
+The syntax of the ttestPS function is a little cumbersome. The `t.test` function can be used as an alternative:
+
+```{r}
+t.test(sbp$sbp_dp, sbp$sbp_tp, paired=TRUE)
 ```
 

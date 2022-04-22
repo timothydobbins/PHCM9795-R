@@ -1,0 +1,47 @@
+# Precision: R notes
+
+## Calculating a 95% confidence interval of a mean
+
+### Individual data
+To demonstrate the computation of the 95% confidence interval of a mean we have used data from `Example_1.3.dta` which contains the weights of 30 students:
+
+```{r}
+library(haven)
+library(skimr)
+library(labelled)
+library(jmv)
+
+students <- read_dta("data/examples/Example_1.3.dta") %>% 
+  unlabelled()
+
+skim(students)
+```
+
+The mean and its 95% confidence interval can be obtained many ways in R. One way is to use the `descriptives` function in the `jmv` package. By default, `descriptives` does not provide a confidence interval, but we can request it by specifying `ci=TRUE`:
+
+```{r}
+descriptives(data=students, vars=weight, ci=TRUE)
+```
+
+### Summarised data
+
+For Worked Example 3.2 where we are given the sample mean, sample standard deviation and sample size. R does not have a built-in function to calculate a confidence interval from summarised data, but we can write our own.
+
+**Note: writing your own functions is beyond the scope of this course. You should copy and paste the code provided to do this.**
+
+```{r}
+### Copy this section
+ci_mean <- function(n, mean, sd, width=0.95, digits=3){
+  lcl <- mean - qt(p=(1 - (1-width)/2), df=n-1) * sd/sqrt(n)
+  ucl <- mean + qt(p=(1 - (1-width)/2), df=n-1) * sd/sqrt(n)
+  
+  print(paste0(width*100, "%", " CI: ", format(round(lcl, digits=digits), nsmall = digits),
+               " to ", format(round(ucl, digits=digits), nsmall = digits) ))
+
+}
+### Copy this section
+
+ci_mean(n=30, mean=70, sd=6, width=0.95)
+ci_mean(n=30, mean=70, sd=6, width=0.99)
+```
+

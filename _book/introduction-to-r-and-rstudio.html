@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>PHCM9795 Foundations of Biostatistics</title>
+  <meta name="description" content="PHCM9795 Foundations of Biostatistics" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="PHCM9795 Foundations of Biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PHCM9795 Foundations of Biostatistics" />
+  
+  
+  
+
+<meta name="author" content="Notes for R" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="probability-and-probability-distributions-r-notes.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PHCM9795 Foundations of Biostatistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#learning-outcomes"><i class="fa fa-check"></i>Learning outcomes</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-vs-rstudio"><i class="fa fa-check"></i><b>1.2</b> R vs RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-r-and-rsudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RSudio</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#a-simple-r-analysis"><i class="fa fa-check"></i><b>1.4</b> A simple R analysis</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.5</b> The RStudio environment</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.6</b> Some R basics</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i><b>1.7</b> Part 2: Obtaining basic descriptive statistics</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defning-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.8</b> Defning categorical variables as factors</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#importing-data-into-stata"><i class="fa fa-check"></i><b>2.1</b> Importing data into Stata</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#checking-your-data-for-errors-in-stata"><i class="fa fa-check"></i><b>2.2</b> Checking your data for errors in Stata</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#overlaying-a-normal-curve-on-a-histogram"><i class="fa fa-check"></i><b>2.3</b> Overlaying a Normal curve on a histogram</a></li>
+<li class="chapter" data-level="2.4" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#ggplot2"><i class="fa fa-check"></i><b>2.4</b> ggplot2</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#descriptive-statistics-for-checking-normality"><i class="fa fa-check"></i><b>2.5</b> Descriptive statistics for checking normality</a></li>
+<li class="chapter" data-level="2.6" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#import-excel"><i class="fa fa-check"></i><b>2.6</b> Importing Excel data into Stata</a></li>
+<li class="chapter" data-level="2.7" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#generating-new-variables"><i class="fa fa-check"></i><b>2.7</b> Generating new variables</a></li>
+<li class="chapter" data-level="2.8" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#summarising-data-by-another-variable"><i class="fa fa-check"></i><b>2.8</b> Summarising data by another variable</a></li>
+<li class="chapter" data-level="2.9" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#recoding-data"><i class="fa fa-check"></i><b>2.9</b> Recoding data</a></li>
+<li class="chapter" data-level="2.10" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#computing-binomial-probabilities-using-r"><i class="fa fa-check"></i><b>2.10</b> Computing binomial probabilities using R</a></li>
+<li class="chapter" data-level="2.11" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#computing-probabilities-from-the-normal-distribution-using-the-hand-calculator-in-stata"><i class="fa fa-check"></i><b>2.11</b> Computing probabilities from the normal distribution using the Hand calculator in Stata</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="precision-r-notes.html"><a href="precision-r-notes.html"><i class="fa fa-check"></i><b>3</b> Precision: R notes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="precision-r-notes.html"><a href="precision-r-notes.html#calculating-a-95-confidence-interval-of-a-mean"><i class="fa fa-check"></i><b>3.1</b> Calculating a 95% confidence interval of a mean</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#one-sample-t-test"><i class="fa fa-check"></i><b>4.1</b> One sample t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="comparing-two-means.html"><a href="comparing-two-means.html"><i class="fa fa-check"></i><b>5</b> Comparing two means</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>5.1</b> Checking data for the independent samples t-test</a></li>
+<li class="chapter" data-level="5.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>5.2</b> Independent samples t-test</a></li>
+<li class="chapter" data-level="5.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>5.3</b> Checking the assumptions for a Paired t-test</a></li>
+<li class="chapter" data-level="5.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>5.4</b> Paired t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="proportions.html"><a href="proportions.html"><i class="fa fa-check"></i><b>6</b> Proportions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="proportions.html"><a href="proportions.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>6.1</b> 95% confidence intervals for proportions</a></li>
+<li class="chapter" data-level="6.2" data-path="proportions.html"><a href="proportions.html#significance-test-for-single-proportion"><i class="fa fa-check"></i><b>6.2</b> Significance test for single proportion</a></li>
+<li class="chapter" data-level="6.3" data-path="proportions.html"><a href="proportions.html#computing-a-relative-risk-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>6.3</b> Computing a relative risk and its 95% confidence interval</a></li>
+<li class="chapter" data-level="6.4" data-path="proportions.html"><a href="proportions.html#computing-an-odds-ratio-and-its-95ci"><i class="fa fa-check"></i><b>6.4</b> Computing an odds ratio and its 95%CI</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="testing-proportions.html"><a href="testing-proportions.html"><i class="fa fa-check"></i><b>7</b> Testing proportions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="testing-proportions.html"><a href="testing-proportions.html#pearsons-chi-squared-test"><i class="fa fa-check"></i><b>7.1</b> Pearson’s chi-squared test</a></li>
+<li class="chapter" data-level="7.2" data-path="testing-proportions.html"><a href="testing-proportions.html#chi-squared-test-for-tables-larger-than-2-by-2"><i class="fa fa-check"></i><b>7.2</b> Chi-squared test for tables larger than 2-by-2</a></li>
+<li class="chapter" data-level="7.3" data-path="testing-proportions.html"><a href="testing-proportions.html#mcnemars-test-for-paired-proportions"><i class="fa fa-check"></i><b>7.3</b> McNemar’s test for paired proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>8</b> Correlation and simple linear regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#creating-a-scatter-plot"><i class="fa fa-check"></i><b>8.1</b> Creating a scatter plot</a></li>
+<li class="chapter" data-level="8.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient"><i class="fa fa-check"></i><b>8.2</b> Calculating a correlation coefficient</a></li>
+<li class="chapter" data-level="8.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model"><i class="fa fa-check"></i><b>8.3</b> Fitting a simple linear regression model</a></li>
+<li class="chapter" data-level="8.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression"><i class="fa fa-check"></i><b>8.4</b> Plotting residuals from a simple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html"><i class="fa fa-check"></i><b>9</b> Analysing non-normal data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#transforming-non-normally-distributed-variables"><i class="fa fa-check"></i><b>9.1</b> Transforming non-normally distributed variables</a></li>
+<li class="chapter" data-level="9.2" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-ranked-sum-test"><i class="fa fa-check"></i><b>9.2</b> Wilcoxon ranked-sum test</a></li>
+<li class="chapter" data-level="9.3" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-matched-pairs-signed-rank-test"><i class="fa fa-check"></i><b>9.3</b> Wilcoxon matched-pairs signed-rank test</a></li>
+<li class="chapter" data-level="9.4" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#estimating-rank-correlation-coefficients"><i class="fa fa-check"></i><b>9.4</b> Estimating rank correlation coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="sample-size.html"><a href="sample-size.html"><i class="fa fa-check"></i><b>10</b> Sample size</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-two-independent-samples-t-test"><i class="fa fa-check"></i><b>10.1</b> Sample size calculation for two independent samples t-test</a></li>
+<li class="chapter" data-level="10.2" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-difference-between-two-independent-proportions"><i class="fa fa-check"></i><b>10.2</b> Sample size calculation for difference between two independent proportions</a></li>
+<li class="chapter" data-level="10.3" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-a-relative-risk"><i class="fa fa-check"></i><b>10.3</b> Sample size calculation with a relative risk</a></li>
+<li class="chapter" data-level="10.4" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-an-odds-ratio"><i class="fa fa-check"></i><b>10.4</b> Sample size calculation with an odds ratio</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PHCM9795 Foundations of Biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">PHCM9795 Foundations of Biostatistics</h1>
+<p class="author"><em>Notes for R</em></p>
+<p class="date"><em>Term 2, 2022</em></p>
+</div>
+<div id="introduction-to-r-and-rstudio" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction to R and RStudio</h1>
+<div id="learning-outcomes" class="section level2 unnumbered">
+<h2>Learning outcomes</h2>
+<p>By the end of this Module, you will be able to:</p>
+<ul>
+<li>understand the difference between R and RStudio</li>
+<li>navigate the RStudio interface</li>
+<li>input and import data into R</li>
+<li>use R to summarise data</li>
+<li>perform basic data transformations</li>
+<li>assign variable and value labels</li>
+<li>understand the difference between saving R data and saving R output</li>
+<li>copy R output to a standard word processing package</li>
+</ul>
+</div>
+<div id="introduction" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Introduction</h2>
+<p>“R is a language and environment for statistical computing and graphics.” [ref to <a href="https://www.r-project.org/about.html" class="uri">https://www.r-project.org/about.html</a>]. It is an open-source programming language, used mainly for statistics. It is increasingly used in health research, as well as in other fields such as econometrics and social science. The aim of these notes is to introduce the R language within the RStudio environment, and to introduce the commands and procedures that are directly relevant to this course. There is so much more to R than we can cover in these notes. Relevant information will be provided throughout the course, and we will provide further references that you can explore if you are interested.</p>
+</div>
+<div id="r-vs-rstudio" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> R vs RStudio</h2>
+<p>At its heart, R is a programming language. When you install R on your computer, you are installing the language and its resources, as well as a very basic interface for using R. You can write and run R code using R, but we don’t recommend it.</p>
+<p>RStudio is an “Integrated Development Environment” that runs R while also providing useful tools to help you as you’re writing code and analysing data. Think of R as the engine which does the work, and RStudio as the wrapper which provides a more user-friendly way to interact with R.</p>
+</div>
+<div id="installing-r-and-rsudio" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Installing R and RSudio</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction-to-r-and-rstudio.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb1-2"><a href="introduction-to-r-and-rstudio.html#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;Rlogo.svg&quot;</span>))</span>
+<span id="cb1-3"><a href="introduction-to-r-and-rstudio.html#cb1-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;img&quot;</span>, <span class="st">&quot;RStudio-logo-flat.png&quot;</span>))</span></code></pre></div>
+<p><img src="img/Rlogo.svg" width="80%" /><img src="img/RStudio-Logo-Flat.png" width="80%" /></p>
+<p>To install R on your computer:</p>
+<ol style="list-style-type: decimal">
+<li>Download the R installer:
+<ol style="list-style-type: lower-alpha">
+<li>for Windows:</li>
+<li>for MacOS:</li>
+</ol></li>
+<li>Install R by running the installer and following the installation instructions. Note, the default settings are fine.</li>
+<li>Open the R program. You should see a screen as below:</li>
+</ol>
+<p>At the end of the text you will find the “&gt;” symbol which represents the command line. If you type <code>1 + 2</code> into the command line and then hit enter you should get:</p>
+<p><code>## [1] 3</code></p>
+<p>At this point, close R - we will not interact with R like this in the future.</p>
+<p>To install RStudio on your computer:</p>
+<ol style="list-style-type: decimal">
+<li>Make sure you have already installed R, and verified that it is working.</li>
+<li>Download the RStudio desktop installer at: <a href="https://www.rstudio.com/products/rstudio/download" class="uri">https://www.rstudio.com/products/rstudio/download</a>. Ensure that you select the RStudio Desktop (Free) installer in the first column.</li>
+<li>Install RStudio by running the installer and following the installation instructions. Note, the default settings are fine.</li>
+<li>Open RStudio, which will appear as below:</li>
+</ol>
+<p>Locate the command line symbol “&gt;” at the bottom of the left-hand panel. Type <code>1 + 2</code> into the command line and hit enter, and you will see:</p>
+<p><code>## [1] 3</code></p>
+<p>This confirms that RStudio is running correctly, and calling the R language to correctly calculate the sum between 1 and 2!</p>
+<p>RStudio currently comprises three window panes, and we will discuss these later.</p>
+</div>
+<div id="a-simple-r-analysis" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> A simple R analysis</h2>
+<p>In this very brief section, we will introduce R by calculating the average of six ages.</p>
+<p>To begin, open a new R Script by choosing <strong>File &gt; New file &gt; R Script </strong>. A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the <strong>New File</strong> button at the top of the RStudio window.</p>
+<p>You should now see four window panes, as below. In the top-left window, type the following (replacing my name with yours, and including today’s date:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction-to-r-and-rstudio.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Timothy Dobbins</span></span>
+<span id="cb2-2"><a href="introduction-to-r-and-rstudio.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Date: 5 April 2022</span></span>
+<span id="cb2-3"><a href="introduction-to-r-and-rstudio.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Purpose: My first R script</span></span>
+<span id="cb2-4"><a href="introduction-to-r-and-rstudio.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="introduction-to-r-and-rstudio.html#cb2-5" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">21</span>, <span class="dv">27</span>)</span>
+<span id="cb2-6"><a href="introduction-to-r-and-rstudio.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(age)</span></code></pre></div>
+<p>To run your script, choose <strong>Code &gt; Run Region &gt; Run All</strong>. You will see your code appear in the bottom-right window, with the following output:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-to-r-and-rstudio.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Author: Timothy Dobbins</span></span>
+<span id="cb3-2"><a href="introduction-to-r-and-rstudio.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Date: 5 April 2022</span></span>
+<span id="cb3-3"><a href="introduction-to-r-and-rstudio.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Purpose: My first R script</span></span>
+<span id="cb3-4"><a href="introduction-to-r-and-rstudio.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb3-5"><a href="introduction-to-r-and-rstudio.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">21</span>, <span class="dv">27</span>)</span>
+<span id="cb3-6"><a href="introduction-to-r-and-rstudio.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="introduction-to-r-and-rstudio.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(age)</span>
+<span id="cb3-8"><a href="introduction-to-r-and-rstudio.html#cb3-8" aria-hidden="true" tabindex="-1"></a>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
+<span id="cb3-9"><a href="introduction-to-r-and-rstudio.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">20.00</span>   <span class="fl">21.50</span>   <span class="fl">24.00</span>   <span class="fl">24.17</span>   <span class="fl">26.50</span>   <span class="fl">29.00</span> </span></code></pre></div>
+<p>We will explain the key parts of this script later, but for now, you have entered six ages and calculated the mean age (along with five other summary statistics).</p>
+</div>
+<div id="the-rstudio-environment" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> The RStudio environment</h2>
+<p>Now that we have seen a simple example of how to use R within RStudio, let’s describe the RStudio environment. Let’s assume that you have opened a new script editor, and you have four windows as below.</p>
+<p>The <strong>Script</strong> window is where you will write and edit your R scripts. The R script can be saved by clicking on File -&gt; Save As or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example name_of_script.R. Give it a meaningful title and remember to periodically save as you go.</p>
+<p>In RStudio, the name of the script will be black when it has been saved, and will change to red if you have any unsaved changes.</p>
+<p>The <strong>Console</strong> window, at the bottom right, contains the command line which is indicated with the symbol &gt;. You can type commands here, but anything executed directly from the console is not saved and therefore is lost when the session ends (when you exit RStudio). You should always run your commands from a script file which you can save and use again later. When you run commands from a script, the output and any notes/errors are shown in the console. The Terminal and Jobs tabs will not be used in this course.</p>
+<p>The <strong>Environment</strong> window at the top-right shows a list of objects that have been created during your session. When you close your RStudio session these objects will disappear. We will not use the History or Connections tabs in this course.</p>
+<p>The bottom right corner contains some useful tabs, in particular the <strong>Help</strong> tab. When you are troubleshooting errors or learning how to use a function, the Help tab should be the first place you visit. Here you can search the help documents for all the packages you have installed. Whenever you create plots in R, these will be shown in the <strong>Plots</strong> tab. The <strong>Packages</strong> tab contains a list of installed packages and indicates which ones are currently in use (we will learn about packages later). Packages which are loaded, i.e. in use, are indicated with a tick. Some packages are in use by default when you begin a new session. You can access information about a package by clicking on its name. The <strong>Files</strong> tab provides a shortcut to access your files. The Viewer tab will not be used in this course.</p>
+</div>
+<div id="some-r-basics" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Some R basics</h2>
+<div id="objects" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Objects</h3>
+<p>Assigning</p>
+</div>
+<div id="functions" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Functions</h3>
+</div>
+<div id="packages" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Packages</h3>
+</div>
+<div id="many-ways-to-do-one-thing---embrace-inconsistency" class="section level3" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Many ways to do one thing - embrace inconsistency</h3>
+</div>
+</div>
+<div id="part-2-obtaining-basic-descriptive-statistics" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Part 2: Obtaining basic descriptive statistics</h2>
+<p>In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from <span class="citation">Therneau and Grambsch (<a href="#ref-therneau_grambsch10" role="doc-biblioref">2010</a>)</span>, Modeling Survival Data: Extending the Cox Model. By the end of this exercise, we will have completed the following table.</p>
+<pre><code>#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
+#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+#&gt; ✓ tidyr   1.2.0     ✓ stringr 1.4.0
+#&gt; ✓ readr   2.1.2     ✓ forcats 0.5.1
+#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──
+#&gt; x dplyr::add_rownames() masks huxtable::add_rownames()
+#&gt; x dplyr::filter()       masks stats::filter()
+#&gt; x dplyr::lag()          masks stats::lag()
+#&gt; x ggplot2::theme_grey() masks huxtable::theme_grey()</code></pre>
+<p><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 95%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-3">Table 1.1: </span> Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)</caption><col><col><col><tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: bold;">Characteristic</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;"> </th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: bold;">Summary</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Age (years)</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
+<tr>
+<td rowspan="2" style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Sex</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Male</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Female</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">AST* (U/ml)</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Serum bilirubin</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
+<tr>
+<td rowspan="4" style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Stage</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">I</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">II</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">III</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">IIIV</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td rowspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Vital status at study end</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alive: no transplant</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alive: transplant</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Deceased</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
+<tr>
+<td colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">* asparate aminotransferase</td></tr>
+</table>
+
+This table is available in Table1.docx, saved on Moodle.</p>
+<div id="opening-a-data-file" class="section level3" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> Opening a data file</h3>
+<p>Typing data directly into R is not common; we usually open data that have been saved as a Stata data file, or import data that have been entered into another package. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix).</p>
+<p>Step 1: Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt</p>
+<p>Step 2: In Stata, choose File ▶︎ Open. Browse to where you stored the dataset and click Open.</p>
+<p>Step 3: You may get an error: “Data in memory have changed”. This means that you have not saved a copy of your current data, and by importing a new dataset, your changes will be lost. As Stata can only open one set of data at a time, you can choose to: Save your current data, Don’t Save your current data, or Cancel. We don’t need to save the data from our simple analysis (the six ages), so we can choose Don’t Save.</p>
+<p>After opening the data successfully, there will be 418 rows of data, and 20 variables. Examine the pbc_info.txt file for a description of each variable.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r-and-rstudio.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb5-2"><a href="introduction-to-r-and-rstudio.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb5-3"><a href="introduction-to-r-and-rstudio.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb5-4"><a href="introduction-to-r-and-rstudio.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="introduction-to-r-and-rstudio.html#cb5-5" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;data/examples/pbc.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="introduction-to-r-and-rstudio.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
+<span id="cb5-7"><a href="introduction-to-r-and-rstudio.html#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="introduction-to-r-and-rstudio.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(pbc)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1.2: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">pbc</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">418</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">20</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">20</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="10%" />
+<col width="14%" />
+<col width="8%" />
+<col width="8%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="9%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">id</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">209.50</td>
+<td align="right">120.81</td>
+<td align="right">1.00</td>
+<td align="right">105.25</td>
+<td align="right">209.50</td>
+<td align="right">313.75</td>
+<td align="right">418.00</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">time</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">1917.78</td>
+<td align="right">1104.67</td>
+<td align="right">41.00</td>
+<td align="right">1092.75</td>
+<td align="right">1730.00</td>
+<td align="right">2613.50</td>
+<td align="right">4795.00</td>
+<td align="left">▅▇▆▃▂</td>
+</tr>
+<tr class="odd">
+<td align="left">status</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.83</td>
+<td align="right">0.96</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="left">▇▁▁▁▆</td>
+</tr>
+<tr class="even">
+<td align="left">trt</td>
+<td align="right">106</td>
+<td align="right">0.75</td>
+<td align="right">1.49</td>
+<td align="right">0.50</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">age</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">50.74</td>
+<td align="right">10.45</td>
+<td align="right">26.28</td>
+<td align="right">42.83</td>
+<td align="right">51.00</td>
+<td align="right">58.24</td>
+<td align="right">78.44</td>
+<td align="left">▂▆▇▅▁</td>
+</tr>
+<tr class="even">
+<td align="left">sex</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">1.89</td>
+<td align="right">0.31</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">ascites</td>
+<td align="right">106</td>
+<td align="right">0.75</td>
+<td align="right">0.08</td>
+<td align="right">0.27</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">hepato</td>
+<td align="right">106</td>
+<td align="right">0.75</td>
+<td align="right">0.51</td>
+<td align="right">0.50</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">spiders</td>
+<td align="right">106</td>
+<td align="right">0.75</td>
+<td align="right">0.29</td>
+<td align="right">0.45</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+<tr class="even">
+<td align="left">edema</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.10</td>
+<td align="right">0.25</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">bili</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">3.22</td>
+<td align="right">4.41</td>
+<td align="right">0.30</td>
+<td align="right">0.80</td>
+<td align="right">1.40</td>
+<td align="right">3.40</td>
+<td align="right">28.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">chol</td>
+<td align="right">134</td>
+<td align="right">0.68</td>
+<td align="right">369.51</td>
+<td align="right">231.94</td>
+<td align="right">120.00</td>
+<td align="right">249.50</td>
+<td align="right">309.50</td>
+<td align="right">400.00</td>
+<td align="right">1775.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">albumin</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">3.50</td>
+<td align="right">0.42</td>
+<td align="right">1.96</td>
+<td align="right">3.24</td>
+<td align="right">3.53</td>
+<td align="right">3.77</td>
+<td align="right">4.64</td>
+<td align="left">▁▂▇▇▁</td>
+</tr>
+<tr class="even">
+<td align="left">copper</td>
+<td align="right">108</td>
+<td align="right">0.74</td>
+<td align="right">97.65</td>
+<td align="right">85.61</td>
+<td align="right">4.00</td>
+<td align="right">41.25</td>
+<td align="right">73.00</td>
+<td align="right">123.00</td>
+<td align="right">588.00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">alkphos</td>
+<td align="right">106</td>
+<td align="right">0.75</td>
+<td align="right">1982.66</td>
+<td align="right">2140.39</td>
+<td align="right">289.00</td>
+<td align="right">871.50</td>
+<td align="right">1259.00</td>
+<td align="right">1980.00</td>
+<td align="right">13862.40</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ast</td>
+<td align="right">106</td>
+<td align="right">0.75</td>
+<td align="right">122.56</td>
+<td align="right">56.70</td>
+<td align="right">26.35</td>
+<td align="right">80.60</td>
+<td align="right">114.70</td>
+<td align="right">151.90</td>
+<td align="right">457.25</td>
+<td align="left">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">trig</td>
+<td align="right">136</td>
+<td align="right">0.67</td>
+<td align="right">124.70</td>
+<td align="right">65.15</td>
+<td align="right">33.00</td>
+<td align="right">84.25</td>
+<td align="right">108.00</td>
+<td align="right">151.00</td>
+<td align="right">598.00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">platelet</td>
+<td align="right">11</td>
+<td align="right">0.97</td>
+<td align="right">257.02</td>
+<td align="right">98.33</td>
+<td align="right">62.00</td>
+<td align="right">188.50</td>
+<td align="right">251.00</td>
+<td align="right">318.00</td>
+<td align="right">721.00</td>
+<td align="left">▅▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">protime</td>
+<td align="right">2</td>
+<td align="right">1.00</td>
+<td align="right">10.73</td>
+<td align="right">1.02</td>
+<td align="right">9.00</td>
+<td align="right">10.00</td>
+<td align="right">10.60</td>
+<td align="right">11.10</td>
+<td align="right">18.00</td>
+<td align="left">▇▅▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">stage</td>
+<td align="right">6</td>
+<td align="right">0.99</td>
+<td align="right">3.02</td>
+<td align="right">0.88</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">3.00</td>
+<td align="right">4.00</td>
+<td align="right">4.00</td>
+<td align="left">▁▅▁▇▇</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summarising-continuous-variables" class="section level3" number="1.7.2">
+<h3><span class="header-section-number">1.7.2</span> Summarising continuous variables</h3>
+<p>One of the most flexible functions for summarising continuous variables is the <code>descriptives</code> function from the <code>jmv</code> package. The function is specified as <code>descriptives(data=, vars=)</code> where:</p>
+<ul>
+<li><code>data</code> specifies the dataframe to be analysed</li>
+<li><code>vars</code> specifies the variable(s) of interest, with multiple variables combined using the <code>c()</code> function</li>
+</ul>
+<p>We can summarise the three continuous variables in the pbc data: age, AST and serum bilirubin, as shown below.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction-to-r-and-rstudio.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb6-2"><a href="introduction-to-r-and-rstudio.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="introduction-to-r-and-rstudio.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili))</span>
+<span id="cb6-4"><a href="introduction-to-r-and-rstudio.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-5"><a href="introduction-to-r-and-rstudio.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DESCRIPTIVES</span></span>
+<span id="cb6-6"><a href="introduction-to-r-and-rstudio.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-7"><a href="introduction-to-r-and-rstudio.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Descriptives                                                </span></span>
+<span id="cb6-8"><a href="introduction-to-r-and-rstudio.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb6-9"><a href="introduction-to-r-and-rstudio.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          age         ast         bili        </span></span>
+<span id="cb6-10"><a href="introduction-to-r-and-rstudio.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb6-11"><a href="introduction-to-r-and-rstudio.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    N                          418         312          418   </span></span>
+<span id="cb6-12"><a href="introduction-to-r-and-rstudio.html#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Missing                      0         106            0   </span></span>
+<span id="cb6-13"><a href="introduction-to-r-and-rstudio.html#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Mean                  50.74155    122.5563     3.220813   </span></span>
+<span id="cb6-14"><a href="introduction-to-r-and-rstudio.html#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Median                51.00068    114.7000     1.400000   </span></span>
+<span id="cb6-15"><a href="introduction-to-r-and-rstudio.html#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Standard deviation    10.44721    56.69952     4.407506   </span></span>
+<span id="cb6-16"><a href="introduction-to-r-and-rstudio.html#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Minimum               26.27789    26.35000    0.3000000   </span></span>
+<span id="cb6-17"><a href="introduction-to-r-and-rstudio.html#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Maximum               78.43943    457.2500     28.00000   </span></span>
+<span id="cb6-18"><a href="introduction-to-r-and-rstudio.html#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ───────────────────────────────────────────────────────────</span></span></code></pre></div>
+<p>By default, the <code>descriptives</code> function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles [ADD MORE HERE]:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction-to-r-and-rstudio.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili), <span class="at">pc=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="introduction-to-r-and-rstudio.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-3"><a href="introduction-to-r-and-rstudio.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DESCRIPTIVES</span></span>
+<span id="cb7-4"><a href="introduction-to-r-and-rstudio.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-5"><a href="introduction-to-r-and-rstudio.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Descriptives                                                </span></span>
+<span id="cb7-6"><a href="introduction-to-r-and-rstudio.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb7-7"><a href="introduction-to-r-and-rstudio.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          age         ast         bili        </span></span>
+<span id="cb7-8"><a href="introduction-to-r-and-rstudio.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb7-9"><a href="introduction-to-r-and-rstudio.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    N                          418         312          418   </span></span>
+<span id="cb7-10"><a href="introduction-to-r-and-rstudio.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Missing                      0         106            0   </span></span>
+<span id="cb7-11"><a href="introduction-to-r-and-rstudio.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Mean                  50.74155    122.5563     3.220813   </span></span>
+<span id="cb7-12"><a href="introduction-to-r-and-rstudio.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Median                51.00068    114.7000     1.400000   </span></span>
+<span id="cb7-13"><a href="introduction-to-r-and-rstudio.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Standard deviation    10.44721    56.69952     4.407506   </span></span>
+<span id="cb7-14"><a href="introduction-to-r-and-rstudio.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Minimum               26.27789    26.35000    0.3000000   </span></span>
+<span id="cb7-15"><a href="introduction-to-r-and-rstudio.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Maximum               78.43943    457.2500     28.00000   </span></span>
+<span id="cb7-16"><a href="introduction-to-r-and-rstudio.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    25th percentile       42.83231    80.60000    0.8000000   </span></span>
+<span id="cb7-17"><a href="introduction-to-r-and-rstudio.html#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    50th percentile       51.00068    114.7000     1.400000   </span></span>
+<span id="cb7-18"><a href="introduction-to-r-and-rstudio.html#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    75th percentile       58.24093    151.9000     3.400000   </span></span>
+<span id="cb7-19"><a href="introduction-to-r-and-rstudio.html#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ───────────────────────────────────────────────────────────</span></span></code></pre></div>
+</div>
+<div id="producing-a-histogram" class="section level3" number="1.7.3">
+<h3><span class="header-section-number">1.7.3</span> Producing a histogram</h3>
+<p>We can use the <code>hist</code> function to produce a histogram, specifying the dataframe to use and the variable to be plotted as <code>dataframe$variable</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r-and-rstudio.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using <code>xlab=</code> and <code>main=</code> to assign labels for the x-axis and overall title respectively:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction-to-r-and-rstudio.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of participant age from pbc study data&quot;</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="producing-a-boxplot" class="section level3" number="1.7.4">
+<h3><span class="header-section-number">1.7.4</span> Producing a boxplot</h3>
+<p>The <code>boxplot</code> function is used to produce boxplots, again specifying the dataframe to use and the variable to be plotted as <code>dataframe$variable</code>. Labels can be applied in the same way as the histogram:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction-to-r-and-rstudio.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of participant age from pbc study data&quot;</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="producing-a-one-way-frequency-table" class="section level3" number="1.7.5">
+<h3><span class="header-section-number">1.7.5</span> Producing a one-way frequency table</h3>
+<p>We have three categorical variables to summarise in Table 1: sex, stage and vital status. These variables are best summarised using one-way frequency tables.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r-and-rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb11-2"><a href="introduction-to-r-and-rstudio.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-3"><a href="introduction-to-r-and-rstudio.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;summarytools&#39;</span></span>
+<span id="cb11-4"><a href="introduction-to-r-and-rstudio.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:tibble&#39;:</span></span>
+<span id="cb11-5"><a href="introduction-to-r-and-rstudio.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-6"><a href="introduction-to-r-and-rstudio.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     view</span></span>
+<span id="cb11-7"><a href="introduction-to-r-and-rstudio.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:huxtable&#39;:</span></span>
+<span id="cb11-8"><a href="introduction-to-r-and-rstudio.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-9"><a href="introduction-to-r-and-rstudio.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     label, label&lt;-</span></span>
+<span id="cb11-10"><a href="introduction-to-r-and-rstudio.html#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="introduction-to-r-and-rstudio.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span>
+<span id="cb11-12"><a href="introduction-to-r-and-rstudio.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Frequencies  </span></span>
+<span id="cb11-13"><a href="introduction-to-r-and-rstudio.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pbc$sex  </span></span>
+<span id="cb11-14"><a href="introduction-to-r-and-rstudio.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Type: Numeric  </span></span>
+<span id="cb11-15"><a href="introduction-to-r-and-rstudio.html#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-16"><a href="introduction-to-r-and-rstudio.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Freq   % Valid   % Valid Cum.   % Total   % Total Cum.</span></span>
+<span id="cb11-17"><a href="introduction-to-r-and-rstudio.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ----------- ------ --------- -------------- --------- --------------</span></span>
+<span id="cb11-18"><a href="introduction-to-r-and-rstudio.html#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           1     44     10.53          10.53     10.53          10.53</span></span>
+<span id="cb11-19"><a href="introduction-to-r-and-rstudio.html#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           2    374     89.47         100.00     89.47         100.00</span></span>
+<span id="cb11-20"><a href="introduction-to-r-and-rstudio.html#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;NA&gt;      0                               0.00         100.00</span></span>
+<span id="cb11-21"><a href="introduction-to-r-and-rstudio.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Total    418    100.00         100.00    100.00         100.00</span></span></code></pre></div>
+</div>
+</div>
+<div id="defning-categorical-variables-as-factors" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Defning categorical variables as factors</h2>
+<p>You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a <strong>factor</strong> using the <code>factor</code> function:</p>
+<p><code>factor(variable=, levels=, labels=)</code></p>
+<p>We specify:</p>
+<ul>
+<li><code>levels</code>: the values the categorical variable uses can take</li>
+<li><code>labels</code>: the labels corresponding to each of the levels (entered in the same order)</li>
+</ul>
+<p>To define our variable sex as a factor, we use:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction-to-r-and-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+<p>We can confirm the coding by re-running a frequency table:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r-and-rstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span>
+<span id="cb13-2"><a href="introduction-to-r-and-rstudio.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Frequencies  </span></span>
+<span id="cb13-3"><a href="introduction-to-r-and-rstudio.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pbc$sex  </span></span>
+<span id="cb13-4"><a href="introduction-to-r-and-rstudio.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Type: Factor  </span></span>
+<span id="cb13-5"><a href="introduction-to-r-and-rstudio.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-6"><a href="introduction-to-r-and-rstudio.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                Freq   % Valid   % Valid Cum.   % Total   % Total Cum.</span></span>
+<span id="cb13-7"><a href="introduction-to-r-and-rstudio.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ------------ ------ --------- -------------- --------- --------------</span></span>
+<span id="cb13-8"><a href="introduction-to-r-and-rstudio.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Male     44     10.53          10.53     10.53          10.53</span></span>
+<span id="cb13-9"><a href="introduction-to-r-and-rstudio.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Female    374     89.47         100.00     89.47         100.00</span></span>
+<span id="cb13-10"><a href="introduction-to-r-and-rstudio.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;NA&gt;      0                               0.00         100.00</span></span>
+<span id="cb13-11"><a href="introduction-to-r-and-rstudio.html#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Total    418    100.00         100.00    100.00         100.00</span></span></code></pre></div>
+<p>Task: define Stage and Vital Status as factors, and produce one-way frequency tables.</p>
+<p>Saving data from Stata</p>
+<p>Now that you have made some changes to the pbc data, it is good practice to save the dataset. Stata uses its own file format to save data. Data saved from Stata will end with the .dta suffix, and will contain useful information such as variable labels, value labels. However, data saved by Stata will only be able to be opened by Stata - you will not easily be able to share your data with colleagues who do not have Stata. To save a Stata dataset, choose File ▶︎ Save.</p>
+<p>Copying output from Stata</p>
+<p>It is important to note that saving data in Stata will not save your output. Stata data and output are completely separate to one another. The easiest way to retain the output of your analyses is to copy the output into a word processor package (e.g. Microsoft Word) before closing Stata. Once Stata is closed, all the output (that is, all your hard work!) is lost.</p>
+<p>To copy output from Stata, you can select the output and choose Edit &gt; Copy. This will copy the output as plain text for pasting into a Word document. As this is a table, you can also Copy table or Copy table as HTML. For this course, we recommend that you Copy table as HTML for pasting into Word. Whichever way you do it, you will need to make sure you reformat the table and relabel your header row and column properly for your assignments as described in Module 1. Alternatively, you can copy with the Copy table option for pasting into an Excel worksheet and reformat your table in Excel before pasting into Word.</p>
+<p>Copying output from Stata can get a little complicated to explain. We have included a video on Moodle to summarise the different ways output can be copied.</p>
+<p>Task: complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-therneau_grambsch10" class="csl-entry">
+Therneau, Terry M., and Patricia M. Grambsch. 2010. <em>Modeling <span>Survival Data</span>: <span>Extending</span> the <span>Cox Model</span></em>. <span>New York Berlin Heidelberg</span>: <span>Springer</span>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="probability-and-probability-distributions-r-notes.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-IntroToR.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["phcm9795-R-notes.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
