@@ -39,6 +39,8 @@ To install R on your computer:
 2. Install R by running the installer and following the installation instructions. Note, the default settings are fine.
 3. Open the R program. You should see a screen as below:
 
+**Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
+
 At the end of the text you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
 
 `## [1] 3`
@@ -108,6 +110,11 @@ The **Environment** window at the top-right shows a list of objects that have be
 The bottom right corner contains some useful tabs, in particular the **Help** tab. When you are troubleshooting errors or learning how to use a function, the Help tab should be the first place you visit. Here you can search the help documents for all the packages you have installed. Whenever you create plots in R, these will be shown in the **Plots** tab. The **Packages** tab contains a list of installed packages and indicates which ones are currently in use (we will learn about packages later). Packages which are loaded, i.e. in use, are indicated with a tick. Some packages are in use by default when you begin a new session. You can access information about a package by clicking on its name. The **Files** tab provides a shortcut to access your files. The Viewer tab will not be used in this course.
 
 ## Some R basics
+
+### Data types
+- vectors
+- data frames
+- [matrix, list]
 
 ### Objects
 
@@ -267,3 +274,76 @@ To copy output from Stata, you can select the output and choose Edit \> Copy. Th
 Copying output from Stata can get a little complicated to explain. We have included a video on Moodle to summarise the different ways output can be copied.
 
 Task: complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.
+
+## Part 3: Creating other types of graphs {-}
+
+### Bar graphs
+
+Here we will create the bar chart shown in Figure 1.1 using the `pbc.dta` dataset. The x-axis of this graph will be the stage of disease, and the y-axis will show the number of participants in each category.
+
+#### Simple bar graph
+For most of our bar graphs, we will be plotting frequencies, so we choose **Graph of frequencies within categories**
+
+```{r}
+# Convert stage into a factpr
+pbc$stage <- factor(pbc$stage, levels=c(1,2,3,4), labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
+
+plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
+```
+
+### Clustered bar graph
+
+To create a clustered bar chart as shown in Figure 1.2:
+
+```{r}
+counts <- table(pbc$sex, pbc$stage)
+barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
+        legend = rownames(counts), beside=TRUE, args.legend = list(x = "topleft"))
+```
+
+
+### Stacked bar graph
+To create a stacked bar chart shown in Figure 1.4, bring up the **Bar chart** dialog box, go to the **Options** tab and tick **Stack bars on y variables**.
+
+```{r}
+barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
+        legend = rownames(counts), beside=FALSE, args.legend = list(x = "topleft"))
+```
+
+### Stacked bar graph of relative frequencies
+
+If one wants to compare the sex distribution across the stage categories, it would be convenient if all the bars have the same height (100%). To generate such a bar chart in Stata, tick **Base bar heights on percentages** in the **Options** tab of the **Bar charts** dialog box. Change the y-axis title in the **Y axis** tab to `Percentage of students in each age group`.
+
+```{r}
+percent <- prop.table(counts, margin=2)*100
+percent
+
+barplot(percent, main="Relative frequency of sex within stage of disease from PBC study",
+        legend = rownames(counts), beside=FALSE, args.legend = list(x = "topright"))
+
+```
+
+
+### Creating line graphs
+To demonstrate the graphing of aggregate data with Stata, we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered into Stata as `Example_1.2.dta`.
+
+```{r}
+cancer <- read_stata("data/examples/Example_1.2.dta")
+skim(cancer)
+
+plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
+
+# Change scale
+plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)", ylim=c(0,200))
+
+# Add a second line
+lines(cancer$year, cancer$rdeaths, col = "blue", type = "l", lty = 2)
+
+# Add a legend to the plot
+legend("topleft", legend=c("Incidence", "Deaths"),
+       col=c("red", "blue"), lty = 1:2)
+
+```
+
+
+### Line graph

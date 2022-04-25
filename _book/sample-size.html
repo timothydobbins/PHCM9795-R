@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Sample size | PHCM9795 Foundations of Biostatistics</title>
-  <meta name="description" content="Chapter 6 Sample size | PHCM9795 Foundations of Biostatistics" />
+  <title>Chapter 10 Sample size | PHCM9795 Foundations of Biostatistics</title>
+  <meta name="description" content="Chapter 10 Sample size | PHCM9795 Foundations of Biostatistics" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Sample size | PHCM9795 Foundations of Biostatistics" />
+  <meta property="og:title" content="Chapter 10 Sample size | PHCM9795 Foundations of Biostatistics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Sample size | PHCM9795 Foundations of Biostatistics" />
+  <meta name="twitter:title" content="Chapter 10 Sample size | PHCM9795 Foundations of Biostatistics" />
   
   
   
@@ -118,6 +118,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -135,46 +157,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">PHCM9795 Foundations of Biostatistics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="comparing-two-means.html"><a href="comparing-two-means.html"><i class="fa fa-check"></i><b>1</b> Comparing two means<span></span></a>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>1.1</b> Checking data for the independent samples t-test<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>1.2</b> Independent samples t-test<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>1.3</b> Checking the assumptions for a Paired t-test<span></span></a></li>
-<li class="chapter" data-level="1.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>1.4</b> Paired t-Test<span></span></a></li>
+<li><a href="introduction-to-r-and-rstudio.html#learning-outcomes">Learning outcomes<span></span></a></li>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-vs-rstudio"><i class="fa fa-check"></i><b>1.2</b> R vs RStudio<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-r-and-rsudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RSudio<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#a-simple-r-analysis"><i class="fa fa-check"></i><b>1.4</b> A simple R analysis<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.5</b> The RStudio environment<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.6</b> Some R basics<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i><b>1.7</b> Part 2: Obtaining basic descriptive statistics<span></span></a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defning-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.8</b> Defning categorical variables as factors<span></span></a></li>
+<li><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs">Part 3: Creating other types of graphs<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="proportions.html"><a href="proportions.html"><i class="fa fa-check"></i><b>2</b> Proportions<span></span></a>
+<li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="proportions.html"><a href="proportions.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>2.1</b> 95% confidence intervals for proportions<span></span></a></li>
-<li class="chapter" data-level="2.2" data-path="proportions.html"><a href="proportions.html#significance-test-for-single-proportion"><i class="fa fa-check"></i><b>2.2</b> Significance test for single proportion<span></span></a></li>
-<li class="chapter" data-level="2.3" data-path="proportions.html"><a href="proportions.html#computing-a-relative-risk-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>2.3</b> Computing a relative risk and its 95% confidence interval<span></span></a></li>
-<li class="chapter" data-level="2.4" data-path="proportions.html"><a href="proportions.html#computing-an-odds-ratio-and-its-95ci"><i class="fa fa-check"></i><b>2.4</b> Computing an odds ratio and its 95%CI<span></span></a></li>
+<li class="chapter" data-level="2.1" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#importing-data-into-stata"><i class="fa fa-check"></i><b>2.1</b> Importing data into Stata<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#checking-your-data-for-errors-in-stata"><i class="fa fa-check"></i><b>2.2</b> Checking your data for errors in Stata<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#overlaying-a-normal-curve-on-a-histogram"><i class="fa fa-check"></i><b>2.3</b> Overlaying a Normal curve on a histogram<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#ggplot2"><i class="fa fa-check"></i><b>2.4</b> ggplot2<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#descriptive-statistics-for-checking-normality"><i class="fa fa-check"></i><b>2.5</b> Descriptive statistics for checking normality<span></span></a></li>
+<li class="chapter" data-level="2.6" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#import-excel"><i class="fa fa-check"></i><b>2.6</b> Importing Excel data into Stata<span></span></a></li>
+<li class="chapter" data-level="2.7" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#generating-new-variables"><i class="fa fa-check"></i><b>2.7</b> Generating new variables<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#summarising-data-by-another-variable"><i class="fa fa-check"></i><b>2.8</b> Summarising data by another variable<span></span></a></li>
+<li class="chapter" data-level="2.9" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#recoding-data"><i class="fa fa-check"></i><b>2.9</b> Recoding data<span></span></a></li>
+<li class="chapter" data-level="2.10" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#computing-binomial-probabilities-using-r"><i class="fa fa-check"></i><b>2.10</b> Computing binomial probabilities using R<span></span></a></li>
+<li class="chapter" data-level="2.11" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#computing-probabilities-from-a-normal-distribution"><i class="fa fa-check"></i><b>2.11</b> Computing probabilities from a Normal distribution<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="testing-proportions.html"><a href="testing-proportions.html"><i class="fa fa-check"></i><b>3</b> Testing proportions<span></span></a>
+<li class="chapter" data-level="3" data-path="precision-r-notes.html"><a href="precision-r-notes.html"><i class="fa fa-check"></i><b>3</b> Precision: R notes<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="testing-proportions.html"><a href="testing-proportions.html#pearsons-chi-squared-test"><i class="fa fa-check"></i><b>3.1</b> Pearson’s chi-squared test<span></span></a></li>
-<li class="chapter" data-level="3.2" data-path="testing-proportions.html"><a href="testing-proportions.html#chi-squared-test-for-tables-larger-than-2-by-2"><i class="fa fa-check"></i><b>3.2</b> Chi-squared test for tables larger than 2-by-2<span></span></a></li>
-<li class="chapter" data-level="3.3" data-path="testing-proportions.html"><a href="testing-proportions.html#mcnemars-test-for-paired-proportions"><i class="fa fa-check"></i><b>3.3</b> McNemar’s test for paired proportions<span></span></a></li>
+<li class="chapter" data-level="3.1" data-path="precision-r-notes.html"><a href="precision-r-notes.html#calculating-a-95-confidence-interval-of-a-mean"><i class="fa fa-check"></i><b>3.1</b> Calculating a 95% confidence interval of a mean<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Correlation and simple linear regression<span></span></a>
+<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis testing<span></span></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#creating-a-scatter-plot"><i class="fa fa-check"></i><b>4.1</b> Creating a scatter plot<span></span></a></li>
-<li class="chapter" data-level="4.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient"><i class="fa fa-check"></i><b>4.2</b> Calculating a correlation coefficient<span></span></a></li>
-<li class="chapter" data-level="4.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model"><i class="fa fa-check"></i><b>4.3</b> Fitting a simple linear regression model<span></span></a></li>
-<li class="chapter" data-level="4.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression"><i class="fa fa-check"></i><b>4.4</b> Plotting residuals from a simple linear regression<span></span></a></li>
+<li class="chapter" data-level="4.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#one-sample-t-test"><i class="fa fa-check"></i><b>4.1</b> One sample t-test<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html"><i class="fa fa-check"></i><b>5</b> Analysing non-normal data<span></span></a>
+<li class="chapter" data-level="5" data-path="comparing-two-means.html"><a href="comparing-two-means.html"><i class="fa fa-check"></i><b>5</b> Comparing two means<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#transforming-non-normally-distributed-variables"><i class="fa fa-check"></i><b>5.1</b> Transforming non-normally distributed variables<span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-ranked-sum-test"><i class="fa fa-check"></i><b>5.2</b> Wilcoxon ranked-sum test<span></span></a></li>
-<li class="chapter" data-level="5.3" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-matched-pairs-signed-rank-test"><i class="fa fa-check"></i><b>5.3</b> Wilcoxon matched-pairs signed-rank test<span></span></a></li>
-<li class="chapter" data-level="5.4" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#estimating-rank-correlation-coefficients"><i class="fa fa-check"></i><b>5.4</b> Estimating rank correlation coefficients<span></span></a></li>
+<li class="chapter" data-level="5.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>5.1</b> Checking data for the independent samples t-test<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>5.2</b> Independent samples t-test<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>5.3</b> Checking the assumptions for a Paired t-test<span></span></a></li>
+<li class="chapter" data-level="5.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>5.4</b> Paired t-Test<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="sample-size.html"><a href="sample-size.html"><i class="fa fa-check"></i><b>6</b> Sample size<span></span></a>
+<li class="chapter" data-level="6" data-path="proportions.html"><a href="proportions.html"><i class="fa fa-check"></i><b>6</b> Proportions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-two-independent-samples-t-test"><i class="fa fa-check"></i><b>6.1</b> Sample size calculation for two independent samples t-test<span></span></a></li>
-<li class="chapter" data-level="6.2" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-difference-between-two-independent-proportions"><i class="fa fa-check"></i><b>6.2</b> Sample size calculation for difference between two independent proportions<span></span></a></li>
-<li class="chapter" data-level="6.3" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-a-relative-risk"><i class="fa fa-check"></i><b>6.3</b> Sample size calculation with a relative risk<span></span></a></li>
-<li class="chapter" data-level="6.4" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-an-odds-ratio"><i class="fa fa-check"></i><b>6.4</b> Sample size calculation with an odds ratio<span></span></a></li>
+<li class="chapter" data-level="6.1" data-path="proportions.html"><a href="proportions.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>6.1</b> 95% confidence intervals for proportions<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="proportions.html"><a href="proportions.html#significance-test-for-single-proportion"><i class="fa fa-check"></i><b>6.2</b> Significance test for single proportion<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="proportions.html"><a href="proportions.html#computing-a-relative-risk-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>6.3</b> Computing a relative risk and its 95% confidence interval<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="proportions.html"><a href="proportions.html#computing-an-odds-ratio-and-its-95ci"><i class="fa fa-check"></i><b>6.4</b> Computing an odds ratio and its 95%CI<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="testing-proportions.html"><a href="testing-proportions.html"><i class="fa fa-check"></i><b>7</b> Testing proportions<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="testing-proportions.html"><a href="testing-proportions.html#pearsons-chi-squared-test"><i class="fa fa-check"></i><b>7.1</b> Pearson’s chi-squared test<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="testing-proportions.html"><a href="testing-proportions.html#chi-squared-test-for-tables-larger-than-2-by-2"><i class="fa fa-check"></i><b>7.2</b> Chi-squared test for tables larger than 2-by-2<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="testing-proportions.html"><a href="testing-proportions.html#mcnemars-test-for-paired-proportions"><i class="fa fa-check"></i><b>7.3</b> McNemar’s test for paired proportions<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>8</b> Correlation and simple linear regression<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#creating-a-scatter-plot"><i class="fa fa-check"></i><b>8.1</b> Creating a scatter plot<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient"><i class="fa fa-check"></i><b>8.2</b> Calculating a correlation coefficient<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model"><i class="fa fa-check"></i><b>8.3</b> Fitting a simple linear regression model<span></span></a></li>
+<li class="chapter" data-level="8.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression"><i class="fa fa-check"></i><b>8.4</b> Plotting residuals from a simple linear regression<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html"><i class="fa fa-check"></i><b>9</b> Analysing non-normal data<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#transforming-non-normally-distributed-variables"><i class="fa fa-check"></i><b>9.1</b> Transforming non-normally distributed variables<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-ranked-sum-test"><i class="fa fa-check"></i><b>9.2</b> Wilcoxon ranked-sum test<span></span></a></li>
+<li class="chapter" data-level="9.3" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-matched-pairs-signed-rank-test"><i class="fa fa-check"></i><b>9.3</b> Wilcoxon matched-pairs signed-rank test<span></span></a></li>
+<li class="chapter" data-level="9.4" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#estimating-rank-correlation-coefficients"><i class="fa fa-check"></i><b>9.4</b> Estimating rank correlation coefficients<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="sample-size.html"><a href="sample-size.html"><i class="fa fa-check"></i><b>10</b> Sample size<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-two-independent-samples-t-test"><i class="fa fa-check"></i><b>10.1</b> Sample size calculation for two independent samples t-test<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-difference-between-two-independent-proportions"><i class="fa fa-check"></i><b>10.2</b> Sample size calculation for difference between two independent proportions<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-a-relative-risk"><i class="fa fa-check"></i><b>10.3</b> Sample size calculation with a relative risk<span></span></a></li>
+<li class="chapter" data-level="10.4" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-an-odds-ratio"><i class="fa fa-check"></i><b>10.4</b> Sample size calculation with an odds ratio<span></span></a></li>
 </ul></li>
 </ul>
 
@@ -193,14 +250,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sample-size" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Sample size<a href="sample-size.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sample-size" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Sample size<a href="sample-size.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Many power and sample size procedures are available in the <code>epiR</code> package.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="sample-size.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not yet installed, submit the following:</span></span>
-<span id="cb51-2"><a href="sample-size.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;epiR&quot;)</span></span>
-<span id="cb51-3"><a href="sample-size.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epiR)</span></code></pre></div>
-<div id="sample-size-calculation-for-two-independent-samples-t-test" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Sample size calculation for two independent samples t-test<a href="sample-size.html#sample-size-calculation-for-two-independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="sample-size.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not yet installed, submit the following:</span></span>
+<span id="cb101-2"><a href="sample-size.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;epiR&quot;)</span></span>
+<span id="cb101-3"><a href="sample-size.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epiR)</span></code></pre></div>
+<div id="sample-size-calculation-for-two-independent-samples-t-test" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Sample size calculation for two independent samples t-test<a href="sample-size.html#sample-size-calculation-for-two-independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To do the problem discussed in Worked Example 10.2, we use the <code>epi.sscompc</code> function: <strong>Sample size, power and minimum detectable difference when comparing continuous outcomes</strong>.</p>
 <pre><code>epi.sscompc(treat, control, n, sigma, power, 
    r = 1, design = 1, sided.test = 2, nfractional = FALSE, conf.level = 0.95)</code></pre>
@@ -214,26 +271,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The values on the second line of the function are defined by default, and we can leave these as default.</p>
 <p>Putting this all together, and specifying the sample size as unknown:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="sample-size.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscompc</span>(<span class="at">treat=</span><span class="dv">90</span>, <span class="at">control=</span><span class="dv">95</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">sigma=</span><span class="dv">5</span>, <span class="at">power=</span><span class="fl">0.9</span>) </span>
-<span id="cb53-2"><a href="sample-size.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
-<span id="cb53-3"><a href="sample-size.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 44</span></span>
-<span id="cb53-4"><a href="sample-size.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb53-5"><a href="sample-size.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.treat</span></span>
-<span id="cb53-6"><a href="sample-size.html#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22</span></span>
-<span id="cb53-7"><a href="sample-size.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb53-8"><a href="sample-size.html#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
-<span id="cb53-9"><a href="sample-size.html#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22</span></span>
-<span id="cb53-10"><a href="sample-size.html#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb53-11"><a href="sample-size.html#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
-<span id="cb53-12"><a href="sample-size.html#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
-<span id="cb53-13"><a href="sample-size.html#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb53-14"><a href="sample-size.html#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $delta</span></span>
-<span id="cb53-15"><a href="sample-size.html#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="sample-size.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscompc</span>(<span class="at">treat=</span><span class="dv">90</span>, <span class="at">control=</span><span class="dv">95</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">sigma=</span><span class="dv">5</span>, <span class="at">power=</span><span class="fl">0.9</span>) </span>
+<span id="cb103-2"><a href="sample-size.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
+<span id="cb103-3"><a href="sample-size.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 44</span></span>
+<span id="cb103-4"><a href="sample-size.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb103-5"><a href="sample-size.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.treat</span></span>
+<span id="cb103-6"><a href="sample-size.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22</span></span>
+<span id="cb103-7"><a href="sample-size.html#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb103-8"><a href="sample-size.html#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
+<span id="cb103-9"><a href="sample-size.html#cb103-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22</span></span>
+<span id="cb103-10"><a href="sample-size.html#cb103-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb103-11"><a href="sample-size.html#cb103-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
+<span id="cb103-12"><a href="sample-size.html#cb103-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
+<span id="cb103-13"><a href="sample-size.html#cb103-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb103-14"><a href="sample-size.html#cb103-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $delta</span></span>
+<span id="cb103-15"><a href="sample-size.html#cb103-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
 <p>The results indicate that we need 22 participants in each group, or 44 in total.</p>
 <p>We can define whether we want unequal numbers in each group by specifying <code>r</code>: the number in the treatment group divided by the number in the control group.</p>
 </div>
-<div id="sample-size-calculation-for-difference-between-two-independent-proportions" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Sample size calculation for difference between two independent proportions<a href="sample-size.html#sample-size-calculation-for-difference-between-two-independent-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sample-size-calculation-for-difference-between-two-independent-proportions" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Sample size calculation for difference between two independent proportions<a href="sample-size.html#sample-size-calculation-for-difference-between-two-independent-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To do the problem discussed in Worked Example 10.3, we use the <code>epi.sscohortc</code> function: <strong>Sample size, power or minimum detectable incidence risk ratio for a cohort study using individual count data</strong>.</p>
 <pre><code>epi.sscohortc(irexp1, irexp0, pexp = NA, n = NA, power = 0.80, 
    r = 1, N, design = 1, sided.test = 2, finite.correction = FALSE, 
@@ -245,32 +302,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>n: the total sample size, to be determined</li>
 <li>power: the required power: here 0.8 (representing 80%)</li>
 </ul>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sample-size.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscohortc</span>(<span class="at">irexp1=</span><span class="fl">0.35</span>, <span class="at">irexp0=</span><span class="fl">0.2</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.8</span>) </span>
-<span id="cb55-2"><a href="sample-size.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
-<span id="cb55-3"><a href="sample-size.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 276</span></span>
-<span id="cb55-4"><a href="sample-size.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb55-5"><a href="sample-size.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.exp1</span></span>
-<span id="cb55-6"><a href="sample-size.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 138</span></span>
-<span id="cb55-7"><a href="sample-size.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb55-8"><a href="sample-size.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.exp0</span></span>
-<span id="cb55-9"><a href="sample-size.html#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 138</span></span>
-<span id="cb55-10"><a href="sample-size.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb55-11"><a href="sample-size.html#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
-<span id="cb55-12"><a href="sample-size.html#cb55-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.8</span></span>
-<span id="cb55-13"><a href="sample-size.html#cb55-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb55-14"><a href="sample-size.html#cb55-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $irr</span></span>
-<span id="cb55-15"><a href="sample-size.html#cb55-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.75</span></span>
-<span id="cb55-16"><a href="sample-size.html#cb55-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb55-17"><a href="sample-size.html#cb55-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $or</span></span>
-<span id="cb55-18"><a href="sample-size.html#cb55-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2.153846</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="sample-size.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscohortc</span>(<span class="at">irexp1=</span><span class="fl">0.35</span>, <span class="at">irexp0=</span><span class="fl">0.2</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.8</span>) </span>
+<span id="cb105-2"><a href="sample-size.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
+<span id="cb105-3"><a href="sample-size.html#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 276</span></span>
+<span id="cb105-4"><a href="sample-size.html#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb105-5"><a href="sample-size.html#cb105-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.exp1</span></span>
+<span id="cb105-6"><a href="sample-size.html#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 138</span></span>
+<span id="cb105-7"><a href="sample-size.html#cb105-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb105-8"><a href="sample-size.html#cb105-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.exp0</span></span>
+<span id="cb105-9"><a href="sample-size.html#cb105-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 138</span></span>
+<span id="cb105-10"><a href="sample-size.html#cb105-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb105-11"><a href="sample-size.html#cb105-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
+<span id="cb105-12"><a href="sample-size.html#cb105-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.8</span></span>
+<span id="cb105-13"><a href="sample-size.html#cb105-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb105-14"><a href="sample-size.html#cb105-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $irr</span></span>
+<span id="cb105-15"><a href="sample-size.html#cb105-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.75</span></span>
+<span id="cb105-16"><a href="sample-size.html#cb105-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb105-17"><a href="sample-size.html#cb105-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $or</span></span>
+<span id="cb105-18"><a href="sample-size.html#cb105-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2.153846</span></span></code></pre></div>
 <p>Note: It doesn’t matter if you swap the proportions for the <strong>exposed</strong> and <strong>unexposed</strong> groups, i.e. the command <code>epi.sscohortc(irexp1=0.2, irexp0=0.35, n=NA, power=0.8)</code> gives the same results.</p>
 </div>
-<div id="sample-size-calculation-with-a-relative-risk" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Sample size calculation with a relative risk<a href="sample-size.html#sample-size-calculation-with-a-relative-risk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sample-size-calculation-with-a-relative-risk" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Sample size calculation with a relative risk<a href="sample-size.html#sample-size-calculation-with-a-relative-risk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>epiR</code> package does not have a function to estimate sample size and power directly for a relative risk, but we can use the <code>epi.sscohortc</code> function.</p>
 </div>
-<div id="sample-size-calculation-with-an-odds-ratio" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Sample size calculation with an odds ratio<a href="sample-size.html#sample-size-calculation-with-an-odds-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sample-size-calculation-with-an-odds-ratio" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Sample size calculation with an odds ratio<a href="sample-size.html#sample-size-calculation-with-an-odds-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>epi.sscc</code> function to calculate a sample size based on an odds ratio in a case-control study:</p>
 <pre><code>epi.sscc(OR, p1 = NA, p0, n, power, r = 1, 
    phi.coef = 0, design = 1, sided.test = 2, nfractional = FALSE, 
@@ -282,55 +339,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>n: the sample size, here to be calculated</li>
 <li>power: the required study power, here 0.9</li>
 </ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sample-size.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="fl">1.5</span>, <span class="at">p0=</span><span class="fl">0.5</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span>
-<span id="cb57-2"><a href="sample-size.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
-<span id="cb57-3"><a href="sample-size.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1038</span></span>
-<span id="cb57-4"><a href="sample-size.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb57-5"><a href="sample-size.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.case</span></span>
-<span id="cb57-6"><a href="sample-size.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 519</span></span>
-<span id="cb57-7"><a href="sample-size.html#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb57-8"><a href="sample-size.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
-<span id="cb57-9"><a href="sample-size.html#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 519</span></span>
-<span id="cb57-10"><a href="sample-size.html#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb57-11"><a href="sample-size.html#cb57-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
-<span id="cb57-12"><a href="sample-size.html#cb57-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
-<span id="cb57-13"><a href="sample-size.html#cb57-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb57-14"><a href="sample-size.html#cb57-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $OR</span></span>
-<span id="cb57-15"><a href="sample-size.html#cb57-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="sample-size.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="fl">1.5</span>, <span class="at">p0=</span><span class="fl">0.5</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span>
+<span id="cb107-2"><a href="sample-size.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
+<span id="cb107-3"><a href="sample-size.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1038</span></span>
+<span id="cb107-4"><a href="sample-size.html#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb107-5"><a href="sample-size.html#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.case</span></span>
+<span id="cb107-6"><a href="sample-size.html#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 519</span></span>
+<span id="cb107-7"><a href="sample-size.html#cb107-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb107-8"><a href="sample-size.html#cb107-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
+<span id="cb107-9"><a href="sample-size.html#cb107-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 519</span></span>
+<span id="cb107-10"><a href="sample-size.html#cb107-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb107-11"><a href="sample-size.html#cb107-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
+<span id="cb107-12"><a href="sample-size.html#cb107-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
+<span id="cb107-13"><a href="sample-size.html#cb107-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb107-14"><a href="sample-size.html#cb107-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $OR</span></span>
+<span id="cb107-15"><a href="sample-size.html#cb107-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.5</span></span></code></pre></div>
 <p>Now we calculate the sample size for Worked Example 10.5:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sample-size.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="dv">2</span>, <span class="at">p0=</span><span class="fl">0.3</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span>
-<span id="cb58-2"><a href="sample-size.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
-<span id="cb58-3"><a href="sample-size.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 376</span></span>
-<span id="cb58-4"><a href="sample-size.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb58-5"><a href="sample-size.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.case</span></span>
-<span id="cb58-6"><a href="sample-size.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 188</span></span>
-<span id="cb58-7"><a href="sample-size.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb58-8"><a href="sample-size.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
-<span id="cb58-9"><a href="sample-size.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 188</span></span>
-<span id="cb58-10"><a href="sample-size.html#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb58-11"><a href="sample-size.html#cb58-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
-<span id="cb58-12"><a href="sample-size.html#cb58-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
-<span id="cb58-13"><a href="sample-size.html#cb58-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb58-14"><a href="sample-size.html#cb58-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $OR</span></span>
-<span id="cb58-15"><a href="sample-size.html#cb58-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="sample-size.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="dv">2</span>, <span class="at">p0=</span><span class="fl">0.3</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span>
+<span id="cb108-2"><a href="sample-size.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
+<span id="cb108-3"><a href="sample-size.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 376</span></span>
+<span id="cb108-4"><a href="sample-size.html#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-5"><a href="sample-size.html#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.case</span></span>
+<span id="cb108-6"><a href="sample-size.html#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 188</span></span>
+<span id="cb108-7"><a href="sample-size.html#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-8"><a href="sample-size.html#cb108-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
+<span id="cb108-9"><a href="sample-size.html#cb108-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 188</span></span>
+<span id="cb108-10"><a href="sample-size.html#cb108-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-11"><a href="sample-size.html#cb108-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
+<span id="cb108-12"><a href="sample-size.html#cb108-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
+<span id="cb108-13"><a href="sample-size.html#cb108-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-14"><a href="sample-size.html#cb108-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $OR</span></span>
+<span id="cb108-15"><a href="sample-size.html#cb108-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div>
 <p>Here we see that we require a total of 376 participants to detect an odds ratio of 2.0 with 90% power;</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sample-size.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="dv">2</span>, <span class="at">p0=</span><span class="fl">0.3</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.8</span>)</span>
-<span id="cb59-2"><a href="sample-size.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
-<span id="cb59-3"><a href="sample-size.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 282</span></span>
-<span id="cb59-4"><a href="sample-size.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb59-5"><a href="sample-size.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.case</span></span>
-<span id="cb59-6"><a href="sample-size.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 141</span></span>
-<span id="cb59-7"><a href="sample-size.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb59-8"><a href="sample-size.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
-<span id="cb59-9"><a href="sample-size.html#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 141</span></span>
-<span id="cb59-10"><a href="sample-size.html#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb59-11"><a href="sample-size.html#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
-<span id="cb59-12"><a href="sample-size.html#cb59-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.8</span></span>
-<span id="cb59-13"><a href="sample-size.html#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb59-14"><a href="sample-size.html#cb59-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $OR</span></span>
-<span id="cb59-15"><a href="sample-size.html#cb59-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="sample-size.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="dv">2</span>, <span class="at">p0=</span><span class="fl">0.3</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.8</span>)</span>
+<span id="cb109-2"><a href="sample-size.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.total</span></span>
+<span id="cb109-3"><a href="sample-size.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 282</span></span>
+<span id="cb109-4"><a href="sample-size.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb109-5"><a href="sample-size.html#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.case</span></span>
+<span id="cb109-6"><a href="sample-size.html#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 141</span></span>
+<span id="cb109-7"><a href="sample-size.html#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb109-8"><a href="sample-size.html#cb109-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n.control</span></span>
+<span id="cb109-9"><a href="sample-size.html#cb109-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 141</span></span>
+<span id="cb109-10"><a href="sample-size.html#cb109-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb109-11"><a href="sample-size.html#cb109-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $power</span></span>
+<span id="cb109-12"><a href="sample-size.html#cb109-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.8</span></span>
+<span id="cb109-13"><a href="sample-size.html#cb109-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb109-14"><a href="sample-size.html#cb109-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $OR</span></span>
+<span id="cb109-15"><a href="sample-size.html#cb109-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div>
 <p>or a total of 282 participants to detect an odds ratio of 2.0 with 80% power.</p>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Therneau, Terry M., and Patricia M. Grambsch. 2010. <em>Modeling <span>Survival Data</span>: <span>Extending</span> the <span>Cox Model</span></em>. <span>New York Berlin Heidelberg</span>: <span>Springer</span>.
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -393,6 +455,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

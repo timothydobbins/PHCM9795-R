@@ -29,7 +29,16 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 ```r
 par(mar = c(4, 4, .1, .1))
 knitr::include_graphics(here::here("img", "Rlogo.svg"))
+#> Warning in knitr::include_graphics(here::here("img",
+#> "Rlogo.svg")): It is highly recommended to use relative
+#> paths for images. You had absolute paths: "/Users/td/
+#> Documents/GithubRepos/PHCM9795-R/img/Rlogo.svg"
 knitr::include_graphics(here::here("img", "RStudio-logo-flat.png"))
+#> Warning in knitr::include_graphics(here::here("img",
+#> "RStudio-logo-flat.png")): It is highly recommended to
+#> use relative paths for images. You had absolute paths: "/
+#> Users/td/Documents/GithubRepos/PHCM9795-R/img/RStudio-logo-
+#> flat.png"
 ```
 
 <img src="/Users/td/Documents/GithubRepos/PHCM9795-R/img/Rlogo.svg" width="80%" /><img src="/Users/td/Documents/GithubRepos/PHCM9795-R/img/RStudio-logo-flat.png" width="80%" />
@@ -41,6 +50,8 @@ To install R on your computer:
     b. for MacOS:
 2. Install R by running the installer and following the installation instructions. Note, the default settings are fine.
 3. Open the R program. You should see a screen as below:
+
+**Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
 
 At the end of the text you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
 
@@ -114,6 +125,11 @@ The bottom right corner contains some useful tabs, in particular the **Help** ta
 
 ## Some R basics
 
+### Data types
+- vectors
+- data frames
+- [matrix, list]
+
 ### Objects
 
 Assigning
@@ -132,7 +148,7 @@ In this exercise, we will analyse data to complete a descriptive table from a re
 ```
 #> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
 #> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+#> ✓ tibble  3.1.6     ✓ dplyr   1.0.8
 #> ✓ tidyr   1.2.0     ✓ stringr 1.4.0
 #> ✓ readr   2.1.2     ✓ forcats 0.5.1
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
@@ -365,7 +381,7 @@ You will notice that the table above, in its current form, is uninterpretable as
 We specify:
 
 - `levels`: the values the categorical variable uses can take
-- `labels`: the labels corresponding to each of the levels (entered in the same order)
+- `labels`: the labels corresponding to each of the levels (*entered in the same order as the levels*)
 
 To define our variable sex as a factor, we use:
 
@@ -406,3 +422,126 @@ To copy output from Stata, you can select the output and choose Edit \> Copy. Th
 Copying output from Stata can get a little complicated to explain. We have included a video on Moodle to summarise the different ways output can be copied.
 
 Task: complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.
+
+## Part 3: Creating other types of graphs {-}
+
+### Bar graphs
+
+Here we will create the bar chart shown in Figure 1.1 using the `pbc.dta` dataset. The x-axis of this graph will be the stage of disease, and the y-axis will show the number of participants in each category.
+
+#### Simple bar graph
+For most of our bar graphs, we will be plotting frequencies, so we choose **Graph of frequencies within categories**
+
+
+```r
+# Convert stage into a factpr
+pbc$stage <- factor(pbc$stage, levels=c(1,2,3,4), labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
+
+plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
+```
+
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+
+### Clustered bar graph
+
+To create a clustered bar chart as shown in Figure 1.2:
+
+
+```r
+counts <- table(pbc$sex, pbc$stage)
+barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
+        legend = rownames(counts), beside=TRUE, args.legend = list(x = "topleft"))
+```
+
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+
+
+### Stacked bar graph
+To create a stacked bar chart shown in Figure 1.4, bring up the **Bar chart** dialog box, go to the **Options** tab and tick **Stack bars on y variables**.
+
+
+```r
+barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
+        legend = rownames(counts), beside=FALSE, args.legend = list(x = "topleft"))
+```
+
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+### Stacked bar graph of relative frequencies
+
+If one wants to compare the sex distribution across the stage categories, it would be convenient if all the bars have the same height (100%). To generate such a bar chart in Stata, tick **Base bar heights on percentages** in the **Options** tab of the **Bar charts** dialog box. Change the y-axis title in the **Y axis** tab to `Percentage of students in each age group`.
+
+
+```r
+percent <- prop.table(counts, margin=2)*100
+percent
+#>         
+#>            Stage 1   Stage 2   Stage 3   Stage 4
+#>   Male   14.285714  8.695652 10.322581 11.805556
+#>   Female 85.714286 91.304348 89.677419 88.194444
+
+barplot(percent, main="Relative frequency of sex within stage of disease from PBC study",
+        legend = rownames(counts), beside=FALSE, args.legend = list(x = "topright"))
+```
+
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+
+
+### Creating line graphs
+To demonstrate the graphing of aggregate data with Stata, we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered into Stata as `Example_1.2.dta`.
+
+
+```r
+cancer <- read_stata("data/examples/Example_1.2.dta")
+skim(cancer)
+```
+
+
+Table: (\#tab:unnamed-chunk-17)Data summary
+
+|                         |       |
+|:------------------------|:------|
+|Name                     |cancer |
+|Number of rows           |20     |
+|Number of columns        |5      |
+|_______________________  |       |
+|Column type frequency:   |       |
+|numeric                  |5      |
+|________________________ |       |
+|Group variables          |None   |
+
+
+**Variable type: numeric**
+
+|skim_variable | n_missing| complete_rate|    mean|      sd|     p0|     p25|     p50|     p75|   p100|hist  |
+|:-------------|---------:|-------------:|-------:|-------:|------:|-------:|-------:|-------:|------:|:-----|
+|year          |         0|             1| 1996.50|    5.92| 1987.0| 1991.75| 1996.50| 2001.25| 2006.0|▇▇▇▇▇ |
+|ncases        |         0|             1| 3719.35| 1338.61| 1567.0| 2804.50| 3789.50| 4402.75| 6158.0|▅▁▇▂▂ |
+|ndeaths       |         0|             1|  854.95|  105.60|  645.0|  788.25|  868.00|  921.00| 1044.0|▂▅▇▇▃ |
+|rcases        |         0|             1|  135.44|   31.34|   81.8|  121.92|  131.30|  164.20|  186.9|▃▁▇▂▅ |
+|rdeaths       |         0|             1|   37.09|    3.82|   31.1|   34.67|   36.55|   40.38|   43.8|▆▇▅▇▅ |
+
+```r
+
+plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
+```
+
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+
+```r
+
+# Change scale
+plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)", ylim=c(0,200))
+
+# Add a second line
+lines(cancer$year, cancer$rdeaths, col = "blue", type = "l", lty = 2)
+
+# Add a legend to the plot
+legend("topleft", legend=c("Incidence", "Deaths"),
+       col=c("red", "blue"), lty = 1:2)
+```
+
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-17-2.png" width="672" />
+
+
+### Line graph
