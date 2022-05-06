@@ -18,12 +18,9 @@ We can use the `read.csv` function:
 
 ```{r}
 library(tidyverse)
-library(skimr)
 library(jmv)
 
 weights <- read.csv("data/examples/Weight_s2.csv")
-
-skim(weights)
 ```
 
 Here, the `read.csv` function has the default that the first row of the dataset contains the variable names. If your data do not have column names, you can use `header=FALSE` in the function.
@@ -113,13 +110,13 @@ The health survey data contains 1140 records, comprising:
 - height: height in meters
 - weight: weight in kilograms
 
-To import data from Microsoft Excel, we can use the `read_excel` function in the `readxl` package.
+To import data from Microsoft Excel, we can use the `read_excel()` function in the `readxl` package.
 
 ```{r}
 library(readxl)
 
 survey <- read_excel("data/examples/health-survey.xlsx")
-skim(survey)
+summary(survey)
 ```
 
 We can see that sex has been entered as a numeric variable. We should transform it into a factor so that we can assign labels to each category:

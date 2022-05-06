@@ -1,10 +1,3 @@
----
-output:
-  pdf_document:
-    latex_engine: xelatex
-  html_document: default
----
-
 # Analysing non-normal data
 
 ## Transforming non-normally distributed variables
@@ -13,16 +6,14 @@ One option for dealing with a non-normally distributed varaible is to transform 
 
 You can calculate a new, transformed, variable using variable transformation commands. For example, to create a new column of data based on the log of length of stay using Base R:
 
-```{r, results='asis'}
+```{r}
 library(haven)      # For importing data
-library(skimr)
 library(labelled)
 
-hospital <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta") %>% 
-  unlabelled()
+hospital <- unlabelled(read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta"))
 
 hospital$ln_los <- log(hospital$los+1)
-skim(hospital)
+summary(hospital)
 ```
 
 A tidyverse version uses the `mutate` command to create a new variable:
@@ -35,7 +26,7 @@ hospital <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Exa
 hospital <- hospital %>% 
   mutate(ln_los = log(los+1))
 
-skim(hospital)
+summary(hospital)
 ```
 
 You can now check whether this logged variable is normally distributed as described in Module 2, for example by plotting a histogram as shown in Figure 9.2.

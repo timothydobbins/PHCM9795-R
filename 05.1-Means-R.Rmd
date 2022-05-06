@@ -9,14 +9,12 @@ We can create histograms and boxplots separated by a second variable in (at leas
 ```{r}
 library(haven)
 library(labelled)
-library(skimr)
 library(ggplot2)
 library(jmv)
 
-bwt <- read_dta("data/examples/Example_5.1.dta") %>% 
-  unlabelled()
+bwt <- unlabelled(read_dta("data/examples/Example_5.1.dta"))
 
-skim(bwt)
+summary(bwt)
 summary(bwt$gender)
 ```
 
@@ -78,7 +76,7 @@ descriptives(data=bwt, vars=birthweight, splitBy=gender)
 
 ## Independent samples t-test
 
-```{r}
+```{r, results='asis'}
 ttestIS(data=bwt, vars=birthweight, group=gender)
 ttestIS(data=bwt, vars=birthweight, group=gender, meanDiff=TRUE, ci=TRUE)
 ttestIS(data=bwt, vars=birthweight, group=gender, meanDiff=TRUE, ci=TRUE, welchs=TRUE)

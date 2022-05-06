@@ -1,6 +1,6 @@
 --- 
 title: "PHCM9795 Foundations of Biostatistics"
-author: "Notes for R"
+author: "Pilot Notes for R"
 date: "Term 2, 2022"
 site: bookdown::bookdown_site
 documentclass: memoir
@@ -11,3 +11,9 @@ monofont: Roboto Mono
 bibliography: [PHCM9795.bib]
 link-citations: yes
 ---
+
+# Introduction {-}
+
+These notes provide an introduction to R and instructions on how to conduct the analyses introduced in Foundations of Biostatistics.
+
+This is the first year that R has been offered as an option. I am keen to receive feedback about the notes and your experience learning R. Please get in touch if anything is unclear, or you have any questions or suggestions.

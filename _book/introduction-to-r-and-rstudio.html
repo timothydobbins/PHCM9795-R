@@ -257,6 +257,15 @@ div.csl-indent {
 </div>
 <div id="introduction-to-r-and-rstudio" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction to R and RStudio<a href="introduction-to-r-and-rstudio.html#introduction-to-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>INCLUDE:</p>
+<ul>
+<li>decide on skim vs summary vs jmv::describe</li>
+<li>case sensitive</li>
+<li>how to get help (online, google, etc)</li>
+<li>functions that use (data=, var=) vs functions that use an object (i.e. data$var)</li>
+<li>how to specify a column from a dataframe</li>
+<li>don’t give up!</li>
+</ul>
 <div id="learning-outcomes" class="section level2 unnumbered hasAnchor">
 <h2>Learning outcomes<a href="introduction-to-r-and-rstudio.html#learning-outcomes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>By the end of this Module, you will be able to:</p>
@@ -473,7 +482,7 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <span id="cb11-5"><a href="introduction-to-r-and-rstudio.html#cb11-5" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;data/examples/pbc.dta&quot;</span>)</span></code></pre></div>
 <p>4 - We now re-assign the pbc object by using the <code>unlabelled()</code> function from the <code>labelled</code> package:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction-to-r-and-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">unlabelled</span>(pbc)</span></code></pre></div>
-<p>5 - We can now use the <code>summary()</code> function or the <code>skim()</code> function to examine the pbc dataset.</p>
+<p>5 - We can now use the <code>summary()</code> function to examine the pbc dataset.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r-and-rstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pbc)</span>
 <span id="cb13-2"><a href="introduction-to-r-and-rstudio.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        id             time          status      </span></span>
 <span id="cb13-3"><a href="introduction-to-r-and-rstudio.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :  1.0   Min.   :  41   Min.   :0.0000  </span></span>
@@ -530,425 +539,97 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <span id="cb13-54"><a href="introduction-to-r-and-rstudio.html#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :10.73   Mean   :3.024  </span></span>
 <span id="cb13-55"><a href="introduction-to-r-and-rstudio.html#cb13-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:11.10   3rd Qu.:4.000  </span></span>
 <span id="cb13-56"><a href="introduction-to-r-and-rstudio.html#cb13-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :18.00   Max.   :4.000  </span></span>
-<span id="cb13-57"><a href="introduction-to-r-and-rstudio.html#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  NA&#39;s   :2       NA&#39;s   :6</span></span>
-<span id="cb13-58"><a href="introduction-to-r-and-rstudio.html#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(pbc)</span></code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-22">Table 1.2: </span>Data summary</caption>
-<tbody>
-<tr class="odd">
-<td align="left">Name</td>
-<td align="left">pbc</td>
-</tr>
-<tr class="even">
-<td align="left">Number of rows</td>
-<td align="left">418</td>
-</tr>
-<tr class="odd">
-<td align="left">Number of columns</td>
-<td align="left">20</td>
-</tr>
-<tr class="even">
-<td align="left">_______________________</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Column type frequency:</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">numeric</td>
-<td align="left">20</td>
-</tr>
-<tr class="odd">
-<td align="left">________________________</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Group variables</td>
-<td align="left">None</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: numeric</strong></p>
-<table>
-<colgroup>
-<col width="14%" />
-<col width="10%" />
-<col width="14%" />
-<col width="8%" />
-<col width="8%" />
-<col width="7%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="9%" />
-<col width="6%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">skim_variable</th>
-<th align="right">n_missing</th>
-<th align="right">complete_rate</th>
-<th align="right">mean</th>
-<th align="right">sd</th>
-<th align="right">p0</th>
-<th align="right">p25</th>
-<th align="right">p50</th>
-<th align="right">p75</th>
-<th align="right">p100</th>
-<th align="left">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">id</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">209.50</td>
-<td align="right">120.81</td>
-<td align="right">1.00</td>
-<td align="right">105.25</td>
-<td align="right">209.50</td>
-<td align="right">313.75</td>
-<td align="right">418.00</td>
-<td align="left">▇▇▇▇▇</td>
-</tr>
-<tr class="even">
-<td align="left">time</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">1917.78</td>
-<td align="right">1104.67</td>
-<td align="right">41.00</td>
-<td align="right">1092.75</td>
-<td align="right">1730.00</td>
-<td align="right">2613.50</td>
-<td align="right">4795.00</td>
-<td align="left">▅▇▆▃▂</td>
-</tr>
-<tr class="odd">
-<td align="left">status</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">0.83</td>
-<td align="right">0.96</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">2.00</td>
-<td align="right">2.00</td>
-<td align="left">▇▁▁▁▆</td>
-</tr>
-<tr class="even">
-<td align="left">trt</td>
-<td align="right">106</td>
-<td align="right">0.75</td>
-<td align="right">1.49</td>
-<td align="right">0.50</td>
-<td align="right">1.00</td>
-<td align="right">1.00</td>
-<td align="right">1.00</td>
-<td align="right">2.00</td>
-<td align="right">2.00</td>
-<td align="left">▇▁▁▁▇</td>
-</tr>
-<tr class="odd">
-<td align="left">age</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">50.74</td>
-<td align="right">10.45</td>
-<td align="right">26.28</td>
-<td align="right">42.83</td>
-<td align="right">51.00</td>
-<td align="right">58.24</td>
-<td align="right">78.44</td>
-<td align="left">▂▆▇▅▁</td>
-</tr>
-<tr class="even">
-<td align="left">sex</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">1.89</td>
-<td align="right">0.31</td>
-<td align="right">1.00</td>
-<td align="right">2.00</td>
-<td align="right">2.00</td>
-<td align="right">2.00</td>
-<td align="right">2.00</td>
-<td align="left">▁▁▁▁▇</td>
-</tr>
-<tr class="odd">
-<td align="left">ascites</td>
-<td align="right">106</td>
-<td align="right">0.75</td>
-<td align="right">0.08</td>
-<td align="right">0.27</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">1.00</td>
-<td align="left">▇▁▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">hepato</td>
-<td align="right">106</td>
-<td align="right">0.75</td>
-<td align="right">0.51</td>
-<td align="right">0.50</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">1.00</td>
-<td align="right">1.00</td>
-<td align="right">1.00</td>
-<td align="left">▇▁▁▁▇</td>
-</tr>
-<tr class="odd">
-<td align="left">spiders</td>
-<td align="right">106</td>
-<td align="right">0.75</td>
-<td align="right">0.29</td>
-<td align="right">0.45</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">1.00</td>
-<td align="right">1.00</td>
-<td align="left">▇▁▁▁▃</td>
-</tr>
-<tr class="even">
-<td align="left">edema</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">0.10</td>
-<td align="right">0.25</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">0.00</td>
-<td align="right">1.00</td>
-<td align="left">▇▁▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">bili</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">3.22</td>
-<td align="right">4.41</td>
-<td align="right">0.30</td>
-<td align="right">0.80</td>
-<td align="right">1.40</td>
-<td align="right">3.40</td>
-<td align="right">28.00</td>
-<td align="left">▇▁▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">chol</td>
-<td align="right">134</td>
-<td align="right">0.68</td>
-<td align="right">369.51</td>
-<td align="right">231.94</td>
-<td align="right">120.00</td>
-<td align="right">249.50</td>
-<td align="right">309.50</td>
-<td align="right">400.00</td>
-<td align="right">1775.00</td>
-<td align="left">▇▁▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">albumin</td>
-<td align="right">0</td>
-<td align="right">1.00</td>
-<td align="right">3.50</td>
-<td align="right">0.42</td>
-<td align="right">1.96</td>
-<td align="right">3.24</td>
-<td align="right">3.53</td>
-<td align="right">3.77</td>
-<td align="right">4.64</td>
-<td align="left">▁▂▇▇▁</td>
-</tr>
-<tr class="even">
-<td align="left">copper</td>
-<td align="right">108</td>
-<td align="right">0.74</td>
-<td align="right">97.65</td>
-<td align="right">85.61</td>
-<td align="right">4.00</td>
-<td align="right">41.25</td>
-<td align="right">73.00</td>
-<td align="right">123.00</td>
-<td align="right">588.00</td>
-<td align="left">▇▂▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">alkphos</td>
-<td align="right">106</td>
-<td align="right">0.75</td>
-<td align="right">1982.66</td>
-<td align="right">2140.39</td>
-<td align="right">289.00</td>
-<td align="right">871.50</td>
-<td align="right">1259.00</td>
-<td align="right">1980.00</td>
-<td align="right">13862.40</td>
-<td align="left">▇▁▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">ast</td>
-<td align="right">106</td>
-<td align="right">0.75</td>
-<td align="right">122.56</td>
-<td align="right">56.70</td>
-<td align="right">26.35</td>
-<td align="right">80.60</td>
-<td align="right">114.70</td>
-<td align="right">151.90</td>
-<td align="right">457.25</td>
-<td align="left">▇▇▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">trig</td>
-<td align="right">136</td>
-<td align="right">0.67</td>
-<td align="right">124.70</td>
-<td align="right">65.15</td>
-<td align="right">33.00</td>
-<td align="right">84.25</td>
-<td align="right">108.00</td>
-<td align="right">151.00</td>
-<td align="right">598.00</td>
-<td align="left">▇▂▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">platelet</td>
-<td align="right">11</td>
-<td align="right">0.97</td>
-<td align="right">257.02</td>
-<td align="right">98.33</td>
-<td align="right">62.00</td>
-<td align="right">188.50</td>
-<td align="right">251.00</td>
-<td align="right">318.00</td>
-<td align="right">721.00</td>
-<td align="left">▅▇▃▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">protime</td>
-<td align="right">2</td>
-<td align="right">1.00</td>
-<td align="right">10.73</td>
-<td align="right">1.02</td>
-<td align="right">9.00</td>
-<td align="right">10.00</td>
-<td align="right">10.60</td>
-<td align="right">11.10</td>
-<td align="right">18.00</td>
-<td align="left">▇▅▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">stage</td>
-<td align="right">6</td>
-<td align="right">0.99</td>
-<td align="right">3.02</td>
-<td align="right">0.88</td>
-<td align="right">1.00</td>
-<td align="right">2.00</td>
-<td align="right">3.00</td>
-<td align="right">4.00</td>
-<td align="right">4.00</td>
-<td align="left">▁▅▁▇▇</td>
-</tr>
-</tbody>
-</table>
+<span id="cb13-57"><a href="introduction-to-r-and-rstudio.html#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  NA&#39;s   :2       NA&#39;s   :6</span></span></code></pre></div>
+<p>An alternative to the <code>summary()</code> function is the <code>skim()</code> function in the <code>skimr</code> package, which produces summary statistics as well as rudimentary histograms:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-to-r-and-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(pbc)</span></code></pre></div>
+<p><img src="img/skim-pbc.png" width="90%" /></p>
 </div>
 <div id="summarising-continuous-variables" class="section level3 hasAnchor" number="1.7.2">
 <h3><span class="header-section-number">1.7.2</span> Summarising continuous variables<a href="introduction-to-r-and-rstudio.html#summarising-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>One of the most flexible functions for summarising continuous variables is the <code>descriptives</code> function from the <code>jmv</code> package. The function is specified as <code>descriptives(data=, vars=)</code> where:</p>
+<p>One of the most flexible functions for summarising continuous variables is the <code>descriptives()</code> function from the <code>jmv</code> package. The function is specified as <code>descriptives(data=, vars=)</code> where:</p>
 <ul>
 <li><code>data</code> specifies the dataframe to be analysed</li>
 <li><code>vars</code> specifies the variable(s) of interest, with multiple variables combined using the <code>c()</code> function</li>
 </ul>
 <p>We can summarise the three continuous variables in the pbc data: age, AST and serum bilirubin, as shown below.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-to-r-and-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
-<span id="cb14-2"><a href="introduction-to-r-and-rstudio.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="introduction-to-r-and-rstudio.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili))</span>
-<span id="cb14-4"><a href="introduction-to-r-and-rstudio.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-5"><a href="introduction-to-r-and-rstudio.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DESCRIPTIVES</span></span>
-<span id="cb14-6"><a href="introduction-to-r-and-rstudio.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-7"><a href="introduction-to-r-and-rstudio.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Descriptives                                                </span></span>
-<span id="cb14-8"><a href="introduction-to-r-and-rstudio.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
-<span id="cb14-9"><a href="introduction-to-r-and-rstudio.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          age         ast         bili        </span></span>
-<span id="cb14-10"><a href="introduction-to-r-and-rstudio.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
-<span id="cb14-11"><a href="introduction-to-r-and-rstudio.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    N                          418         312          418   </span></span>
-<span id="cb14-12"><a href="introduction-to-r-and-rstudio.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Missing                      0         106            0   </span></span>
-<span id="cb14-13"><a href="introduction-to-r-and-rstudio.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Mean                  50.74155    122.5563     3.220813   </span></span>
-<span id="cb14-14"><a href="introduction-to-r-and-rstudio.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Median                51.00068    114.7000     1.400000   </span></span>
-<span id="cb14-15"><a href="introduction-to-r-and-rstudio.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Standard deviation    10.44721    56.69952     4.407506   </span></span>
-<span id="cb14-16"><a href="introduction-to-r-and-rstudio.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Minimum               26.27789    26.35000    0.3000000   </span></span>
-<span id="cb14-17"><a href="introduction-to-r-and-rstudio.html#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Maximum               78.43943    457.2500     28.00000   </span></span>
-<span id="cb14-18"><a href="introduction-to-r-and-rstudio.html#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ───────────────────────────────────────────────────────────</span></span></code></pre></div>
-<p>By default, the <code>descriptives</code> function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles (which are called the percentiles, or pc, in the descriptives function):</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r-and-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili), <span class="at">pc=</span><span class="cn">TRUE</span>)</span>
-<span id="cb15-2"><a href="introduction-to-r-and-rstudio.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-3"><a href="introduction-to-r-and-rstudio.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DESCRIPTIVES</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r-and-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb15-2"><a href="introduction-to-r-and-rstudio.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="introduction-to-r-and-rstudio.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili))</span>
 <span id="cb15-4"><a href="introduction-to-r-and-rstudio.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-5"><a href="introduction-to-r-and-rstudio.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Descriptives                                                </span></span>
-<span id="cb15-6"><a href="introduction-to-r-and-rstudio.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
-<span id="cb15-7"><a href="introduction-to-r-and-rstudio.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          age         ast         bili        </span></span>
+<span id="cb15-5"><a href="introduction-to-r-and-rstudio.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DESCRIPTIVES</span></span>
+<span id="cb15-6"><a href="introduction-to-r-and-rstudio.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-7"><a href="introduction-to-r-and-rstudio.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Descriptives                                                </span></span>
 <span id="cb15-8"><a href="introduction-to-r-and-rstudio.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
-<span id="cb15-9"><a href="introduction-to-r-and-rstudio.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    N                          418         312          418   </span></span>
-<span id="cb15-10"><a href="introduction-to-r-and-rstudio.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Missing                      0         106            0   </span></span>
-<span id="cb15-11"><a href="introduction-to-r-and-rstudio.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Mean                  50.74155    122.5563     3.220813   </span></span>
-<span id="cb15-12"><a href="introduction-to-r-and-rstudio.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Median                51.00068    114.7000     1.400000   </span></span>
-<span id="cb15-13"><a href="introduction-to-r-and-rstudio.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Standard deviation    10.44721    56.69952     4.407506   </span></span>
-<span id="cb15-14"><a href="introduction-to-r-and-rstudio.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Minimum               26.27789    26.35000    0.3000000   </span></span>
-<span id="cb15-15"><a href="introduction-to-r-and-rstudio.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Maximum               78.43943    457.2500     28.00000   </span></span>
-<span id="cb15-16"><a href="introduction-to-r-and-rstudio.html#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    25th percentile       42.83231    80.60000    0.8000000   </span></span>
-<span id="cb15-17"><a href="introduction-to-r-and-rstudio.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    50th percentile       51.00068    114.7000     1.400000   </span></span>
-<span id="cb15-18"><a href="introduction-to-r-and-rstudio.html#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    75th percentile       58.24093    151.9000     3.400000   </span></span>
-<span id="cb15-19"><a href="introduction-to-r-and-rstudio.html#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ───────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span id="cb15-9"><a href="introduction-to-r-and-rstudio.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          age         ast         bili        </span></span>
+<span id="cb15-10"><a href="introduction-to-r-and-rstudio.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb15-11"><a href="introduction-to-r-and-rstudio.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    N                          418         312          418   </span></span>
+<span id="cb15-12"><a href="introduction-to-r-and-rstudio.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Missing                      0         106            0   </span></span>
+<span id="cb15-13"><a href="introduction-to-r-and-rstudio.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Mean                  50.74155    122.5563     3.220813   </span></span>
+<span id="cb15-14"><a href="introduction-to-r-and-rstudio.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Median                51.00068    114.7000     1.400000   </span></span>
+<span id="cb15-15"><a href="introduction-to-r-and-rstudio.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Standard deviation    10.44721    56.69952     4.407506   </span></span>
+<span id="cb15-16"><a href="introduction-to-r-and-rstudio.html#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Minimum               26.27789    26.35000    0.3000000   </span></span>
+<span id="cb15-17"><a href="introduction-to-r-and-rstudio.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Maximum               78.43943    457.2500     28.00000   </span></span>
+<span id="cb15-18"><a href="introduction-to-r-and-rstudio.html#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ───────────────────────────────────────────────────────────</span></span></code></pre></div>
+<p>By default, the <code>descriptives</code> function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles (which are called the percentiles, or pc, in the descriptives function):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introduction-to-r-and-rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili), <span class="at">pc=</span><span class="cn">TRUE</span>)</span>
+<span id="cb16-2"><a href="introduction-to-r-and-rstudio.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-3"><a href="introduction-to-r-and-rstudio.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DESCRIPTIVES</span></span>
+<span id="cb16-4"><a href="introduction-to-r-and-rstudio.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-5"><a href="introduction-to-r-and-rstudio.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Descriptives                                                </span></span>
+<span id="cb16-6"><a href="introduction-to-r-and-rstudio.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb16-7"><a href="introduction-to-r-and-rstudio.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          age         ast         bili        </span></span>
+<span id="cb16-8"><a href="introduction-to-r-and-rstudio.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ─────────────────────────────────────────────────────────── </span></span>
+<span id="cb16-9"><a href="introduction-to-r-and-rstudio.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    N                          418         312          418   </span></span>
+<span id="cb16-10"><a href="introduction-to-r-and-rstudio.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Missing                      0         106            0   </span></span>
+<span id="cb16-11"><a href="introduction-to-r-and-rstudio.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Mean                  50.74155    122.5563     3.220813   </span></span>
+<span id="cb16-12"><a href="introduction-to-r-and-rstudio.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Median                51.00068    114.7000     1.400000   </span></span>
+<span id="cb16-13"><a href="introduction-to-r-and-rstudio.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Standard deviation    10.44721    56.69952     4.407506   </span></span>
+<span id="cb16-14"><a href="introduction-to-r-and-rstudio.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Minimum               26.27789    26.35000    0.3000000   </span></span>
+<span id="cb16-15"><a href="introduction-to-r-and-rstudio.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Maximum               78.43943    457.2500     28.00000   </span></span>
+<span id="cb16-16"><a href="introduction-to-r-and-rstudio.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    25th percentile       42.83231    80.60000    0.8000000   </span></span>
+<span id="cb16-17"><a href="introduction-to-r-and-rstudio.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    50th percentile       51.00068    114.7000     1.400000   </span></span>
+<span id="cb16-18"><a href="introduction-to-r-and-rstudio.html#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    75th percentile       58.24093    151.9000     3.400000   </span></span>
+<span id="cb16-19"><a href="introduction-to-r-and-rstudio.html#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ───────────────────────────────────────────────────────────</span></span></code></pre></div>
 </div>
 <div id="producing-a-histogram" class="section level3 hasAnchor" number="1.7.3">
 <h3><span class="header-section-number">1.7.3</span> Producing a histogram<a href="introduction-to-r-and-rstudio.html#producing-a-histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can use the <code>hist()</code> function to produce a histogram, specifying the dataframe to use and the variable to be plotted as <code>dataframe$variable</code>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introduction-to-r-and-rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age)</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r-and-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using <code>xlab=</code> and <code>main=</code> to assign labels for the x-axis and overall title respectively:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r-and-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of participant age from pbc study data&quot;</span>)</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r-and-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of participant age from pbc study data&quot;</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="producing-a-boxplot" class="section level3 hasAnchor" number="1.7.4">
 <h3><span class="header-section-number">1.7.4</span> Producing a boxplot<a href="introduction-to-r-and-rstudio.html#producing-a-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>boxplot</code> function is used to produce boxplots, again specifying the dataframe to use and the variable to be plotted as <code>dataframe$variable</code>. Labels can be applied in the same way as the histogram:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r-and-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of participant age from pbc study data&quot;</span>)</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r-and-rstudio.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of participant age from pbc study data&quot;</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 <div id="producing-a-one-way-frequency-table" class="section level3 hasAnchor" number="1.7.5">
 <h3><span class="header-section-number">1.7.5</span> Producing a one-way frequency table<a href="introduction-to-r-and-rstudio.html#producing-a-one-way-frequency-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have three categorical variables to summarise in Table 1: sex, stage and vital status. These variables are best summarised using one-way frequency tables.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r-and-rstudio.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
-<span id="cb19-2"><a href="introduction-to-r-and-rstudio.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-3"><a href="introduction-to-r-and-rstudio.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;summarytools&#39;</span></span>
-<span id="cb19-4"><a href="introduction-to-r-and-rstudio.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:tibble&#39;:</span></span>
-<span id="cb19-5"><a href="introduction-to-r-and-rstudio.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-6"><a href="introduction-to-r-and-rstudio.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     view</span></span>
-<span id="cb19-7"><a href="introduction-to-r-and-rstudio.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:huxtable&#39;:</span></span>
-<span id="cb19-8"><a href="introduction-to-r-and-rstudio.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-9"><a href="introduction-to-r-and-rstudio.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     label, label&lt;-</span></span>
-<span id="cb19-10"><a href="introduction-to-r-and-rstudio.html#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="introduction-to-r-and-rstudio.html#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span>
-<span id="cb19-12"><a href="introduction-to-r-and-rstudio.html#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Frequencies  </span></span>
-<span id="cb19-13"><a href="introduction-to-r-and-rstudio.html#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pbc$sex  </span></span>
-<span id="cb19-14"><a href="introduction-to-r-and-rstudio.html#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Type: Numeric  </span></span>
-<span id="cb19-15"><a href="introduction-to-r-and-rstudio.html#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-16"><a href="introduction-to-r-and-rstudio.html#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Freq   % Valid   % Valid Cum.   % Total   % Total Cum.</span></span>
-<span id="cb19-17"><a href="introduction-to-r-and-rstudio.html#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ----------- ------ --------- -------------- --------- --------------</span></span>
-<span id="cb19-18"><a href="introduction-to-r-and-rstudio.html#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           1     44     10.53          10.53     10.53          10.53</span></span>
-<span id="cb19-19"><a href="introduction-to-r-and-rstudio.html#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           2    374     89.47         100.00     89.47         100.00</span></span>
-<span id="cb19-20"><a href="introduction-to-r-and-rstudio.html#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;NA&gt;      0                               0.00         100.00</span></span>
-<span id="cb19-21"><a href="introduction-to-r-and-rstudio.html#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Total    418    100.00         100.00    100.00         100.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r-and-rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb20-2"><a href="introduction-to-r-and-rstudio.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb20-3"><a href="introduction-to-r-and-rstudio.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;summarytools&#39;</span></span>
+<span id="cb20-4"><a href="introduction-to-r-and-rstudio.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:tibble&#39;:</span></span>
+<span id="cb20-5"><a href="introduction-to-r-and-rstudio.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb20-6"><a href="introduction-to-r-and-rstudio.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     view</span></span>
+<span id="cb20-7"><a href="introduction-to-r-and-rstudio.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:huxtable&#39;:</span></span>
+<span id="cb20-8"><a href="introduction-to-r-and-rstudio.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb20-9"><a href="introduction-to-r-and-rstudio.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     label, label&lt;-</span></span>
+<span id="cb20-10"><a href="introduction-to-r-and-rstudio.html#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="introduction-to-r-and-rstudio.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span>
+<span id="cb20-12"><a href="introduction-to-r-and-rstudio.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Frequencies  </span></span>
+<span id="cb20-13"><a href="introduction-to-r-and-rstudio.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pbc$sex  </span></span>
+<span id="cb20-14"><a href="introduction-to-r-and-rstudio.html#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Type: Numeric  </span></span>
+<span id="cb20-15"><a href="introduction-to-r-and-rstudio.html#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb20-16"><a href="introduction-to-r-and-rstudio.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Freq   % Valid   % Valid Cum.   % Total   % Total Cum.</span></span>
+<span id="cb20-17"><a href="introduction-to-r-and-rstudio.html#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ----------- ------ --------- -------------- --------- --------------</span></span>
+<span id="cb20-18"><a href="introduction-to-r-and-rstudio.html#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           1     44     10.53          10.53     10.53          10.53</span></span>
+<span id="cb20-19"><a href="introduction-to-r-and-rstudio.html#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           2    374     89.47         100.00     89.47         100.00</span></span>
+<span id="cb20-20"><a href="introduction-to-r-and-rstudio.html#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        &lt;NA&gt;      0                               0.00         100.00</span></span>
+<span id="cb20-21"><a href="introduction-to-r-and-rstudio.html#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Total    418    100.00         100.00    100.00         100.00</span></span></code></pre></div>
 </div>
 </div>
 <div id="defning-categorical-variables-as-factors" class="section level2 hasAnchor" number="1.8">
@@ -961,19 +642,19 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <li><code>labels</code>: the labels corresponding to each of the levels (<em>entered in the same order as the levels</em>)</li>
 </ul>
 <p>To define our variable sex as a factor, we use:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r-and-rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r-and-rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
 <p>We can confirm the coding by re-running a frequency table:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r-and-rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span>
-<span id="cb21-2"><a href="introduction-to-r-and-rstudio.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Frequencies  </span></span>
-<span id="cb21-3"><a href="introduction-to-r-and-rstudio.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pbc$sex  </span></span>
-<span id="cb21-4"><a href="introduction-to-r-and-rstudio.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Type: Factor  </span></span>
-<span id="cb21-5"><a href="introduction-to-r-and-rstudio.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb21-6"><a href="introduction-to-r-and-rstudio.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                Freq   % Valid   % Valid Cum.   % Total   % Total Cum.</span></span>
-<span id="cb21-7"><a href="introduction-to-r-and-rstudio.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ------------ ------ --------- -------------- --------- --------------</span></span>
-<span id="cb21-8"><a href="introduction-to-r-and-rstudio.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Male     44     10.53          10.53     10.53          10.53</span></span>
-<span id="cb21-9"><a href="introduction-to-r-and-rstudio.html#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Female    374     89.47         100.00     89.47         100.00</span></span>
-<span id="cb21-10"><a href="introduction-to-r-and-rstudio.html#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;NA&gt;      0                               0.00         100.00</span></span>
-<span id="cb21-11"><a href="introduction-to-r-and-rstudio.html#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Total    418    100.00         100.00    100.00         100.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r-and-rstudio.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span>
+<span id="cb22-2"><a href="introduction-to-r-and-rstudio.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Frequencies  </span></span>
+<span id="cb22-3"><a href="introduction-to-r-and-rstudio.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pbc$sex  </span></span>
+<span id="cb22-4"><a href="introduction-to-r-and-rstudio.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Type: Factor  </span></span>
+<span id="cb22-5"><a href="introduction-to-r-and-rstudio.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb22-6"><a href="introduction-to-r-and-rstudio.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                Freq   % Valid   % Valid Cum.   % Total   % Total Cum.</span></span>
+<span id="cb22-7"><a href="introduction-to-r-and-rstudio.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ------------ ------ --------- -------------- --------- --------------</span></span>
+<span id="cb22-8"><a href="introduction-to-r-and-rstudio.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Male     44     10.53          10.53     10.53          10.53</span></span>
+<span id="cb22-9"><a href="introduction-to-r-and-rstudio.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Female    374     89.47         100.00     89.47         100.00</span></span>
+<span id="cb22-10"><a href="introduction-to-r-and-rstudio.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;NA&gt;      0                               0.00         100.00</span></span>
+<span id="cb22-11"><a href="introduction-to-r-and-rstudio.html#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Total    418    100.00         100.00    100.00         100.00</span></span></code></pre></div>
 <p>Task: define Stage and Vital Status as factors, and produce one-way frequency tables.</p>
 <div id="copying-output-from-r-update" class="section level3 hasAnchor" number="1.8.1">
 <h3><span class="header-section-number">1.8.1</span> Copying output from R [UPDATE]<a href="introduction-to-r-and-rstudio.html#copying-output-from-r-update" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -991,49 +672,49 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <div id="simple-bar-graph" class="section level4 hasAnchor" number="1.8.2.1">
 <h4><span class="header-section-number">1.8.2.1</span> Simple bar graph<a href="introduction-to-r-and-rstudio.html#simple-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For most of our bar graphs, we will be plotting frequencies, so we choose <strong>Graph of frequencies within categories</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r-and-rstudio.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert stage into a factpr</span></span>
-<span id="cb22-2"><a href="introduction-to-r-and-rstudio.html#cb22-2" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>stage <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>stage, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Stage 1&quot;</span>, <span class="st">&quot;Stage 2&quot;</span>, <span class="st">&quot;Stage 3&quot;</span>, <span class="st">&quot;Stage 4&quot;</span>))</span>
-<span id="cb22-3"><a href="introduction-to-r-and-rstudio.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="introduction-to-r-and-rstudio.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pbc<span class="sc">$</span>stage, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease from PBC study&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Number of participants&quot;</span>)</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r-and-rstudio.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert stage into a factpr</span></span>
+<span id="cb23-2"><a href="introduction-to-r-and-rstudio.html#cb23-2" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>stage <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>stage, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Stage 1&quot;</span>, <span class="st">&quot;Stage 2&quot;</span>, <span class="st">&quot;Stage 3&quot;</span>, <span class="st">&quot;Stage 4&quot;</span>))</span>
+<span id="cb23-3"><a href="introduction-to-r-and-rstudio.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="introduction-to-r-and-rstudio.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pbc<span class="sc">$</span>stage, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease from PBC study&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Number of participants&quot;</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 </div>
 </div>
 <div id="clustered-bar-graph" class="section level3 hasAnchor" number="1.8.3">
 <h3><span class="header-section-number">1.8.3</span> Clustered bar graph<a href="introduction-to-r-and-rstudio.html#clustered-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To create a clustered bar chart as shown in Figure 1.2:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r-and-rstudio.html#cb23-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">table</span>(pbc<span class="sc">$</span>sex, pbc<span class="sc">$</span>stage)</span>
-<span id="cb23-2"><a href="introduction-to-r-and-rstudio.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
-<span id="cb23-3"><a href="introduction-to-r-and-rstudio.html#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">TRUE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r-and-rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">table</span>(pbc<span class="sc">$</span>sex, pbc<span class="sc">$</span>stage)</span>
+<span id="cb24-2"><a href="introduction-to-r-and-rstudio.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
+<span id="cb24-3"><a href="introduction-to-r-and-rstudio.html#cb24-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">TRUE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 </div>
 <div id="stacked-bar-graph" class="section level3 hasAnchor" number="1.8.4">
 <h3><span class="header-section-number">1.8.4</span> Stacked bar graph<a href="introduction-to-r-and-rstudio.html#stacked-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To create a stacked bar chart shown in Figure 1.4, bring up the <strong>Bar chart</strong> dialog box, go to the <strong>Options</strong> tab and tick <strong>Stack bars on y variables</strong>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r-and-rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
-<span id="cb24-2"><a href="introduction-to-r-and-rstudio.html#cb24-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r-and-rstudio.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
+<span id="cb25-2"><a href="introduction-to-r-and-rstudio.html#cb25-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 </div>
 <div id="stacked-bar-graph-of-relative-frequencies" class="section level3 hasAnchor" number="1.8.5">
 <h3><span class="header-section-number">1.8.5</span> Stacked bar graph of relative frequencies<a href="introduction-to-r-and-rstudio.html#stacked-bar-graph-of-relative-frequencies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If one wants to compare the sex distribution across the stage categories, it would be convenient if all the bars have the same height (100%). To generate such a bar chart in Stata, tick <strong>Base bar heights on percentages</strong> in the <strong>Options</strong> tab of the <strong>Bar charts</strong> dialog box. Change the y-axis title in the <strong>Y axis</strong> tab to <code>Percentage of students in each age group</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r-and-rstudio.html#cb25-1" aria-hidden="true" tabindex="-1"></a>percent <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(counts, <span class="at">margin=</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb25-2"><a href="introduction-to-r-and-rstudio.html#cb25-2" aria-hidden="true" tabindex="-1"></a>percent</span>
-<span id="cb25-3"><a href="introduction-to-r-and-rstudio.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         </span></span>
-<span id="cb25-4"><a href="introduction-to-r-and-rstudio.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Stage 1   Stage 2   Stage 3   Stage 4</span></span>
-<span id="cb25-5"><a href="introduction-to-r-and-rstudio.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Male   14.285714  8.695652 10.322581 11.805556</span></span>
-<span id="cb25-6"><a href="introduction-to-r-and-rstudio.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Female 85.714286 91.304348 89.677419 88.194444</span></span>
-<span id="cb25-7"><a href="introduction-to-r-and-rstudio.html#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="introduction-to-r-and-rstudio.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent, <span class="at">main=</span><span class="st">&quot;Relative frequency of sex within stage of disease from PBC study&quot;</span>,</span>
-<span id="cb25-9"><a href="introduction-to-r-and-rstudio.html#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>))</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r-and-rstudio.html#cb26-1" aria-hidden="true" tabindex="-1"></a>percent <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(counts, <span class="at">margin=</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb26-2"><a href="introduction-to-r-and-rstudio.html#cb26-2" aria-hidden="true" tabindex="-1"></a>percent</span>
+<span id="cb26-3"><a href="introduction-to-r-and-rstudio.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         </span></span>
+<span id="cb26-4"><a href="introduction-to-r-and-rstudio.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Stage 1   Stage 2   Stage 3   Stage 4</span></span>
+<span id="cb26-5"><a href="introduction-to-r-and-rstudio.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Male   14.285714  8.695652 10.322581 11.805556</span></span>
+<span id="cb26-6"><a href="introduction-to-r-and-rstudio.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Female 85.714286 91.304348 89.677419 88.194444</span></span>
+<span id="cb26-7"><a href="introduction-to-r-and-rstudio.html#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="introduction-to-r-and-rstudio.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent, <span class="at">main=</span><span class="st">&quot;Relative frequency of sex within stage of disease from PBC study&quot;</span>,</span>
+<span id="cb26-9"><a href="introduction-to-r-and-rstudio.html#cb26-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>))</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 </div>
 <div id="creating-line-graphs" class="section level3 hasAnchor" number="1.8.6">
 <h3><span class="header-section-number">1.8.6</span> Creating line graphs<a href="introduction-to-r-and-rstudio.html#creating-line-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To demonstrate the graphing of aggregate data with Stata, we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered into Stata as <code>Example_1.2.dta</code>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r-and-rstudio.html#cb26-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_stata</span>(<span class="st">&quot;data/examples/Example_1.2.dta&quot;</span>)</span>
-<span id="cb26-2"><a href="introduction-to-r-and-rstudio.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(cancer)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r-and-rstudio.html#cb27-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_stata</span>(<span class="st">&quot;data/examples/Example_1.2.dta&quot;</span>)</span>
+<span id="cb27-2"><a href="introduction-to-r-and-rstudio.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(cancer)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-35">Table 1.3: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-37">Table 1.2: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -1167,23 +848,20 @@ This table is available in Table1.docx, saved on Moodle.</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r-and-rstudio.html#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-2"><a href="introduction-to-r-and-rstudio.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>)</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r-and-rstudio.html#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-2"><a href="introduction-to-r-and-rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Change scale</span></span>
-<span id="cb28-3"><a href="introduction-to-r-and-rstudio.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>))</span>
-<span id="cb28-4"><a href="introduction-to-r-and-rstudio.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="introduction-to-r-and-rstudio.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a second line</span></span>
-<span id="cb28-6"><a href="introduction-to-r-and-rstudio.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rdeaths, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb28-7"><a href="introduction-to-r-and-rstudio.html#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="introduction-to-r-and-rstudio.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend to the plot</span></span>
-<span id="cb28-9"><a href="introduction-to-r-and-rstudio.html#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&quot;Incidence&quot;</span>, <span class="st">&quot;Deaths&quot;</span>),</span>
-<span id="cb28-10"><a href="introduction-to-r-and-rstudio.html#cb28-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
-</div>
-<div id="line-graph" class="section level3 hasAnchor" number="1.8.7">
-<h3><span class="header-section-number">1.8.7</span> Line graph<a href="introduction-to-r-and-rstudio.html#line-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<span id="cb28-2"><a href="introduction-to-r-and-rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r-and-rstudio.html#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="introduction-to-r-and-rstudio.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Change scale</span></span>
+<span id="cb29-3"><a href="introduction-to-r-and-rstudio.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>))</span>
+<span id="cb29-4"><a href="introduction-to-r-and-rstudio.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="introduction-to-r-and-rstudio.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a second line</span></span>
+<span id="cb29-6"><a href="introduction-to-r-and-rstudio.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rdeaths, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb29-7"><a href="introduction-to-r-and-rstudio.html#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="introduction-to-r-and-rstudio.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend to the plot</span></span>
+<span id="cb29-9"><a href="introduction-to-r-and-rstudio.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&quot;Incidence&quot;</span>, <span class="st">&quot;Deaths&quot;</span>),</span>
+<span id="cb29-10"><a href="introduction-to-r-and-rstudio.html#cb29-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="01-IntroToR_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
 
 </div>
 </div>
@@ -1254,20 +932,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

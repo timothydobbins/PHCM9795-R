@@ -6,11 +6,11 @@ We will use data from `Example_4.1.dta` to demonstrate how a one-sample t-test i
 
 ```{r}
 library(haven)
-library(skimr)
+library(labelled)
 
-bloodpressure <- read_dta("data/examples/Example_4.1.dta")
+bloodpressure <- unlabelled(read_dta("data/examples/Example_4.1.dta"))
 
-skim(bloodpressure)
+summary(bloodpressure)
 ```
 
 To test whether the mean diastolic blood pressure of the population from which the sample was drawn is equal to 71, we can use the t.test command:

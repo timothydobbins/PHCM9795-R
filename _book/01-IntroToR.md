@@ -1,5 +1,15 @@
 # Introduction to R and RStudio
 
+INCLUDE:
+
+- decide on skim vs summary vs jmv::describe
+- case sensitive
+- how to get help (online, google, etc)
+- functions that use (data=, var=) vs functions that use an object (i.e. data$var)
+- how to specify a column from a dataframe
+- don't give up!
+- tidyverse?
+
 ## Learning outcomes  {-}
 
 By the end of this Module, you will be able to:
@@ -25,7 +35,8 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 
 ## Installing R and RSudio
 
-<img src="img/Rlogo.svg" width="80%" /><img src="img/RStudio-logo-flat.png" width="80%" />
+
+\includegraphics[width=0.8\linewidth]{img/Rlogo} \includegraphics[width=0.8\linewidth]{img/RStudio-logo-flat} 
 
 To install R on your computer:
 
@@ -36,7 +47,8 @@ To install R on your computer:
 **Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
 3. Open the R program. You should see a screen as below:
 
-<img src="img/R-screenshot.png" width="80%" />
+
+\includegraphics[width=0.8\linewidth]{img/R-screenshot} 
 
 Near the bottom of the R screen, you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
 
@@ -53,7 +65,8 @@ To install RStudio on your computer:
 3. Install RStudio by running the installer and following the installation instructions. The default settings are fine.
 4. Open RStudio, which will appear as below:
 
-<img src="img/RStudio-screenshot-01.png" width="100%" />
+
+\includegraphics[width=1\linewidth]{img/RStudio-screenshot-01} 
 
 Locate the command line symbol ">" at the bottom of the left-hand panel. Type `1 + 2` into the command line and hit enter, and you will see:
 
@@ -83,7 +96,8 @@ summary(age)
 
 Your screen should look something like:
 
-<img src="img/RStudio-screenshot-02.png" width="100%" />
+
+\includegraphics[width=1\linewidth]{img/RStudio-screenshot-02} 
 
 To run your script, choose **Code > Run Region > Run All**. You will see your code appear in the bottom-right window, with the following output:
 
@@ -106,7 +120,8 @@ We will explain the key parts of this script later, but for now, you have entere
 
 Now that we have seen a simple example of how to use R within RStudio, let's describe the RStudio environment. Let's assume that you have opened a new script editor, and you have four windows as below:
 
-<img src="img/RStudio-screenshot-03.png" width="100%" />
+
+\includegraphics[width=1\linewidth]{img/RStudio-screenshot-03} 
 
 The **Source** window is where you will write and edit your R scripts. The R script can be saved by clicking on File -> Save As or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example name_of_script.R. Give it a meaningful title and remember to periodically save as you go.
 
@@ -171,17 +186,20 @@ If objects are the nouns of R, functions are the verbs. Essentially, functions t
 
 R functions are specified by their arguments (or inputs). The arguments that can be supplied for each function can be inspected by examining the help notes for that function. To obtain help for a function, we can submit `help(summary)` (or equivalently `?summary()`) in the console, or we can use the **help** tab in the bottom-right window of RStudio. For example, the first part of the help notes for `summary` appear as:
 
-<img src="img/help-1.png" width="80%" />
+
+\includegraphics[width=0.8\linewidth]{img/help-1} 
 
 The help notes in R can be quite cryptic, but **Usage** section details what values should be provided for the function to run. Here, `summary` requires an object to be specified. In our case, we specified `age`, which is our object defined as the vector of six ages.
 
 Most help pages also include some examples of how you might use the function. These can be found at the very bottom of the help page.
 
-<img src="img/help-2.png" width="80%" />
+
+\includegraphics[width=0.8\linewidth]{img/help-2} 
 
 The `summary` function is quite simple, in that it only requires one input, the object to be summarised. More complex functions might require a number of inputs. For example, the help notes for the `descriptives()` function in the `jmv` package show a large number of inputs can be specified:
 
-<img src="img/help-3.png" width="80%" />
+
+\includegraphics[width=0.8\linewidth]{img/help-3} 
 
 There are two things to note here. First, notice that the first two inputs are listed with no = symbol, but all other inputs are listed with = symbols (with values provided after the = symbol). This means that everything apart from `data` and `vars` have **default** values. We are free to not include values for these inputs if we are happy with the defaults provided. For example, by default the variance is not calculated (as `variance = FALSE`). To obtain the variance as well as the standard deviation, we can change this default to `variance = TRUE`:
 
@@ -233,7 +251,8 @@ Note the use of the quotation marks.
 
 Alternatively, RStudio offers a graphical way of installing packages that can be accessed via **Tools > Install Packages**, or via the **Install** button at the top of the **Packages** tab in the bottom-right window. You can begin typing the name of the package in the dialog box that appears, and RStudio will use predictive text to offer possible packages:
 
-<img src="img/install-packages.png" width="60%" />
+
+\includegraphics[width=0.6\linewidth]{img/install-packages} 
 
 While writing code is usually the recommended way to use R, installing packages is an exception. Using the graphical interface is perfectly fine, because you only need to install a package once.
 
@@ -252,37 +271,141 @@ Note that quotation marks are not required for the `library()` function (althoug
 
 In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from @therneau_grambsch10, Modeling Survival Data: Extending the Cox Model. By the end of this exercise, we will have completed the following table.
 
-<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 95%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-18">
-<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-18) Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)</caption><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: bold;">Characteristic</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;"> </th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: bold;">Summary</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Age (years)</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
-<tr>
-<td rowspan="2" style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Sex</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Male</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Female</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">AST* (U/ml)</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Serum bilirubin</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
-<tr>
-<td rowspan="4" style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Stage</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">I</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">II</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">III</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">IIIV</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td rowspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Vital status at study end</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alive: no transplant</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alive: transplant</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Deceased</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: normal;">n (%)</td></tr>
-<tr>
-<td colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">* asparate aminotransferase</td></tr>
-</table>
-<!--/html_preserve-->
+
+```{=latex}
+ 
+  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
+  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
+  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
+  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
+
+\begin{table}[ht]
+\begin{centerbox}
+\begin{threeparttable}
+\captionsetup{justification=centering,singlelinecheck=off}
+\caption{(\#tab:unnamed-chunk-18) Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)}
+ \setlength{\tabcolsep}{0pt}
+\begin{tabularx}{0.95\textwidth}{p{0.316666666666667\textwidth} p{0.316666666666667\textwidth} p{0.316666666666667\textwidth}}
+
+
+\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright \textbf{Characteristic}\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright \textbf{ }\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright \textbf{Summary}\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright Age (years)\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright \huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright Mean (SD) or Median [IQR]\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright Male\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\multirow[t]{-2}{*}[0ex]{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright Sex\huxbpad{6pt}}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright Female\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright AST* (U/ml)\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright \huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright Mean (SD) or Median [IQR]\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright Serum bilirubin\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright \huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright Mean (SD) or Median [IQR]\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright I\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright II\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright III\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\multirow[t]{-4}{*}[0ex]{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright Stage\huxbpad{6pt}}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright IIIV\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright Alive: no transplant\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright Alive: transplant\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{0}}p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\multirow[t]{-3}{*}[0ex]{\hspace{0pt}\parbox[b]{0.316666666666667\textwidth-0pt-6pt}{\huxtpad{6pt + 1em}\raggedright Vital status at study end\huxbpad{6pt}}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright Deceased\huxbpad{6pt}}} &
+\multicolumn{1}{p{0.316666666666667\textwidth}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.316666666666667\textwidth-6pt-0pt}{\huxtpad{6pt + 1em}\raggedright n (\%)\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{0, 0, 0}{0.8}}->{\huxb{0, 0, 0}{0.8}}->{\huxb{0, 0, 0}{0.8}}-}
+\arrayrulecolor{black}
+
+\multicolumn{3}{!{\huxvb{0, 0, 0}{0}}p{0.95\textwidth+4\tabcolsep}!{\huxvb{0, 0, 0}{0}}}{\hspace{6pt}\parbox[b]{0.95\textwidth+4\tabcolsep-6pt-6pt}{\huxtpad{6pt + 1em}\raggedright * asparate aminotransferase\huxbpad{6pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{}
+\arrayrulecolor{black}
+\end{tabularx}
+\end{threeparttable}\par\end{centerbox}
+
+\end{table}
+ 
+```
 This table is available in Table1.docx, saved on Moodle.
 
 ### Opening a data file
@@ -317,7 +440,15 @@ pbc <- read_dta("data/examples/pbc.dta")
 pbc <- unlabelled(pbc)
 ```
 
-5 - We can now use the `summary()` function or the `skim()` function to examine the pbc dataset.
+Note that we can combine the `unlabelled()` and `read_dta()` functions together, to complete this process in one line:
+
+
+```r
+pbc <- unlabelled(read_dta("data/examples/pbc.dta"))
+```
+
+
+5 - We can now use the `summary()` function to examine the pbc dataset.
 
 
 ```r
@@ -378,52 +509,22 @@ summary(pbc)
 #>  3rd Qu.:11.10   3rd Qu.:4.000  
 #>  Max.   :18.00   Max.   :4.000  
 #>  NA's   :2       NA's   :6
+```
+
+An alternative to the `summary()` function is the `skim()` function in the `skimr` package, which produces summary statistics as well as rudimentary histograms:
+
+
+```r
 skim(pbc)
 ```
 
 
-Table: (\#tab:unnamed-chunk-22)Data summary
+\includegraphics[width=0.9\linewidth]{img/skim-pbc} 
 
-|                         |     |
-|:------------------------|:----|
-|Name                     |pbc  |
-|Number of rows           |418  |
-|Number of columns        |20   |
-|_______________________  |     |
-|Column type frequency:   |     |
-|numeric                  |20   |
-|________________________ |     |
-|Group variables          |None |
-
-
-**Variable type: numeric**
-
-|skim_variable | n_missing| complete_rate|    mean|      sd|     p0|     p25|     p50|     p75|     p100|hist  |
-|:-------------|---------:|-------------:|-------:|-------:|------:|-------:|-------:|-------:|--------:|:-----|
-|id            |         0|          1.00|  209.50|  120.81|   1.00|  105.25|  209.50|  313.75|   418.00|▇▇▇▇▇ |
-|time          |         0|          1.00| 1917.78| 1104.67|  41.00| 1092.75| 1730.00| 2613.50|  4795.00|▅▇▆▃▂ |
-|status        |         0|          1.00|    0.83|    0.96|   0.00|    0.00|    0.00|    2.00|     2.00|▇▁▁▁▆ |
-|trt           |       106|          0.75|    1.49|    0.50|   1.00|    1.00|    1.00|    2.00|     2.00|▇▁▁▁▇ |
-|age           |         0|          1.00|   50.74|   10.45|  26.28|   42.83|   51.00|   58.24|    78.44|▂▆▇▅▁ |
-|sex           |         0|          1.00|    1.89|    0.31|   1.00|    2.00|    2.00|    2.00|     2.00|▁▁▁▁▇ |
-|ascites       |       106|          0.75|    0.08|    0.27|   0.00|    0.00|    0.00|    0.00|     1.00|▇▁▁▁▁ |
-|hepato        |       106|          0.75|    0.51|    0.50|   0.00|    0.00|    1.00|    1.00|     1.00|▇▁▁▁▇ |
-|spiders       |       106|          0.75|    0.29|    0.45|   0.00|    0.00|    0.00|    1.00|     1.00|▇▁▁▁▃ |
-|edema         |         0|          1.00|    0.10|    0.25|   0.00|    0.00|    0.00|    0.00|     1.00|▇▁▁▁▁ |
-|bili          |         0|          1.00|    3.22|    4.41|   0.30|    0.80|    1.40|    3.40|    28.00|▇▁▁▁▁ |
-|chol          |       134|          0.68|  369.51|  231.94| 120.00|  249.50|  309.50|  400.00|  1775.00|▇▁▁▁▁ |
-|albumin       |         0|          1.00|    3.50|    0.42|   1.96|    3.24|    3.53|    3.77|     4.64|▁▂▇▇▁ |
-|copper        |       108|          0.74|   97.65|   85.61|   4.00|   41.25|   73.00|  123.00|   588.00|▇▂▁▁▁ |
-|alkphos       |       106|          0.75| 1982.66| 2140.39| 289.00|  871.50| 1259.00| 1980.00| 13862.40|▇▁▁▁▁ |
-|ast           |       106|          0.75|  122.56|   56.70|  26.35|   80.60|  114.70|  151.90|   457.25|▇▇▁▁▁ |
-|trig          |       136|          0.67|  124.70|   65.15|  33.00|   84.25|  108.00|  151.00|   598.00|▇▂▁▁▁ |
-|platelet      |        11|          0.97|  257.02|   98.33|  62.00|  188.50|  251.00|  318.00|   721.00|▅▇▃▁▁ |
-|protime       |         2|          1.00|   10.73|    1.02|   9.00|   10.00|   10.60|   11.10|    18.00|▇▅▁▁▁ |
-|stage         |         6|          0.99|    3.02|    0.88|   1.00|    2.00|    3.00|    4.00|     4.00|▁▅▁▇▇ |
 
 ### Summarising continuous variables
 
-One of the most flexible functions for summarising continuous variables is the `descriptives` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
+One of the most flexible functions for summarising continuous variables is the `descriptives()` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
 
 - `data` specifies the dataframe to be analysed
 - `vars` specifies the variable(s) of interest, with multiple variables combined using the `c()` function
@@ -486,7 +587,7 @@ We can use the `hist()` function to produce a histogram, specifying the datafram
 hist(pbc$age)
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
 
 The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=` and `main=` to assign labels for the x-axis and overall title respectively:
 
@@ -495,7 +596,7 @@ The histogram function does a remakarbly good job of choosing cutpoints and binw
 hist(pbc$age, xlab="Age (years)", main="Histogram of participant age from pbc study data")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-29-1.pdf)<!-- --> 
 
 ### Producing a boxplot
 
@@ -506,7 +607,7 @@ The `boxplot` function is used to produce boxplots, again specifying the datafra
 boxplot(pbc$age, xlab="Age (years)", main="Boxplot of participant age from pbc study data")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
 
 ### Producing a one-way frequency table
 
@@ -537,7 +638,7 @@ freq(pbc$sex)
 #>       Total    418    100.00         100.00    100.00         100.00
 ```
 
-## Defning categorical variables as factors
+## Defining categorical variables as factors
 
 You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a **factor** using the `factor` function:
 
@@ -601,7 +702,7 @@ pbc$stage <- factor(pbc$stage, levels=c(1,2,3,4), labels=c("Stage 1", "Stage 2",
 plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-34-1.pdf)<!-- --> 
 
 ### Clustered bar graph
 
@@ -614,7 +715,7 @@ barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
         legend = rownames(counts), beside=TRUE, args.legend = list(x = "topleft"))
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-35-1.pdf)<!-- --> 
 
 
 ### Stacked bar graph
@@ -626,7 +727,7 @@ barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
         legend = rownames(counts), beside=FALSE, args.legend = list(x = "topleft"))
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-33-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-36-1.pdf)<!-- --> 
 
 ### Stacked bar graph of relative frequencies
 
@@ -645,7 +746,7 @@ barplot(percent, main="Relative frequency of sex within stage of disease from PB
         legend = rownames(counts), beside=FALSE, args.legend = list(x = "topright"))
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-37-1.pdf)<!-- --> 
 
 
 ### Creating line graphs
@@ -654,40 +755,26 @@ To demonstrate the graphing of aggregate data with Stata, we use the data on new
 
 ```r
 cancer <- read_stata("data/examples/Example_1.2.dta")
-skim(cancer)
-```
-
-
-Table: (\#tab:unnamed-chunk-35)Data summary
-
-|                         |       |
-|:------------------------|:------|
-|Name                     |cancer |
-|Number of rows           |20     |
-|Number of columns        |5      |
-|_______________________  |       |
-|Column type frequency:   |       |
-|numeric                  |5      |
-|________________________ |       |
-|Group variables          |None   |
-
-
-**Variable type: numeric**
-
-|skim_variable | n_missing| complete_rate|    mean|      sd|     p0|     p25|     p50|     p75|   p100|hist  |
-|:-------------|---------:|-------------:|-------:|-------:|------:|-------:|-------:|-------:|------:|:-----|
-|year          |         0|             1| 1996.50|    5.92| 1987.0| 1991.75| 1996.50| 2001.25| 2006.0|▇▇▇▇▇ |
-|ncases        |         0|             1| 3719.35| 1338.61| 1567.0| 2804.50| 3789.50| 4402.75| 6158.0|▅▁▇▂▂ |
-|ndeaths       |         0|             1|  854.95|  105.60|  645.0|  788.25|  868.00|  921.00| 1044.0|▂▅▇▇▃ |
-|rcases        |         0|             1|  135.44|   31.34|   81.8|  121.92|  131.30|  164.20|  186.9|▃▁▇▂▅ |
-|rdeaths       |         0|             1|   37.09|    3.82|   31.1|   34.67|   36.55|   40.38|   43.8|▆▇▅▇▅ |
-
-```r
+summary(cancer)
+#>       year          ncases        ndeaths      
+#>  Min.   :1987   Min.   :1567   Min.   : 645.0  
+#>  1st Qu.:1992   1st Qu.:2804   1st Qu.: 788.2  
+#>  Median :1996   Median :3790   Median : 868.0  
+#>  Mean   :1996   Mean   :3719   Mean   : 855.0  
+#>  3rd Qu.:2001   3rd Qu.:4403   3rd Qu.: 921.0  
+#>  Max.   :2006   Max.   :6158   Max.   :1044.0  
+#>      rcases         rdeaths     
+#>  Min.   : 81.8   Min.   :31.10  
+#>  1st Qu.:121.9   1st Qu.:34.67  
+#>  Median :131.3   Median :36.55  
+#>  Mean   :135.4   Mean   :37.09  
+#>  3rd Qu.:164.2   3rd Qu.:40.38  
+#>  Max.   :186.9   Max.   :43.80
 
 plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+![](01-IntroToR_files/figure-latex/unnamed-chunk-38-1.pdf)<!-- --> 
 
 ```r
 
@@ -702,8 +789,5 @@ legend("topleft", legend=c("Incidence", "Deaths"),
        col=c("red", "blue"), lty = 1:2)
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-35-2.png" width="672" />
-
-
-### Line graph
+![](01-IntroToR_files/figure-latex/unnamed-chunk-38-2.pdf)<!-- --> 
 

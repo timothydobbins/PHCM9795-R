@@ -2,11 +2,13 @@
 
 INCLUDE:
 
+- decide on skim vs summary vs jmv::describe
 - case sensitive
 - how to get help (online, google, etc)
 - functions that use (data=, var=) vs functions that use an object (i.e. data$var)
 - how to specify a column from a dataframe
 - don't give up!
+- tidyverse?
 
 ## Learning outcomes  {-}
 
@@ -34,7 +36,7 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 ## Installing R and RSudio
 
 ```{r echo=FALSE, figures-side, fig.show="hold", out.width="80%"}
-knitr::include_graphics("img/Rlogo.svg")
+knitr::include_graphics("img/Rlogo.png")
 knitr::include_graphics("img/RStudio-logo-flat.png")
 ```
 
@@ -327,16 +329,33 @@ pbc <- read_dta("data/examples/pbc.dta")
 pbc <- unlabelled(pbc)
 ```
 
-5 - We can now use the `summary()` function or the `skim()` function to examine the pbc dataset.
+Note that we can combine the `unlabelled()` and `read_dta()` functions together, to complete this process in one line:
+
+```{r, eval=FALSE}
+pbc <- unlabelled(read_dta("data/examples/pbc.dta"))
+```
+
+
+5 - We can now use the `summary()` function to examine the pbc dataset.
 
 ```{r}
 summary(pbc)
+```
+
+An alternative to the `summary()` function is the `skim()` function in the `skimr` package, which produces summary statistics as well as rudimentary histograms:
+
+```{r, eval=FALSE}
 skim(pbc)
 ```
 
+```{r echo=FALSE, fig.show="hold", out.width="90%"}
+knitr::include_graphics("img/skim-pbc.png")
+```
+
+
 ### Summarising continuous variables
 
-One of the most flexible functions for summarising continuous variables is the `descriptives` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
+One of the most flexible functions for summarising continuous variables is the `descriptives()` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
 
 - `data` specifies the dataframe to be analysed
 - `vars` specifies the variable(s) of interest, with multiple variables combined using the `c()` function
@@ -387,7 +406,7 @@ library(summarytools)
 freq(pbc$sex)
 ```
 
-## Defning categorical variables as factors
+## Defining categorical variables as factors
 
 You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a **factor** using the `factor` function:
 
@@ -476,7 +495,7 @@ To demonstrate the graphing of aggregate data with Stata, we use the data on new
 
 ```{r}
 cancer <- read_stata("data/examples/Example_1.2.dta")
-skim(cancer)
+summary(cancer)
 
 plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
 
@@ -491,7 +510,4 @@ legend("topleft", legend=c("Incidence", "Deaths"),
        col=c("red", "blue"), lty = 1:2)
 
 ```
-
-
-### Line graph
 

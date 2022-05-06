@@ -7,14 +7,12 @@ To demonstrate the computation of the 95% confidence interval of a mean we have 
 
 ```{r}
 library(haven)
-library(skimr)
 library(labelled)
 library(jmv)
 
-students <- read_dta("data/examples/Example_1.3.dta") %>% 
-  unlabelled()
+students <- unlabelled(read_dta("data/examples/Example_1.3.dta"))
 
-skim(students)
+summary(students)
 ```
 
 The mean and its 95% confidence interval can be obtained many ways in R. One way is to use the `descriptives` function in the `jmv` package. By default, `descriptives` does not provide a confidence interval, but we can request it by specifying `ci=TRUE`:
