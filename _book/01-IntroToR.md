@@ -15,7 +15,7 @@ By the end of this Module, you will be able to:
 
 ## Introduction
 
-"R is a language and environment for statistical computing and graphics." [ref to https://www.r-project.org/about.html]. It is an open-source programming language, used mainly for statistics. It is increasingly used in health research, as well as in other fields such as econometrics and social science. The aim of these notes is to introduce the R language within the RStudio environment, and to introduce the commands and procedures that are directly relevant to this course. There is so much more to R than we can cover in these notes. Relevant information will be provided throughout the course, and we will provide further references that you can explore if you are interested.
+"R is a language and environment for statistical computing and graphics." [https://www.r-project.org/about.html]. It is an open-source programming language, used mainly for statistics. It is increasingly used in health research, as well as in other fields such as econometrics and social science. The aim of these notes is to introduce the R language within the RStudio environment, and to introduce the commands and procedures that are directly relevant to this course. There is so much more to R than we can cover in these notes. Relevant information will be provided throughout the course, and we will provide further references that you can explore if you are interested.
 
 ## R vs RStudio
 
@@ -25,62 +25,51 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 
 ## Installing R and RSudio
 
-
-```r
-par(mar = c(4, 4, .1, .1))
-knitr::include_graphics(here::here("img", "Rlogo.svg"))
-#> Warning in knitr::include_graphics(here::here("img",
-#> "Rlogo.svg")): It is highly recommended to use relative
-#> paths for images. You had absolute paths: "/Users/td/
-#> Documents/GithubRepos/PHCM9795-R/img/Rlogo.svg"
-knitr::include_graphics(here::here("img", "RStudio-logo-flat.png"))
-#> Warning in knitr::include_graphics(here::here("img",
-#> "RStudio-logo-flat.png")): It is highly recommended to
-#> use relative paths for images. You had absolute paths: "/
-#> Users/td/Documents/GithubRepos/PHCM9795-R/img/RStudio-logo-
-#> flat.png"
-```
-
-<img src="/Users/td/Documents/GithubRepos/PHCM9795-R/img/Rlogo.svg" width="80%" /><img src="/Users/td/Documents/GithubRepos/PHCM9795-R/img/RStudio-logo-flat.png" width="80%" />
+<img src="img/Rlogo.svg" width="80%" /><img src="img/RStudio-logo-flat.png" width="80%" />
 
 To install R on your computer:
 
 1. Download the R installer:
     a. for Windows:
     b. for MacOS:
-2. Install R by running the installer and following the installation instructions. Note, the default settings are fine.
+2. Install R by running the installer and following the installation instructions. The default settings are fine.
+**Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
 3. Open the R program. You should see a screen as below:
 
-**Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
+<img src="img/R-screenshot.png" width="80%" />
 
-At the end of the text you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
+Near the bottom of the R screen, you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
 
-`## [1] 3`
+`[1] 3`
 
-At this point, close R - we will not interact with R like this in the future.
+This is R performing your calculation, with the `[1]` indicating that the solution to `1 + 2` is a vector of size 1. We will talk about vectors later.
+
+At this point, close R - we will not interact with R like this in the future. [HOW TO CLOSE R]
 
 To install RStudio on your computer:
 
 1. Make sure you have already installed R, and verified that it is working.
 2. Download the RStudio desktop installer at: https://www.rstudio.com/products/rstudio/download. Ensure that you select the RStudio Desktop (Free) installer in the first column.
-3. Install RStudio by running the installer and following the installation instructions. Note, the default settings are fine.
+3. Install RStudio by running the installer and following the installation instructions. The default settings are fine.
 4. Open RStudio, which will appear as below:
+
+<img src="img/RStudio-screenshot-01.png" width="100%" />
 
 Locate the command line symbol ">" at the bottom of the left-hand panel. Type `1 + 2` into the command line and hit enter, and you will see:
 
-`## [1] 3`
+`[1] 3`
 
 This confirms that RStudio is running correctly, and calling the R language to correctly calculate the sum between 1 and 2!
 
 RStudio currently comprises three window panes, and we will discuss these later.
 
-## A simple R analysis
+## A simple R analysis {#simpleR}
 
 In this very brief section, we will introduce R by calculating the average of six ages.
 
 To begin, open a new R Script by choosing **File > New file > R Script **. A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the **New File** button at the top of the RStudio window.
 
-You should now see four window panes, as below. In the top-left window, type the following (replacing my name with yours, and including today's date:
+You should now see four window panes, as below. In the top-left window, type the following (replacing my name with yours, and including today's date):
 
 
 ```r
@@ -91,6 +80,10 @@ You should now see four window panes, as below. In the top-left window, type the
 age <- c(20, 25, 23, 29, 21, 27)
 summary(age)
 ```
+
+Your screen should look something like:
+
+<img src="img/RStudio-screenshot-02.png" width="100%" />
 
 To run your script, choose **Code > Run Region > Run All**. You will see your code appear in the bottom-right window, with the following output:
 
@@ -111,13 +104,15 @@ We will explain the key parts of this script later, but for now, you have entere
 
 ## The RStudio environment
 
-Now that we have seen a simple example of how to use R within RStudio, let's describe the RStudio environment. Let's assume that you have opened a new script editor, and you have four windows as below.
+Now that we have seen a simple example of how to use R within RStudio, let's describe the RStudio environment. Let's assume that you have opened a new script editor, and you have four windows as below:
 
-The **Script** window is where you will write and edit your R scripts. The R script can be saved by clicking on File -> Save As or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example name_of_script.R. Give it a meaningful title and remember to periodically save as you go.
+<img src="img/RStudio-screenshot-03.png" width="100%" />
+
+The **Source** window is where you will write and edit your R scripts. The R script can be saved by clicking on File -> Save As or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example name_of_script.R. Give it a meaningful title and remember to periodically save as you go.
 
 In RStudio, the name of the script will be black when it has been saved, and will change to red if you have any unsaved changes.
 
-The **Console** window, at the bottom right, contains the command line which is indicated with the symbol >. You can type commands here, but anything executed directly from the console is not saved and therefore is lost when the session ends (when you exit RStudio). You should always run your commands from a script file which you can save and use again later. When you run commands from a script, the output and any notes/errors are shown in the console. The Terminal and Jobs tabs will not be used in this course.
+The **Console** window, at the bottom left, contains the command line which is indicated with the symbol >. You can type commands here, but anything executed directly from the console is not saved and therefore is lost when the session ends (when you exit RStudio). You should always run your commands from a script file which you can save and use again later. When you run commands from a script, the output and any notes/errors are shown in the console. The Terminal and Jobs tabs will not be used in this course.
 
 The **Environment** window at the top-right shows a list of objects that have been created during your session. When you close your RStudio session these objects will disappear. We will not use the History or Connections tabs in this course.
 
@@ -125,41 +120,140 @@ The bottom right corner contains some useful tabs, in particular the **Help** ta
 
 ## Some R basics
 
-### Data types
-- vectors
-- data frames
-- [matrix, list]
+While we use R as a statistics package, R is a programming language. In order to use R effectively, we need to define some basics.
 
 ### Objects
 
-Assigning
+If you do some reading about R, you may learn that R is an "object-oriented programming language". When we enter or import data into R, we are asking R to create **objects** from our data. These objects can be manipulated and transformed by **functions**, to obtain useful insights from our data.
+
+Objects in R are created using the **assignment operator**. The most common form of the assignment operator looks like an arrow: `<-` and is typed as the `<` and `-` symbols. The simplest way of reading `<-` is as the words "is defined as". Note that it possible to use `->` and even `=` as assignment operators, but their use is less frequent.
+
+Let's see an example:
+
+
+```r
+x <- 42
+```
+
+This command creates a new object called `x`, which is defined as the number 42 (or in words, "`x` is defined as 42"). Running this command gives no output in the console, but the new object appears in the top-right **Environment** panel. We can view the object in the console by typing its name:
+
+
+```r
+# Print the object x
+x
+#> [1] 42
+```
+
+Now we see the contents of `x` in the console.
+
+This example is rather trivial, and we rarely assign objects of just one value. We'll see a more realistic example soon.
+
+### Data structures
+
+There are two main data structures we will use in the course: **vectors** and **data frames**. A **vector** is a combination of data values, all of the same type. For example, our six ages that we entered earlier is a vector. You could think of a vector as a column of data (even though R prints vectors as rows!) And technically, even an object with only one value is a vector, a vector of size 1.
+
+The easiest way of creating a vector in R is by using the `c()` function, where c stands for 'combine'. In our previous Simple Analysis in R (Section \@ref(simpleR)), we wrote the command:
+
+
+```r
+age <- c(20, 25, 23, 29, 21, 27)
+```
+
+This command created a new object called `age`, and *combined* the six values of age into one vector.
+
+Just as having a vector of size 1 is unusual, having just one column of data to analyse is also pretty unusual. The other structure we will describe here is a **data frame** which is essentially a collection of vectors, each of the same size. You could think of a data frame as being like a spreadsheet, with columns representing variables, and rows representing observations.
+
+There are other structures in R, such as matrices and lists, which we won't discuss in this course.
 
 ### Functions
 
+If objects are the nouns of R, functions are the verbs. Essentially, functions transform objects. Functions can transform your data into summary statistics, graphical summaries or analysis results. For example, we used the `summary()` function to display summary statistics for our six ages.
+
+R functions are specified by their arguments (or inputs). The arguments that can be supplied for each function can be inspected by examining the help notes for that function. To obtain help for a function, we can submit `help(summary)` (or equivalently `?summary()`) in the console, or we can use the **help** tab in the bottom-right window of RStudio. For example, the first part of the help notes for `summary` appear as:
+
+<img src="img/help-1.png" width="80%" />
+
+The help notes in R can be quite cryptic, but **Usage** section details what values should be provided for the function to run. Here, `summary` requires an object to be specified. In our case, we specified `age`, which is our object defined as the vector of six ages.
+
+Most help pages also include some examples of how you might use the function. These can be found at the very bottom of the help page.
+
+<img src="img/help-2.png" width="80%" />
+
+The `summary` function is quite simple, in that it only requires one input, the object to be summarised. More complex functions might require a number of inputs. For example, the help notes for the `descriptives()` function in the `jmv` package show a large number of inputs can be specified:
+
+<img src="img/help-3.png" width="80%" />
+
+There are two things to note here. First, notice that the first two inputs are listed with no = symbol, but all other inputs are listed with = symbols (with values provided after the = symbol). This means that everything apart from `data` and `vars` have **default** values. We are free to not include values for these inputs if we are happy with the defaults provided. For example, by default the variance is not calculated (as `variance = FALSE`). To obtain the variance as well as the standard deviation, we can change this default to `variance = TRUE`:
+
+
+```r
+# Only the standard deviation is provided as the measure of variability
+descriptives(data=pbc, vars=age)
+
+# Additionally request the variance to be calculated
+descriptives(data=pbc, vars=age, variance=TRUE)
+```
+
+Second, for functions with multiple inputs, we can specify the input name and its value, or we can specify the inputs **in the order listed in the Usage section**. So the following are equivalent:
+
+
+```r
+# We can specify that the dataset to be summarised is pbc,
+#   and the variable to summarise is age:
+descriptives(data=pbc, vars=age)
+
+# We can omit the input name, as long as we keep the inputs in the correct order - 
+#   that is, dataset first, variable second:
+descriptives(pbc, age)
+
+# We can change the order of the inputs, as long as we specify the input name:
+descriptives(vars=age, data=pbc)
+```
+
+In this course, we will usually provide all the input names, even when they are not required.
+
 ### Packages
 
-### Many ways to do one thing - embrace inconsistency
+A **package** is a collection of functions, documentation (and sometimes datasets) that extend the capabilities of R. Packages have been written by R users to be freely distributed and used by others. R packages can be obtained from many sources, but the most common source is CRAN: the Comprehensive R Archive Network.
+
+A useful way of thinking about R is that R is like a smartphone, with packages being like apps which are downloaded from CRAN (similar to an app-store). When you first install R, it comes with a basic set of packages (apps) installed. You can do a lot of things with these basic packages, but sometimes you might want to do things differently (you might prefer Firefox as your browser), or you may want to perform some analyses that can't be done using the default packages. In these cases, you can install a package.
+
+Like installing an app on a smartphone, you only need to _install_ a package once. But each time you want to use the package, you need to _load_ the package into R. This is similar to running the app on your phone. The analogy falls down a bit in that we usually load more than one package in an R script - but we only load the packages we need for that R session.
+
+### How to install a package
+
+There are a couple of ways to install a package. You can use the `install.packages()` function if you know the exact name of the package. Let's use an example of installing the `skimr` package, which gives a very nice, high-level overview of any data frame. We can install `skimr` by typing the following into the console:
+
+
+```r
+install.packages("skimr")
+```
+
+Note the use of the quotation marks.
+
+Alternatively, RStudio offers a graphical way of installing packages that can be accessed via **Tools > Install Packages**, or via the **Install** button at the top of the **Packages** tab in the bottom-right window. You can begin typing the name of the package in the dialog box that appears, and RStudio will use predictive text to offer possible packages:
+
+<img src="img/install-packages.png" width="60%" />
+
+While writing code is usually the recommended way to use R, installing packages is an exception. Using the graphical interface is perfectly fine, because you only need to install a package once.
+
+### How to load a package
+
+When you begin a new session in RStudio, i.e. when you open RStudio, only certain core packages are automatically loaded. You can use the `library()` function to load a package that you has previously been installed. For example, now that we have installed `skimr`, we need to load it before we can use it:
+
+
+```r
+library(skimr)
+```
+
+Note that quotation marks are not required for the `library()` function (although they can be included if you really like quotation marks!). 
 
 ## Part 2: Obtaining basic descriptive statistics
 
 In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from @therneau_grambsch10, Modeling Survival Data: Extending the Cox Model. By the end of this exercise, we will have completed the following table.
 
-
-```
-#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.8
-#> ✓ tidyr   1.2.0     ✓ stringr 1.4.0
-#> ✓ readr   2.1.2     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
-#> x dplyr::add_rownames() masks huxtable::add_rownames()
-#> x dplyr::filter()       masks stats::filter()
-#> x dplyr::lag()          masks stats::lag()
-#> x ggplot2::theme_grey() masks huxtable::theme_grey()
-```
-
-<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 95%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
-<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-3) Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)</caption><col><col><col><tr>
+<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 95%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-18">
+<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-18) Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)</caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: bold;">Characteristic</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;"> </th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: bold;">Summary</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: normal;">Age (years)</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: normal;">Mean (SD) or Median [IQR]</td></tr>
@@ -193,15 +287,19 @@ This table is available in Table1.docx, saved on Moodle.
 
 ### Opening a data file
 
-Typing data directly into R is not common; we usually open data that have been saved as a Stata data file, or import data that have been entered into another package. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix).
+Typing data directly into R is not common; we usually open data that have been previously saved. There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):
 
-Step 1: Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt
+1 - If necessary, install the `haven` and `readxl` packages. As mentioned earlier, packages only need to be installed if they have not been installed earlier.
 
-Step 2: In Stata, choose File ▶︎ Open. Browse to where you stored the dataset and click Open.
 
-Step 3: You may get an error: "Data in memory have changed". This means that you have not saved a copy of your current data, and by importing a new dataset, your changes will be lost. As Stata can only open one set of data at a time, you can choose to: Save your current data, Don't Save your current data, or Cancel. We don't need to save the data from our simple analysis (the six ages), so we can choose Don't Save.
+```r
+install.packages("haven")
+install.packages("readxl")
+```
 
-After opening the data successfully, there will be 418 rows of data, and 20 variables. Examine the pbc_info.txt file for a description of each variable.
+2 - Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt. Locate the file and filepath of pbc.dta.
+
+3 - In R, use the `read_dta()` function to read the Stata data into new object called `pbc`. Remember that we need to load the `haven` and `labelled` packages into R:
 
 
 ```r
@@ -209,14 +307,82 @@ library(haven)
 library(labelled)
 library(skimr)
 
-pbc <- read_dta("data/examples/pbc.dta") %>% 
-  unlabelled()
+pbc <- read_dta("data/examples/pbc.dta")
+```
 
+4 - We now re-assign the pbc object by using the `unlabelled()` function from the `labelled` package:
+
+
+```r
+pbc <- unlabelled(pbc)
+```
+
+5 - We can now use the `summary()` function or the `skim()` function to examine the pbc dataset.
+
+
+```r
+summary(pbc)
+#>        id             time          status      
+#>  Min.   :  1.0   Min.   :  41   Min.   :0.0000  
+#>  1st Qu.:105.2   1st Qu.:1093   1st Qu.:0.0000  
+#>  Median :209.5   Median :1730   Median :0.0000  
+#>  Mean   :209.5   Mean   :1918   Mean   :0.8301  
+#>  3rd Qu.:313.8   3rd Qu.:2614   3rd Qu.:2.0000  
+#>  Max.   :418.0   Max.   :4795   Max.   :2.0000  
+#>                                                 
+#>       trt             age             sex       
+#>  Min.   :1.000   Min.   :26.28   Min.   :1.000  
+#>  1st Qu.:1.000   1st Qu.:42.83   1st Qu.:2.000  
+#>  Median :1.000   Median :51.00   Median :2.000  
+#>  Mean   :1.494   Mean   :50.74   Mean   :1.895  
+#>  3rd Qu.:2.000   3rd Qu.:58.24   3rd Qu.:2.000  
+#>  Max.   :2.000   Max.   :78.44   Max.   :2.000  
+#>  NA's   :106                                    
+#>     ascites            hepato          spiders      
+#>  Min.   :0.00000   Min.   :0.0000   Min.   :0.0000  
+#>  1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.0000  
+#>  Median :0.00000   Median :1.0000   Median :0.0000  
+#>  Mean   :0.07692   Mean   :0.5128   Mean   :0.2885  
+#>  3rd Qu.:0.00000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+#>  Max.   :1.00000   Max.   :1.0000   Max.   :1.0000  
+#>  NA's   :106       NA's   :106      NA's   :106     
+#>      edema             bili             chol       
+#>  Min.   :0.0000   Min.   : 0.300   Min.   : 120.0  
+#>  1st Qu.:0.0000   1st Qu.: 0.800   1st Qu.: 249.5  
+#>  Median :0.0000   Median : 1.400   Median : 309.5  
+#>  Mean   :0.1005   Mean   : 3.221   Mean   : 369.5  
+#>  3rd Qu.:0.0000   3rd Qu.: 3.400   3rd Qu.: 400.0  
+#>  Max.   :1.0000   Max.   :28.000   Max.   :1775.0  
+#>                                    NA's   :134     
+#>     albumin          copper          alkphos       
+#>  Min.   :1.960   Min.   :  4.00   Min.   :  289.0  
+#>  1st Qu.:3.243   1st Qu.: 41.25   1st Qu.:  871.5  
+#>  Median :3.530   Median : 73.00   Median : 1259.0  
+#>  Mean   :3.497   Mean   : 97.65   Mean   : 1982.7  
+#>  3rd Qu.:3.770   3rd Qu.:123.00   3rd Qu.: 1980.0  
+#>  Max.   :4.640   Max.   :588.00   Max.   :13862.4  
+#>                  NA's   :108      NA's   :106      
+#>       ast              trig           platelet    
+#>  Min.   : 26.35   Min.   : 33.00   Min.   : 62.0  
+#>  1st Qu.: 80.60   1st Qu.: 84.25   1st Qu.:188.5  
+#>  Median :114.70   Median :108.00   Median :251.0  
+#>  Mean   :122.56   Mean   :124.70   Mean   :257.0  
+#>  3rd Qu.:151.90   3rd Qu.:151.00   3rd Qu.:318.0  
+#>  Max.   :457.25   Max.   :598.00   Max.   :721.0  
+#>  NA's   :106      NA's   :136      NA's   :11     
+#>     protime          stage      
+#>  Min.   : 9.00   Min.   :1.000  
+#>  1st Qu.:10.00   1st Qu.:2.000  
+#>  Median :10.60   Median :3.000  
+#>  Mean   :10.73   Mean   :3.024  
+#>  3rd Qu.:11.10   3rd Qu.:4.000  
+#>  Max.   :18.00   Max.   :4.000  
+#>  NA's   :2       NA's   :6
 skim(pbc)
 ```
 
 
-Table: (\#tab:unnamed-chunk-4)Data summary
+Table: (\#tab:unnamed-chunk-22)Data summary
 
 |                         |     |
 |:------------------------|:----|
@@ -255,7 +421,6 @@ Table: (\#tab:unnamed-chunk-4)Data summary
 |protime       |         2|          1.00|   10.73|    1.02|   9.00|   10.00|   10.60|   11.10|    18.00|▇▅▁▁▁ |
 |stage         |         6|          0.99|    3.02|    0.88|   1.00|    2.00|    3.00|    4.00|     4.00|▁▅▁▇▇ |
 
-
 ### Summarising continuous variables
 
 One of the most flexible functions for summarising continuous variables is the `descriptives` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
@@ -287,7 +452,7 @@ descriptives(data=pbc, vars=c(age, ast, bili))
 #>  ───────────────────────────────────────────────────────────
 ```
 
-By default, the `descriptives` function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles [ADD MORE HERE]:
+By default, the `descriptives` function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles (which are called the percentiles, or pc, in the descriptives function):
 
 
 ```r
@@ -314,14 +479,14 @@ descriptives(data=pbc, vars=c(age, ast, bili), pc=TRUE)
 
 ### Producing a histogram
 
-We can use the `hist` function to produce a histogram, specifying the dataframe to use and the variable to be plotted as `dataframe$variable`:
+We can use the `hist()` function to produce a histogram, specifying the dataframe to use and the variable to be plotted as `dataframe$variable`:
 
 
 ```r
 hist(pbc$age)
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=` and `main=` to assign labels for the x-axis and overall title respectively:
 
@@ -330,7 +495,7 @@ The histogram function does a remakarbly good job of choosing cutpoints and binw
 hist(pbc$age, xlab="Age (years)", main="Histogram of participant age from pbc study data")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 ### Producing a boxplot
 
@@ -341,7 +506,7 @@ The `boxplot` function is used to produce boxplots, again specifying the datafra
 boxplot(pbc$age, xlab="Age (years)", main="Boxplot of participant age from pbc study data")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 ### Producing a one-way frequency table
 
@@ -409,11 +574,7 @@ freq(pbc$sex)
 
 Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
 
-Saving data from Stata
-
-Now that you have made some changes to the pbc data, it is good practice to save the dataset. Stata uses its own file format to save data. Data saved from Stata will end with the .dta suffix, and will contain useful information such as variable labels, value labels. However, data saved by Stata will only be able to be opened by Stata - you will not easily be able to share your data with colleagues who do not have Stata. To save a Stata dataset, choose File ▶︎ Save.
-
-Copying output from Stata
+### Copying output from R [UPDATE]
 
 It is important to note that saving data in Stata will not save your output. Stata data and output are completely separate to one another. The easiest way to retain the output of your analyses is to copy the output into a word processor package (e.g. Microsoft Word) before closing Stata. Once Stata is closed, all the output (that is, all your hard work!) is lost.
 
@@ -440,7 +601,7 @@ pbc$stage <- factor(pbc$stage, levels=c(1,2,3,4), labels=c("Stage 1", "Stage 2",
 plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-31-1.png" width="672" />
 
 ### Clustered bar graph
 
@@ -453,7 +614,7 @@ barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
         legend = rownames(counts), beside=TRUE, args.legend = list(x = "topleft"))
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-32-1.png" width="672" />
 
 
 ### Stacked bar graph
@@ -465,7 +626,7 @@ barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
         legend = rownames(counts), beside=FALSE, args.legend = list(x = "topleft"))
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-33-1.png" width="672" />
 
 ### Stacked bar graph of relative frequencies
 
@@ -484,7 +645,7 @@ barplot(percent, main="Relative frequency of sex within stage of disease from PB
         legend = rownames(counts), beside=FALSE, args.legend = list(x = "topright"))
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-34-1.png" width="672" />
 
 
 ### Creating line graphs
@@ -497,7 +658,7 @@ skim(cancer)
 ```
 
 
-Table: (\#tab:unnamed-chunk-17)Data summary
+Table: (\#tab:unnamed-chunk-35)Data summary
 
 |                         |       |
 |:------------------------|:------|
@@ -526,7 +687,7 @@ Table: (\#tab:unnamed-chunk-17)Data summary
 plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-35-1.png" width="672" />
 
 ```r
 
@@ -541,7 +702,8 @@ legend("topleft", legend=c("Incidence", "Deaths"),
        col=c("red", "blue"), lty = 1:2)
 ```
 
-<img src="01-IntroToR_files/figure-html/unnamed-chunk-17-2.png" width="672" />
+<img src="01-IntroToR_files/figure-html/unnamed-chunk-35-2.png" width="672" />
 
 
 ### Line graph
+
