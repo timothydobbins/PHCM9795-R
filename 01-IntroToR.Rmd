@@ -2,11 +2,10 @@
 
 INCLUDE:
 
-- decide on skim vs summary vs jmv::describe
-- case sensitive
+- https://ubco-biology.github.io/BIOL202/
+- https://r4stats.com/articles/why-r-is-hard-to-learn/
+
 - how to get help (online, google, etc)
-- functions that use (data=, var=) vs functions that use an object (i.e. data$var)
-- how to specify a column from a dataframe
 - don't give up!
 - tidyverse?
 
@@ -19,34 +18,35 @@ By the end of this Module, you will be able to:
 -   input and import data into R
 -   use R to summarise data
 -   perform basic data transformations
--   assign variable and value labels
 -   understand the difference between saving R data and saving R output
 -   copy R output to a standard word processing package
 
-## Introduction
+## Part 1: An introduction to R{-}
 
-"R is a language and environment for statistical computing and graphics." [https://www.r-project.org/about.html]. It is an open-source programming language, used mainly for statistics. It is increasingly used in health research, as well as in other fields such as econometrics and social science. The aim of these notes is to introduce the R language within the RStudio environment, and to introduce the commands and procedures that are directly relevant to this course. There is so much more to R than we can cover in these notes. Relevant information will be provided throughout the course, and we will provide further references that you can explore if you are interested.
+"R is a language and environment for statistical computing and graphics." [Link](https://www.r-project.org/about.html). It is an open-source programming language, used mainly for statistics (including biostatistics) and data science.
+
+The aim of these notes is to introduce the R language within the RStudio environment, and to introduce the commands and procedures that are directly relevant to this course. There is so much more to R than we can cover in these notes. Relevant information will be provided throughout the course, and we will provide further references that you can explore if you are interested.
 
 ## R vs RStudio
 
-At its heart, R is a programming language. When you install R on your computer, you are installing the language and its resources, as well as a very basic interface for using R. You can write and run R code using R, but we don't recommend it.
+At its heart, R is a programming language. When you install R on your computer, you are installing the language and its resources, as well as a very basic interface for using R. You can write and run R code using the basic R app, but we don't recommend it.
 
-RStudio is an "Integrated Development Environment" that runs R while also providing useful tools to help you as you're writing code and analysing data. Think of R as the engine which does the work, and RStudio as the wrapper which provides a more user-friendly way to interact with R.
+RStudio is an "Integrated Development Environment" that runs R while also providing useful tools to help you as you're writing code and analysing data. You can think of R as an engine which does the work, and RStudio as a car that uses the engine, but also provides useful tools to help you drive.
+
+R: Don't use this          |  RStudio: Use this instead
+:-------------------------:|:-------------------------:
+<img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/>  |  <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/>
+
 
 ## Installing R and RSudio
 
-```{r echo=FALSE, figures-side, fig.show="hold", out.width="80%"}
-knitr::include_graphics("img/Rlogo.png")
-knitr::include_graphics("img/RStudio-logo-flat.png")
-```
+### To install R on your computer
 
-To install R on your computer:
-
-1. Download the R installer:
-    a. for Windows:
-    b. for MacOS:
+1. Download the R installer from:
+    a. for Windows: https://cran.r-project.org/bin/windows/base/
+    b. for MacOS: https://cran.r-project.org/bin/macosx/
 2. Install R by running the installer and following the installation instructions. The default settings are fine.
-**Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
+    - **Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
 3. Open the R program. You should see a screen as below:
 
 ```{r echo=FALSE, fig.show="hold", out.width="80%"}
@@ -57,11 +57,11 @@ Near the bottom of the R screen, you will find the ">" symbol which represents t
 
 `[1] 3`
 
-This is R performing your calculation, with the `[1]` indicating that the solution to `1 + 2` is a vector of size 1. We will talk about vectors later.
+This is R performing your calculation, with the `[1]` indicating that the solution to `1 + 2` is a single number (the number 3).
 
-At this point, close R - we will not interact with R like this in the future. [HOW TO CLOSE R]
+At this point, close R - we will not interact with R like this in the future. You can close R by typing `quit()` at the command prompt, followed by the return key, or in the usual way of closing an application in your operating system. There is no need to save anything here if prompted.
 
-To install RStudio on your computer:
+### To install RStudio on your computer
 
 1. Make sure you have already installed R, and verified that it is working.
 2. Download the RStudio desktop installer at: https://www.rstudio.com/products/rstudio/download. Ensure that you select the RStudio Desktop (Free) installer in the first column.
@@ -76,7 +76,7 @@ Locate the command line symbol ">" at the bottom of the left-hand panel. Type `1
 
 `[1] 3`
 
-This confirms that RStudio is running correctly, and calling the R language to correctly calculate the sum between 1 and 2!
+This confirms that RStudio is running correctly, and can use the R language to correctly calculate the sum between 1 and 2!
 
 RStudio currently comprises three window panes, and we will discuss these later.
 
@@ -96,6 +96,8 @@ You should now see four window panes, as below. In the top-left window, type the
 age <- c(20, 25, 23, 29, 21, 27)
 summary(age)
 ```
+
+**Note: R is case-sensitive**, so you should enter the text exactly as written in these notes.
 
 Your screen should look something like:
 
@@ -121,13 +123,13 @@ We will explain the key parts of this script later, but for now, you have entere
 
 ## The RStudio environment
 
-Now that we have seen a simple example of how to use R within RStudio, let's describe the RStudio environment. Let's assume that you have opened a new script editor, and you have four windows as below:
+Now that we have seen a simple example of how to use R within RStudio, let's describe the RStudio environment. Let's assume that you have just run your first R script, and you have four windows as below:
 
 ```{r echo=FALSE, fig.show="hold", out.width="100%"}
 knitr::include_graphics("img/RStudio-screenshot-03.png")
 ```
 
-The **Source** window is where you will write and edit your R scripts. The R script can be saved by clicking on File -> Save As or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example name_of_script.R. Give it a meaningful title and remember to periodically save as you go.
+The **Source** window is where you will write and edit your R scripts. Your scripts can be saved by clicking **File > Save As** or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example script.R. Give it a meaningful title and remember to periodically save as you go.
 
 In RStudio, the name of the script will be black when it has been saved, and will change to red if you have any unsaved changes.
 
@@ -162,11 +164,15 @@ x
 
 Now we see the contents of `x` in the console.
 
-This example is rather trivial, and we rarely assign objects of just one value. We'll see a more realistic example soon.
+This example is rather trivial, and we rarely assign objects of just one value. In fact, we created an object earlier, called `age`, which comprised six values.
+
+### R is case-sensitive
+
+As mentioned earlier, R is case-sensitive. Which means that an object called `x` cannot be referred to as `X`. Similarly, an object called `Age` would not be the same as `age`.
 
 ### Data structures
 
-There are two main data structures we will use in the course: **vectors** and **data frames**. A **vector** is a combination of data values, all of the same type. For example, our six ages that we entered earlier is a vector. You could think of a vector as a column of data (even though R prints vectors as rows!) And technically, even an object with only one value is a vector, a vector of size 1.
+There are two main structures we will use to work with data in this course: **vectors** and **data frames**. A **vector** is a combination of data values, all of the same type. For example, our six ages that we entered earlier is a vector. You could think of a vector as a column of data (even though R prints vectors as rows!) And technically, even an object with only one value is a vector, a vector of size 1.
 
 The easiest way of creating a vector in R is by using the `c()` function, where c stands for 'combine'. In our previous Simple Analysis in R (Section \@ref(simpleR)), we wrote the command:
 
@@ -178,19 +184,19 @@ This command created a new object called `age`, and *combined* the six values of
 
 Just as having a vector of size 1 is unusual, having just one column of data to analyse is also pretty unusual. The other structure we will describe here is a **data frame** which is essentially a collection of vectors, each of the same size. You could think of a data frame as being like a spreadsheet, with columns representing variables, and rows representing observations.
 
-There are other structures in R, such as matrices and lists, which we won't discuss in this course.
+There are other structures in R, such as matrices and lists, which we won't discuss in this course. And you may come across the term [**tibble**](https://r4ds.had.co.nz/tibbles.html), which is a type of data frame.
 
 ### Functions
 
 If objects are the nouns of R, functions are the verbs. Essentially, functions transform objects. Functions can transform your data into summary statistics, graphical summaries or analysis results. For example, we used the `summary()` function to display summary statistics for our six ages.
 
-R functions are specified by their arguments (or inputs). The arguments that can be supplied for each function can be inspected by examining the help notes for that function. To obtain help for a function, we can submit `help(summary)` (or equivalently `?summary()`) in the console, or we can use the **help** tab in the bottom-right window of RStudio. For example, the first part of the help notes for `summary` appear as:
+R functions are specified by their arguments (or inputs). The arguments that can be supplied for each function can be inspected by examining the help notes for that function. To obtain help for a function, we can submit `help(summary)` (or equivalently `?summary`) in the console, or we can use the **Help** tab in the bottom-right window of RStudio. For example, the first part of the help notes for `summary` appear as:
 
 ```{r echo=FALSE, fig.show="hold", out.width="80%"}
 knitr::include_graphics("img/help-1.png")
 ```
 
-The help notes in R can be quite cryptic, but **Usage** section details what values should be provided for the function to run. Here, `summary` requires an object to be specified. In our case, we specified `age`, which is our object defined as the vector of six ages.
+The help notes in R can be quite cryptic, but the **Usage** section details what inputs should be specified for the function to run. Here, `summary` requires an object to be specified. In our case, we specified `age`, which is our object defined as the vector of six ages.
 
 Most help pages also include some examples of how you might use the function. These can be found at the very bottom of the help page.
 
@@ -198,13 +204,13 @@ Most help pages also include some examples of how you might use the function. Th
 knitr::include_graphics("img/help-2.png")
 ```
 
-The `summary` function is quite simple, in that it only requires one input, the object to be summarised. More complex functions might require a number of inputs. For example, the help notes for the `descriptives()` function in the `jmv` package show a large number of inputs can be specified:
+The `summary()` function is quite simple, in that it only requires one input, the object to be summarised. More complex functions might require a number of inputs. For example, the help notes for the `descriptives()` function in the `jmv` package show a large number of inputs can be specified:
 
 ```{r echo=FALSE, fig.show="hold", out.width="80%"}
 knitr::include_graphics("img/help-3.png")
 ```
 
-There are two things to note here. First, notice that the first two inputs are listed with no = symbol, but all other inputs are listed with = symbols (with values provided after the = symbol). This means that everything apart from `data` and `vars` have **default** values. We are free to not include values for these inputs if we are happy with the defaults provided. For example, by default the variance is not calculated (as `variance = FALSE`). To obtain the variance as well as the standard deviation, we can change this default to `variance = TRUE`:
+There are two things to note here. First, notice that the first two inputs are listed with no = symbol, but all other inputs are listed with = symbols (with values provided after the = symbol). This means that everything apart from `data` and `vars` have **default** values. We are free to not specify values for these inputs if we are happy with the defaults provided. For example, by default the variance is not calculated (as `variance = FALSE`). To obtain the variance as well as the standard deviation, we can change this default to `variance = TRUE`:
 
 ```{r, eval=FALSE}
 # Only the standard deviation is provided as the measure of variability
@@ -214,7 +220,7 @@ descriptives(data=pbc, vars=age)
 descriptives(data=pbc, vars=age, variance=TRUE)
 ```
 
-Second, for functions with multiple inputs, we can specify the input name and its value, or we can specify the inputs **in the order listed in the Usage section**. So the following are equivalent:
+Second, for functions with multiple inputs, we can specify the input name and its value, or we can ignore the input name and specify just the input values **in the order listed in the Usage section**. So the following are equivalent:
 
 ```{r, eval=FALSE}
 # We can specify that the dataset to be summarised is pbc,
@@ -229,13 +235,25 @@ descriptives(pbc, age)
 descriptives(vars=age, data=pbc)
 ```
 
-In this course, we will usually provide all the input names, even when they are not required.
+In this course, we will usually provide all the input names, even when they are not required. As you become more familiar with R, you will start to use the shortcut method.
+
+#### The curse of functions
+
+As R is an open-source project, many people have contributed to its development. This has led to a frustrating part of R: some functions require a single object to be specified, but some require you to specify a data frame and select variables for analysis. Let's see an example.
+
+The help for `summary()` specifies the usage as: `summary(object, ...)`. This means we need to specify a single object to be summarised. An object could be a single column of data (i.e. a vector), or it could be a data frame. If we have a data frame called `pbc` which contains many variables, the command `summary(pbc)` would summarise every variable in the data frame.
+
+What if we only wanted to summarise the age of the participants in the data frame? To select a single variable from a data frame, we can use the following syntax: `dataframe$variable`. So to summarise just age from this data frame, we would use: `summary(pbc$age)`.
+
+Compare this with the `descriptives()` function in the `jmv` package. We saw earlier that the two required inputs for `descriptives()` are `data` (the data frame to be analysed) and `vars` (the variables to be analysed). So to summarise `age` from the `pbc` data frame, we would specify `descriptives(data=pbc, vars=age)`.
+
+This inconsistency will seem maddening at first, and will continue to be maddening! Reading the **usage** section of the help pages is a useful way to determine whether you should specify an object (like `pbc$age`) or a data frame and a list of variables.
 
 ### Packages
 
 A **package** is a collection of functions, documentation (and sometimes datasets) that extend the capabilities of R. Packages have been written by R users to be freely distributed and used by others. R packages can be obtained from many sources, but the most common source is CRAN: the Comprehensive R Archive Network.
 
-A useful way of thinking about R is that R is like a smartphone, with packages being like apps which are downloaded from CRAN (similar to an app-store). When you first install R, it comes with a basic set of packages (apps) installed. You can do a lot of things with these basic packages, but sometimes you might want to do things differently (you might prefer Firefox as your browser), or you may want to perform some analyses that can't be done using the default packages. In these cases, you can install a package.
+A useful way of thinking about R is that R is like a smartphone, with packages being like apps which are downloaded from CRAN (similar to an app-store). When you first install R, it comes with a basic set of packages (apps) installed. You can do a lot of things with these basic packages, but sometimes you might want to do things differently, or you may want to perform some analyses that can't be done using the default packages. In these cases, you can install a package.
 
 Like installing an app on a smartphone, you only need to _install_ a package once. But each time you want to use the package, you need to _load_ the package into R. This is similar to running the app on your phone. The analogy falls down a bit in that we usually load more than one package in an R script - but we only load the packages we need for that R session.
 
@@ -267,9 +285,24 @@ library(skimr)
 
 Note that quotation marks are not required for the `library()` function (although they can be included if you really like quotation marks!). 
 
-## Part 2: Obtaining basic descriptive statistics
+#### Installing vs loading packages{-}
 
-In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from @therneau_grambsch10, Modeling Survival Data: Extending the Cox Model. By the end of this exercise, we will have completed the following table.
+Package installation:
+
+- use the `install.packages()` function (note the 's')
+- the package name must be surrounded by quotation marks
+- only needs to be done once
+
+Package loading
+
+- use the `library()` function
+- the package name does not need to be surrounded by quotation marks
+- must be done for each R session
+
+
+## Part 2: Obtaining basic descriptive statistics{-}
+
+In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from Modeling Survival Data: Extending the Cox Model @therneau_grambsch10. By the end of this exercise, we will have completed the following table.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(huxtable)
@@ -304,16 +337,18 @@ This table is available in Table1.docx, saved on Moodle.
 
 Typing data directly into R is not common; we usually open data that have been previously saved. There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):
 
-1 - If necessary, install the `haven` and `readxl` packages. As mentioned earlier, packages only need to be installed if they have not been installed earlier.
+1 - If necessary, install the following packages: `haven`, `readxl`, `skimr` and `labelled`. As mentioned earlier, packages only need to be installed if they have not been installed earlier.
 
 ```{r, eval=FALSE}
 install.packages("haven")
 install.packages("readxl")
+install.packages("skimr")
+install.packages("labelled")
 ```
 
 2 - Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt. Locate the file and filepath of pbc.dta.
 
-3 - In R, use the `read_dta()` function to read the Stata data into new object called `pbc`. Remember that we need to load the `haven` and `labelled` packages into R:
+3 - Load the following packages: `haven`, `labelled` and `skimr`, and use the `read_dta()` function to read the Stata file into R, and assign it to a data frame called `pbc`:
 
 ```{r}
 library(haven)
@@ -323,7 +358,7 @@ library(skimr)
 pbc <- read_dta("data/examples/pbc.dta")
 ```
 
-4 - We now re-assign the pbc object by using the `unlabelled()` function from the `labelled` package:
+4 - We now re-assign the pbc data frame by using the `unlabelled()` function from the `labelled` package. We only need to do this for data that have been labelled by another package:
 
 ```{r}
 pbc <- unlabelled(pbc)
@@ -335,8 +370,7 @@ Note that we can combine the `unlabelled()` and `read_dta()` functions together,
 pbc <- unlabelled(read_dta("data/examples/pbc.dta"))
 ```
 
-
-5 - We can now use the `summary()` function to examine the pbc dataset.
+5 - We can now use the `summary()` function to examine the pbc dataset:
 
 ```{r}
 summary(pbc)
@@ -348,10 +382,13 @@ An alternative to the `summary()` function is the `skim()` function in the `skim
 skim(pbc)
 ```
 
+Note that the output of the `skimr()` function has been included as a screenshot, due to problems with the histograms displaying as text.
+
 ```{r echo=FALSE, fig.show="hold", out.width="90%"}
 knitr::include_graphics("img/skim-pbc.png")
 ```
 
+The `summary()` and `skim()` functions are useful to give a quick overview of a dataset: how many variables are included, how variables are coded, which variables contain missing data and a crude histogram showing the distribution of numeric variables.
 
 ### Summarising continuous variables
 
@@ -382,7 +419,7 @@ We can use the `hist()` function to produce a histogram, specifying the datafram
 hist(pbc$age)
 ```
 
-The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=` and `main=` to assign labels for the x-axis and overall title respectively:
+The histogram function does a remarkably good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=` and `main=` to assign labels for the x-axis and overall title respectively:
 
 ```{r}
 hist(pbc$age, xlab="Age (years)", main="Histogram of participant age from pbc study data")
@@ -400,13 +437,13 @@ boxplot(pbc$age, xlab="Age (years)", main="Boxplot of participant age from pbc s
 
 We have three categorical variables to summarise in Table 1: sex, stage and vital status. These variables are best summarised using one-way frequency tables.
 
-```{r}
+```{r message=FALSE}
 library(summarytools)
 
 freq(pbc$sex)
 ```
 
-## Defining categorical variables as factors
+## Defining categorical variables as factors [Move to mod 2???]
 
 You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a **factor** using the `factor` function:
 
@@ -443,23 +480,27 @@ Task: complete Table 1 using the output generated in this exercise. You should d
 
 ## Part 3: Creating other types of graphs {-}
 
+The `plot()` function, also known as *base graphics*, is the default method of plotting data in R that can produce publication-quality graphics with minimal coding. There are alternative packages for plotting, with `ggplot2` being perhaps the most well known. We will present instructions for base graphics in this course, but excellent documentation for `ggplot2` can be found at the [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) website, written by the package authors.
+
+Two other excellent resources for creating graphs in R are: [R Graphics Cookbook](https://r-graphics.org/) and [The R Graph Gallery](https://r-graph-gallery.com/).
+
 ### Bar graphs
+
+The simplest way to use the `plot()` function is by specifying an object to be plotted. As with the `hist()` function, to plot a single variable from a data frame, we must define it using: `dataframe$variable`.
 
 Here we will create the bar chart shown in Figure 1.1 using the `pbc.dta` dataset. The x-axis of this graph will be the stage of disease, and the y-axis will show the number of participants in each category.
 
-#### Simple bar graph
-For most of our bar graphs, we will be plotting frequencies, so we choose **Graph of frequencies within categories**
-
 ```{r}
-# Convert stage into a factpr
-pbc$stage <- factor(pbc$stage, levels=c(1,2,3,4), labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
-
 plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
 ```
 
 ### Clustered bar graph
 
-To create a clustered bar chart as shown in Figure 1.2:
+To create a clustered bar chart as shown in Figure 1.2, we need to do a bit of manipulation.
+
+
+
+:
 
 ```{r}
 counts <- table(pbc$sex, pbc$stage)
