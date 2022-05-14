@@ -161,14 +161,13 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
 <ul>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#learning-outcomes"><i class="fa fa-check"></i>Learning outcomes</a></li>
-<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction-1"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-vs-rstudio"><i class="fa fa-check"></i><b>1.2</b> R vs RStudio</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-r-and-rsudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RSudio</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#simpleR"><i class="fa fa-check"></i><b>1.4</b> A simple R analysis</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.5</b> The RStudio environment</a></li>
-<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.6</b> Some R basics</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i><b>1.7</b> Part 2: Obtaining basic descriptive statistics</a></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.8</b> Defining categorical variables as factors</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-1-an-introduction-to-r"><i class="fa fa-check"></i>Part 1: An introduction to R</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-vs-rstudio"><i class="fa fa-check"></i><b>1.1</b> R vs RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-r-and-rsudio"><i class="fa fa-check"></i><b>1.2</b> Installing R and RSudio</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#simpleR"><i class="fa fa-check"></i><b>1.3</b> A simple R analysis</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.4</b> The RStudio environment</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.5</b> Some R basics</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i>Part 2: Obtaining basic descriptive statistics</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs"><i class="fa fa-check"></i>Part 3: Creating other types of graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
@@ -257,13 +256,13 @@ div.csl-indent {
 <h2><span class="header-section-number">9.1</span> Transforming non-normally distributed variables<a href="analysing-non-normal-data.html#transforming-non-normally-distributed-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One option for dealing with a non-normally distributed varaible is to transform it into its square, square root or logarithmic value. The new transformed variable may be normally distributed and therefore a parametric test can be used. First we check the distribution of the variable for normality, e.g. by plotting a histogram.</p>
 <p>You can calculate a new, transformed, variable using variable transformation commands. For example, to create a new column of data based on the log of length of stay using Base R:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="analysing-non-normal-data.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)      <span class="co"># For importing data</span></span>
-<span id="cb205-2"><a href="analysing-non-normal-data.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb205-3"><a href="analysing-non-normal-data.html#cb205-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-4"><a href="analysing-non-normal-data.html#cb205-4" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> <span class="fu">unlabelled</span>(<span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta&quot;</span>))</span>
-<span id="cb205-5"><a href="analysing-non-normal-data.html#cb205-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-6"><a href="analysing-non-normal-data.html#cb205-6" aria-hidden="true" tabindex="-1"></a>hospital<span class="sc">$</span>ln_los <span class="ot">&lt;-</span> <span class="fu">log</span>(hospital<span class="sc">$</span>los<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb205-7"><a href="analysing-non-normal-data.html#cb205-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hospital)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="analysing-non-normal-data.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)      <span class="co"># For importing data</span></span>
+<span id="cb200-2"><a href="analysing-non-normal-data.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb200-3"><a href="analysing-non-normal-data.html#cb200-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-4"><a href="analysing-non-normal-data.html#cb200-4" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> <span class="fu">unlabelled</span>(<span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta&quot;</span>))</span>
+<span id="cb200-5"><a href="analysing-non-normal-data.html#cb200-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-6"><a href="analysing-non-normal-data.html#cb200-6" aria-hidden="true" tabindex="-1"></a>hospital<span class="sc">$</span>ln_los <span class="ot">&lt;-</span> <span class="fu">log</span>(hospital<span class="sc">$</span>los<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb200-7"><a href="analysing-non-normal-data.html#cb200-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hospital)</span></code></pre></div>
 <pre><code>##        id            gender               los         infect         surgery  
 ##  Min.   : 10.00   Length:132         Min.   :  0.00   No :106   Abdominal:48  
 ##  1st Qu.: 42.75   Class :character   1st Qu.: 20.75   Yes: 26   Cardiac  :53  
@@ -279,15 +278,15 @@ div.csl-indent {
 ##  3rd Qu.:3.761  
 ##  Max.   :5.501</code></pre>
 <p>A tidyverse version uses the <code>mutate</code> command to create a new variable:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="analysing-non-normal-data.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb207-2"><a href="analysing-non-normal-data.html#cb207-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-3"><a href="analysing-non-normal-data.html#cb207-3" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb207-4"><a href="analysing-non-normal-data.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
-<span id="cb207-5"><a href="analysing-non-normal-data.html#cb207-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-6"><a href="analysing-non-normal-data.html#cb207-6" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> hospital <span class="sc">%&gt;%</span> </span>
-<span id="cb207-7"><a href="analysing-non-normal-data.html#cb207-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ln_los =</span> <span class="fu">log</span>(los<span class="sc">+</span><span class="dv">1</span>))</span>
-<span id="cb207-8"><a href="analysing-non-normal-data.html#cb207-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-9"><a href="analysing-non-normal-data.html#cb207-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hospital)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="analysing-non-normal-data.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb202-2"><a href="analysing-non-normal-data.html#cb202-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-3"><a href="analysing-non-normal-data.html#cb202-3" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb202-4"><a href="analysing-non-normal-data.html#cb202-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
+<span id="cb202-5"><a href="analysing-non-normal-data.html#cb202-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-6"><a href="analysing-non-normal-data.html#cb202-6" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> hospital <span class="sc">%&gt;%</span> </span>
+<span id="cb202-7"><a href="analysing-non-normal-data.html#cb202-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ln_los =</span> <span class="fu">log</span>(los<span class="sc">+</span><span class="dv">1</span>))</span>
+<span id="cb202-8"><a href="analysing-non-normal-data.html#cb202-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-9"><a href="analysing-non-normal-data.html#cb202-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hospital)</span></code></pre></div>
 <pre><code>##        id            gender               los         infect         surgery  
 ##  Min.   : 10.00   Length:132         Min.   :  0.00   No :106   Abdominal:48  
 ##  1st Qu.: 42.75   Class :character   1st Qu.: 20.75   Yes: 26   Cardiac  :53  
@@ -304,7 +303,7 @@ div.csl-indent {
 ##  Max.   :5.501</code></pre>
 <p>You can now check whether this logged variable is normally distributed as described in Module 2, for example by plotting a histogram as shown in Figure 9.2.</p>
 <p>To obtain the back-transformed mean shown in Output 9.1, we can use the <code>exp</code> command:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="analysing-non-normal-data.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">3.407232</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="analysing-non-normal-data.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">3.407232</span>)</span></code></pre></div>
 <pre><code>## [1] 30.18159</code></pre>
 <p>If your transformed variable is approximately normally distributed, you can apply parametric tests such as the t-test. In the Worked Example 9.1 dataset, the variable <code>infect</code> (presence of nosocomial infection) is a binary categorical variable. To test the hypothesis that patients with nosocomial infection have a different length of stay to patients without infection, you can conduct a t-test on the <code>ln_los</code> variable. You will need to back transform your mean values, as shown in Worked Example 9.1 in the course notes when reporting your results.</p>
 </div>
@@ -313,7 +312,7 @@ div.csl-indent {
 <p>We use the <code>wilcox.test</code> function to perform the Wilcoxon ranked-sum test:</p>
 <pre><code>wilcox.test(continuous_variable ~ group_variable, data=df, correct=FALSE)</code></pre>
 <p>The Wilcoxon ranked-sum test will be demonstrated using the length of stay data in <code>Example_9.1.dta</code>. Here, out continuous variable is <code>los</code> and the grouping variable is <code>infect</code>.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="analysing-non-normal-data.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(los <span class="sc">~</span> infect, <span class="at">data=</span>hospital, <span class="at">correct=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="analysing-non-normal-data.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(los <span class="sc">~</span> infect, <span class="at">data=</span>hospital, <span class="at">correct=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test
 ## 
@@ -326,14 +325,14 @@ div.csl-indent {
 <p>The <code>wilcox.test</code> function can also be used to conduct the Wilcoxon matched-pairs signed-rank test. The specification of the variables is a little different, in that each variable is specified as <code>dataframe$variable</code>:</p>
 <pre><code>wilcox.test(df$continuous_variable_1, df$continuous_variable_1, paired=TRUE)</code></pre>
 <p>We will demonstrate using the dataset on the arthritis drug cross-over trial (<code>Example_9.2.dta</code>). Like the paired t-test the paired data need to be in separate columns.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="analysing-non-normal-data.html#cb215-1" aria-hidden="true" tabindex="-1"></a>arthritis <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.2.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb215-2"><a href="analysing-non-normal-data.html#cb215-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
-<span id="cb215-3"><a href="analysing-non-normal-data.html#cb215-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-4"><a href="analysing-non-normal-data.html#cb215-4" aria-hidden="true" tabindex="-1"></a>arthritis<span class="sc">$</span>difference <span class="ot">=</span> arthritis<span class="sc">$</span>drug_1 <span class="sc">-</span> arthritis<span class="sc">$</span>drug_2</span>
-<span id="cb215-5"><a href="analysing-non-normal-data.html#cb215-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-6"><a href="analysing-non-normal-data.html#cb215-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(arthritis<span class="sc">$</span>difference, <span class="at">xlab=</span><span class="st">&quot;Difference&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of differences in pain scores&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="analysing-non-normal-data.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(arthritis<span class="sc">$</span>drug_1, arthritis<span class="sc">$</span>drug_2, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="analysing-non-normal-data.html#cb210-1" aria-hidden="true" tabindex="-1"></a>arthritis <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.2.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb210-2"><a href="analysing-non-normal-data.html#cb210-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
+<span id="cb210-3"><a href="analysing-non-normal-data.html#cb210-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-4"><a href="analysing-non-normal-data.html#cb210-4" aria-hidden="true" tabindex="-1"></a>arthritis<span class="sc">$</span>difference <span class="ot">=</span> arthritis<span class="sc">$</span>drug_1 <span class="sc">-</span> arthritis<span class="sc">$</span>drug_2</span>
+<span id="cb210-5"><a href="analysing-non-normal-data.html#cb210-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-6"><a href="analysing-non-normal-data.html#cb210-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(arthritis<span class="sc">$</span>difference, <span class="at">xlab=</span><span class="st">&quot;Difference&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of differences in pain scores&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="analysing-non-normal-data.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(arthritis<span class="sc">$</span>drug_1, arthritis<span class="sc">$</span>drug_2, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## Warning in wilcox.test.default(arthritis$drug_1, arthritis$drug_2, paired =
 ## TRUE): cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -346,9 +345,9 @@ div.csl-indent {
 <div id="estimating-rank-correlation-coefficients" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> Estimating rank correlation coefficients<a href="analysing-non-normal-data.html#estimating-rank-correlation-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The analyses for Spearman’s and Kendall’s rank correlation are conducted in similar ways:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="analysing-non-normal-data.html#cb219-1" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_8.1.dta&quot;</span>)</span>
-<span id="cb219-2"><a href="analysing-non-normal-data.html#cb219-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-3"><a href="analysing-non-normal-data.html#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="analysing-non-normal-data.html#cb214-1" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_8.1.dta&quot;</span>)</span>
+<span id="cb214-2"><a href="analysing-non-normal-data.html#cb214-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-3"><a href="analysing-non-normal-data.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in cor.test.default(lung$Height, lung$FVC, method = &quot;spearman&quot;): Cannot
 ## compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -360,7 +359,7 @@ div.csl-indent {
 ## sample estimates:
 ##       rho 
 ## 0.7475566</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="analysing-non-normal-data.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="analysing-non-normal-data.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 

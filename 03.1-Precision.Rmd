@@ -3,6 +3,7 @@
 ## Calculating a 95% confidence interval of a mean
 
 ### Individual data
+
 To demonstrate the computation of the 95% confidence interval of a mean we have used data from `Example_1.3.dta` which contains the weights of 30 students:
 
 ```{r}
@@ -42,4 +43,3 @@ ci_mean <- function(n, mean, sd, width=0.95, digits=3){
 ci_mean(n=30, mean=70, sd=6, width=0.95)
 ci_mean(n=30, mean=70, sd=6, width=0.99)
 ```
-

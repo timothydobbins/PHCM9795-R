@@ -168,7 +168,6 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.4</b> The RStudio environment</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.5</b> Some R basics</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i>Part 2: Obtaining basic descriptive statistics</a></li>
-<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.6</b> Defining categorical variables as factors</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs"><i class="fa fa-check"></i>Part 3: Creating other types of graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
@@ -257,7 +256,6 @@ div.csl-indent {
 <ul>
 <li><p><a href="https://ubco-biology.github.io/BIOL202/" class="uri">https://ubco-biology.github.io/BIOL202/</a></p></li>
 <li><p><a href="https://r4stats.com/articles/why-r-is-hard-to-learn/" class="uri">https://r4stats.com/articles/why-r-is-hard-to-learn/</a></p></li>
-<li><p>decide on skim vs summary vs jmv::describe</p></li>
 <li><p>how to get help (online, google, etc)</p></li>
 <li><p>don’t give up!</p></li>
 <li><p>tidyverse?</p></li>
@@ -343,7 +341,7 @@ div.csl-indent {
 <div id="simpleR" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> A simple R analysis<a href="introduction-to-r-and-rstudio.html#simpleR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this very brief section, we will introduce R by calculating the average of six ages.</p>
-<p>To begin, open a new R Script by choosing <strong>File &gt; New file &gt; R Script </strong>. A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the <strong>New File</strong> button at the top of the RStudio window.</p>
+<p>To begin, open a new R Script by choosing <strong>File &gt; New file &gt; R Script</strong> . A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the <strong>New File</strong> button at the top of the RStudio window.</p>
 <p>You should now see four window panes, as below. In the top-left window, type the following (replacing my name with yours, and including today’s date):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction-to-r-and-rstudio.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Timothy Dobbins</span></span>
 <span id="cb1-2"><a href="introduction-to-r-and-rstudio.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Date: 5 April 2022</span></span>
@@ -379,8 +377,22 @@ div.csl-indent {
 <div id="some-r-basics" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Some R basics<a href="introduction-to-r-and-rstudio.html#some-r-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While we use R as a statistics package, R is a programming language. In order to use R effectively, we need to define some basics.</p>
-<div id="objects" class="section level3 hasAnchor" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> Objects<a href="introduction-to-r-and-rstudio.html#objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="scripts" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Scripts<a href="introduction-to-r-and-rstudio.html#scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While R can be run completely from the command line, issuing commands one-by-one, it is most commonly run using <strong>scripts</strong>. A script is simply a list of commands that are processed in order. The simple analysis we conducted earlier is a very simple script. Some things to know about R scripts:</p>
+<ul>
+<li><p>anything appearing after a # is a comment, and is ignored by R. The first three lines of our script are there for ourselves (either as writers of code, or readers of code). I include comments at the beginning of each of my scripts to describe:</p>
+<ul>
+<li><p>who wrote the script (useful if someone else uses your script and wants to ask questions about it);</p></li>
+<li><p>when the script was written;</p></li>
+<li><p>what the script does. This last point may seem odd, but it’s useful to describe what this script does, and why it might differ to other scripts being used in the analysis. This is particularly useful if your scripts become long and complex.</p></li>
+</ul></li>
+<li><p><strong>R is case-sensitive</strong>. So <code>age</code>, <code>AGE</code> and <code>Age</code> could refer to three separate variables (please don’t do this!)</p></li>
+<li><p>use blank lines and comments to separate sections of your script</p></li>
+</ul>
+</div>
+<div id="objects" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Objects<a href="introduction-to-r-and-rstudio.html#objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you do some reading about R, you may learn that R is an “object-oriented programming language”. When we enter or import data into R, we are asking R to create <strong>objects</strong> from our data. These objects can be manipulated and transformed by <strong>functions</strong>, to obtain useful insights from our data.</p>
 <p>Objects in R are created using the <strong>assignment operator</strong>. The most common form of the assignment operator looks like an arrow: <code>&lt;-</code> and is typed as the <code>&lt;</code> and <code>-</code> symbols. The simplest way of reading <code>&lt;-</code> is as the words “is defined as”. Note that it possible to use <code>-&gt;</code> and even <code>=</code> as assignment operators, but their use is less frequent.</p>
 <p>Let’s see an example:</p>
@@ -391,10 +403,6 @@ div.csl-indent {
 <pre><code>## [1] 42</code></pre>
 <p>Now we see the contents of <code>x</code> in the console.</p>
 <p>This example is rather trivial, and we rarely assign objects of just one value. In fact, we created an object earlier, called <code>age</code>, which comprised six values.</p>
-</div>
-<div id="r-is-case-sensitive" class="section level3 hasAnchor" number="1.5.2">
-<h3><span class="header-section-number">1.5.2</span> R is case-sensitive<a href="introduction-to-r-and-rstudio.html#r-is-case-sensitive" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As mentioned earlier, R is case-sensitive. Which means that an object called <code>x</code> cannot be referred to as <code>X</code>. Similarly, an object called <code>Age</code> would not be the same as <code>age</code>.</p>
 </div>
 <div id="data-structures" class="section level3 hasAnchor" number="1.5.3">
 <h3><span class="header-section-number">1.5.3</span> Data structures<a href="introduction-to-r-and-rstudio.html#data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -433,13 +441,13 @@ div.csl-indent {
 <span id="cb8-9"><a href="introduction-to-r-and-rstudio.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We can change the order of the inputs, as long as we specify the input name:</span></span>
 <span id="cb8-10"><a href="introduction-to-r-and-rstudio.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">vars=</span>age, <span class="at">data=</span>pbc)</span></code></pre></div>
 <p>In this course, we will usually provide all the input names, even when they are not required. As you become more familiar with R, you will start to use the shortcut method.</p>
-<div id="the-curse-of-functions" class="section level4 hasAnchor" number="1.5.4.1">
-<h4><span class="header-section-number">1.5.4.1</span> The curse of functions<a href="introduction-to-r-and-rstudio.html#the-curse-of-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="the-curse-of-inconsistency" class="section level4 hasAnchor" number="1.5.4.1">
+<h4><span class="header-section-number">1.5.4.1</span> The curse of inconsistency<a href="introduction-to-r-and-rstudio.html#the-curse-of-inconsistency" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As R is an open-source project, many people have contributed to its development. This has led to a frustrating part of R: some functions require a single object to be specified, but some require you to specify a data frame and select variables for analysis. Let’s see an example.</p>
 <p>The help for <code>summary()</code> specifies the usage as: <code>summary(object, ...)</code>. This means we need to specify a single object to be summarised. An object could be a single column of data (i.e. a vector), or it could be a data frame. If we have a data frame called <code>pbc</code> which contains many variables, the command <code>summary(pbc)</code> would summarise every variable in the data frame.</p>
 <p>What if we only wanted to summarise the age of the participants in the data frame? To select a single variable from a data frame, we can use the following syntax: <code>dataframe$variable</code>. So to summarise just age from this data frame, we would use: <code>summary(pbc$age)</code>.</p>
 <p>Compare this with the <code>descriptives()</code> function in the <code>jmv</code> package. We saw earlier that the two required inputs for <code>descriptives()</code> are <code>data</code> (the data frame to be analysed) and <code>vars</code> (the variables to be analysed). So to summarise <code>age</code> from the <code>pbc</code> data frame, we would specify <code>descriptives(data=pbc, vars=age)</code>.</p>
-<p>This inconsistency will seem maddening at first. Reading the <strong>usage</strong> section of the help pages is a useful way to determine whether you should specify an object (like <code>pbc$age</code>) or a data frame and a list of variables.</p>
+<p>This inconsistency will seem maddening at first, and will continue to be maddening! Reading the <strong>usage</strong> section of the help pages is a useful way to determine whether you should specify an object (like <code>pbc$age</code>) or a data frame and a list of variables.</p>
 </div>
 </div>
 <div id="packages" class="section level3 hasAnchor" number="1.5.5">
@@ -482,7 +490,7 @@ div.csl-indent {
 <div id="part-2-obtaining-basic-descriptive-statistics" class="section level2 unnumbered hasAnchor">
 <h2>Part 2: Obtaining basic descriptive statistics<a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from Modeling Survival Data: Extending the Cox Model <span class="citation">Therneau and Grambsch (<a href="#ref-therneau_grambsch10" role="doc-biblioref">2010</a>)</span>. By the end of this exercise, we will have completed the following table.</p>
-<p><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 95%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-18">
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 95%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-18">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-18">Table 1.1: </span> Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)</caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 0pt; font-weight: bold;">Characteristic</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;"> </th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 0pt 6pt 6pt; font-weight: bold;">Summary</th></tr>
 <tr>
@@ -513,28 +521,19 @@ div.csl-indent {
 <td colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">* asparate aminotransferase</td></tr>
 </table>
 
-This table is available in Table1.docx, saved on Moodle.</p>
+<p>This table is available in Table1.docx, saved on Moodle.</p>
 <div id="opening-a-data-file" class="section level3 hasAnchor" number="1.5.8">
 <h3><span class="header-section-number">1.5.8</span> Opening a data file<a href="introduction-to-r-and-rstudio.html#opening-a-data-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Typing data directly into R is not common; we usually open data that have been previously saved. There are two useful packages for importing data into R: <code>haven</code> (for data that have been saved by Stata, SAS or SPSS) and <code>readxl</code> (for data saved by Microsoft Excel). Additionally, the <code>labelled</code> package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):</p>
-<p>1 - If necessary, install the following packages: <code>haven</code>, <code>readxl</code>, <code>skimr</code> and <code>labelled</code>. As mentioned earlier, packages only need to be installed if they have not been installed earlier.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r-and-rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</span>
-<span id="cb11-2"><a href="introduction-to-r-and-rstudio.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb11-3"><a href="introduction-to-r-and-rstudio.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;skimr&quot;</span>)</span>
-<span id="cb11-4"><a href="introduction-to-r-and-rstudio.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;labelled&quot;</span>)</span></code></pre></div>
-<p>2 - Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt. Locate the file and filepath of pbc.dta.</p>
-<p>3 - Load the following packages: <code>haven</code>, <code>labelled</code> and <code>skimr</code>, and use the <code>read_dta()</code> function to read the Stata file into R, and assign it to a data frame called <code>pbc</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction-to-r-and-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb12-2"><a href="introduction-to-r-and-rstudio.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb12-3"><a href="introduction-to-r-and-rstudio.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb12-4"><a href="introduction-to-r-and-rstudio.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="introduction-to-r-and-rstudio.html#cb12-5" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;data/examples/pbc.dta&quot;</span>)</span></code></pre></div>
-<p>4 - We now re-assign the pbc data frame by using the <code>unlabelled()</code> function from the <code>labelled</code> package. We only need to do this for data that have been labelled by another package:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r-and-rstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">unlabelled</span>(pbc)</span></code></pre></div>
-<p>Note that we can combine the <code>unlabelled()</code> and <code>read_dta()</code> functions together, to complete this process in one line:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-to-r-and-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">unlabelled</span>(<span class="fu">read_dta</span>(<span class="st">&quot;data/examples/pbc.dta&quot;</span>))</span></code></pre></div>
-<p>5 - We can now use the <code>summary()</code> function to examine the pbc dataset:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r-and-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pbc)</span></code></pre></div>
+<p>Typing data directly into R is not common; we usually open data that have been previously saved. In this example, we will open a <code>.rds</code> file using the <code>readRDS()</code> function, which has only one input: the location of the file.</p>
+<p>1 - Locate the data set called <code>pbc.rds</code> on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: <code>pbc_info.txt</code>. Locate the file and filepath of <code>pbc.rds</code>.</p>
+<p>2 - Install the package <code>skimr</code> using either the graphical approach, or by typing into the console:</p>
+<p><code>install.packages("skimr")</code></p>
+<p>3 - Load the <code>skimr</code> package, and use the <code>readRDS()</code> function to read the file into R, assigning it to a data frame called <code>pbc</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r-and-rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb11-2"><a href="introduction-to-r-and-rstudio.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="introduction-to-r-and-rstudio.html#cb11-3" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/pbc.rds&quot;</span>)</span></code></pre></div>
+<p>4 - We can now use the <code>summary()</code> function to examine the pbc dataset:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction-to-r-and-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pbc)</span></code></pre></div>
 <pre><code>##        id             time          status            trt       
 ##  Min.   :  1.0   Min.   :  41   Min.   :0.0000   Min.   :1.000  
 ##  1st Qu.:105.2   1st Qu.:1093   1st Qu.:0.0000   1st Qu.:1.000  
@@ -576,10 +575,10 @@ This table is available in Table1.docx, saved on Moodle.</p>
 ##  Max.   :598.00   Max.   :721.0   Max.   :18.00   Max.   :4.000  
 ##  NA&#39;s   :136      NA&#39;s   :11      NA&#39;s   :2       NA&#39;s   :6</code></pre>
 <p>An alternative to the <code>summary()</code> function is the <code>skim()</code> function in the <code>skimr</code> package, which produces summary statistics as well as rudimentary histograms:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r-and-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(pbc)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-to-r-and-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(pbc)</span></code></pre></div>
 <p>Note that the output of the <code>skimr()</code> function has been included as a screenshot, due to problems with the histograms displaying as text.</p>
 <p><img src="img/skim-pbc.png" width="90%" /></p>
-<p>The <code>summary()</code> and <code>skim()</code> functions are useful to give a quick overview of a dataset: how many variables are included, how variables are coded and whether or not there are missing data.</p>
+<p>The <code>summary()</code> and <code>skim()</code> functions are useful to give a quick overview of a dataset: how many variables are included, how variables are coded, which variables contain missing data and a crude histogram showing the distribution of numeric variables.</p>
 </div>
 <div id="summarising-continuous-variables" class="section level3 hasAnchor" number="1.5.9">
 <h3><span class="header-section-number">1.5.9</span> Summarising continuous variables<a href="introduction-to-r-and-rstudio.html#summarising-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -589,9 +588,9 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <li><code>vars</code> specifies the variable(s) of interest, with multiple variables combined using the <code>c()</code> function</li>
 </ul>
 <p>We can summarise the three continuous variables in the pbc data: age, AST and serum bilirubin, as shown below.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r-and-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
-<span id="cb18-2"><a href="introduction-to-r-and-rstudio.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="introduction-to-r-and-rstudio.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r-and-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb15-2"><a href="introduction-to-r-and-rstudio.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="introduction-to-r-and-rstudio.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili))</span></code></pre></div>
 <pre><code>## 
 ##  DESCRIPTIVES
 ## 
@@ -608,7 +607,7 @@ This table is available in Table1.docx, saved on Moodle.</p>
 ##    Maximum               78.43943    457.2500     28.00000   
 ##  ───────────────────────────────────────────────────────────</code></pre>
 <p>By default, the <code>descriptives</code> function presents the mean, median, standard deviation, minimum and maximum. We can request additional statistics, such as the quartiles (which are called the percentiles, or pc, in the descriptives function):</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r-and-rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili), <span class="at">pc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r-and-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>pbc, <span class="at">vars=</span><span class="fu">c</span>(age, ast, bili), <span class="at">pc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  DESCRIPTIVES
 ## 
@@ -631,31 +630,24 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <div id="producing-a-histogram" class="section level3 hasAnchor" number="1.5.10">
 <h3><span class="header-section-number">1.5.10</span> Producing a histogram<a href="introduction-to-r-and-rstudio.html#producing-a-histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can use the <code>hist()</code> function to produce a histogram, specifying the dataframe to use and the variable to be plotted as <code>dataframe$variable</code>:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r-and-rstudio.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
-<p>The histogram function does a remakarbly good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using <code>xlab=</code> and <code>main=</code> to assign labels for the x-axis and overall title respectively:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r-and-rstudio.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of participant age from pbc study data&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r-and-rstudio.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>The histogram function does a remarkably good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using <code>xlab=</code> and <code>main=</code> to assign labels for the x-axis and overall title respectively:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r-and-rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of participant age from pbc study data&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <div id="producing-a-boxplot" class="section level3 hasAnchor" number="1.5.11">
 <h3><span class="header-section-number">1.5.11</span> Producing a boxplot<a href="introduction-to-r-and-rstudio.html#producing-a-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>boxplot</code> function is used to produce boxplots, again specifying the dataframe to use and the variable to be plotted as <code>dataframe$variable</code>. Labels can be applied in the same way as the histogram:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r-and-rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of participant age from pbc study data&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r-and-rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pbc<span class="sc">$</span>age, <span class="at">xlab=</span><span class="st">&quot;Age (years)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of participant age from pbc study data&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <div id="producing-a-one-way-frequency-table" class="section level3 hasAnchor" number="1.5.12">
 <h3><span class="header-section-number">1.5.12</span> Producing a one-way frequency table<a href="introduction-to-r-and-rstudio.html#producing-a-one-way-frequency-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have three categorical variables to summarise in Table 1: sex, stage and vital status. These variables are best summarised using one-way frequency tables.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r-and-rstudio.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;summarytools&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:tibble&#39;:
-## 
-##     view</code></pre>
-<pre><code>## The following objects are masked from &#39;package:huxtable&#39;:
-## 
-##     label, label&lt;-</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r-and-rstudio.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r-and-rstudio.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb22-2"><a href="introduction-to-r-and-rstudio.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="introduction-to-r-and-rstudio.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## Frequencies  
 ## pbc$sex  
 ## Type: Numeric  
@@ -667,20 +659,19 @@ This table is available in Table1.docx, saved on Moodle.</p>
 ##        &lt;NA&gt;      0                               0.00         100.00
 ##       Total    418    100.00         100.00    100.00         100.00</code></pre>
 </div>
-</div>
-<div id="defining-categorical-variables-as-factors" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Defining categorical variables as factors<a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a <strong>factor</strong> using the <code>factor</code> function:</p>
+<div id="defining-categorical-variables-as-factors" class="section level3 hasAnchor" number="1.5.13">
+<h3><span class="header-section-number">1.5.13</span> Defining categorical variables as factors<a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a <strong>factor</strong> using the factor function:</p>
 <p><code>factor(variable=, levels=, labels=)</code></p>
 <p>We specify:</p>
 <ul>
-<li><code>levels</code>: the values the categorical variable uses can take</li>
-<li><code>labels</code>: the labels corresponding to each of the levels (<em>entered in the same order as the levels</em>)</li>
+<li>levels: the values the categorical variable uses can take</li>
+<li>labels: the labels corresponding to each of the levels (entered in the same order as the levels)</li>
 </ul>
 <p>To define our variable sex as a factor, we use:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r-and-rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r-and-rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span></code></pre></div>
 <p>We can confirm the coding by re-running a frequency table:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-to-r-and-rstudio.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r-and-rstudio.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(pbc<span class="sc">$</span>sex)</span></code></pre></div>
 <pre><code>## Frequencies  
 ## pbc$sex  
 ## Type: Factor  
@@ -692,62 +683,75 @@ This table is available in Table1.docx, saved on Moodle.</p>
 ##         &lt;NA&gt;      0                               0.00         100.00
 ##        Total    418    100.00         100.00    100.00         100.00</code></pre>
 <p>Task: define Stage and Vital Status as factors, and produce one-way frequency tables.</p>
-<div id="copying-output-from-r-update" class="section level3 hasAnchor" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> Copying output from R [UPDATE]<a href="introduction-to-r-and-rstudio.html#copying-output-from-r-update" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>It is important to note that saving data in Stata will not save your output. Stata data and output are completely separate to one another. The easiest way to retain the output of your analyses is to copy the output into a word processor package (e.g. Microsoft Word) before closing Stata. Once Stata is closed, all the output (that is, all your hard work!) is lost.</p>
-<p>To copy output from Stata, you can select the output and choose Edit &gt; Copy. This will copy the output as plain text for pasting into a Word document. As this is a table, you can also Copy table or Copy table as HTML. For this course, we recommend that you Copy table as HTML for pasting into Word. Whichever way you do it, you will need to make sure you reformat the table and relabel your header row and column properly for your assignments as described in Module 1. Alternatively, you can copy with the Copy table option for pasting into an Excel worksheet and reformat your table in Excel before pasting into Word.</p>
-<p>Copying output from Stata can get a little complicated to explain. We have included a video on Moodle to summarise the different ways output can be copied.</p>
-<p>Task: complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.</p>
+</div>
+<div id="saving-data-in-r" class="section level3 hasAnchor" number="1.5.14">
+<h3><span class="header-section-number">1.5.14</span> Saving data in R<a href="introduction-to-r-and-rstudio.html#saving-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are many ways to save data from R, depending on the type of file you want to save. The recommendation for this course is to save your data using the <code>.rds</code> format, using the <code>saveRDS()</code> function, which takes two inputs: <code>saveRDS(object, file)</code>. Here, <code>object</code> is the R object to be saved (usually a data frame), and <code>file</code> is the location for the file to be saved (file name and path, including the <code>.rds</code> suffix).</p>
+<p>It is not necessary to save our PBC data, as we have not made any changes to the data. If you had made changes and wanted to save your data, you could use:</p>
+<p><code>saveRDS(pbc, file="pbc_revised.rds")</code></p>
+</div>
+<div id="copying-output-from-r" class="section level3 hasAnchor" number="1.5.15">
+<h3><span class="header-section-number">1.5.15</span> Copying output from R<a href="introduction-to-r-and-rstudio.html#copying-output-from-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is important to note that saving your data or your script in R will not save your output. The easiest way to retain the output of your analyses is to copy the output from the Console into a word processor package (e.g. Microsoft Word) before closing R.</p>
+<p>Unfortunately, by default, R is not ideal for creating publication quality tables. There are many packages that will help in this process, such as R Markdown, bookdown<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, huxtable, gt and gtsummary, but their use is beyond the scope of this course. <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a> provides an excellent introduction to R Markdown.</p>
+</div>
+<div id="task" class="section level3 hasAnchor" number="1.5.16">
+<h3><span class="header-section-number">1.5.16</span> Task<a href="introduction-to-r-and-rstudio.html#task" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.</p>
 </div>
 </div>
 <div id="part-3-creating-other-types-of-graphs" class="section level2 unnumbered hasAnchor">
 <h2>Part 3: Creating other types of graphs<a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="bar-graphs" class="section level3 hasAnchor" number="1.6.2">
-<h3><span class="header-section-number">1.6.2</span> Bar graphs<a href="introduction-to-r-and-rstudio.html#bar-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>plot()</code> function, also known as <em>base graphics</em>, is the default method of plotting data in R that can produce publication-quality graphics with minimal coding. There are alternative packages for plotting, with <code>ggplot2</code> being perhaps the most well known. We will present instructions for base graphics in this course, but excellent documentation for <code>ggplot2</code> can be found at the <a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis</a> website, written by the package authors.</p>
+<p>Two other excellent resources for creating graphs in R are: <a href="https://r-graphics.org/">R Graphics Cookbook</a> and <a href="https://r-graph-gallery.com/">The R Graph Gallery</a>.</p>
+<div id="bar-graphs" class="section level3 hasAnchor" number="1.5.17">
+<h3><span class="header-section-number">1.5.17</span> Bar graphs<a href="introduction-to-r-and-rstudio.html#bar-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The simplest way to use the <code>plot()</code> function is by specifying an object to be plotted. As with the <code>hist()</code> function, to plot a single variable from a data frame, we must define it using: <code>dataframe$variable</code>.</p>
 <p>Here we will create the bar chart shown in Figure 1.1 using the <code>pbc.dta</code> dataset. The x-axis of this graph will be the stage of disease, and the y-axis will show the number of participants in each category.</p>
-<div id="simple-bar-graph" class="section level4 hasAnchor" number="1.6.2.1">
-<h4><span class="header-section-number">1.6.2.1</span> Simple bar graph<a href="introduction-to-r-and-rstudio.html#simple-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For most of our bar graphs, we will be plotting frequencies, so we choose <strong>Graph of frequencies within categories</strong></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-to-r-and-rstudio.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert stage into a factpr</span></span>
-<span id="cb34-2"><a href="introduction-to-r-and-rstudio.html#cb34-2" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>stage <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>stage, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Stage 1&quot;</span>, <span class="st">&quot;Stage 2&quot;</span>, <span class="st">&quot;Stage 3&quot;</span>, <span class="st">&quot;Stage 4&quot;</span>))</span>
-<span id="cb34-3"><a href="introduction-to-r-and-rstudio.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="introduction-to-r-and-rstudio.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pbc<span class="sc">$</span>stage, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease from PBC study&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Number of participants&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r-and-rstudio.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pbc<span class="sc">$</span>stage, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease from PBC study&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Number of participants&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Well, this isn’t correct! Note that stage is a categorical variable, that has been entered using the numbers 1 to 4. By default, the <code>plot()</code> function will plot any numerical variable on the y-axis against its position (row number) on the x-axis (labelled ‘Index’). To plot a categorical variable using a bar graph, we first need to define it as a factor:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r-and-rstudio.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert stage to a factor</span></span>
+<span id="cb28-2"><a href="introduction-to-r-and-rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a>pbc<span class="sc">$</span>stage <span class="ot">&lt;-</span> <span class="fu">factor</span>(pbc<span class="sc">$</span>stage, </span>
+<span id="cb28-3"><a href="introduction-to-r-and-rstudio.html#cb28-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb28-4"><a href="introduction-to-r-and-rstudio.html#cb28-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Stage 1&quot;</span>, <span class="st">&quot;Stage 2&quot;</span>, <span class="st">&quot;Stage 3&quot;</span>, <span class="st">&quot;Stage 4&quot;</span>))</span>
+<span id="cb28-5"><a href="introduction-to-r-and-rstudio.html#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="introduction-to-r-and-rstudio.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pbc<span class="sc">$</span>stage, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease from PBC study&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Number of participants&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+</div>
+<div id="clustered-bar-graph" class="section level3 hasAnchor" number="1.5.18">
+<h3><span class="header-section-number">1.5.18</span> Clustered bar graph<a href="introduction-to-r-and-rstudio.html#clustered-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To create a clustered bar chart as shown in Figure 1.2, we need to do a bit of manipulation.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r-and-rstudio.html#cb29-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">table</span>(pbc<span class="sc">$</span>sex, pbc<span class="sc">$</span>stage)</span>
+<span id="cb29-2"><a href="introduction-to-r-and-rstudio.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
+<span id="cb29-3"><a href="introduction-to-r-and-rstudio.html#cb29-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">TRUE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+</div>
+<div id="stacked-bar-graph" class="section level3 hasAnchor" number="1.5.19">
+<h3><span class="header-section-number">1.5.19</span> Stacked bar graph<a href="introduction-to-r-and-rstudio.html#stacked-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To create a stacked bar chart shown in Figure 1.4, bring up the <strong>Bar chart</strong> dialog box, go to the <strong>Options</strong> tab and tick <strong>Stack bars on y variables</strong>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-r-and-rstudio.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
+<span id="cb30-2"><a href="introduction-to-r-and-rstudio.html#cb30-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
 <p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 </div>
-</div>
-<div id="clustered-bar-graph" class="section level3 hasAnchor" number="1.6.3">
-<h3><span class="header-section-number">1.6.3</span> Clustered bar graph<a href="introduction-to-r-and-rstudio.html#clustered-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To create a clustered bar chart as shown in Figure 1.2:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introduction-to-r-and-rstudio.html#cb35-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">table</span>(pbc<span class="sc">$</span>sex, pbc<span class="sc">$</span>stage)</span>
-<span id="cb35-2"><a href="introduction-to-r-and-rstudio.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
-<span id="cb35-3"><a href="introduction-to-r-and-rstudio.html#cb35-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">TRUE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
-</div>
-<div id="stacked-bar-graph" class="section level3 hasAnchor" number="1.6.4">
-<h3><span class="header-section-number">1.6.4</span> Stacked bar graph<a href="introduction-to-r-and-rstudio.html#stacked-bar-graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To create a stacked bar chart shown in Figure 1.4, bring up the <strong>Bar chart</strong> dialog box, go to the <strong>Options</strong> tab and tick <strong>Stack bars on y variables</strong>.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introduction-to-r-and-rstudio.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, <span class="at">main=</span><span class="st">&quot;Bar graph of stage of disease by sex from PBC study&quot;</span>,</span>
-<span id="cb36-2"><a href="introduction-to-r-and-rstudio.html#cb36-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>))</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
-</div>
-<div id="stacked-bar-graph-of-relative-frequencies" class="section level3 hasAnchor" number="1.6.5">
-<h3><span class="header-section-number">1.6.5</span> Stacked bar graph of relative frequencies<a href="introduction-to-r-and-rstudio.html#stacked-bar-graph-of-relative-frequencies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="stacked-bar-graph-of-relative-frequencies" class="section level3 hasAnchor" number="1.5.20">
+<h3><span class="header-section-number">1.5.20</span> Stacked bar graph of relative frequencies<a href="introduction-to-r-and-rstudio.html#stacked-bar-graph-of-relative-frequencies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If one wants to compare the sex distribution across the stage categories, it would be convenient if all the bars have the same height (100%). To generate such a bar chart in Stata, tick <strong>Base bar heights on percentages</strong> in the <strong>Options</strong> tab of the <strong>Bar charts</strong> dialog box. Change the y-axis title in the <strong>Y axis</strong> tab to <code>Percentage of students in each age group</code>.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r-and-rstudio.html#cb37-1" aria-hidden="true" tabindex="-1"></a>percent <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(counts, <span class="at">margin=</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb37-2"><a href="introduction-to-r-and-rstudio.html#cb37-2" aria-hidden="true" tabindex="-1"></a>percent</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r-and-rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a>percent <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(counts, <span class="at">margin=</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb31-2"><a href="introduction-to-r-and-rstudio.html#cb31-2" aria-hidden="true" tabindex="-1"></a>percent</span></code></pre></div>
 <pre><code>##         
 ##            Stage 1   Stage 2   Stage 3   Stage 4
 ##   Male   14.285714  8.695652 10.322581 11.805556
 ##   Female 85.714286 91.304348 89.677419 88.194444</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-r-and-rstudio.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent, <span class="at">main=</span><span class="st">&quot;Relative frequency of sex within stage of disease from PBC study&quot;</span>,</span>
-<span id="cb39-2"><a href="introduction-to-r-and-rstudio.html#cb39-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>))</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-to-r-and-rstudio.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(percent, <span class="at">main=</span><span class="st">&quot;Relative frequency of sex within stage of disease from PBC study&quot;</span>,</span>
+<span id="cb33-2"><a href="introduction-to-r-and-rstudio.html#cb33-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(counts), <span class="at">beside=</span><span class="cn">FALSE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>))</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 </div>
-<div id="creating-line-graphs" class="section level3 hasAnchor" number="1.6.6">
-<h3><span class="header-section-number">1.6.6</span> Creating line graphs<a href="introduction-to-r-and-rstudio.html#creating-line-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="creating-line-graphs" class="section level3 hasAnchor" number="1.5.21">
+<h3><span class="header-section-number">1.5.21</span> Creating line graphs<a href="introduction-to-r-and-rstudio.html#creating-line-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To demonstrate the graphing of aggregate data with Stata, we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered into Stata as <code>Example_1.2.dta</code>.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introduction-to-r-and-rstudio.html#cb40-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_stata</span>(<span class="st">&quot;data/examples/Example_1.2.dta&quot;</span>)</span>
-<span id="cb40-2"><a href="introduction-to-r-and-rstudio.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cancer)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-to-r-and-rstudio.html#cb34-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_1.2.rds&quot;</span>)</span>
+<span id="cb34-2"><a href="introduction-to-r-and-rstudio.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cancer)</span></code></pre></div>
 <pre><code>##       year          ncases        ndeaths           rcases         rdeaths     
 ##  Min.   :1987   Min.   :1567   Min.   : 645.0   Min.   : 81.8   Min.   :31.10  
 ##  1st Qu.:1992   1st Qu.:2804   1st Qu.: 788.2   1st Qu.:121.9   1st Qu.:34.67  
@@ -755,18 +759,18 @@ This table is available in Table1.docx, saved on Moodle.</p>
 ##  Mean   :1996   Mean   :3719   Mean   : 855.0   Mean   :135.4   Mean   :37.09  
 ##  3rd Qu.:2001   3rd Qu.:4403   3rd Qu.: 921.0   3rd Qu.:164.2   3rd Qu.:40.38  
 ##  Max.   :2006   Max.   :6158   Max.   :1044.0   Max.   :186.9   Max.   :43.80</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introduction-to-r-and-rstudio.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-r-and-rstudio.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change scale</span></span>
-<span id="cb43-2"><a href="introduction-to-r-and-rstudio.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>))</span>
-<span id="cb43-3"><a href="introduction-to-r-and-rstudio.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="introduction-to-r-and-rstudio.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a second line</span></span>
-<span id="cb43-5"><a href="introduction-to-r-and-rstudio.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rdeaths, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb43-6"><a href="introduction-to-r-and-rstudio.html#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-7"><a href="introduction-to-r-and-rstudio.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend to the plot</span></span>
-<span id="cb43-8"><a href="introduction-to-r-and-rstudio.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&quot;Incidence&quot;</span>, <span class="st">&quot;Deaths&quot;</span>),</span>
-<span id="cb43-9"><a href="introduction-to-r-and-rstudio.html#cb43-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-38-2.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introduction-to-r-and-rstudio.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r-and-rstudio.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change scale</span></span>
+<span id="cb37-2"><a href="introduction-to-r-and-rstudio.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rcases, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Age-standardised rate (per 100,000)&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>))</span>
+<span id="cb37-3"><a href="introduction-to-r-and-rstudio.html#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="introduction-to-r-and-rstudio.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a second line</span></span>
+<span id="cb37-5"><a href="introduction-to-r-and-rstudio.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(cancer<span class="sc">$</span>year, cancer<span class="sc">$</span>rdeaths, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb37-6"><a href="introduction-to-r-and-rstudio.html#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="introduction-to-r-and-rstudio.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend to the plot</span></span>
+<span id="cb37-8"><a href="introduction-to-r-and-rstudio.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&quot;Incidence&quot;</span>, <span class="st">&quot;Deaths&quot;</span>),</span>
+<span id="cb37-9"><a href="introduction-to-r-and-rstudio.html#cb37-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-36-2.png" width="672" /></p>
 
 </div>
 </div>
@@ -776,6 +780,12 @@ This table is available in Table1.docx, saved on Moodle.</p>
 <div id="ref-therneau_grambsch10" class="csl-entry">
 Therneau, Terry M., and Patricia M. Grambsch. 2010. <em>Modeling <span>Survival Data</span>: <span>Extending</span> the <span>Cox Model</span></em>. <span>New York Berlin Heidelberg</span>: <span>Springer</span>.
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>these R notes and the PHCM9795 course notes have been written using <a href="https://bookdown.org/yihui/bookdown/">bookdown</a><a href="introduction-to-r-and-rstudio.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -837,6 +847,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

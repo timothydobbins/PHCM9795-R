@@ -2,14 +2,17 @@
 
 INCLUDE:
 
-- https://ubco-biology.github.io/BIOL202/
-- https://r4stats.com/articles/why-r-is-hard-to-learn/
+-   <https://ubco-biology.github.io/BIOL202/>
 
-- how to get help (online, google, etc)
-- don't give up!
-- tidyverse?
+-   <https://r4stats.com/articles/why-r-is-hard-to-learn/>
 
-## Learning outcomes  {-}
+-   how to get help (online, google, etc)
+
+-   don't give up!
+
+-   tidyverse?
+
+## Learning outcomes {.unnumbered}
 
 By the end of this Module, you will be able to:
 
@@ -21,7 +24,7 @@ By the end of this Module, you will be able to:
 -   understand the difference between saving R data and saving R output
 -   copy R output to a standard word processing package
 
-## Part 1: An introduction to R{-}
+## Part 1: An introduction to R {.unnumbered}
 
 "R is a language and environment for statistical computing and graphics." [Link](https://www.r-project.org/about.html). It is an open-source programming language, used mainly for statistics (including biostatistics) and data science.
 
@@ -33,27 +36,26 @@ At its heart, R is a programming language. When you install R on your computer, 
 
 RStudio is an "Integrated Development Environment" that runs R while also providing useful tools to help you as you're writing code and analysing data. You can think of R as an engine which does the work, and RStudio as a car that uses the engine, but also provides useful tools to help you drive.
 
-R: Don't use this          |  RStudio: Use this instead
-:-------------------------:|:-------------------------:
-<img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/>  |  <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/>
-
+|                       R: Don't use this                        |                            RStudio: Use this instead                             |
+|:----------------------------------:|:----------------------------------:|
+| <img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/> | <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/> |
 
 ## Installing R and RSudio
 
 ### To install R on your computer
 
-1. Download the R installer from:
-    a. for Windows: https://cran.r-project.org/bin/windows/base/
-    b. for MacOS: https://cran.r-project.org/bin/macosx/
-2. Install R by running the installer and following the installation instructions. The default settings are fine.
-    - **Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at https://www.xquartz.org/. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
-3. Open the R program. You should see a screen as below:
+1.  Download the R installer from:
+    a.  for Windows: <https://cran.r-project.org/bin/windows/base/>
+    b.  for MacOS: <https://cran.r-project.org/bin/macosx/>
+2.  Install R by running the installer and following the installation instructions. The default settings are fine.
+    -   **Note for macOS:** if you are running macOS 10.8 or later, you will need to install an additional application called XQuartz, which is available at <https://www.xquartz.org/>. Download the latest installer (XQuartz-2.8.1.dmg as of April 2022), and install it in the usual way.
+3.  Open the R program. You should see a screen as below:
 
 ```{r echo=FALSE, fig.show="hold", out.width="80%"}
 knitr::include_graphics("img/R-screenshot.png")
 ```
 
-Near the bottom of the R screen, you will find the ">" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
+Near the bottom of the R screen, you will find the "\>" symbol which represents the command line. If you type `1 + 2` into the command line and then hit enter you should get:
 
 `[1] 3`
 
@@ -63,16 +65,16 @@ At this point, close R - we will not interact with R like this in the future. Yo
 
 ### To install RStudio on your computer
 
-1. Make sure you have already installed R, and verified that it is working.
-2. Download the RStudio desktop installer at: https://www.rstudio.com/products/rstudio/download. Ensure that you select the RStudio Desktop (Free) installer in the first column.
-3. Install RStudio by running the installer and following the installation instructions. The default settings are fine.
-4. Open RStudio, which will appear as below:
+1.  Make sure you have already installed R, and verified that it is working.
+2.  Download the RStudio desktop installer at: <https://www.rstudio.com/products/rstudio/download>. Ensure that you select the RStudio Desktop (Free) installer in the first column.
+3.  Install RStudio by running the installer and following the installation instructions. The default settings are fine.
+4.  Open RStudio, which will appear as below:
 
 ```{r echo=FALSE, fig.show="hold", out.width="100%"}
 knitr::include_graphics("img/RStudio-screenshot-01.png")
 ```
 
-Locate the command line symbol ">" at the bottom of the left-hand panel. Type `1 + 2` into the command line and hit enter, and you will see:
+Locate the command line symbol "\>" at the bottom of the left-hand panel. Type `1 + 2` into the command line and hit enter, and you will see:
 
 `[1] 3`
 
@@ -84,7 +86,7 @@ RStudio currently comprises three window panes, and we will discuss these later.
 
 In this very brief section, we will introduce R by calculating the average of six ages.
 
-To begin, open a new R Script by choosing **File > New file > R Script **. A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the **New File** button at the top of the RStudio window.
+To begin, open a new R Script by choosing **File \> New file \> R Script** . A script (or a program) is a collection of commands that are sequentially processed by R. You can also type Ctrl+Shift+N in Windows, or Command+Shift+N in MacOS to open a new script in RStudio, or click the **New File** button at the top of the RStudio window.
 
 You should now see four window panes, as below. In the top-left window, type the following (replacing my name with yours, and including today's date):
 
@@ -105,7 +107,7 @@ Your screen should look something like:
 knitr::include_graphics("img/RStudio-screenshot-02.png")
 ```
 
-To run your script, choose **Code > Run Region > Run All**. You will see your code appear in the bottom-right window, with the following output:
+To run your script, choose **Code \> Run Region \> Run All**. You will see your code appear in the bottom-right window, with the following output:
 
 ```{r eval=FALSE}
 > # Author: Timothy Dobbins
@@ -129,11 +131,11 @@ Now that we have seen a simple example of how to use R within RStudio, let's des
 knitr::include_graphics("img/RStudio-screenshot-03.png")
 ```
 
-The **Source** window is where you will write and edit your R scripts. Your scripts can be saved by clicking **File > Save As** or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example script.R. Give it a meaningful title and remember to periodically save as you go.
+The **Source** window is where you will write and edit your R scripts. Your scripts can be saved by clicking **File \> Save As** or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example script.R. Give it a meaningful title and remember to periodically save as you go.
 
 In RStudio, the name of the script will be black when it has been saved, and will change to red if you have any unsaved changes.
 
-The **Console** window, at the bottom left, contains the command line which is indicated with the symbol >. You can type commands here, but anything executed directly from the console is not saved and therefore is lost when the session ends (when you exit RStudio). You should always run your commands from a script file which you can save and use again later. When you run commands from a script, the output and any notes/errors are shown in the console. The Terminal and Jobs tabs will not be used in this course.
+The **Console** window, at the bottom left, contains the command line which is indicated with the symbol \>. You can type commands here, but anything executed directly from the console is not saved and therefore is lost when the session ends (when you exit RStudio). You should always run your commands from a script file which you can save and use again later. When you run commands from a script, the output and any notes/errors are shown in the console. The Terminal and Jobs tabs will not be used in this course.
 
 The **Environment** window at the top-right shows a list of objects that have been created during your session. When you close your RStudio session these objects will disappear. We will not use the History or Connections tabs in this course.
 
@@ -142,6 +144,22 @@ The bottom right corner contains some useful tabs, in particular the **Help** ta
 ## Some R basics
 
 While we use R as a statistics package, R is a programming language. In order to use R effectively, we need to define some basics.
+
+### Scripts
+
+While R can be run completely from the command line, issuing commands one-by-one, it is most commonly run using **scripts**. A script is simply a list of commands that are processed in order. The simple analysis we conducted earlier is a very simple script. Some things to know about R scripts:
+
+-   anything appearing after a \# is a comment, and is ignored by R. The first three lines of our script are there for ourselves (either as writers of code, or readers of code). I include comments at the beginning of each of my scripts to describe:
+
+    -   who wrote the script (useful if someone else uses your script and wants to ask questions about it);
+
+    -   when the script was written;
+
+    -   what the script does. This last point may seem odd, but it's useful to describe what this script does, and why it might differ to other scripts being used in the analysis. This is particularly useful if your scripts become long and complex.
+
+-   **R is case-sensitive**. So `age`, `AGE` and `Age` could refer to three separate variables (please don't do this!)
+
+-   use blank lines and comments to separate sections of your script
 
 ### Objects
 
@@ -165,10 +183,6 @@ x
 Now we see the contents of `x` in the console.
 
 This example is rather trivial, and we rarely assign objects of just one value. In fact, we created an object earlier, called `age`, which comprised six values.
-
-### R is case-sensitive
-
-As mentioned earlier, R is case-sensitive. Which means that an object called `x` cannot be referred to as `X`. Similarly, an object called `Age` would not be the same as `age`.
 
 ### Data structures
 
@@ -237,7 +251,7 @@ descriptives(vars=age, data=pbc)
 
 In this course, we will usually provide all the input names, even when they are not required. As you become more familiar with R, you will start to use the shortcut method.
 
-#### The curse of functions
+#### The curse of inconsistency
 
 As R is an open-source project, many people have contributed to its development. This has led to a frustrating part of R: some functions require a single object to be specified, but some require you to specify a data frame and select variables for analysis. Let's see an example.
 
@@ -255,7 +269,7 @@ A **package** is a collection of functions, documentation (and sometimes dataset
 
 A useful way of thinking about R is that R is like a smartphone, with packages being like apps which are downloaded from CRAN (similar to an app-store). When you first install R, it comes with a basic set of packages (apps) installed. You can do a lot of things with these basic packages, but sometimes you might want to do things differently, or you may want to perform some analyses that can't be done using the default packages. In these cases, you can install a package.
 
-Like installing an app on a smartphone, you only need to _install_ a package once. But each time you want to use the package, you need to _load_ the package into R. This is similar to running the app on your phone. The analogy falls down a bit in that we usually load more than one package in an R script - but we only load the packages we need for that R session.
+Like installing an app on a smartphone, you only need to *install* a package once. But each time you want to use the package, you need to *load* the package into R. This is similar to running the app on your phone. The analogy falls down a bit in that we usually load more than one package in an R script - but we only load the packages we need for that R session.
 
 ### How to install a package
 
@@ -267,7 +281,7 @@ install.packages("skimr")
 
 Note the use of the quotation marks.
 
-Alternatively, RStudio offers a graphical way of installing packages that can be accessed via **Tools > Install Packages**, or via the **Install** button at the top of the **Packages** tab in the bottom-right window. You can begin typing the name of the package in the dialog box that appears, and RStudio will use predictive text to offer possible packages:
+Alternatively, RStudio offers a graphical way of installing packages that can be accessed via **Tools \> Install Packages**, or via the **Install** button at the top of the **Packages** tab in the bottom-right window. You can begin typing the name of the package in the dialog box that appears, and RStudio will use predictive text to offer possible packages:
 
 ```{r echo=FALSE, fig.show="hold", out.width="60%"}
 knitr::include_graphics("img/install-packages.png")
@@ -283,24 +297,23 @@ When you begin a new session in RStudio, i.e. when you open RStudio, only certai
 library(skimr)
 ```
 
-Note that quotation marks are not required for the `library()` function (although they can be included if you really like quotation marks!). 
+Note that quotation marks are not required for the `library()` function (although they can be included if you really like quotation marks!).
 
-#### Installing vs loading packages{-}
+#### Installing vs loading packages {.unnumbered}
 
 Package installation:
 
-- use the `install.packages()` function (note the 's')
-- the package name must be surrounded by quotation marks
-- only needs to be done once
+-   use the `install.packages()` function (note the 's')
+-   the package name must be surrounded by quotation marks
+-   only needs to be done once
 
 Package loading
 
-- use the `library()` function
-- the package name does not need to be surrounded by quotation marks
-- must be done for each R session
+-   use the `library()` function
+-   the package name does not need to be surrounded by quotation marks
+-   must be done for each R session
 
-
-## Part 2: Obtaining basic descriptive statistics{-}
+## Part 2: Obtaining basic descriptive statistics {.unnumbered}
 
 In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from Modeling Survival Data: Extending the Cox Model @therneau_grambsch10. By the end of this exercise, we will have completed the following table.
 
@@ -331,46 +344,28 @@ huxtable(tab) %>%
   set_caption("Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)") %>% 
   add_footnote("* asparate aminotransferase")
 ```
+
 This table is available in Table1.docx, saved on Moodle.
 
 ### Opening a data file
 
-Typing data directly into R is not common; we usually open data that have been previously saved. There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):
+Typing data directly into R is not common; we usually open data that have been previously saved. In this example, we will open a `.rds` file using the `readRDS()` function, which has only one input: the location of the file.
 
-1 - If necessary, install the following packages: `haven`, `readxl`, `skimr` and `labelled`. As mentioned earlier, packages only need to be installed if they have not been installed earlier.
+1 - Locate the data set called `pbc.rds` on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: `pbc_info.txt`. Locate the file and filepath of `pbc.rds`.
 
-```{r, eval=FALSE}
-install.packages("haven")
-install.packages("readxl")
-install.packages("skimr")
-install.packages("labelled")
-```
+2 - Install the package `skimr` using either the graphical approach, or by typing into the console:
 
-2 - Locate the data set called pbc.dta on Moodle. Click the file to download it, and then save it in a folder you will be able to locate later - for example, your OneDrive folder. The description of this dataset (i.e. the metadata) have been saved as a plain text file: pbc_info.txt. Locate the file and filepath of pbc.dta.
+`install.packages("skimr")`
 
-3 - Load the following packages: `haven`, `labelled` and `skimr`, and use the `read_dta()` function to read the Stata file into R, and assign it to a data frame called `pbc`:
+3 - Load the `skimr` package, and use the `readRDS()` function to read the file into R,  assigning it to a data frame called `pbc`:
 
 ```{r}
-library(haven)
-library(labelled)
 library(skimr)
 
-pbc <- read_dta("data/examples/pbc.dta")
+pbc <- readRDS("data/examples/pbc.rds")
 ```
 
-4 - We now re-assign the pbc data frame by using the `unlabelled()` function from the `labelled` package. We only need to do this for data that have been labelled by another package:
-
-```{r}
-pbc <- unlabelled(pbc)
-```
-
-Note that we can combine the `unlabelled()` and `read_dta()` functions together, to complete this process in one line:
-
-```{r, eval=FALSE}
-pbc <- unlabelled(read_dta("data/examples/pbc.dta"))
-```
-
-5 - We can now use the `summary()` function to examine the pbc dataset:
+4 - We can now use the `summary()` function to examine the pbc dataset:
 
 ```{r}
 summary(pbc)
@@ -394,8 +389,8 @@ The `summary()` and `skim()` functions are useful to give a quick overview of a 
 
 One of the most flexible functions for summarising continuous variables is the `descriptives()` function from the `jmv` package. The function is specified as `descriptives(data=, vars=)` where:
 
-- `data` specifies the dataframe to be analysed
-- `vars` specifies the variable(s) of interest, with multiple variables combined using the `c()` function
+-   `data` specifies the dataframe to be analysed
+-   `vars` specifies the variable(s) of interest, with multiple variables combined using the `c()` function
 
 We can summarise the three continuous variables in the pbc data: age, AST and serum bilirubin, as shown below.
 
@@ -443,16 +438,16 @@ library(summarytools)
 freq(pbc$sex)
 ```
 
-## Defining categorical variables as factors [Move to mod 2???]
+### Defining categorical variables as factors
 
-You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a **factor** using the `factor` function:
+You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a **factor** using the factor function:
 
 `factor(variable=, levels=, labels=)`
 
 We specify:
 
-- `levels`: the values the categorical variable uses can take
-- `labels`: the labels corresponding to each of the levels (*entered in the same order as the levels*)
+- levels: the values the categorical variable uses can take
+- labels: the labels corresponding to each of the levels (entered in the same order as the levels)
 
 To define our variable sex as a factor, we use:
 
@@ -468,17 +463,27 @@ freq(pbc$sex)
 
 Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
 
-### Copying output from R [UPDATE]
+### Saving data in R
 
-It is important to note that saving data in Stata will not save your output. Stata data and output are completely separate to one another. The easiest way to retain the output of your analyses is to copy the output into a word processor package (e.g. Microsoft Word) before closing Stata. Once Stata is closed, all the output (that is, all your hard work!) is lost.
+There are many ways to save data from R, depending on the type of file you want to save. The recommendation for this course is to save your data using the `.rds` format, using the `saveRDS()` function, which takes two inputs: `saveRDS(object, file)`. Here, `object` is the R object to be saved (usually a data frame), and `file` is the location for the file to be saved (file name and path, including the `.rds` suffix).
 
-To copy output from Stata, you can select the output and choose Edit \> Copy. This will copy the output as plain text for pasting into a Word document. As this is a table, you can also Copy table or Copy table as HTML. For this course, we recommend that you Copy table as HTML for pasting into Word. Whichever way you do it, you will need to make sure you reformat the table and relabel your header row and column properly for your assignments as described in Module 1. Alternatively, you can copy with the Copy table option for pasting into an Excel worksheet and reformat your table in Excel before pasting into Word.
+It is not necessary to save our PBC data, as we have not made any changes to the data. If you had made changes and wanted to save your data, you could use:
 
-Copying output from Stata can get a little complicated to explain. We have included a video on Moodle to summarise the different ways output can be copied.
+`saveRDS(pbc, file="pbc_revised.rds")`
 
-Task: complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.
+### Copying output from R
 
-## Part 3: Creating other types of graphs {-}
+It is important to note that saving your data or your script in R will not save your output. The easiest way to retain the output of your analyses is to copy the output from the Console into a word processor package (e.g. Microsoft Word) before closing R.
+
+Unfortunately, by default, R is not ideal for creating publication quality tables. There are many packages that will help in this process, such as R Markdown, bookdown[^introtor-1], huxtable, gt and gtsummary, but their use is beyond the scope of this course. [R Markdown for Scientists](https://rmd4sci.njtierney.com/) provides an excellent introduction to R Markdown.
+
+[^introtor-1]: these R notes and the PHCM9795 course notes have been written using [bookdown](https://bookdown.org/yihui/bookdown/)
+
+### Task
+
+Complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.
+
+## Part 3: Creating other types of graphs {.unnumbered}
 
 The `plot()` function, also known as *base graphics*, is the default method of plotting data in R that can produce publication-quality graphics with minimal coding. There are alternative packages for plotting, with `ggplot2` being perhaps the most well known. We will present instructions for base graphics in this course, but excellent documentation for `ggplot2` can be found at the [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) website, written by the package authors.
 
@@ -494,13 +499,22 @@ Here we will create the bar chart shown in Figure 1.1 using the `pbc.dta` datase
 plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
 ```
 
+Well, this isn't correct! Note that stage is a categorical variable, that has been entered using the numbers 1 to 4. By default, the `plot()` function will plot any numerical variable on the y-axis against its position (row number) on the x-axis (labelled 'Index'). To plot a categorical variable using a bar graph, we first need to define it as a factor:
+
+```{r}
+# Convert stage to a factor
+pbc$stage <- factor(pbc$stage, 
+                    levels=c(1, 2, 3, 4),
+                    labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
+
+plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
+```
+
 ### Clustered bar graph
 
 To create a clustered bar chart as shown in Figure 1.2, we need to do a bit of manipulation.
 
 
-
-:
 
 ```{r}
 counts <- table(pbc$sex, pbc$stage)
@@ -508,8 +522,8 @@ barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
         legend = rownames(counts), beside=TRUE, args.legend = list(x = "topleft"))
 ```
 
-
 ### Stacked bar graph
+
 To create a stacked bar chart shown in Figure 1.4, bring up the **Bar chart** dialog box, go to the **Options** tab and tick **Stack bars on y variables**.
 
 ```{r}
@@ -530,12 +544,12 @@ barplot(percent, main="Relative frequency of sex within stage of disease from PB
 
 ```
 
-
 ### Creating line graphs
+
 To demonstrate the graphing of aggregate data with Stata, we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered into Stata as `Example_1.2.dta`.
 
 ```{r}
-cancer <- read_stata("data/examples/Example_1.2.dta")
+cancer <- readRDS("data/examples/Example_1.2.rds")
 summary(cancer)
 
 plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
@@ -551,4 +565,3 @@ legend("topleft", legend=c("Incidence", "Deaths"),
        col=c("red", "blue"), lty = 1:2)
 
 ```
-

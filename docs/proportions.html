@@ -161,14 +161,13 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
 <ul>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#learning-outcomes"><i class="fa fa-check"></i>Learning outcomes</a></li>
-<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction-1"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-vs-rstudio"><i class="fa fa-check"></i><b>1.2</b> R vs RStudio</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-r-and-rsudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RSudio</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#simpleR"><i class="fa fa-check"></i><b>1.4</b> A simple R analysis</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.5</b> The RStudio environment</a></li>
-<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.6</b> Some R basics</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i><b>1.7</b> Part 2: Obtaining basic descriptive statistics</a></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.8</b> Defining categorical variables as factors</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-1-an-introduction-to-r"><i class="fa fa-check"></i>Part 1: An introduction to R</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-vs-rstudio"><i class="fa fa-check"></i><b>1.1</b> R vs RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-r-and-rsudio"><i class="fa fa-check"></i><b>1.2</b> Installing R and RSudio</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#simpleR"><i class="fa fa-check"></i><b>1.3</b> A simple R analysis</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.4</b> The RStudio environment</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.5</b> Some R basics</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i>Part 2: Obtaining basic descriptive statistics</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs"><i class="fa fa-check"></i>Part 3: Creating other types of graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
@@ -256,19 +255,19 @@ div.csl-indent {
 <div id="confidence-intervals-for-proportions" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> 95% confidence intervals for proportions<a href="proportions.html#confidence-intervals-for-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>BinomCI(x=, n=, method=)</code> function within the <code>DescTools</code> package to compute 95% confidence intervals for proportions. Here we specify <code>x</code>: the number of successes, <code>n</code>: the sample size, and optionally, the <code>method</code> (which defaults to Wilson’s method).</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="proportions.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb113-2"><a href="proportions.html#cb113-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-3"><a href="proportions.html#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">47</span>, <span class="at">n=</span><span class="dv">215</span>, <span class="at">method=</span><span class="st">&#39;wald&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="proportions.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb108-2"><a href="proportions.html#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="proportions.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">47</span>, <span class="at">n=</span><span class="dv">215</span>, <span class="at">method=</span><span class="st">&#39;wald&#39;</span>)</span></code></pre></div>
 <pre><code>##            est    lwr.ci    upr.ci
 ## [1,] 0.2186047 0.1633595 0.2738498</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="proportions.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">47</span>, <span class="at">n=</span><span class="dv">215</span>, <span class="at">method=</span><span class="st">&#39;wilson&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="proportions.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">47</span>, <span class="at">n=</span><span class="dv">215</span>, <span class="at">method=</span><span class="st">&#39;wilson&#39;</span>)</span></code></pre></div>
 <pre><code>##            est    lwr.ci    upr.ci
 ## [1,] 0.2186047 0.1685637 0.2785246</code></pre>
 </div>
 <div id="significance-test-for-single-proportion" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Significance test for single proportion<a href="proportions.html#significance-test-for-single-proportion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>binom.test</code> function to perform a significance test for a single proportion: <code>binom.test(x=, n=, p=)</code>. Here we specify <code>x</code>: the number of successes, <code>n</code>: the sample size, and <code>p</code>: the hypothesised proportion (which defaults to 0.5 if nothing is entered).</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="proportions.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x=</span><span class="dv">54</span>, <span class="at">n=</span><span class="dv">300</span>, <span class="at">p=</span><span class="fl">0.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="proportions.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x=</span><span class="dv">54</span>, <span class="at">n=</span><span class="dv">300</span>, <span class="at">p=</span><span class="fl">0.2</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Exact binomial test
 ## 
@@ -283,16 +282,16 @@ div.csl-indent {
 </div>
 <div id="computing-a-relative-risk-and-its-95-confidence-interval" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Computing a relative risk and its 95% confidence interval<a href="proportions.html#computing-a-relative-risk-and-its-95-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="proportions.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb119-2"><a href="proportions.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb119-3"><a href="proportions.html#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
-<span id="cb119-4"><a href="proportions.html#cb119-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb119-5"><a href="proportions.html#cb119-5" aria-hidden="true" tabindex="-1"></a>drug <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_6.4.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb119-6"><a href="proportions.html#cb119-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
-<span id="cb119-7"><a href="proportions.html#cb119-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb119-8"><a href="proportions.html#cb119-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drug)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-78">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-78">Table 6.1: </span> </caption><col><col><tr>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="proportions.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb114-2"><a href="proportions.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb114-3"><a href="proportions.html#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb114-4"><a href="proportions.html#cb114-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-5"><a href="proportions.html#cb114-5" aria-hidden="true" tabindex="-1"></a>drug <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_6.4.dta&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb114-6"><a href="proportions.html#cb114-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
+<span id="cb114-7"><a href="proportions.html#cb114-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-8"><a href="proportions.html#cb114-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drug)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-77">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-77">Table 6.1: </span> </caption><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">group</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">side_effect</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Placebo</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Nausea</td></tr>
@@ -308,36 +307,36 @@ div.csl-indent {
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Placebo</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">No nausea</td></tr>
 </table>
 
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="proportions.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="proportions.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group)</span></code></pre></div>
 <pre><code>## 
 ## Placebo  Active 
 ##      50      50</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="proportions.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>side_effect)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="proportions.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>side_effect)</span></code></pre></div>
 <pre><code>## 
 ## No nausea    Nausea 
 ##        81        19</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="proportions.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group, drug<span class="sc">$</span>side_effect)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="proportions.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group, drug<span class="sc">$</span>side_effect)</span></code></pre></div>
 <pre><code>##          
 ##           No nausea Nausea
 ##   Placebo        46      4
 ##   Active         35     15</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="proportions.html#cb126-1" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>group, <span class="at">ref=</span><span class="st">&quot;Active&quot;</span>)</span>
-<span id="cb126-2"><a href="proportions.html#cb126-2" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>side_effect <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>side_effect, <span class="at">ref=</span><span class="st">&quot;Nausea&quot;</span>)</span>
-<span id="cb126-3"><a href="proportions.html#cb126-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-4"><a href="proportions.html#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="proportions.html#cb121-1" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>group, <span class="at">ref=</span><span class="st">&quot;Active&quot;</span>)</span>
+<span id="cb121-2"><a href="proportions.html#cb121-2" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>side_effect <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>side_effect, <span class="at">ref=</span><span class="st">&quot;Nausea&quot;</span>)</span>
+<span id="cb121-3"><a href="proportions.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="proportions.html#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group)</span></code></pre></div>
 <pre><code>## 
 ##  Active Placebo 
 ##      50      50</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="proportions.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>side_effect)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="proportions.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>side_effect)</span></code></pre></div>
 <pre><code>## 
 ##    Nausea No nausea 
 ##        19        81</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="proportions.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group, drug<span class="sc">$</span>side_effect)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="proportions.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(drug<span class="sc">$</span>group, drug<span class="sc">$</span>side_effect)</span></code></pre></div>
 <pre><code>##          
 ##           Nausea No nausea
 ##   Active      15        35
 ##   Placebo      4        46</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="proportions.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>drug, <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect, <span class="at">pcRow=</span><span class="cn">TRUE</span>, <span class="at">relRisk =</span> <span class="cn">TRUE</span>, <span class="at">diffProp =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="proportions.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>drug, <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect, <span class="at">pcRow=</span><span class="cn">TRUE</span>, <span class="at">relRisk =</span> <span class="cn">TRUE</span>, <span class="at">diffProp =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  CONTINGENCY TABLES
 ## 
@@ -373,18 +372,18 @@ div.csl-indent {
 ##    Relative risk                   3.750000      1.337540     10.51370   
 ##  ───────────────────────────────────────────────────────────────────────</code></pre>
 <p>If you only have the cross-tabulated data (i.e. aggregated), you will need to enter your data into a new data frame.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="proportions.html#cb134-1" aria-hidden="true" tabindex="-1"></a>drug_aggregated <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb134-2"><a href="proportions.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb134-3"><a href="proportions.html#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">side_effect =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb134-4"><a href="proportions.html#cb134-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">35</span>, <span class="dv">4</span>, <span class="dv">46</span>)</span>
-<span id="cb134-5"><a href="proportions.html#cb134-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb134-6"><a href="proportions.html#cb134-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-7"><a href="proportions.html#cb134-7" aria-hidden="true" tabindex="-1"></a>drug_aggregated<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">factor</span>(drug_aggregated<span class="sc">$</span>group, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Placebo&quot;</span>))</span>
-<span id="cb134-8"><a href="proportions.html#cb134-8" aria-hidden="true" tabindex="-1"></a>drug_aggregated<span class="sc">$</span>side_effect <span class="ot">&lt;-</span> <span class="fu">factor</span>(drug_aggregated<span class="sc">$</span>side_effect, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Nausea&quot;</span>, <span class="st">&quot;No nausea&quot;</span>))</span>
-<span id="cb134-9"><a href="proportions.html#cb134-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-10"><a href="proportions.html#cb134-10" aria-hidden="true" tabindex="-1"></a>drug_aggregated</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-79">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-79">Table 6.2: </span> </caption><col><col><col><tr>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="proportions.html#cb129-1" aria-hidden="true" tabindex="-1"></a>drug_aggregated <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb129-2"><a href="proportions.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb129-3"><a href="proportions.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">side_effect =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb129-4"><a href="proportions.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">35</span>, <span class="dv">4</span>, <span class="dv">46</span>)</span>
+<span id="cb129-5"><a href="proportions.html#cb129-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb129-6"><a href="proportions.html#cb129-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-7"><a href="proportions.html#cb129-7" aria-hidden="true" tabindex="-1"></a>drug_aggregated<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">factor</span>(drug_aggregated<span class="sc">$</span>group, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Placebo&quot;</span>))</span>
+<span id="cb129-8"><a href="proportions.html#cb129-8" aria-hidden="true" tabindex="-1"></a>drug_aggregated<span class="sc">$</span>side_effect <span class="ot">&lt;-</span> <span class="fu">factor</span>(drug_aggregated<span class="sc">$</span>side_effect, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Nausea&quot;</span>, <span class="st">&quot;No nausea&quot;</span>))</span>
+<span id="cb129-9"><a href="proportions.html#cb129-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-10"><a href="proportions.html#cb129-10" aria-hidden="true" tabindex="-1"></a>drug_aggregated</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-78">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-78">Table 6.2: </span> </caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">group</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">side_effect</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">n</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Active</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Nausea</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">15</td></tr>
@@ -396,7 +395,7 @@ div.csl-indent {
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Placebo</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">No nausea</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">46</td></tr>
 </table>
 
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="proportions.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>drug_aggregated, <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect, <span class="at">count=</span>n, <span class="at">pcRow=</span><span class="cn">TRUE</span>, <span class="at">relRisk =</span> <span class="cn">TRUE</span>, <span class="at">diffProp =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="proportions.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>drug_aggregated, <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect, <span class="at">count=</span>n, <span class="at">pcRow=</span><span class="cn">TRUE</span>, <span class="at">relRisk =</span> <span class="cn">TRUE</span>, <span class="at">diffProp =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  CONTINGENCY TABLES
 ## 
@@ -435,18 +434,18 @@ div.csl-indent {
 <div id="computing-an-odds-ratio-and-its-95ci" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Computing an odds ratio and its 95%CI<a href="proportions.html#computing-an-odds-ratio-and-its-95ci" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>contTables</code> function To obtain an odds ratio and its 95% CI, by specifying <code>odds=TRUE</code>:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="proportions.html#cb137-1" aria-hidden="true" tabindex="-1"></a>hpv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb137-2"><a href="proportions.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">cancer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb137-3"><a href="proportions.html#cb137-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">hpv =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb137-4"><a href="proportions.html#cb137-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">57</span>, <span class="dv">14</span>, <span class="dv">43</span>, <span class="dv">186</span>)</span>
-<span id="cb137-5"><a href="proportions.html#cb137-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb137-6"><a href="proportions.html#cb137-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb137-7"><a href="proportions.html#cb137-7" aria-hidden="true" tabindex="-1"></a>hpv<span class="sc">$</span>cancer <span class="ot">&lt;-</span> <span class="fu">factor</span>(hpv<span class="sc">$</span>cancer, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Case&quot;</span>, <span class="st">&quot;Control&quot;</span>))</span>
-<span id="cb137-8"><a href="proportions.html#cb137-8" aria-hidden="true" tabindex="-1"></a>hpv<span class="sc">$</span>hpv <span class="ot">&lt;-</span> <span class="fu">factor</span>(hpv<span class="sc">$</span>hpv, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;HPV +&quot;</span>, <span class="st">&quot;HPV -&quot;</span>))</span>
-<span id="cb137-9"><a href="proportions.html#cb137-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb137-10"><a href="proportions.html#cb137-10" aria-hidden="true" tabindex="-1"></a>hpv</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-80">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-80">Table 6.3: </span> </caption><col><col><col><tr>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="proportions.html#cb132-1" aria-hidden="true" tabindex="-1"></a>hpv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb132-2"><a href="proportions.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">cancer =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb132-3"><a href="proportions.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">hpv =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb132-4"><a href="proportions.html#cb132-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">57</span>, <span class="dv">14</span>, <span class="dv">43</span>, <span class="dv">186</span>)</span>
+<span id="cb132-5"><a href="proportions.html#cb132-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb132-6"><a href="proportions.html#cb132-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-7"><a href="proportions.html#cb132-7" aria-hidden="true" tabindex="-1"></a>hpv<span class="sc">$</span>cancer <span class="ot">&lt;-</span> <span class="fu">factor</span>(hpv<span class="sc">$</span>cancer, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Case&quot;</span>, <span class="st">&quot;Control&quot;</span>))</span>
+<span id="cb132-8"><a href="proportions.html#cb132-8" aria-hidden="true" tabindex="-1"></a>hpv<span class="sc">$</span>hpv <span class="ot">&lt;-</span> <span class="fu">factor</span>(hpv<span class="sc">$</span>hpv, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;HPV +&quot;</span>, <span class="st">&quot;HPV -&quot;</span>))</span>
+<span id="cb132-9"><a href="proportions.html#cb132-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-10"><a href="proportions.html#cb132-10" aria-hidden="true" tabindex="-1"></a>hpv</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-79">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-79">Table 6.3: </span> </caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">cancer</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">hpv</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">n</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Case</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">HPV +</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">57</td></tr>
@@ -458,7 +457,7 @@ div.csl-indent {
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Control</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">HPV -</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">186</td></tr>
 </table>
 
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="proportions.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>hpv, <span class="at">rows=</span>hpv, <span class="at">cols=</span>cancer, <span class="at">count=</span>n, <span class="at">odds =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="proportions.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>hpv, <span class="at">rows=</span>hpv, <span class="at">cols=</span>cancer, <span class="at">count=</span>n, <span class="at">odds =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  CONTINGENCY TABLES
 ## 

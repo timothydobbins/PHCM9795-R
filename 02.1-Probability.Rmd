@@ -1,15 +1,30 @@
 # Probability and probability distributions: R notes
 
 ## Importing data into Stata
+
 We have described previously how to import data that have been saved as Stata .dta files. It is quite common to have data saved in other file types, such as Microsoft Excel, or plain text files. In this section, we will demonstrate how to import data from other packages into R.
 
+INCLUDE - importing from Excel (package: readxl), importing from Stata (packages: haven and labelled)
+
+There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):
+
+1 - If necessary, install the following packages: `haven`, `readxl`, `skimr` and `labelled`. As mentioned earlier, packages only need to be installed if they have not been installed earlier.
+
+```{r, eval=FALSE}
+install.packages("haven")
+install.packages("readxl")
+install.packages("skimr")
+install.packages("labelled")
+```
+
 ### Importing plain text data into Stata
+
 A `csv` file, or a "comma separated variables" file is commonly used to store data. These files have a very simple structure: they are plain text files, where data are separated by commas. csv files have the advantage that, as they are plain text files, they can be opened by a large number of programs (such as Notepad in Windows, TextEdit in MacOS, Microsoft Excel - even Microsoft Word). While they can be opened by Microsoft Excel, they can be opened by many other programs: the csv file can be thought of as the lingua-franca of data.
 
 In this demonstration, we will use data on the weight of 1000 people entered in a csv file called `weight_s2.csv` available on Moodle.
 
 To confirm that the file is readable by any text editor, here are the first ten lines of the file, opened in Notepad on Microsoft Windows, and TextEdit on MacOS.
- 	 
+
 ```{r , echo=FALSE, out.width = "66%",}
 knitr::include_graphics("img/mod02/import-01.png")
 ```
@@ -28,9 +43,10 @@ Here, the `read.csv` function has the default that the first row of the dataset 
 Note: there is an alternative function `read_csv` which is part of the `readr` package (a component of the `tidyverse`). Some would argue that the `read_csv` function is more appropriate to use because of an issue known as `strings.as.factors`. The `strings.as.factors` default was removed in R Version 4.0.0, so it is less important which of the two functions you use to import a `.csv` file. More information about this issue can be found [here](https://simplystatistics.org/posts/2015-07-24-stringsasfactors-an-unauthorized-biography) and [here](https://developer.r-project.org/Blog/public/2020/02/16/stringsasfactors/).
 
 ## Checking your data for errors in Stata
+
 Before you start describing and analysing your data, it is important to make sure that no errors have been made during the data entry process. Basically, you are looking for values that are outside the range of possible or plausible values for that variable.
 
-If an error is found, the best method for correcting the error is to go back to the original data e.g. the hard copy questionnaire, to obtain the original value, entering the correct value into R If the original data is not available or the original data is also incorrect, the erroneous value is often excluded from the dataset. 
+If an error is found, the best method for correcting the error is to go back to the original data e.g. the hard copy questionnaire, to obtain the original value, entering the correct value into R If the original data is not available or the original data is also incorrect, the erroneous value is often excluded from the dataset.
 
 For continuous variables, the easiest methods are to examine a boxplot and histogram. For example, a boxplot and histogram for the weight variable we just imported appear as:
 
@@ -74,6 +90,7 @@ Once you have checked your data for errors, you are ready to start analysing you
 It can be useful to produce a histogram with an overlayed Normal curve to assess whether our sample appears approximately Normally distributed.
 
 ### Base graphics
+
 ```{r}
 hist(weights$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE)
 curve(dnorm(x, mean=mean(weights$weight_clean), sd=sd(weights$weight_clean)), col="darkblue", add=TRUE)
@@ -83,6 +100,7 @@ curve(dnorm(x, mean=mean(weights$weight_clean), sd=sd(weights$weight_clean)), co
 ```
 
 ## ggplot2
+
 ```{r}
 ggplot(weights, aes(x=weight_clean)) + geom_histogram(aes(y=..density..), breaks=seq(50, 90, 5), colour="black", fill="grey") +
   stat_function(fun = dnorm,
@@ -95,6 +113,7 @@ ggplot(weights, aes(x=weight_clean)) + geom_histogram(aes(y=..density..), breaks
 ```
 
 ## Descriptive statistics for checking normality
+
 All the descriptive statistics including Skewness and Kurtosis discussed in this module can be obtained using the `descriptives` function from the `jmv` package. In particular, skewness and kurtosis can be requested over and above the default statistics (`skew=TRUE, kurt=TRUE`):
 
 ```{r}
@@ -102,13 +121,14 @@ descriptives(data=weights, vars=weight_clean, skew=TRUE, kurt=TRUE)
 ```
 
 ## Importing Excel data into Stata {#import-excel}
+
 Another common type of file that data are stored in is a Microsoft Excel file (.xls or .xlsx). In this demonstration, we will import a selection of records from a large health survey, stored in the file `health-survey.xlsx`.
 
 The health survey data contains 1140 records, comprising:
 
-- sex: 1 = respondent identifies as male; 2 = respondent identifies as female
-- height: height in meters
-- weight: weight in kilograms
+-   sex: 1 = respondent identifies as male; 2 = respondent identifies as female
+-   height: height in meters
+-   weight: weight in kilograms
 
 To import data from Microsoft Excel, we can use the `read_excel()` function in the `readxl` package.
 
@@ -142,10 +162,10 @@ A new column can be generated using the following approach:
 `dataframe$new_column = <formula>`
 
 For example:
+
 ```{r}
 survey$bmi = survey$weight / (survey$height^2)
 ```
-
 
 ### tidyverse
 
@@ -176,20 +196,20 @@ We will often want to calculate the same summary statistics by another variable.
 descriptives(data=survey, vars=bmi, splitBy = sex)
 ```
 
-
 [PLOTS BY VARIABLES]
 
 ## Recoding data {#recoding-data}
+
 One task that is common in statistical computing is to recode variables. For example, we might want to group some categories of a categorical variable, or to present a continuous variable in a categorical way.
 
 In this example, we can recode BMI into the following categories as suggested by the World Health Organisation [footnote]:
 
-- Underweight: BMI < 18.5
-- Normal weight: 18.5 $\le$ BMI < 25
-- Pre-obesity: 25 $\le$ BMI < 30
-- Obesity Class I: 30 $\le$ BMI < 35
-- Obesity Class II: 35 $\le$ BMI < 40
-- Obesity Class III: BMI $\ge$ 40
+-   Underweight: BMI \< 18.5
+-   Normal weight: 18.5 $\le$ BMI \< 25
+-   Pre-obesity: 25 $\le$ BMI \< 30
+-   Obesity Class I: 30 $\le$ BMI \< 35
+-   Obesity Class II: 35 $\le$ BMI \< 40
+-   Obesity Class III: BMI $\ge$ 40
 
 The quickest way to recode a continuous variable into categories is to use the `cut` command which takes a continuous variable, and "cuts" it into groups based on the specified "cutpoints":
 
@@ -200,6 +220,7 @@ survey$bmi_cat <- cut(survey$bmi, c(0, 18.5, 25, 30, 35, 40, 100))
 Notice that lower (BMI=0) and upper (BMI=100) bounds have been specified, as both a lower and upper limit must be defined for each group.
 
 If we examine the new `bmi_cat` variable:
+
 ```{r}
 summary(survey$bmi_cat)
 ```
@@ -218,17 +239,18 @@ More complex recoding can be done using the `case_when` command in the `dplyr` p
 [INCLUDE???]
 
 ## Computing binomial probabilities using R
+
 There are two R functions that we can use to calculate probabilities based on the binomial distribution: `dbinom` and `pbinom`:
 
-- `dbinom(x, size, prob)` gives the probability of obtaining `x` successes from `size` trials when the probability of a success on one trial is `prob`;
-- `pbinom(q, size, prob)` gives the probability of obtaining `q` **or fewer** successes from `size` trials when the probability of a success on one trial is `prob`;
-- `pbinom(q, size, prob, lower.tail=FALSE)` gives the probability of obtaining **more than** `q`successes from `size` trials when the probability of a success on one trial is `prob`.
+-   `dbinom(x, size, prob)` gives the probability of obtaining `x` successes from `size` trials when the probability of a success on one trial is `prob`;
+-   `pbinom(q, size, prob)` gives the probability of obtaining `q` **or fewer** successes from `size` trials when the probability of a success on one trial is `prob`;
+-   `pbinom(q, size, prob, lower.tail=FALSE)` gives the probability of obtaining **more than** `q`successes from `size` trials when the probability of a success on one trial is `prob`.
 
 To do the computation for part (a) in Worked Example 2.1, we will use the `dbinom` function with:
 
-- *x* is the number of successes, here, the number of smokers (i.e. k=3);
-- *size* is the number of trials (i.e. n=6);
-- and *prob* is probability of drawing a smoker from the population, which is 19.8% (i.e. p=0.198).
+-   *x* is the number of successes, here, the number of smokers (i.e. k=3);
+-   *size* is the number of trials (i.e. n=6);
+-   and *prob* is probability of drawing a smoker from the population, which is 19.8% (i.e. p=0.198).
 
 Replace each of these with the appropriate number into the formula:
 
@@ -248,13 +270,12 @@ For the lower tail for part (c), we use the `pbinom` function:
 pbinom(q=2, size=6, prob=0.198)
 ```
 
-
 ## Computing probabilities from a Normal distribution
 
 We can use the `pnorm` function to calculate probabilities from a Normal distribution:
 
-- `pnorm(q, mean, sd)` calculates the probability of observing a value of `q` or less, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`. Note that if `mean` and `sd` are not entered, they are assumed to be 0 and 1 respectively (i.e. a standard normal distribution.)
-- `pnorm(q, mean, sd, lower.tail=FALSE)` calculates the probability of observing a value of `q` or more, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`.
+-   `pnorm(q, mean, sd)` calculates the probability of observing a value of `q` or less, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`. Note that if `mean` and `sd` are not entered, they are assumed to be 0 and 1 respectively (i.e. a standard normal distribution.)
+-   `pnorm(q, mean, sd, lower.tail=FALSE)` calculates the probability of observing a value of `q` or more, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`.
 
 To obtain the probability of obtaining 0.5 or greater from a standard normal distribution:
 

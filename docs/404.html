@@ -168,7 +168,6 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.4</b> The RStudio environment</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.5</b> Some R basics</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i>Part 2: Obtaining basic descriptive statistics</a></li>
-<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.6</b> Defining categorical variables as factors</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs"><i class="fa fa-check"></i>Part 3: Creating other types of graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
@@ -317,6 +316,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
