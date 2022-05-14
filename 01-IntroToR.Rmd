@@ -82,6 +82,30 @@ This confirms that RStudio is running correctly, and can use the R language to c
 
 RStudio currently comprises three window panes, and we will discuss these later.
 
+## Recommended setup
+
+I will provide a recommended setup for R and RStudio in this section. You are free to use alternative workflows and setup, but this setup works well in practice.
+
+### RStudio preferences
+
+Mac: **RStudio \> Preferences**
+
+Windows: **Tools \> Options**
+
+```{r echo=FALSE, fig.show="hold", out.width="75%"}
+knitr::include_graphics("img/RStudio-preferences.png")
+```
+
+### Set up a project
+
+A project in RStudio is a folder that RStudio recognises as a place to store R scripts, data files, figures that are common to an analysis project. Setting up a folder allows much more simple navigation and specification of data files and output. More detail can be found in Chapter 8 of the excellent text: [R for Data Science](https://r4ds.had.co.nz/workflow-projects.html). Using projects is not necessary, but I recommend working with projects from day one.
+
+We will create a project called **PHCM9795** to store all the data you will use and scripts that you will write in this course.
+
+Step 1: Think about where you want to store your project folder. This could be in your *Documents* folder, or a OneDrive folder.
+
+Step 2: Choose **File \> New Project...** in RStudio to open the **Create Project** dialog
+
 ## A simple R analysis {#simpleR}
 
 In this very brief section, we will introduce R by calculating the average of six ages.
@@ -357,7 +381,7 @@ Typing data directly into R is not common; we usually open data that have been p
 
 `install.packages("skimr")`
 
-3 - Load the `skimr` package, and use the `readRDS()` function to read the file into R,  assigning it to a data frame called `pbc`:
+3 - Load the `skimr` package, and use the `readRDS()` function to read the file into R, assigning it to a data frame called `pbc`:
 
 ```{r}
 library(skimr)
@@ -446,8 +470,8 @@ You will notice that the table above, in its current form, is uninterpretable as
 
 We specify:
 
-- levels: the values the categorical variable uses can take
-- labels: the labels corresponding to each of the levels (entered in the same order as the levels)
+-   levels: the values the categorical variable uses can take
+-   labels: the labels corresponding to each of the levels (entered in the same order as the levels)
 
 To define our variable sex as a factor, we use:
 
@@ -513,8 +537,6 @@ plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Numbe
 ### Clustered bar graph
 
 To create a clustered bar chart as shown in Figure 1.2, we need to do a bit of manipulation.
-
-
 
 ```{r}
 counts <- table(pbc$sex, pbc$stage)
