@@ -1,12 +1,12 @@
 # Correlation and simple linear regression
 
-We will demonstrate using Stata for correlation and simple linear regression using the dataset `Example_8.1.dta`.
+We will demonstrate using Stata for correlation and simple linear regression using the dataset `Example_8.1.rds`.
 
 ```{r}
 library(ggplot2)   # Optional, for nicer looking scatterplots
 library(haven)     # For importing data
 
-lung <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_8.1.dta")
+lung <- readRDS("data/examples/Example_8.1.rds")
 ```
 
 ## Creating a scatter plot
@@ -51,7 +51,7 @@ cor.test(lung$Height, lung$FVC)
 
 ## Fitting a simple linear regression model
 
-We can use the `lm` function to fit a simple linear regression model, specifying the model as `y ~ x`. Using `Example_8.1.dta`, we can quantify the relationship between FVC and height.
+We can use the `lm` function to fit a simple linear regression model, specifying the model as `y ~ x`. Using `Example_8.1.rds`, we can quantify the relationship between FVC and height.
 
 ```{r}
 lm(FVC ~ Height, data=lung)

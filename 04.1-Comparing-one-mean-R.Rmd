@@ -2,13 +2,10 @@
 
 ## One sample t-test
 
-We will use data from `Example_4.1.dta` to demonstrate how a one-sample t-test is conducted in R.
+We will use data from `Example_4.1.rds` to demonstrate how a one-sample t-test is conducted in R.
 
 ```{r}
-library(haven)
-library(labelled)
-
-bloodpressure <- unlabelled(read_dta("data/examples/Example_4.1.dta"))
+bloodpressure <- readRDS("data/examples/Example_4.1.rds")
 
 summary(bloodpressure)
 ```

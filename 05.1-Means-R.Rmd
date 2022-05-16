@@ -4,15 +4,13 @@
 
 ### Producing histograms and boxplots by a second variable
 
-We can create histograms and boxplots separated by a second variable in (at least) two ways: using Base R or `ggplot2` graphics. We will demonstrate using the birthweight data in `Example_5.1.dta`.
+We can create histograms and boxplots separated by a second variable in (at least) two ways: using Base R or `ggplot2` graphics. We will demonstrate using the birthweight data in `Example_5.1.rds`.
 
 ```{r}
-library(haven)
-library(labelled)
 library(ggplot2)
 library(jmv)
 
-bwt <- unlabelled(read_dta("data/examples/Example_5.1.dta"))
+bwt <- readRDS("data/examples/Example_5.1.rds")
 
 summary(bwt)
 summary(bwt$gender)
@@ -85,10 +83,10 @@ ttestIS(data=bwt, vars=birthweight, group=gender, meanDiff=TRUE, ci=TRUE, welchs
 
 ## Checking the assumptions for a Paired t-test
 
-Before performing a paired t-test, you must check that the assumptions for the test have been met. Using the dataset `Example_5.2.dta` to show that the difference between the pair of measurements between the sites is normally distributed, we first need to compute a new variable of the differences and examine its histogram.
+Before performing a paired t-test, you must check that the assumptions for the test have been met. Using the dataset `Example_5.2.rds` to show that the difference between the pair of measurements between the sites is normally distributed, we first need to compute a new variable of the differences and examine its histogram.
 
 ```{r}
-sbp <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_5.2.dta")
+sbp <- readRDS("data/examples/Example_5.2.rds")
 sbp$diff = sbp$sbp_dp - sbp$sbp_tp
 hist(sbp$diff, xlab="Blood pressure (mmHg)", main="Difference in systolic blood pressure")
 ```
@@ -96,7 +94,7 @@ hist(sbp$diff, xlab="Blood pressure (mmHg)", main="Difference in systolic blood 
  
 ## Paired t-Test
 
-To perform a paired t-test we will use the dataset `Example_5.2.dta`.
+To perform a paired t-test we will use the dataset `Example_5.2.rds`.
 
 ```{r}
 ttestPS(data=sbp, pairs=list(list(i1 = 'sbp_dp', i2 = 'sbp_tp')), meanDiff=TRUE, ci=TRUE)

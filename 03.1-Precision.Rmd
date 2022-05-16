@@ -4,14 +4,12 @@
 
 ### Individual data
 
-To demonstrate the computation of the 95% confidence interval of a mean we have used data from `Example_1.3.dta` which contains the weights of 30 students:
+To demonstrate the computation of the 95% confidence interval of a mean we have used data from `Example_1.3.rds` which contains the weights of 30 students:
 
 ```{r}
-library(haven)
-library(labelled)
 library(jmv)
 
-students <- unlabelled(read_dta("data/examples/Example_1.3.dta"))
+students <- readRDS("data/examples/Example_1.3.rds")
 
 summary(students)
 ```

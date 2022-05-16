@@ -2,22 +2,11 @@
 
 ## Importing data into Stata
 
-We have described previously how to import data that have been saved as Stata .dta files. It is quite common to have data saved in other file types, such as Microsoft Excel, or plain text files. In this section, we will demonstrate how to import data from other packages into R.
-
-INCLUDE - importing from Excel (package: readxl), importing from Stata (packages: haven and labelled)
+We have described previously how to import data that have been saved as R .rds files. It is quite common to have data saved in other file types, such as Microsoft Excel, or plain text files. In this section, we will demonstrate how to import data from other packages into R.
 
 There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):
 
-1 - If necessary, install the following packages: `haven`, `readxl`, `skimr` and `labelled`. As mentioned earlier, packages only need to be installed if they have not been installed earlier.
-
-```{r, eval=FALSE}
-install.packages("haven")
-install.packages("readxl")
-install.packages("skimr")
-install.packages("labelled")
-```
-
-### Importing plain text data into Stata
+### Importing plain text data into R
 
 A `csv` file, or a "comma separated variables" file is commonly used to store data. These files have a very simple structure: they are plain text files, where data are separated by commas. csv files have the advantage that, as they are plain text files, they can be opened by a large number of programs (such as Notepad in Windows, TextEdit in MacOS, Microsoft Excel - even Microsoft Word). While they can be opened by Microsoft Excel, they can be opened by many other programs: the csv file can be thought of as the lingua-franca of data.
 
@@ -32,17 +21,16 @@ knitr::include_graphics("img/mod02/import-01.png")
 We can use the `read.csv` function:
 
 ```{r}
-library(tidyverse)
 library(jmv)
 
-weights <- read.csv("data/examples/Weight_s2.csv")
+sample <- read.csv("data/examples/Weight_s2.csv")
 ```
 
 Here, the `read.csv` function has the default that the first row of the dataset contains the variable names. If your data do not have column names, you can use `header=FALSE` in the function.
 
 Note: there is an alternative function `read_csv` which is part of the `readr` package (a component of the `tidyverse`). Some would argue that the `read_csv` function is more appropriate to use because of an issue known as `strings.as.factors`. The `strings.as.factors` default was removed in R Version 4.0.0, so it is less important which of the two functions you use to import a `.csv` file. More information about this issue can be found [here](https://simplystatistics.org/posts/2015-07-24-stringsasfactors-an-unauthorized-biography) and [here](https://developer.r-project.org/Blog/public/2020/02/16/stringsasfactors/).
 
-## Checking your data for errors in Stata
+## Checking your data for errors in R
 
 Before you start describing and analysing your data, it is important to make sure that no errors have been made during the data entry process. Basically, you are looking for values that are outside the range of possible or plausible values for that variable.
 
@@ -51,39 +39,55 @@ If an error is found, the best method for correcting the error is to go back to 
 For continuous variables, the easiest methods are to examine a boxplot and histogram. For example, a boxplot and histogram for the weight variable we just imported appear as:
 
 ```{r}
-hist(weights$weight, xlab="Weight (kg)", main="Histogram of 1000 weights")
-boxplot(weights$weight, xlab="Weight (kg)", main="Boxplot of 1000 weights")
+hist(sample$weight, xlab="Weight (kg)", main="Histogram of 1000 weights")
+boxplot(sample$weight, xlab="Weight (kg)", main="Boxplot of 1000 weights")
 ```
 
 There is a clear outlying point shown in the boxplot. Although not obvious, the same point is shown in the histogram as a bar around 700 with a very short height.
 
-We can identify any outlying observations in the dataset using the `filter` function, loaded with the `tidyverse`. You will need to decide if these values are a data entry error or are biologically plausible. If an extreme value or "outlier", is biologically plausible, it should be included in all analyses.
+We can identify any outlying observations in the dataset using the `subset` function. You will need to decide if these values are a data entry error or are biologically plausible. If an extreme value or "outlier", is biologically plausible, it should be included in all analyses.
 
-For example, to list any observations from the `weights` dataset with a weight larger than 200:
+For example, to list any observations from the `sample` dataset with a weight larger than 200:
 
 ```{r}
-dplyr::filter(weights, weight>200)
+subset(sample, weight>200)
 ```
 
 We see that there is a very high value of 700.2kg. A value as high as 700kg is likely to be a data entry error (e.g. error in entering an extra zero) and is not a plausible weight value. Here, **you should check your original data**.
 
 You might find that the original weight was recorded in medical records as 70.2kg. You can change this in R by writing code.
 
-**Note:** many statistical packages, including Stata, will allow you to view a spreadsheet version of your data and edit values in that spreadsheet. This is not best practice, as corrected observations may revert to their original values depending on whether the edited data have been saved or not. By using code-based recoding, the changes will be reproduced the next time the code is run.
+**Note:** many statistical packages will allow you to view a spreadsheet version of your data and edit values in that spreadsheet. This is not best practice, as corrected observations may revert to their original values depending on whether the edited data have been saved or not. By using code-based recoding, the changes will be reproduced the next time the code is run.
 
 We will use an `ifelse` statement to recode the incorrect weight of 700.2kg into 70.2kg. The form of the `ifelse` statement is as follows:
 
 `ifelse(test, value_if_true, value_if_false)`
 
-Our code will create a new column (called `weight_clean`) in the `weights` dataframe. We will test whether `weight` is equal to 700.2; if this is true, we will assign `weight_clean` to be 70.2, otherwise `weight_clean` will equal the value of `weight`. Putting it all together:
+Our code will create a new column (called `weight_clean`) in the `sample` dataframe. We will test whether `weight` is equal to 700.2; if this is true, we will assign `weight_clean` to be 70.2, otherwise `weight_clean` will equal the value of `weight`.
+
+Putting it all together:
 
 ```{r}
-weights$weight_clean = ifelse(weights$weight==700.2, 70.2, weights$weight)
+sample$weight_clean = ifelse(sample$weight==700.2, 70.2, sample$weight)
 ```
 
 **Note:** if an extreme value lies within the range of biological plausibility it should not be removed from analysis.
 
 Once you have checked your data for errors, you are ready to start analysing your data.
+
+### What on earth: == ?
+
+In R, the test of equality is denoted by two equal signs: `==`. So we would use `==` to test whether an observation is equal to a certain value. Let's see an example:
+
+```{r}
+# Test whether 6 is equal to 6
+6 == 6
+
+# Test whether 6 is equal to 42
+6 == 42
+```
+
+You can read the `==` as "is equal to". So the code `sample$weight == 700.2` is read as: "is the value of weight from the data frame sample equal to 700.2?". In our `ifelse` statement above, if this condition is true, we replace `weight` by 70.2; if it is false, we leave weight as is.
 
 ## Overlaying a Normal curve on a histogram
 
@@ -92,20 +96,20 @@ It can be useful to produce a histogram with an overlayed Normal curve to assess
 ### Base graphics
 
 ```{r}
-hist(weights$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE)
-curve(dnorm(x, mean=mean(weights$weight_clean), sd=sd(weights$weight_clean)), col="darkblue", add=TRUE)
+hist(sample$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE)
+curve(dnorm(x, mean=mean(sample$weight_clean), sd=sd(sample$weight_clean)), col="darkblue", add=TRUE)
 
-hist(weights$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE, ylim=c(0,0.1))
-curve(dnorm(x, mean=mean(weights$weight_clean), sd=sd(weights$weight_clean)), col="darkblue", add=TRUE)
+hist(sample$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE, ylim=c(0,0.1))
+curve(dnorm(x, mean=mean(sample$weight_clean), sd=sd(sample$weight_clean)), col="darkblue", add=TRUE)
 ```
 
 ## ggplot2
 
 ```{r}
-ggplot(weights, aes(x=weight_clean)) + geom_histogram(aes(y=..density..), breaks=seq(50, 90, 5), colour="black", fill="grey") +
+ggplot(sample, aes(x=weight_clean)) + geom_histogram(aes(y=..density..), breaks=seq(50, 90, 5), colour="black", fill="grey") +
   stat_function(fun = dnorm,
-                args = list(mean = mean(weights$weight_clean),
-                            sd = sd(weights$weight_clean)),
+                args = list(mean = mean(sample$weight_clean),
+                            sd = sd(sample$weight_clean)),
                 colour="darkblue") +
   theme_classic() +
   labs(title="Histogram of 1000 weights", x="Weight (kg)", y="Density")
@@ -117,7 +121,7 @@ ggplot(weights, aes(x=weight_clean)) + geom_histogram(aes(y=..density..), breaks
 All the descriptive statistics including Skewness and Kurtosis discussed in this module can be obtained using the `descriptives` function from the `jmv` package. In particular, skewness and kurtosis can be requested over and above the default statistics (`skew=TRUE, kurt=TRUE`):
 
 ```{r}
-descriptives(data=weights, vars=weight_clean, skew=TRUE, kurt=TRUE)
+descriptives(data=sample, vars=weight_clean, skew=TRUE, kurt=TRUE)
 ```
 
 ## Importing Excel data into Stata {#import-excel}

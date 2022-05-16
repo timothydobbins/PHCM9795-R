@@ -10,22 +10,9 @@ You can calculate a new, transformed, variable using variable transformation com
 library(haven)      # For importing data
 library(labelled)
 
-hospital <- unlabelled(read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta"))
+hospital <- readRDS("data/examples/Example_9.1.rds")
 
 hospital$ln_los <- log(hospital$los+1)
-summary(hospital)
-```
-
-A tidyverse version uses the `mutate` command to create a new variable:
-```{r}
-library(tidyverse)
-
-hospital <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.1.dta") %>% 
-  unlabelled()
-
-hospital <- hospital %>% 
-  mutate(ln_los = log(los+1))
-
 summary(hospital)
 ```
 
@@ -47,7 +34,7 @@ We use the `wilcox.test` function to perform the Wilcoxon ranked-sum test:
 wilcox.test(continuous_variable ~ group_variable, data=df, correct=FALSE)
 ```
 
-The Wilcoxon ranked-sum test will be demonstrated using the length of stay data in `Example_9.1.dta`. Here, out continuous variable is `los` and the grouping variable is `infect`.
+The Wilcoxon ranked-sum test will be demonstrated using the length of stay data in `Example_9.1.rds`. Here, out continuous variable is `los` and the grouping variable is `infect`.
 
 ```{r}
 wilcox.test(los ~ infect, data=hospital, correct=FALSE)
@@ -61,10 +48,10 @@ The `wilcox.test` function can also be used to conduct the Wilcoxon matched-pair
 wilcox.test(df$continuous_variable_1, df$continuous_variable_1, paired=TRUE)
 ```
 
-We will demonstrate using the dataset on the arthritis drug cross-over trial (`Example_9.2.dta`). Like the paired t-test the paired data need to be in separate columns.
+We will demonstrate using the dataset on the arthritis drug cross-over trial (`Example_9.2.rds`). Like the paired t-test the paired data need to be in separate columns.
 
 ```{r}
-arthritis <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_9.2.dta") %>% 
+arthritis <- readRDS("data/examples/Example_9.2.rds") %>% 
   unlabelled()
 
 arthritis$difference = arthritis$drug_1 - arthritis$drug_2
@@ -78,7 +65,7 @@ wilcox.test(arthritis$drug_1, arthritis$drug_2, paired=TRUE)
 The analyses for Spearman's and Kendall's rank correlation are conducted in similar ways:
 
 ```{r}
-lung <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_8.1.dta")
+lung <- readRDS("data/examples/Example_8.1.rds")
 
 cor.test(lung$Height, lung$FVC, method="spearman")
 

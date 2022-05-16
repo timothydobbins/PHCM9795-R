@@ -24,8 +24,7 @@ library(haven)
 library(labelled)
 library(jmv)
 
-drug <- read_dta("/Users/td/Documents/GithubRepos/phcm9795/data/examples/Example_6.4.dta") %>% 
-  unlabelled()
+drug <- readRDS("data/examples/Example_6.4.rds")
 
 head(drug)
 
