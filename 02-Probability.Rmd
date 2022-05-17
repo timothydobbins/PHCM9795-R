@@ -1,10 +1,10 @@
-# Probability and probability distributions: R notes
+# Probability and probability distributions
 
-## Importing data into Stata
+## Importing data into R
 
 We have described previously how to import data that have been saved as R .rds files. It is quite common to have data saved in other file types, such as Microsoft Excel, or plain text files. In this section, we will demonstrate how to import data from other packages into R.
 
-There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata. Here, we will open a dataset that has been stored as a Stata data file (which has the .dta suffix):
+There are two useful packages for importing data into R: `haven` (for data that have been saved by Stata, SAS or SPSS) and `readxl` (for data saved by Microsoft Excel). Additionally, the `labelled` package is useful in working with data that have been labelled in Stata.
 
 ### Importing plain text data into R
 
@@ -21,8 +21,6 @@ knitr::include_graphics("img/mod02/import-01.png")
 We can use the `read.csv` function:
 
 ```{r}
-library(jmv)
-
 sample <- read.csv("data/examples/Weight_s2.csv")
 ```
 
@@ -91,40 +89,62 @@ You can read the `==` as "is equal to". So the code `sample$weight == 700.2` is 
 
 ## Overlaying a Normal curve on a histogram
 
-It can be useful to produce a histogram with an overlayed Normal curve to assess whether our sample appears approximately Normally distributed.
+It can be useful to produce a histogram with an overlayed Normal curve to assess whether our sample appears approximately Normally distributed. We can do this by plotting a histogram using the `hist()` function. As we're overlaying a probability distribution, we request the histogram be plotted on a probability scale, rather than a frequency scale, using `probability=TRUE`.
+
+We then request a curve be overlayed using the `curve()` function:
+
+-   the curve should be based on the Normal distribution (`dnorm`);
+
+    -   with a mean equal to the mean of the cleaned weight: `mean(sample$weight_clean));`
+
+    -   and a standard deviation equal to the standard deviation of the cleaned weight: `sd(sample$weight_clean))`
+
+-   using a dark-blue colour;
+
+-   and added to the previous histogram (rather than plotting the curve by itself): `add=TRUE`
 
 ### Base graphics
 
 ```{r}
-hist(sample$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE)
-curve(dnorm(x, mean=mean(sample$weight_clean), sd=sd(sample$weight_clean)), col="darkblue", add=TRUE)
+hist(sample$weight_clean,
+     xlab="Weight (kg)",
+     main="Histogram of 1000 weights",
+     probability = TRUE)
 
-hist(sample$weight_clean, xlab="Weight (kg)", main="Histogram of 1000 weights", probability = TRUE, ylim=c(0,0.1))
-curve(dnorm(x, mean=mean(sample$weight_clean), sd=sd(sample$weight_clean)), col="darkblue", add=TRUE)
+curve(dnorm(x,
+            mean=mean(sample$weight_clean),
+            sd=sd(sample$weight_clean)),
+      col="darkblue",
+      add=TRUE)
 ```
 
-## ggplot2
+Notice that the top of the curve is chopped off. We can plot the whole curve by extending the y-axis of the histogram, to 0.1:
 
 ```{r}
-ggplot(sample, aes(x=weight_clean)) + geom_histogram(aes(y=..density..), breaks=seq(50, 90, 5), colour="black", fill="grey") +
-  stat_function(fun = dnorm,
-                args = list(mean = mean(sample$weight_clean),
-                            sd = sd(sample$weight_clean)),
-                colour="darkblue") +
-  theme_classic() +
-  labs(title="Histogram of 1000 weights", x="Weight (kg)", y="Density")
+hist(sample$weight_clean, 
+     xlab="Weight (kg)",
+     main="Histogram of 1000 weights",
+     probability = TRUE,
+     ylim=c(0,0.1))
 
+curve(dnorm(x,
+            mean=mean(sample$weight_clean),
+            sd=sd(sample$weight_clean)),
+      col="darkblue",
+      add=TRUE)
 ```
 
 ## Descriptive statistics for checking normality
 
-All the descriptive statistics including Skewness and Kurtosis discussed in this module can be obtained using the `descriptives` function from the `jmv` package. In particular, skewness and kurtosis can be requested over and above the default statistics (`skew=TRUE, kurt=TRUE`):
+All the descriptive statistics including *skewness* and *kurtosis* discussed in this module can be obtained using the `descriptives` function from the `jmv` package. In particular, skewness and kurtosis can be requested in addition to the default statistics by including: `skew=TRUE, kurt=TRUE`:
 
 ```{r}
+library(jmv)
+
 descriptives(data=sample, vars=weight_clean, skew=TRUE, kurt=TRUE)
 ```
 
-## Importing Excel data into Stata {#import-excel}
+## Importing Excel data into R {#import-excel}
 
 Another common type of file that data are stored in is a Microsoft Excel file (.xls or .xlsx). In this demonstration, we will import a selection of records from a large health survey, stored in the file `health-survey.xlsx`.
 
@@ -157,11 +177,7 @@ We also note that height looks like it has been entered as meters, and weight as
 
 Our health survey data contains information on height and weight. We often summarise body size using BMI: body mass index which is calculated as: $\frac{\text{weight (kg)}}{(\text{height (m)})^2}$
 
-We can create a new column in our dataframe in many ways, and we will present two alternatives.
-
-### Base R
-
-A new column can be generated using the following approach:
+We can create a new column in our data frame in many ways, such as using the following approach:
 
 `dataframe$new_column = <formula>`
 
@@ -171,16 +187,7 @@ For example:
 survey$bmi = survey$weight / (survey$height^2)
 ```
 
-### tidyverse
-
-Using the tidyverse approach, we use the `mutate` command to change (or create) a column of data within the dataframe:
-
-```{r}
-survey <- survey %>% 
-  mutate(bmi = weight / (height^2))
-```
-
-We should check the construction of the new variable by examining some records, and examining a histogram and boxplot:
+We should check the construction of the new variable by examining some records. The `head()` and `tail()` functions list the first and last 6 records in any dataset. We can also examine a histogram and boxplot:
 
 ```{r}
 head(survey)
@@ -200,7 +207,7 @@ We will often want to calculate the same summary statistics by another variable.
 descriptives(data=survey, vars=bmi, splitBy = sex)
 ```
 
-[PLOTS BY VARIABLES]
+## Plotting data by another variable
 
 ## Recoding data {#recoding-data}
 
@@ -237,10 +244,6 @@ We can specify this recoding using the `right=FALSE` option:
 survey$bmi_cat <- cut(survey$bmi, c(0, 18.5, 25, 30, 35, 40, 100), right=FALSE)
 summary(survey$bmi_cat)
 ```
-
-More complex recoding can be done using the `case_when` command in the `dplyr` package.
-
-[INCLUDE???]
 
 ## Computing binomial probabilities using R
 
