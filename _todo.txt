@@ -4,6 +4,8 @@ https://ubco-biology.github.io/BIOL202/
 
 https://r4stats.com/articles/why-r-is-hard-to-learn/
 
+https://rstats.wtf/
+
 how to get help (online, google, etc)
 
 don't give up!
