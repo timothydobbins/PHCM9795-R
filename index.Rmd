@@ -18,4 +18,4 @@ These notes provide an introduction to R and instructions on how to conduct the 
 
 These notes are currently under development, with sections being added and revised as the course progresses.
 
-This is the first year that R has been offered as an option. I am keen to receive feedback about the notes and your experience learning R. Please [get in touch](mailto:"t.dobbins@unsw.edu.au") if anything is unclear, or you have any questions or suggestions.
+This is the first year that R has been offered as an option. I am keen to receive feedback about the notes and your experience learning R. Please [get in touch](mailto:t.dobbins@unsw.edu.au) if anything is unclear, or you have any questions or suggestions.

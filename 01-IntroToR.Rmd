@@ -36,8 +36,10 @@ At its heart, R is a programming language. When you install R on your computer, 
 
 RStudio is an "Integrated Development Environment" that runs R while also providing useful tools to help you write code and analyse data. You can think of R as an engine which does the work, and RStudio as a car that uses the engine, but also provides useful tools like GPS navigation and reversing cameras that help you drive.
 
-|                       R: Don't use this                        |                            RStudio: Use this instead                             |
-|:--------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+Note: even though we recommend that you use RStudio, you still need install R. **RStudio will not run without R installed.**
+
+|                       R: Don't run this                        |                            RStudio: Run this instead                             |
+|:------------------------------:|:--------------------------------------:|
 | <img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/> | <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/> |
 
 ## Installing R and RStudio
@@ -159,7 +161,7 @@ Your screen should look something like:
 knitr::include_graphics("img/RStudio-screenshot-02.png")
 ```
 
-To run your script, choose **Code \> Run Region \> Run All**. You will see your code appear in the bottom-right window, with the following output:
+To run your script, choose **Code \> Run Region \> Run All**. You will see your code appear in the bottom-left window, with the following output:
 
 ```{r eval=FALSE}
 > # Author: Timothy Dobbins
@@ -185,7 +187,7 @@ Now that we have seen a simple example of how to use R within RStudio, let's des
 knitr::include_graphics("img/RStudio-screenshot-03.png")
 ```
 
-The **Source** window is where you will write and edit your R scripts. Your scripts can be saved by clicking **File \> Save As** or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example script.R. Give it a meaningful title and remember to periodically save as you go.
+The top-left window is call the **Source** window, and is where you write and edit your R scripts. Scripts can be saved by clicking **File \> Save As** or by clicking on the symbol of a floppy disk at the top of the script. The file will have an extension of .R, for example script.R. Remember to give your script a meaningful title and remember to periodically save as you go.
 
 In RStudio, the name of the script will be black when it has been saved, and will change to red if you have any unsaved changes.
 
@@ -323,7 +325,7 @@ A **package** is a collection of functions, documentation (and sometimes dataset
 
 A useful way of thinking about R is that R is like a smartphone, with packages being like apps which are downloaded from CRAN (similar to an app-store). When you first install R, it comes with a basic set of packages (apps) installed. You can do a lot of things with these basic packages, but sometimes you might want to do things differently, or you may want to perform some analyses that can't be done using the default packages. In these cases, you can install a package.
 
-Like installing an app on a smartphone, you only need to *install* a package once. But each time you want to use the package, you need to *load* the package into R. This is similar to running the app on your phone. The analogy falls down a bit in that we usually load more than one package in an R script - but we only load the packages we need for that R session.
+Like installing an app on a smartphone, you only need to *install* a package once. But each time you want to use the package, you need to *load* the package into R.
 
 ### How to install a package
 
@@ -341,7 +343,7 @@ Alternatively, RStudio offers a graphical way of installing packages that can be
 knitr::include_graphics("img/install-packages.png")
 ```
 
-While writing code is usually the recommended way to use R, installing packages is an exception. Using the graphical interface is perfectly fine, because you only need to install a package once.
+While writing code is usually the recommended way to use R, installing packages is an exception. Using **Tools \> Install Packages** is perfectly fine, because you only need to install a package once.
 
 ### How to load a package
 
@@ -357,7 +359,7 @@ Note that quotation marks are not required for the `library()` function (althoug
 
 Package installation:
 
--   use the `install.packages()` function (note the 's')
+-   use the `install.packages()` function (note the 's') or **Tools \> Install packages**
 -   the package name must be surrounded by quotation marks
 -   only needs to be done once
 
@@ -423,7 +425,7 @@ Your **activities** folder should look like:
 knitr::include_graphics("img/data-folder.png")
 ```
 
-Click the two dots next to the up-arrow at the top of the folder contents to move back up the folder structure.
+Click the two dots next to the up-arrow at the top of the folder contents to move back up the folder structure. Note that you need to click the dots, and not the up-facing green arrow!
 
 ## Reading a data file
 
@@ -431,7 +433,7 @@ Typing data directly into R is not common; we usually read data that have been p
 
 1 - Confirm that the `pbc.rds` file is in the `activities` sub-folder within the `data` folder (as per the previous steps).
 
-2 - Install the package `skimr` using either the graphical approach, or by typing into the console:
+2 - Install the package `skimr` using **Tools \> Install packages**, or by typing into the console:
 
 `install.packages("skimr")`
 
@@ -454,8 +456,6 @@ An alternative to the `summary()` function is the `skim()` function in the `skim
 ```{r, eval=FALSE}
 skim(pbc)
 ```
-
-Note that the output of the `skimr()` function has been included as a screenshot, due to problems with the histograms displaying as text.
 
 ```{r echo=FALSE, fig.show="hold", out.width="90%"}
 knitr::include_graphics("img/skim-pbc.png")
@@ -492,10 +492,11 @@ We can use the `hist()` function to produce a histogram, specifying the datafram
 hist(pbc$age)
 ```
 
-The histogram function does a remarkably good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=` and `main=` to assign labels for the x-axis and overall title respectively:
+The histogram function does a remarkably good job of choosing cutpoints and binwidths, and these rarely need to be changed. However, the labelling of the histogram should be improved by using `xlab=" "` and `main=" "` to assign labels for the x-axis and overall title respectively:
 
 ```{r}
-hist(pbc$age, xlab="Age (years)", main="Histogram of participant age from pbc study data")
+hist(pbc$age, xlab="Age (years)", 
+     main="Histogram of participant age from pbc study data")
 ```
 
 ## Producing a boxplot
@@ -524,7 +525,7 @@ You will notice that the table above, in its current form, is uninterpretable as
 
 We specify:
 
--   levels: the values the categorical variable uses can take
+-   levels: the values the categorical variable can take
 -   labels: the labels corresponding to each of the levels (entered in the same order as the levels)
 
 To define our variable sex as a factor, we use:
@@ -539,7 +540,7 @@ We can confirm the coding by re-running a frequency table:
 freq(pbc$sex)
 ```
 
-Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
+> Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
 
 ## Saving data in R
 
@@ -557,24 +558,22 @@ Unfortunately, by default, R is not ideal for creating publication quality table
 
 [^introtor-1]: these R notes and the PHCM9795 course notes have been written using [bookdown](https://bookdown.org/yihui/bookdown/)
 
-## Task
-
-Complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.
+> Task: Complete Table 1 using the output generated in this exercise. You should decide on whether to present continuous variables by their means or medians, and present the most appropriate measure of spread. Include footnotes to indicate if any variables contain missing observations.
 
 ## Part 3: Creating other types of graphs {.unnumbered}
 
 The `plot()` function, also known as *base graphics*, is the default method of plotting data in R that can produce publication-quality graphics with minimal coding. There are alternative packages for plotting, with `ggplot2` being one of the most well known. We will present instructions for base graphics in this course, but excellent documentation for `ggplot2` can be found at the [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) website, written by the package authors.
 
-Two other excellent resources for creating graphs in R are: [R Graphics Cookbook](https://r-graphics.org/) and [The R Graph Gallery](https://r-graph-gallery.com/).
-
 ## Bar graphs
 
 The simplest way to use the `plot()` function is by specifying an object to be plotted. As with the `hist()` function, to plot a single variable from a data frame, we must define it using: `dataframe$variable`.
 
-Here we will create the bar chart shown in Figure 1.1 using the `pbc.rds` dataset. The x-axis of this graph will be the stage of disease, and the y-axis will show the number of participants in each category.
+Here we will create the bar chart shown in Figure 1.3 of the statistics notes using the `pbc.rds` dataset. The x-axis of this graph will be the stage of disease, and the y-axis will show the number of participants in each category.
 
 ```{r}
-plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
+plot(pbc$stage, 
+     main="Bar graph of stage of disease from PBC study", 
+     ylab="Number of participants")
 ```
 
 Well, this isn't correct! Note that stage is a categorical variable, that has been entered using the numbers 1 to 4. By default, the `plot()` function will plot any numerical variable on the y-axis against its position (row number) on the x-axis (labelled 'Index'). To plot a categorical variable using a bar graph, we first need to define it as a factor:
@@ -590,54 +589,83 @@ plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Numbe
 
 ### Clustered bar graph
 
-To create a clustered bar chart as shown in Figure 1.2, we need to do a bit of manipulation.
+To create a clustered bar chart as shown in Figure 1.4 of the statistics notes, we need to do a bit of manipulation. We first need to tabulate the data using the `table()` function. We want to plot stage of disease broken down by sex, so we specify `sex` as the first variable, and `stage` as the second variable for the `table()` command.
 
 ```{r}
 counts <- table(pbc$sex, pbc$stage)
+counts
+```
+
+After tabulating the data, we use the `barplot()` function to plot the summarised data. We specify the main title using `main=" "`, specify that the stages be plotted separately by sex (`beside=TRUE`), specify the legend be defined by sex, and position the legend in the top-left of the graph:
+
+```{r}
 barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
-        legend = rownames(counts), beside=TRUE, args.legend = list(x = "topleft"))
+        beside=TRUE, legend = rownames(counts), args.legend = list(x = "topleft"))
 ```
 
 ### Stacked bar graph
 
-To create a stacked bar chart shown in Figure 1.4, bring up the **Bar chart** dialog box, go to the **Options** tab and tick **Stack bars on y variables**.
+A stacked bar graph can be constructed as for the clustered bar graph, but we specify `beside=FALSE`:
 
 ```{r}
 barplot(counts, main="Bar graph of stage of disease by sex from PBC study",
-        legend = rownames(counts), beside=FALSE, args.legend = list(x = "topleft"))
+        beside=FALSE, legend = rownames(counts), args.legend = list(x = "topleft"))
 ```
 
 ### Stacked bar graph of relative frequencies
 
-If one wants to compare the sex distribution across the stage categories, it would be convenient if all the bars have the same height (100%). To generate such a bar chart in Stata, tick **Base bar heights on percentages** in the **Options** tab of the **Bar charts** dialog box. Change the y-axis title in the **Y axis** tab to `Percentage of students in each age group`.
+To plot relative frequencies, we need to transform our table of frequencies (`counts`) into proportions, by using the `prop.table()` function. The prop.table() function takes two arguments: a table of counts, and `margin`, which defines whether we want proportions calculated by row (`margin=1`) or column (`margin=2`).
+
+We want to calculate the relative frequency of sex within each stage category. From our `counts` table above, this equates to calculating *column* proportions, so we specify `margin=2`. We also multiply the resulting table by 100 to obtain percentages (rather than proportions):
 
 ```{r}
 percent <- prop.table(counts, margin=2)*100
 percent
+```
 
-barplot(percent, main="Relative frequency of sex within stage of disease from PBC study",
+After calculating the percentages, we use `barplot()` again, similar to the stacked bar graph:
+
+```{r}
+barplot(percent, 
+        main="Relative frequency of sex within stage of disease from PBC study",
         legend = rownames(counts), beside=FALSE, args.legend = list(x = "topright"))
-
 ```
 
 ## Creating line graphs
 
-To demonstrate the graphing of aggregate data with Stata, we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered into Stata as `Example_1.2.rds`.
+To demonstrate the graphing of aggregate data , we use the data on new cases and deaths from prostate cancer in males in NSW. This data has been entered as `Example_1.2.rds`.
 
 ```{r}
 cancer <- readRDS("data/examples/Example_1.2.rds")
 summary(cancer)
+```
 
-plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)")
+We begin by plotting cancer cases (as the *y* variable) against year (the *x* variable).
 
-# Change scale
-plot(cancer$year, cancer$rcases, type="l", col = "red", xlab = "Year", ylab = "Age-standardised rate (per 100,000)", ylim=c(0,200))
+```{r}
+plot(x=cancer$year, y=cancer$rcases)
+```
 
-# Add a second line
+Let's define the plot to be joined by lines (`type="l"`), in the colour red (`col="red"`), providing meaningful labels for the x-axis and y-axis, and changing the scale of the y-axis to be between 0 and 200 (`ylim=c(0,200)`):
+
+```{r}
+plot(x=cancer$year, y=cancer$rcases, 
+     type="l", col = "red", 
+     xlab = "Year", 
+     ylab = "Age-standardised rate (per 100,000)", ylim=c(0,200))
+```
+
+We can now add a second line to the plot using the `lines()` function, specifying a dashed line (`lty=2`), and add a legend to the plot:
+
+```{r}
+plot(x=cancer$year, y=cancer$rcases, type="l", col = "red", 
+     xlab = "Year", ylab = "Age-standardised rate (per 100,000)", 
+     ylim=c(0,200))
+
 lines(cancer$year, cancer$rdeaths, col = "blue", type = "l", lty = 2)
 
-# Add a legend to the plot
-legend("topleft", legend=c("Incidence", "Deaths"),
+legend("topleft", legend=c("Incidence", "Deaths"), 
        col=c("red", "blue"), lty = 1:2)
-
 ```
+
+Note: coding for graphs is not always straightforward. Two excellent resources for creating graphs in R are: [R Graphics Cookbook](https://r-graphics.org/) and [The R Graph Gallery](https://r-graph-gallery.com/).

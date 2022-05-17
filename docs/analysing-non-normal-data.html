@@ -178,10 +178,9 @@ div.csl-indent {
 <li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.13</b> Defining categorical variables as factors</a></li>
 <li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#saving-data-in-r"><i class="fa fa-check"></i><b>1.14</b> Saving data in R</a></li>
 <li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#copying-output-from-r"><i class="fa fa-check"></i><b>1.15</b> Copying output from R</a></li>
-<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#task"><i class="fa fa-check"></i><b>1.16</b> Task</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs"><i class="fa fa-check"></i>Part 3: Creating other types of graphs</a></li>
-<li class="chapter" data-level="1.17" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#bar-graphs"><i class="fa fa-check"></i><b>1.17</b> Bar graphs</a></li>
-<li class="chapter" data-level="1.18" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-line-graphs"><i class="fa fa-check"></i><b>1.18</b> Creating line graphs</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#bar-graphs"><i class="fa fa-check"></i><b>1.16</b> Bar graphs</a></li>
+<li class="chapter" data-level="1.17" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-line-graphs"><i class="fa fa-check"></i><b>1.17</b> Creating line graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
 <ul>
@@ -269,13 +268,13 @@ div.csl-indent {
 <h2><span class="header-section-number">9.1</span> Transforming non-normally distributed variables<a href="analysing-non-normal-data.html#transforming-non-normally-distributed-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One option for dealing with a non-normally distributed varaible is to transform it into its square, square root or logarithmic value. The new transformed variable may be normally distributed and therefore a parametric test can be used. First we check the distribution of the variable for normality, e.g. by plotting a histogram.</p>
 <p>You can calculate a new, transformed, variable using variable transformation commands. For example, to create a new column of data based on the log of length of stay using Base R:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="analysing-non-normal-data.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)      <span class="co"># For importing data</span></span>
-<span id="cb203-2"><a href="analysing-non-normal-data.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb203-3"><a href="analysing-non-normal-data.html#cb203-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb203-4"><a href="analysing-non-normal-data.html#cb203-4" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_9.1.rds&quot;</span>)</span>
-<span id="cb203-5"><a href="analysing-non-normal-data.html#cb203-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb203-6"><a href="analysing-non-normal-data.html#cb203-6" aria-hidden="true" tabindex="-1"></a>hospital<span class="sc">$</span>ln_los <span class="ot">&lt;-</span> <span class="fu">log</span>(hospital<span class="sc">$</span>los<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb203-7"><a href="analysing-non-normal-data.html#cb203-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hospital)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="analysing-non-normal-data.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)      <span class="co"># For importing data</span></span>
+<span id="cb206-2"><a href="analysing-non-normal-data.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb206-3"><a href="analysing-non-normal-data.html#cb206-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-4"><a href="analysing-non-normal-data.html#cb206-4" aria-hidden="true" tabindex="-1"></a>hospital <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_9.1.rds&quot;</span>)</span>
+<span id="cb206-5"><a href="analysing-non-normal-data.html#cb206-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-6"><a href="analysing-non-normal-data.html#cb206-6" aria-hidden="true" tabindex="-1"></a>hospital<span class="sc">$</span>ln_los <span class="ot">&lt;-</span> <span class="fu">log</span>(hospital<span class="sc">$</span>los<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb206-7"><a href="analysing-non-normal-data.html#cb206-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hospital)</span></code></pre></div>
 <pre><code>##        id            gender               los         infect         surgery  
 ##  Min.   : 10.00   Length:132         Min.   :  0.00   No :106   Abdominal:48  
 ##  1st Qu.: 42.75   Class :character   1st Qu.: 20.75   Yes: 26   Cardiac  :53  
@@ -292,7 +291,7 @@ div.csl-indent {
 ##  Max.   :5.501</code></pre>
 <p>You can now check whether this logged variable is normally distributed as described in Module 2, for example by plotting a histogram as shown in Figure 9.2.</p>
 <p>To obtain the back-transformed mean shown in Output 9.1, we can use the <code>exp</code> command:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="analysing-non-normal-data.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">3.407232</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="analysing-non-normal-data.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">3.407232</span>)</span></code></pre></div>
 <pre><code>## [1] 30.18159</code></pre>
 <p>If your transformed variable is approximately normally distributed, you can apply parametric tests such as the t-test. In the Worked Example 9.1 dataset, the variable <code>infect</code> (presence of nosocomial infection) is a binary categorical variable. To test the hypothesis that patients with nosocomial infection have a different length of stay to patients without infection, you can conduct a t-test on the <code>ln_los</code> variable. You will need to back transform your mean values, as shown in Worked Example 9.1 in the course notes when reporting your results.</p>
 </div>
@@ -301,7 +300,7 @@ div.csl-indent {
 <p>We use the <code>wilcox.test</code> function to perform the Wilcoxon ranked-sum test:</p>
 <pre><code>wilcox.test(continuous_variable ~ group_variable, data=df, correct=FALSE)</code></pre>
 <p>The Wilcoxon ranked-sum test will be demonstrated using the length of stay data in <code>Example_9.1.rds</code>. Here, out continuous variable is <code>los</code> and the grouping variable is <code>infect</code>.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="analysing-non-normal-data.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(los <span class="sc">~</span> infect, <span class="at">data=</span>hospital, <span class="at">correct=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="analysing-non-normal-data.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(los <span class="sc">~</span> infect, <span class="at">data=</span>hospital, <span class="at">correct=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test
 ## 
@@ -314,14 +313,14 @@ div.csl-indent {
 <p>The <code>wilcox.test</code> function can also be used to conduct the Wilcoxon matched-pairs signed-rank test. The specification of the variables is a little different, in that each variable is specified as <code>dataframe$variable</code>:</p>
 <pre><code>wilcox.test(df$continuous_variable_1, df$continuous_variable_1, paired=TRUE)</code></pre>
 <p>We will demonstrate using the dataset on the arthritis drug cross-over trial (<code>Example_9.2.rds</code>). Like the paired t-test the paired data need to be in separate columns.</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="analysing-non-normal-data.html#cb211-1" aria-hidden="true" tabindex="-1"></a>arthritis <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_9.2.rds&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb211-2"><a href="analysing-non-normal-data.html#cb211-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
-<span id="cb211-3"><a href="analysing-non-normal-data.html#cb211-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb211-4"><a href="analysing-non-normal-data.html#cb211-4" aria-hidden="true" tabindex="-1"></a>arthritis<span class="sc">$</span>difference <span class="ot">=</span> arthritis<span class="sc">$</span>drug_1 <span class="sc">-</span> arthritis<span class="sc">$</span>drug_2</span>
-<span id="cb211-5"><a href="analysing-non-normal-data.html#cb211-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb211-6"><a href="analysing-non-normal-data.html#cb211-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(arthritis<span class="sc">$</span>difference, <span class="at">xlab=</span><span class="st">&quot;Difference&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of differences in pain scores&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="analysing-non-normal-data.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(arthritis<span class="sc">$</span>drug_1, arthritis<span class="sc">$</span>drug_2, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="analysing-non-normal-data.html#cb214-1" aria-hidden="true" tabindex="-1"></a>arthritis <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_9.2.rds&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb214-2"><a href="analysing-non-normal-data.html#cb214-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlabelled</span>()</span>
+<span id="cb214-3"><a href="analysing-non-normal-data.html#cb214-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-4"><a href="analysing-non-normal-data.html#cb214-4" aria-hidden="true" tabindex="-1"></a>arthritis<span class="sc">$</span>difference <span class="ot">=</span> arthritis<span class="sc">$</span>drug_1 <span class="sc">-</span> arthritis<span class="sc">$</span>drug_2</span>
+<span id="cb214-5"><a href="analysing-non-normal-data.html#cb214-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-6"><a href="analysing-non-normal-data.html#cb214-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(arthritis<span class="sc">$</span>difference, <span class="at">xlab=</span><span class="st">&quot;Difference&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of differences in pain scores&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="analysing-non-normal-data.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(arthritis<span class="sc">$</span>drug_1, arthritis<span class="sc">$</span>drug_2, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## Warning in wilcox.test.default(arthritis$drug_1, arthritis$drug_2, paired =
 ## TRUE): cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -334,9 +333,9 @@ div.csl-indent {
 <div id="estimating-rank-correlation-coefficients" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> Estimating rank correlation coefficients<a href="analysing-non-normal-data.html#estimating-rank-correlation-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The analyses for Spearman’s and Kendall’s rank correlation are conducted in similar ways:</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="analysing-non-normal-data.html#cb215-1" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_8.1.rds&quot;</span>)</span>
-<span id="cb215-2"><a href="analysing-non-normal-data.html#cb215-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-3"><a href="analysing-non-normal-data.html#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="analysing-non-normal-data.html#cb218-1" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_8.1.rds&quot;</span>)</span>
+<span id="cb218-2"><a href="analysing-non-normal-data.html#cb218-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-3"><a href="analysing-non-normal-data.html#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in cor.test.default(lung$Height, lung$FVC, method = &quot;spearman&quot;): Cannot
 ## compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -348,7 +347,7 @@ div.csl-indent {
 ## sample estimates:
 ##       rho 
 ## 0.7475566</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="analysing-non-normal-data.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="analysing-non-normal-data.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC, <span class="at">method=</span><span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 
