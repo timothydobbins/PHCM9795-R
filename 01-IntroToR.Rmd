@@ -1,17 +1,5 @@
 # Introduction to R and RStudio
 
-INCLUDE:
-
--   <https://ubco-biology.github.io/BIOL202/>
-
--   <https://r4stats.com/articles/why-r-is-hard-to-learn/>
-
--   how to get help (online, google, etc)
-
--   don't give up!
-
--   tidyverse?
-
 ## Learning outcomes {.unnumbered}
 
 By the end of this Module, you will be able to:
