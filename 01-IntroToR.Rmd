@@ -357,6 +357,19 @@ Package loading
 -   the package name does not need to be surrounded by quotation marks
 -   must be done for each R session
 
+## What is this thing called the tidyverse?
+
+If you have done much reading about R, you may have come across the tidyverse:
+
+> "The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures." <https://www.tidyverse.org/>
+
+Packages in the tidyverse have been designed with a goal to make using R more consistent by defining a "grammar" to manipulate data, examine data and draw conclusions from data. While the tidyverse is a common and powerful set of packages, we will not be teaching the tidyverse in this course for two main reasons:
+
+1.  The data we provide have been saved in a relatively tidy way, and do not need much manipulation for analyses to be conducted. The cognitive load in learning the tidyverse in this course is greater than the benefit that could be gained.
+2.  There are many resources (online, in print etc) that are based on `base R`, and do not use the tidyverse. It would be difficult to understand these resources if we taught only tidyverse techniques. In particular, the `dataframe$variable` syntax is an important concept that should be understood before moving into the tidyverse.
+
+In saying all of this, I think the tidyverse is an excellent set of packages, which I frequently use. At the completion of this course, you will be well equipped to teach yourself tidyverse using many excellent resources such as: [Tidyverse Skills for Data Science](https://jhudatascience.org/tidyversecourse/) and [R for Data Science](https://r4ds.had.co.nz/).
+
 ## Part 2: Obtaining basic descriptive statistics {.unnumbered}
 
 In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from Modeling Survival Data: Extending the Cox Model @therneau_grambsch10. By the end of this exercise, we will have completed the following table.
