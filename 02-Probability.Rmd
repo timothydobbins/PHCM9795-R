@@ -103,8 +103,6 @@ We then request a curve be overlayed using the `curve()` function:
 
 -   and added to the previous histogram (rather than plotting the curve by itself): `add=TRUE`
 
-### Base graphics
-
 ```{r}
 hist(sample$weight_clean,
      xlab="Weight (kg)",
@@ -118,7 +116,7 @@ curve(dnorm(x,
       add=TRUE)
 ```
 
-Notice that the top of the curve is chopped off. We can plot the whole curve by extending the y-axis of the histogram, to 0.1:
+Notice that the top of the curve is chopped off. We can plot the whole curve by extending the y-axis of the histogram to 0.1:
 
 ```{r}
 hist(sample$weight_clean, 
@@ -204,10 +202,43 @@ In the general population, BMI ranges between about 15 to 30. It appears that BM
 We will often want to calculate the same summary statistics by another variable. For example, we might want to calculate summary statistics for BMI for males and females separately. We can do this in in the `descriptives` function by defining sex as a `splitBy` variable:
 
 ```{r}
+library(jmv)
 descriptives(data=survey, vars=bmi, splitBy = sex)
 ```
 
 ## Plotting data by another variable
+
+Unfortunately, it is not straight-forward to create separate plots for every level of another variable. We will demonstrate by plotting BMI by sex using our health survey data.
+
+The following steps are not the most efficient way of doing this, but are easy to follow and understand. We first begin by creating two new data frames, for males and females separately, using the `subset()` function:
+
+```{r}
+survey_males <- subset(survey, sex=="Male")
+survey_females <- subset(survey, sex=="Female")
+```
+
+Note that we use the **label** for sex, not the underlying numeric value, as sex is a **factor**.
+
+We can now create hisotgrams and boxplots of BMI for males and females separately. To place the graphs next to each other in a single figure, we can use the `par` function, which sets the *graphics parameters*. Essentially, we want to tell R to split a plot window into a matrix with *nr* rows and *nc* columns, and we fill the cells by rows (`mfrow`) or columns (`mfcols`).
+
+For example, to plot four figures in a single plot, filled by rows, we use `par(mfrow=c(2,2))`.
+
+When we are done plotting multiple graphs, we can reset the graphics parameters by submitting `par(mfrow=c(1,1))`.
+
+```{r}
+# Set the graphics parameters to plot 2 rows and 2 columns:
+par(mfrow=c(2,2))
+
+# Specify each plot separately
+hist(survey_males$bmi, xlab="BMI (kg/m2)", main="Males")
+hist(survey_females$bmi, xlab="BMI (kg/m2)", main="Females")
+
+boxplot(survey_males$bmi, ylab="BMI (kg/m2)", main="Males")
+boxplot(survey_females$bmi, ylab="BMI (kg/m2)", main="Females")
+
+# Reset graphics parameters
+par(mfrow=c(1,1))
+```
 
 ## Recoding data {#recoding-data}
 
@@ -290,7 +321,7 @@ To obtain the probability of obtaining 0.5 or greater from a standard normal dis
 pnorm(0.5, lower.tail=FALSE)
 ```
 
-To calculate the worked example: Assume that the mean diastolic blood pressure for men is 77.9 mmHg, with a standard deviation of 11. What is the probability that a man selected at random will have high blood pressure (i.e. diastolic blood pressure $ge$ 90)?
+To calculate the worked example: Assume that the mean diastolic blood pressure for men is 77.9 mmHg, with a standard deviation of 11. What is the probability that a man selected at random will have high blood pressure (i.e. diastolic blood pressure greater than or equal to 90)?
 
 ```{r}
 pnorm(90, mean=77.9, sd=11, lower.tail=FALSE)

@@ -36,7 +36,7 @@ ci_mean <- function(n, mean, sd, width=0.95, digits=3){
                " to ", format(round(ucl, digits=digits), nsmall = digits) ))
 
 }
-### Copy this section
+### End of copy
 
 ci_mean(n=30, mean=70, sd=6, width=0.95)
 ci_mean(n=30, mean=70, sd=6, width=0.99)
