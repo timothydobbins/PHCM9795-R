@@ -27,7 +27,7 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 Note: even though we recommend that you use RStudio, you still need install R. **RStudio will not run without R installed.**
 
 |                       R: Don't run this                        |                            RStudio: Run this instead                             |
-|:------------------------------:|:--------------------------------------:|
+|:--------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
 | <img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/> | <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/> |
 
 ## Installing R and RStudio

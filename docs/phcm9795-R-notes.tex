@@ -219,8 +219,8 @@ RStudio is an ``Integrated Development Environment'' that runs R while also prov
 Note: even though we recommend that you use RStudio, you still need install R. \textbf{RStudio will not run without R installed.}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4384}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5616}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\centering
 R: Don't run this
@@ -622,6 +622,28 @@ Package loading
 \item
   must be done for each R session
 \end{itemize}
+
+\hypertarget{what-is-this-thing-called-the-tidyverse}{%
+\section{What is this thing called the tidyverse?}\label{what-is-this-thing-called-the-tidyverse}}
+
+If you have done much reading about R, you may have come across the tidyverse:
+
+\begin{quote}
+``The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.''~\url{https://www.tidyverse.org/}
+\end{quote}
+
+Packages in the tidyverse have been designed with a goal to make using R more consistent by defining a ``grammar'' to manipulate data, examine data and draw conclusions from data. While the tidyverse is a common and powerful set of packages, we will not be teaching the tidyverse in this course for two main reasons:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The data we provide have been saved in a relatively tidy way, and do not need much manipulation for analyses to be conducted. The cognitive load in learning the tidyverse in this course is greater than the benefit that could be gained.
+\item
+  There are many resources (online, in print etc) that are based on \texttt{base\ R}, and do not use the tidyverse. It would be difficult to understand these resources if we taught only tidyverse techniques. In particular, the \texttt{dataframe\$variable} syntax is an important concept that should be understood before moving into the tidyverse.
+\end{enumerate}
+
+In saying all of this, I think the tidyverse is an excellent set of packages, which I frequently use. At the completion of this course, you will be well equipped to teach yourself tidyverse using many excellent resources such as: \href{https://jhudatascience.org/tidyversecourse/}{Tidyverse Skills for Data Science} and \href{https://r4ds.had.co.nz/}{R for Data Science}.
 
 \hypertarget{part-2-obtaining-basic-descriptive-statistics}{%
 \section*{Part 2: Obtaining basic descriptive statistics}\label{part-2-obtaining-basic-descriptive-statistics}}
