@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.2)  18 MAY 2022 20:30
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.2)  23 MAY 2022 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1889,11 +1889,11 @@ File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (t
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-34-1.pdf>
 [25] [26]
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1091.
+(Font)              scaled to size 7.0pt on input line 1095.
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1091.
+(Font)              scaled to size 8.0pt on input line 1095.
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1091.
+(Font)              scaled to size 6.0pt on input line 1095.
 [27]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-38-1.pdf>
@@ -2052,7 +2052,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 [42]
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1589.
+(Font)              scaled to size 5.0pt on input line 1593.
 [43]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-61-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-61-1.pdf>
@@ -2317,7 +2317,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/b/it' will be
-(Font)              scaled to size 8.99994pt on input line 2119.
+(Font)              scaled to size 8.99994pt on input line 2123.
 [52] (./phcm9795-R-notes.bbl [53
 
 ] [54
@@ -2336,7 +2336,7 @@ Package rerunfilecheck Info: File `phcm9795-R-notes.out' has not changed.
 Here is how much of TeX's memory you used:
  26643 strings out of 478142
  519658 string characters out of 5853162
- 971346 words of memory out of 5000000
+ 971344 words of memory out of 5000000
  46899 multiletter control sequences out of 15000+600000
  476089 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191

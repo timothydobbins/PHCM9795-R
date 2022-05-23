@@ -27,7 +27,7 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 Note: even though we recommend that you use RStudio, you still need install R. **RStudio will not run without R installed.**
 
 |                       R: Don't run this                        |                            RStudio: Run this instead                             |
-|:--------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+|:------------------------------:|:--------------------------------------:|
 | <img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/> | <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/> |
 
 ## Installing R and RStudio
@@ -434,16 +434,20 @@ Typing data directly into R is not common; we usually read data that have been p
 
 1 - Confirm that the `pbc.rds` file is in the `activities` sub-folder within the `data` folder (as per the previous steps).
 
-2 - Install the package `skimr` using **Tools \> Install packages**, or by typing into the console:
+2 - Install the packages: `jmv`, `skimr` and `summarytools` using **Tools \> Install packages**, or by typing into the console:
+
+`install.packages("jmv")`
 
 `install.packages("skimr")`
+
+`install.packages("summarytools")`
 
 3 - Load the `skimr` package, and use the `readRDS()` function to read the file into R, assigning it to a data frame called `pbc`. Because we set up our project, we can locate our data easily by telling R to use the file: `"data/activities/pbc.rds"`, which translates as: the file `pbc.rds` which is located in the `activities` sub-folder within the `data` folder.
 
 ```{r}
 library(skimr)
 
-pbc <- readRDS("data/examples/pbc.rds")
+pbc <- readRDS("data/activities/pbc.rds")
 ```
 
 4 - We can now use the `summary()` function to examine the pbc dataset:

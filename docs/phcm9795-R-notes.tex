@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{18 May, 2022}
+\date{23 May, 2022}
 
 \begin{document}
 \maketitle
@@ -219,8 +219,8 @@ RStudio is an ``Integrated Development Environment'' that runs R while also prov
 Note: even though we recommend that you use RStudio, you still need install R. \textbf{RStudio will not run without R installed.}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4384}}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5616}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\centering
 R: Don't run this
@@ -814,9 +814,13 @@ Typing data directly into R is not common; we usually read data that have been p
 
 1 - Confirm that the \texttt{pbc.rds} file is in the \texttt{activities} sub-folder within the \texttt{data} folder (as per the previous steps).
 
-2 - Install the package \texttt{skimr} using \textbf{Tools \textgreater{} Install packages}, or by typing into the console:
+2 - Install the packages: \texttt{jmv}, \texttt{skimr} and \texttt{summarytools} using \textbf{Tools \textgreater{} Install packages}, or by typing into the console:
+
+\texttt{install.packages("jmv")}
 
 \texttt{install.packages("skimr")}
+
+\texttt{install.packages("summarytools")}
 
 3 - Load the \texttt{skimr} package, and use the \texttt{readRDS()} function to read the file into R, assigning it to a data frame called \texttt{pbc}. Because we set up our project, we can locate our data easily by telling R to use the file: \texttt{"data/activities/pbc.rds"}, which translates as: the file \texttt{pbc.rds} which is located in the \texttt{activities} sub-folder within the \texttt{data} folder.
 
@@ -824,7 +828,7 @@ Typing data directly into R is not common; we usually read data that have been p
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(skimr)}
 
-\NormalTok{pbc }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/pbc.rds"}\NormalTok{)}
+\NormalTok{pbc }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/activities/pbc.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

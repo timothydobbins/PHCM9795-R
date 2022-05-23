@@ -250,8 +250,8 @@ div.csl-indent {
 <p>Note: even though we recommend that you use RStudio, you still need install R. <strong>RStudio will not run without R installed.</strong></p>
 <table>
 <colgroup>
-<col width="43%" />
-<col width="56%" />
+<col width="44%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -548,12 +548,14 @@ div.csl-indent {
 <h2><span class="header-section-number">1.9</span> Reading a data file<a href="introduction-to-r-and-rstudio.html#reading-a-data-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Typing data directly into R is not common; we usually read data that have been previously saved. In this example, we will read an <code>.rds</code> file using the <code>readRDS()</code> function, which has only one input: the location of the file.</p>
 <p>1 - Confirm that the <code>pbc.rds</code> file is in the <code>activities</code> sub-folder within the <code>data</code> folder (as per the previous steps).</p>
-<p>2 - Install the package <code>skimr</code> using <strong>Tools &gt; Install packages</strong>, or by typing into the console:</p>
+<p>2 - Install the packages: <code>jmv</code>, <code>skimr</code> and <code>summarytools</code> using <strong>Tools &gt; Install packages</strong>, or by typing into the console:</p>
+<p><code>install.packages("jmv")</code></p>
 <p><code>install.packages("skimr")</code></p>
+<p><code>install.packages("summarytools")</code></p>
 <p>3 - Load the <code>skimr</code> package, and use the <code>readRDS()</code> function to read the file into R, assigning it to a data frame called <code>pbc</code>. Because we set up our project, we can locate our data easily by telling R to use the file: <code>"data/activities/pbc.rds"</code>, which translates as: the file <code>pbc.rds</code> which is located in the <code>activities</code> sub-folder within the <code>data</code> folder.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r-and-rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
 <span id="cb11-2"><a href="introduction-to-r-and-rstudio.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="introduction-to-r-and-rstudio.html#cb11-3" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/pbc.rds&quot;</span>)</span></code></pre></div>
+<span id="cb11-3"><a href="introduction-to-r-and-rstudio.html#cb11-3" aria-hidden="true" tabindex="-1"></a>pbc <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/activities/pbc.rds&quot;</span>)</span></code></pre></div>
 <p>4 - We can now use the <code>summary()</code> function to examine the pbc dataset:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction-to-r-and-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pbc)</span></code></pre></div>
 <pre><code>##        id             time          status            trt       
