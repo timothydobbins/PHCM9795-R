@@ -20,24 +20,25 @@ These notes are currently under development, with sections being added and revis
 
 This is the first year that R has been offered as an option. I am keen to receive feedback about the notes and your experience learning R. Please [get in touch](mailto:t.dobbins@unsw.edu.au) if anything is unclear, or you have any questions or suggestions.
 
-### Changelog
+### Changelog {-}
 
-#### 2022-05-26
-
-[Added]
-
--   Included instructions for creating two-way tables using the `contTables()` function in the `jmv` package
-
-[Changed]
-
-#### 2022-05-23
+**2022-05-27**
 
 [Added]
 
--   Explicit instructions to install `jmv` and `summarytools` when working in Module 1
+-   Section 1.2.1: Added a note about using the "patched" version of R 4.2.0 for Windows
+-   Section 1.14: Instructions for creating two-way tables using the `contTables()` function in the `jmv` package
+
+**2022-05-23**
+
+[Added]
+
+-   Section 1.9: Explicit instructions to install `jmv` and `summarytools` when working in Module 1
 
 [Changed]
 
--   Changed location of `pbc.dat` from `examples` to `activities` folder for consistency
+-   Section 1.9: Changed location of `pbc.dat` from `examples` to `activities` folder for consistency
 
-#### 2022-05-15 - Initial release
+**2022-05-19**
+
+Initial release

@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{23 May, 2022}
+\date{27 May, 2022}
 
 \begin{document}
 \maketitle
@@ -173,6 +173,44 @@ These notes provide an introduction to R and instructions on how to conduct the 
 These notes are currently under development, with sections being added and revised as the course progresses.
 
 This is the first year that R has been offered as an option. I am keen to receive feedback about the notes and your experience learning R. Please \href{mailto:t.dobbins@unsw.edu.au}{get in touch} if anything is unclear, or you have any questions or suggestions.
+
+\hypertarget{changelog}{%
+\subsection*{Changelog}\label{changelog}}
+\addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-05-27}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 1.2.1: Added a note about using the ``patched'' version of R 4.2.0 for Windows
+\item
+  Section 1.14: Instructions for creating two-way tables using the \texttt{contTables()} function in the \texttt{jmv} package
+\end{itemize}
+
+\textbf{2022-05-23}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 1.9: Explicit instructions to install \texttt{jmv} and \texttt{summarytools} when working in Module 1
+\end{itemize}
+
+{[}Changed{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 1.9: Changed location of \texttt{pbc.dat} from \texttt{examples} to \texttt{activities} folder for consistency
+\end{itemize}
+
+\textbf{2022-05-19}
+
+Initial release
 
 \hypertarget{introduction-to-r-and-rstudio}{%
 \chapter{Introduction to R and RStudio}\label{introduction-to-r-and-rstudio}}
@@ -219,8 +257,8 @@ RStudio is an ``Integrated Development Environment'' that runs R while also prov
 Note: even though we recommend that you use RStudio, you still need install R. \textbf{RStudio will not run without R installed.}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4384}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5616}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\centering
 R: Don't run this
@@ -241,7 +279,6 @@ RStudio: Run this instead
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Download the R installer from:
 
@@ -253,6 +290,12 @@ RStudio: Run this instead
   \item
     for MacOS: \url{https://cran.r-project.org/bin/macosx/}
   \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Note for Windows users:} as at May 27, 2022, R Version 4.2.0 has compatability issues with RStudio. You should download and install R from \url{https://cran.r-project.org/bin/windows/base/rpatched.html}
+  \end{itemize}
 \item
   Install R by running the installer and following the installation instructions. The default settings are fine.
 
@@ -1029,7 +1072,7 @@ We have three categorical variables to summarise in Table 1: sex, stage and vita
 \end{verbatim}
 
 \hypertarget{defining-categorical-variables-as-factors}{%
-\section{Defining categorical variables as factors}\label{defining-categorical-variables-as-factors}}
+\subsection{Defining categorical variables as factors}\label{defining-categorical-variables-as-factors}}
 
 You will notice that the table above, in its current form, is uninterpretable as the 1 and 2 categories are not labelled. In this course, all variables including categorical variables tend to be numerically coded. To define a categorical variable as such in R, we define it as a \textbf{factor} using the factor function:
 
@@ -1078,6 +1121,86 @@ We can confirm the coding by re-running a frequency table:
 Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
 \end{quote}
 
+\hypertarget{producing-a-two-way-frequency-table}{%
+\section{Producing a two-way frequency table}\label{producing-a-two-way-frequency-table}}
+
+To produce tables summarising two categorical variables, we can use the \texttt{contTables()} function within the \texttt{jmv} package. The minimal inputs to include are \texttt{data}: the name of the data frame to be analysed, \texttt{rows}: the variable representing the rows of the table, and \texttt{cols}: the name of the columns of the table.
+
+For example, to produce a two-way table showing stage of disease by sex using the pbc data frame, we use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{pbc, }\AttributeTok{rows=}\NormalTok{sex, }\AttributeTok{cols=}\NormalTok{stage)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                              
+##  ─────────────────────────────────────────────────────────────── 
+##    sex       Stage 1    Stage 2    Stage 3    Stage 4    Total   
+##  ─────────────────────────────────────────────────────────────── 
+##    Male            3          8         16         17       44   
+##    Female         18         84        139        127      368   
+##    Total          21         92        155        144      412   
+##  ─────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                               
+##  ────────────────────────────────────── 
+##          Value        df    p           
+##  ────────────────────────────────────── 
+##    χ²    0.8779873     3    0.8307365   
+##    N           412                      
+##  ──────────────────────────────────────
+\end{verbatim}
+
+{[}The bottom part of the output, χ² Tests, can be ignored for now{]}
+
+You may notice in the above that the number of observations is now 412. This is because there are missing observations for either sex or stage: which is it, and how would you determine this?
+
+From the cross-tabulation, you can see the individual frequencies of participants in each of the categories in each cell. For example, there are 3 male participants who have Stage 1 disease. You can also read the totals for each row and column. For example, there are 44 males, and 144 participants have Stage 4 disease.
+
+You can also add percentages into your table using \texttt{pcCol=TRUE} to include column percents, and \texttt{pcRow=TRUE} for row percents. For example, to calculate the relative frequencies (i.e.~percentages) of sex within each stage, we would request \textbf{column percents} with the option: \texttt{pcCol=TRUE}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{pbc, }\AttributeTok{rows=}\NormalTok{sex, }\AttributeTok{cols=}\NormalTok{stage, }\AttributeTok{pcCol=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                                                             
+##  ────────────────────────────────────────────────────────────────────────────────────────────── 
+##    sex                          Stage 1      Stage 2      Stage 3      Stage 4      Total       
+##  ────────────────────────────────────────────────────────────────────────────────────────────── 
+##    Male      Observed                   3            8           16           17           44   
+##              % within column     14.28571      8.69565     10.32258     11.80556     10.67961   
+##                                                                                                 
+##    Female    Observed                  18           84          139          127          368   
+##              % within column     85.71429     91.30435     89.67742     88.19444     89.32039   
+##                                                                                                 
+##    Total     Observed                  21           92          155          144          412   
+##              % within column    100.00000    100.00000    100.00000    100.00000    100.00000   
+##  ────────────────────────────────────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                               
+##  ────────────────────────────────────── 
+##          Value        df    p           
+##  ────────────────────────────────────── 
+##    χ²    0.8779873     3    0.8307365   
+##    N           412                      
+##  ──────────────────────────────────────
+\end{verbatim}
+
+We can see that the 3 male participants with Stage 1 disease represent 14\% of those with Stage 1 disease.
+
 \hypertarget{saving-data-in-r}{%
 \section{Saving data in R}\label{saving-data-in-r}}
 
@@ -1119,7 +1242,7 @@ Here we will create the bar chart shown in Figure 1.3 of the statistics notes us
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-38-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-41-1.pdf}
 
 Well, this isn't correct! Note that stage is a categorical variable, that has been entered using the numbers 1 to 4. By default, the \texttt{plot()} function will plot any numerical variable on the y-axis against its position (row number) on the x-axis (labelled `Index'). To plot a categorical variable using a bar graph, we first need to define it as a factor:
 
@@ -1134,7 +1257,7 @@ Well, this isn't correct! Note that stage is a categorical variable, that has be
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-39-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf}
 
 \hypertarget{clustered-bar-graph}{%
 \subsection{Clustered bar graph}\label{clustered-bar-graph}}
@@ -1151,8 +1274,8 @@ To create a clustered bar chart as shown in Figure 1.4 of the statistics notes, 
 \begin{verbatim}
 ##         
 ##          Stage 1 Stage 2 Stage 3 Stage 4
-##   Male         3       8      16      17
-##   Female      18      84     139     127
+##   Male         0       0       0       0
+##   Female       0       0       0       0
 \end{verbatim}
 
 After tabulating the data, we use the \texttt{barplot()} function to plot the summarised data. We specify the main title using \texttt{main="\ "}, specify that the stages be plotted separately by sex (\texttt{beside=TRUE}), specify the legend be defined by sex, and position the legend in the top-left of the graph:
@@ -1164,7 +1287,7 @@ After tabulating the data, we use the \texttt{barplot()} function to plot the su
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-44-1.pdf}
 
 \hypertarget{stacked-bar-graph}{%
 \subsection{Stacked bar graph}\label{stacked-bar-graph}}
@@ -1178,7 +1301,7 @@ A stacked bar graph can be constructed as for the clustered bar graph, but we sp
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-45-1.pdf}
 
 \hypertarget{stacked-bar-graph-of-relative-frequencies}{%
 \subsection{Stacked bar graph of relative frequencies}\label{stacked-bar-graph-of-relative-frequencies}}
@@ -1196,9 +1319,9 @@ We want to calculate the relative frequency of sex within each stage category. F
 
 \begin{verbatim}
 ##         
-##            Stage 1   Stage 2   Stage 3   Stage 4
-##   Male   14.285714  8.695652 10.322581 11.805556
-##   Female 85.714286 91.304348 89.677419 88.194444
+##          Stage 1 Stage 2 Stage 3 Stage 4
+##   Male                                  
+##   Female
 \end{verbatim}
 
 After calculating the percentages, we use \texttt{barplot()} again, similar to the stacked bar graph:
@@ -1211,7 +1334,7 @@ After calculating the percentages, we use \texttt{barplot()} again, similar to t
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-44-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-47-1.pdf}
 
 \hypertarget{creating-line-graphs}{%
 \section{Creating line graphs}\label{creating-line-graphs}}
@@ -1243,7 +1366,7 @@ We begin by plotting cancer cases (as the \emph{y} variable) against year (the \
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-46-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-49-1.pdf}
 
 Let's define the plot to be joined by lines (\texttt{type="l"}), in the colour red (\texttt{col="red"}), providing meaningful labels for the x-axis and y-axis, and changing the scale of the y-axis to be between 0 and 200 (\texttt{ylim=c(0,200)}):
 
@@ -1256,7 +1379,7 @@ Let's define the plot to be joined by lines (\texttt{type="l"}), in the colour r
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-47-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-50-1.pdf}
 
 We can now add a second line to the plot using the \texttt{lines()} function, specifying a dashed line (\texttt{lty=2}), and add a legend to the plot:
 
@@ -1273,7 +1396,7 @@ We can now add a second line to the plot using the \texttt{lines()} function, sp
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-48-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-51-1.pdf}
 
 Note: coding for graphs is not always straightforward. Two excellent resources for creating graphs in R are: \href{https://r-graphics.org/}{R Graphics Cookbook} and \href{https://r-graph-gallery.com/}{The R Graph Gallery}.
 
@@ -1325,7 +1448,7 @@ For continuous variables, the easiest methods are to examine a boxplot and histo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-51-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1333,7 +1456,7 @@ For continuous variables, the easiest methods are to examine a boxplot and histo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-51-2.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-2.pdf}
 
 There is a clear outlying point shown in the boxplot. Although not obvious, the same point is shown in the histogram as a bar around 700 with a very short height.
 
@@ -1357,7 +1480,7 @@ For example, to list any observations from the \texttt{sample} dataset with a we
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-52} }
+\caption{\label{tab:unnamed-chunk-55} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l}
 
@@ -1475,7 +1598,7 @@ We then request a curve be overlayed using the \texttt{curve()} function:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-55-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 Notice that the top of the curve is chopped off. We can plot the whole curve by extending the y-axis of the histogram to 0.1:
 
@@ -1495,7 +1618,7 @@ Notice that the top of the curve is chopped off. We can plot the whole curve by 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-56-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-59-1.pdf}
 
 \hypertarget{descriptive-statistics-for-checking-normality}{%
 \section{Descriptive statistics for checking normality}\label{descriptive-statistics-for-checking-normality}}
@@ -1622,7 +1745,7 @@ We should check the construction of the new variable by examining some records. 
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-61} }
+\caption{\label{tab:unnamed-chunk-64} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l l l}
 
@@ -1714,7 +1837,7 @@ We should check the construction of the new variable by examining some records. 
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-61} }
+\caption{\label{tab:unnamed-chunk-64} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l l l}
 
@@ -1796,7 +1919,7 @@ We should check the construction of the new variable by examining some records. 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-61-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1804,7 +1927,7 @@ We should check the construction of the new variable by examining some records. 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-61-2.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-2.pdf}
 
 In the general population, BMI ranges between about 15 to 30. It appears that BMI has been correctly generated in this example. We should investigate the very low and some of the very high values of BMI, but this will be left for another time.
 
@@ -1881,7 +2004,7 @@ When we are done plotting multiple graphs, we can reset the graphics parameters 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-67-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
