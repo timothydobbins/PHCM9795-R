@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{27 May, 2022}
+\date{28 May, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-05-27}
+
+{[}Changed{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Module 1: Fixed bar-charts that were not plotted correctly
+\end{itemize}
 
 \textbf{2022-05-27}
 
@@ -257,8 +267,8 @@ RStudio is an ``Integrated Development Environment'' that runs R while also prov
 Note: even though we recommend that you use RStudio, you still need install R. \textbf{RStudio will not run without R installed.}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4384}}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5616}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\centering
 R: Don't run this
@@ -1118,8 +1128,30 @@ We can confirm the coding by re-running a frequency table:
 \end{verbatim}
 
 \begin{quote}
-Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
+Task: define Stage and Vital Status as factors, and produce one-way frequency tables. For example, for Stage:
 \end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pbc}\SpecialCharTok{$}\NormalTok{stage }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(pbc}\SpecialCharTok{$}\NormalTok{stage, }\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Stage 1"}\NormalTok{, }\StringTok{"Stage 2"}\NormalTok{, }\StringTok{"Stage 3"}\NormalTok{, }\StringTok{"Stage 4"}\NormalTok{))}
+\FunctionTok{freq}\NormalTok{(pbc}\SpecialCharTok{$}\NormalTok{stage)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Frequencies  
+## pbc$stage  
+## Type: Factor  
+## 
+##                 Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+## ------------- ------ --------- -------------- --------- --------------
+##       Stage 1     21      5.10           5.10      5.02           5.02
+##       Stage 2     92     22.33          27.43     22.01          27.03
+##       Stage 3    155     37.62          65.05     37.08          64.11
+##       Stage 4    144     34.95         100.00     34.45          98.56
+##          <NA>      6                               1.44         100.00
+##         Total    418    100.00         100.00    100.00         100.00
+\end{verbatim}
 
 \hypertarget{producing-a-two-way-frequency-table}{%
 \section{Producing a two-way frequency table}\label{producing-a-two-way-frequency-table}}
@@ -1244,20 +1276,7 @@ Here we will create the bar chart shown in Figure 1.3 of the statistics notes us
 
 \includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-41-1.pdf}
 
-Well, this isn't correct! Note that stage is a categorical variable, that has been entered using the numbers 1 to 4. By default, the \texttt{plot()} function will plot any numerical variable on the y-axis against its position (row number) on the x-axis (labelled `Index'). To plot a categorical variable using a bar graph, we first need to define it as a factor:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Convert stage to a factor}
-\NormalTok{pbc}\SpecialCharTok{$}\NormalTok{stage }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(pbc}\SpecialCharTok{$}\NormalTok{stage, }
-                    \AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{),}
-                    \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Stage 1"}\NormalTok{, }\StringTok{"Stage 2"}\NormalTok{, }\StringTok{"Stage 3"}\NormalTok{, }\StringTok{"Stage 4"}\NormalTok{))}
-
-\FunctionTok{plot}\NormalTok{(pbc}\SpecialCharTok{$}\NormalTok{stage, }\AttributeTok{main=}\StringTok{"Bar graph of stage of disease from PBC study"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Number of participants"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf}
+Note that stage is a categorical variable, that has been defined as a factor (in Section \ref{defining-categorical-variables-as-factors}). You \textbf{must define categorical data as factors} to plot them in a bar graph.
 
 \hypertarget{clustered-bar-graph}{%
 \subsection{Clustered bar graph}\label{clustered-bar-graph}}
@@ -1274,8 +1293,8 @@ To create a clustered bar chart as shown in Figure 1.4 of the statistics notes, 
 \begin{verbatim}
 ##         
 ##          Stage 1 Stage 2 Stage 3 Stage 4
-##   Male         0       0       0       0
-##   Female       0       0       0       0
+##   Male         3       8      16      17
+##   Female      18      84     139     127
 \end{verbatim}
 
 After tabulating the data, we use the \texttt{barplot()} function to plot the summarised data. We specify the main title using \texttt{main="\ "}, specify that the stages be plotted separately by sex (\texttt{beside=TRUE}), specify the legend be defined by sex, and position the legend in the top-left of the graph:
@@ -1287,7 +1306,7 @@ After tabulating the data, we use the \texttt{barplot()} function to plot the su
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-44-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-43-1.pdf}
 
 \hypertarget{stacked-bar-graph}{%
 \subsection{Stacked bar graph}\label{stacked-bar-graph}}
@@ -1301,7 +1320,7 @@ A stacked bar graph can be constructed as for the clustered bar graph, but we sp
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-45-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-44-1.pdf}
 
 \hypertarget{stacked-bar-graph-of-relative-frequencies}{%
 \subsection{Stacked bar graph of relative frequencies}\label{stacked-bar-graph-of-relative-frequencies}}
@@ -1319,9 +1338,9 @@ We want to calculate the relative frequency of sex within each stage category. F
 
 \begin{verbatim}
 ##         
-##          Stage 1 Stage 2 Stage 3 Stage 4
-##   Male                                  
-##   Female
+##            Stage 1   Stage 2   Stage 3   Stage 4
+##   Male   14.285714  8.695652 10.322581 11.805556
+##   Female 85.714286 91.304348 89.677419 88.194444
 \end{verbatim}
 
 After calculating the percentages, we use \texttt{barplot()} again, similar to the stacked bar graph:
@@ -1334,7 +1353,7 @@ After calculating the percentages, we use \texttt{barplot()} again, similar to t
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-47-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-46-1.pdf}
 
 \hypertarget{creating-line-graphs}{%
 \section{Creating line graphs}\label{creating-line-graphs}}
@@ -1366,7 +1385,7 @@ We begin by plotting cancer cases (as the \emph{y} variable) against year (the \
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-49-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-48-1.pdf}
 
 Let's define the plot to be joined by lines (\texttt{type="l"}), in the colour red (\texttt{col="red"}), providing meaningful labels for the x-axis and y-axis, and changing the scale of the y-axis to be between 0 and 200 (\texttt{ylim=c(0,200)}):
 
@@ -1379,7 +1398,7 @@ Let's define the plot to be joined by lines (\texttt{type="l"}), in the colour r
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-50-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-49-1.pdf}
 
 We can now add a second line to the plot using the \texttt{lines()} function, specifying a dashed line (\texttt{lty=2}), and add a legend to the plot:
 
@@ -1396,7 +1415,7 @@ We can now add a second line to the plot using the \texttt{lines()} function, sp
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-51-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-50-1.pdf}
 
 Note: coding for graphs is not always straightforward. Two excellent resources for creating graphs in R are: \href{https://r-graphics.org/}{R Graphics Cookbook} and \href{https://r-graph-gallery.com/}{The R Graph Gallery}.
 
@@ -1448,7 +1467,7 @@ For continuous variables, the easiest methods are to examine a boxplot and histo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-53-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1456,7 +1475,7 @@ For continuous variables, the easiest methods are to examine a boxplot and histo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-2.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-53-2.pdf}
 
 There is a clear outlying point shown in the boxplot. Although not obvious, the same point is shown in the histogram as a bar around 700 with a very short height.
 
@@ -1480,7 +1499,7 @@ For example, to list any observations from the \texttt{sample} dataset with a we
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-55} }
+\caption{\label{tab:unnamed-chunk-54} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l}
 
@@ -1598,7 +1617,7 @@ We then request a curve be overlayed using the \texttt{curve()} function:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-58-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-57-1.pdf}
 
 Notice that the top of the curve is chopped off. We can plot the whole curve by extending the y-axis of the histogram to 0.1:
 
@@ -1618,7 +1637,7 @@ Notice that the top of the curve is chopped off. We can plot the whole curve by 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-59-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 \hypertarget{descriptive-statistics-for-checking-normality}{%
 \section{Descriptive statistics for checking normality}\label{descriptive-statistics-for-checking-normality}}
@@ -1745,7 +1764,7 @@ We should check the construction of the new variable by examining some records. 
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-64} }
+\caption{\label{tab:unnamed-chunk-63} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l l l}
 
@@ -1837,7 +1856,7 @@ We should check the construction of the new variable by examining some records. 
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-64} }
+\caption{\label{tab:unnamed-chunk-63} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l l l}
 
@@ -1919,7 +1938,7 @@ We should check the construction of the new variable by examining some records. 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-63-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1927,7 +1946,7 @@ We should check the construction of the new variable by examining some records. 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-2.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-63-2.pdf}
 
 In the general population, BMI ranges between about 15 to 30. It appears that BMI has been correctly generated in this example. We should investigate the very low and some of the very high values of BMI, but this will be left for another time.
 
@@ -2004,7 +2023,7 @@ When we are done plotting multiple graphs, we can reset the graphics parameters 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-66-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]

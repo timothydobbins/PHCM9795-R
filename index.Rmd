@@ -24,6 +24,12 @@ This is the first year that R has been offered as an option. I am keen to receiv
 
 **2022-05-27**
 
+[Changed]
+
+- Module 1: Fixed bar-charts that were not plotted correctly
+
+**2022-05-27**
+
 [Added]
 
 -   Section 1.2.1: Added a note about using the "patched" version of R 4.2.0 for Windows

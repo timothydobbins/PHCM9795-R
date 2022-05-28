@@ -27,7 +27,7 @@ RStudio is an "Integrated Development Environment" that runs R while also provid
 Note: even though we recommend that you use RStudio, you still need install R. **RStudio will not run without R installed.**
 
 |                       R: Don't run this                        |                            RStudio: Run this instead                             |
-|:--------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+|:------------------------------:|:--------------------------------------:|
 | <img src="img/Rlogo.png" alt="R logo" style="height: 100px;"/> | <img src="img/RStudio-logo-flat.png" alt="RStudio logo" style="height: 100px;"/> |
 
 ## Installing R and RStudio
@@ -551,10 +551,11 @@ We can confirm the coding by re-running a frequency table:
 freq(pbc$sex)
 ```
 
-> Task: define Stage and Vital Status as factors, and produce one-way frequency tables.
+> Task: define Stage and Vital Status as factors, and produce one-way frequency tables. For example, for Stage:
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r}
 pbc$stage <- factor(pbc$stage, levels=c(1, 2, 3, 4), labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
+freq(pbc$stage)
 ```
 
 ## Producing a two-way frequency table
@@ -615,16 +616,7 @@ plot(pbc$stage,
      ylab="Number of participants")
 ```
 
-Well, this isn't correct! Note that stage is a categorical variable, that has been entered using the numbers 1 to 4. By default, the `plot()` function will plot any numerical variable on the y-axis against its position (row number) on the x-axis (labelled 'Index'). To plot a categorical variable using a bar graph, we first need to define it as a factor:
-
-```{r}
-# Convert stage to a factor
-pbc$stage <- factor(pbc$stage, 
-                    levels=c(1, 2, 3, 4),
-                    labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
-
-plot(pbc$stage, main="Bar graph of stage of disease from PBC study", ylab="Number of participants")
-```
+Note that stage is a categorical variable, that has been defined as a factor (in Section \@ref(defining-categorical-variables-as-factors)). You **must define categorical data as factors** to plot them in a bar graph.
 
 ### Clustered bar graph
 

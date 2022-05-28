@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.2)  27 MAY 2022 17:33
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.2)  28 MAY 2022 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1134,7 +1134,7 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count380
 ) (./phcm9795-R-notes.aux
 
-LaTeX Warning: Label `tab:unnamed-chunk-64' multiply defined.
+LaTeX Warning: Label `tab:unnamed-chunk-63' multiply defined.
 
 )
 \openout1 = `phcm9795-R-notes.aux'.
@@ -1471,7 +1471,7 @@ LaTeX Font Info:    Font shape `TU/Roboto(0)/m/it' will be
 LaTeX Font Info:    Font shape `TU/Clancy(0)/m/n' will be
 (Font)              scaled to size 10.5664pt on input line 178.
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 190.
+(Font)              scaled to size 8.99994pt on input line 200.
 [3
 
 ] [4
@@ -1497,11 +1497,11 @@ File: img/NewProject-4.png Graphic file (type bmp)
 <img/NewProject-4.png>
 [10] [11]
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/m/it' will be
-(Font)              scaled to size 8.99994pt on input line 406.
+(Font)              scaled to size 8.99994pt on input line 416.
 File: img/RStudio-screenshot-02.png Graphic file (type bmp)
 <img/RStudio-screenshot-02.png>
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 426.
+(Font)              scaled to size 8.99994pt on input line 436.
 [12]
 File: img/RStudio-screenshot-03.png Graphic file (type bmp)
 <img/RStudio-screenshot-03.png>
@@ -1951,246 +1951,6 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 [27]
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
@@ -2286,8 +2046,248 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 
-Overfull \hbox (82.68199pt too wide) in paragraph at lines 1179--1179
+Overfull \hbox (82.68199pt too wide) in paragraph at lines 1211--1211
 []\TU/RobotoMono(0)/m/n/10 ##  ──────────────────────────────────────────────────────────────────────────────────────────────[] 
  []
 
@@ -2386,17 +2386,17 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 
-Overfull \hbox (82.68199pt too wide) in paragraph at lines 1181--1181
+Overfull \hbox (82.68199pt too wide) in paragraph at lines 1213--1213
 []\TU/RobotoMono(0)/m/n/10 ##  ──────────────────────────────────────────────────────────────────────────────────────────────[] 
  []
 
 
-Overfull \hbox (1.66975pt too wide) in paragraph at lines 1186--1186
+Overfull \hbox (1.66975pt too wide) in paragraph at lines 1218--1218
 []\TU/RobotoMono(0)/m/n/10 ##              % within column     85.71429     91.30435     89.67742     88.19444     89.32039[] 
  []
 
 
-Overfull \hbox (10.67114pt too wide) in paragraph at lines 1189--1189
+Overfull \hbox (10.67114pt too wide) in paragraph at lines 1221--1221
 []\TU/RobotoMono(0)/m/n/10 ##              % within column    100.00000    100.00000    100.00000    100.00000    100.00000[] 
  []
 
@@ -2495,7 +2495,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 
-Overfull \hbox (82.68199pt too wide) in paragraph at lines 1190--1190
+Overfull \hbox (82.68199pt too wide) in paragraph at lines 1222--1222
 []\TU/RobotoMono(0)/m/n/10 ##  ──────────────────────────────────────────────────────────────────────────────────────────────[] 
  []
 
@@ -2575,90 +2575,87 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 [28]
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1218.
+(Font)              scaled to size 7.0pt on input line 1250.
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1218.
+(Font)              scaled to size 8.0pt on input line 1250.
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1218.
+(Font)              scaled to size 6.0pt on input line 1250.
+[29]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-41-1.pdf>
-[29]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf>
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-43-1.pdf>
 [30]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-44-1.pdf>
 [31]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-45-1.pdf>
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-46-1.pdf>
 [32]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-47-1.pdf>
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-48-1.pdf>
 [33]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-49-1.pdf>
 [34]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-50-1.pdf>
-[35]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-51-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-51-1.pdf>
-[36] [37] [38
-
-]
+[35] [36]
 File: img/mod02/import-01.png Graphic file (type bmp)
 <img/mod02/import-01.png>
-[39]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-1.pdf>
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-2.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-54-2.pdf>
-[40] [41] [42]
+[37
+
+]
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-53-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-53-1.pdf>
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-53-2.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-53-2.pdf>
+[38] [39] [40]
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-57-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-57-1.pdf>
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-58-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-58-1.pdf>
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-59-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-59-1.pdf>
-[43]
+[41]
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
@@ -2776,152 +2773,152 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-[44]
+[42]
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1716.
+(Font)              scaled to size 5.0pt on input line 1735.
+[43]
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-63-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-63-1.pdf>
+[44]
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-63-2.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-63-2.pdf>
 [45]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf>
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 [46]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-2.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-2.pdf>
-[47]
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-[48]
-File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-67-1.pdf Graphic file (type pdf)
-<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-67-1.pdf>
-[49] [50] [51] [52
+File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (type pdf)
+<use phcm9795-R-notes_files/figure-latex/unnamed-chunk-66-1.pdf>
+[47] [48] [49] [50
 
 ]
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
@@ -3002,7 +2999,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
-[53]
+[51]
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
@@ -3043,12 +3040,12 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/b/it' will be
-(Font)              scaled to size 8.99994pt on input line 2246.
-[54] (./phcm9795-R-notes.bbl [55
+(Font)              scaled to size 8.99994pt on input line 2265.
+[52] (./phcm9795-R-notes.bbl [53
 
-] [56
+] [54
 
-]) [57]
+]) [55]
 \tf@toc=\write6
 \openout6 = `phcm9795-R-notes.toc'.
 
@@ -3060,12 +3057,12 @@ Package rerunfilecheck Info: File `phcm9795-R-notes.out' has not changed.
 (rerunfilecheck)             Checksum: 8999DEC970AAA58C748740110796BCE3;8050.
  ) 
 Here is how much of TeX's memory you used:
- 26645 strings out of 478142
- 519706 string characters out of 5853162
- 971505 words of memory out of 5000000
- 46901 multiletter control sequences out of 15000+600000
+ 26637 strings out of 478142
+ 519227 string characters out of 5853162
+ 970503 words of memory out of 5000000
+ 46894 multiletter control sequences out of 15000+600000
  476089 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,18n,123p,880b,924s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on phcm9795-R-notes.pdf (57 pages).
+Output written on phcm9795-R-notes.pdf (55 pages).
