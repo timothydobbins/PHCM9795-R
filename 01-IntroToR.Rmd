@@ -84,7 +84,7 @@ I will provide a recommended setup for R and RStudio in this section. You are fr
 
 ### RStudio preferences
 
-By default, RStudio will retain data, scripts and other objects when you quite your RStudio session. Relying on this can cause headaches, so I recommend that you set up RStudio so that it does not preserve your workspace between sessions. Open the RStudio options:
+By default, RStudio will retain data, scripts and other objects when you quit your RStudio session. Relying on this can cause headaches, so I recommend that you set up RStudio so that it does not preserve your workspace between sessions. Open the RStudio options:
 
 -   Mac: **RStudio \> Preferences**
 
@@ -507,6 +507,17 @@ The histogram function does a remarkably good job of choosing cutpoints and binw
 
 ```{r}
 hist(pbc$age, xlab="Age (years)", 
+     main="Histogram of participant age from pbc study data")
+```
+
+By default, the `hist()` function plots a **frequency histogram**, with counts on the y-axis. We can tweak the histogram using the following code to plot a histogram of the **relative frequencies**:
+
+```{r}
+h <- hist(pbc$age, plot=FALSE)
+h$density <- h$counts/sum(h$counts)*100
+plot(h, freq=FALSE, 
+     xlab="Age (years)", 
+     ylab="Relative frequency (%)",
      main="Histogram of participant age from pbc study data")
 ```
 

@@ -228,9 +228,9 @@ div.csl-indent {
 <div id="one-sample-t-test" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> One sample t-test<a href="hypothesis-testing.html#one-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will use data from <code>Example_4.1.rds</code> to demonstrate how a one-sample t-test is conducted in R.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="hypothesis-testing.html#cb96-1" aria-hidden="true" tabindex="-1"></a>bloodpressure <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_4.1.rds&quot;</span>)</span>
-<span id="cb96-2"><a href="hypothesis-testing.html#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-3"><a href="hypothesis-testing.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bloodpressure)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="hypothesis-testing.html#cb97-1" aria-hidden="true" tabindex="-1"></a>bloodpressure <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_4.1.rds&quot;</span>)</span>
+<span id="cb97-2"><a href="hypothesis-testing.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="hypothesis-testing.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bloodpressure)</span></code></pre></div>
 <pre><code>##       dbp        
 ##  Min.   : 24.00  
 ##  1st Qu.: 64.00  
@@ -240,7 +240,7 @@ div.csl-indent {
 ##  Max.   :122.00  
 ##  NA&#39;s   :35</code></pre>
 <p>To test whether the mean diastolic blood pressure of the population from which the sample was drawn is equal to 71, we can use the t.test command:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="hypothesis-testing.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(bloodpressure<span class="sc">$</span>dbp, <span class="at">mu=</span><span class="dv">71</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="hypothesis-testing.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(bloodpressure<span class="sc">$</span>dbp, <span class="at">mu=</span><span class="dv">71</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
