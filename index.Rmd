@@ -22,6 +22,13 @@ This is the first year that R has been offered as an option. I am keen to receiv
 
 ### Changelog {-}
 
+**2022-06-05**
+
+[Changed]
+
+- Module 1: Typos
+
+
 **2022-05-30**
 
 [Changed]

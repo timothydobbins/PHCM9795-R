@@ -394,7 +394,7 @@ tab <- tibble::tribble(
                              "Stage",                    "I",                     "n (%)",
                              "Stage",                   "II",                     "n (%)",
                              "Stage",                  "III",                     "n (%)",
-                             "Stage",                 "IIIV",                     "n (%)",
+                             "Stage",                   "IV",                     "n (%)",
          "Vital status at study end", "Alive: no transplant",                     "n (%)",
          "Vital status at study end",    "Alive: transplant",                     "n (%)",
          "Vital status at study end",             "Deceased",                     "n (%)"
@@ -562,7 +562,7 @@ We can confirm the coding by re-running a frequency table:
 freq(pbc$sex)
 ```
 
-> Task: define Stage and Vital Status as factors, and produce one-way frequency tables. For example, for Stage:
+> Task: define `stage` and `status` (Vital Status) as factors, and produce one-way frequency tables. Refer to the file `pbc_info.txt` to view the labels for each variable. For example, for Stage:
 
 ```{r}
 pbc$stage <- factor(pbc$stage, levels=c(1, 2, 3, 4), labels=c("Stage 1", "Stage 2", "Stage 3", "Stage 4"))
