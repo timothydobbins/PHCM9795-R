@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.2)  5 JUN 2022 15:49
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.2)  7 JUN 2022 14:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1471,12 +1471,12 @@ LaTeX Font Info:    Font shape `TU/Roboto(0)/m/it' will be
 LaTeX Font Info:    Font shape `TU/Clancy(0)/m/n' will be
 (Font)              scaled to size 10.5664pt on input line 178.
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 228.
+(Font)              scaled to size 8.99994pt on input line 188.
 [3
 
-] [4
+] [4] [5
 
-] [5]
+]
 File: img/R-screenshot.png Graphic file (type bmp)
 <img/R-screenshot.png>
 [6]
@@ -1497,11 +1497,11 @@ File: img/NewProject-4.png Graphic file (type bmp)
 <img/NewProject-4.png>
 [10] [11]
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/m/it' will be
-(Font)              scaled to size 8.99994pt on input line 444.
+(Font)              scaled to size 8.99994pt on input line 454.
 File: img/RStudio-screenshot-02.png Graphic file (type bmp)
 <img/RStudio-screenshot-02.png>
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 464.
+(Font)              scaled to size 8.99994pt on input line 474.
 [12]
 File: img/RStudio-screenshot-03.png Graphic file (type bmp)
 <img/RStudio-screenshot-03.png>
@@ -2289,7 +2289,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 
-Overfull \hbox (82.68199pt too wide) in paragraph at lines 1254--1254
+Overfull \hbox (82.68199pt too wide) in paragraph at lines 1264--1264
 []\TU/RobotoMono(0)/m/n/10 ##  ──────────────────────────────────────────────────────────────────────────────────────────────[] 
  []
 
@@ -2388,17 +2388,17 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 
-Overfull \hbox (82.68199pt too wide) in paragraph at lines 1256--1256
+Overfull \hbox (82.68199pt too wide) in paragraph at lines 1266--1266
 []\TU/RobotoMono(0)/m/n/10 ##  ──────────────────────────────────────────────────────────────────────────────────────────────[] 
  []
 
 
-Overfull \hbox (1.66975pt too wide) in paragraph at lines 1261--1261
+Overfull \hbox (1.66975pt too wide) in paragraph at lines 1271--1271
 []\TU/RobotoMono(0)/m/n/10 ##              % within column     85.71429     91.30435     89.67742     88.19444     89.32039[] 
  []
 
 
-Overfull \hbox (10.67114pt too wide) in paragraph at lines 1264--1264
+Overfull \hbox (10.67114pt too wide) in paragraph at lines 1274--1274
 []\TU/RobotoMono(0)/m/n/10 ##              % within column    100.00000    100.00000    100.00000    100.00000    100.00000[] 
  []
 
@@ -2497,7 +2497,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 
-Overfull \hbox (82.68199pt too wide) in paragraph at lines 1265--1265
+Overfull \hbox (82.68199pt too wide) in paragraph at lines 1275--1275
 []\TU/RobotoMono(0)/m/n/10 ##  ──────────────────────────────────────────────────────────────────────────────────────────────[] 
  []
 
@@ -2617,11 +2617,11 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1293.
+(Font)              scaled to size 7.0pt on input line 1303.
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1293.
+(Font)              scaled to size 8.0pt on input line 1303.
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1293.
+(Font)              scaled to size 6.0pt on input line 1303.
 [30]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-42-1.pdf>
@@ -2777,7 +2777,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 [44]
 LaTeX Font Info:    Font shape `TU/Roboto(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1778.
+(Font)              scaled to size 5.0pt on input line 1788.
 [45]
 File: phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf Graphic file (type pdf)
 <use phcm9795-R-notes_files/figure-latex/unnamed-chunk-64-1.pdf>
@@ -3042,7 +3042,7 @@ Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:scrip
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 Missing character: There is no ─ (U+2500) in font Roboto Mono Regular/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/RobotoMono(0)/b/it' will be
-(Font)              scaled to size 8.99994pt on input line 2308.
+(Font)              scaled to size 8.99994pt on input line 2318.
 [54] (./phcm9795-R-notes.bbl [55
 
 ] [56

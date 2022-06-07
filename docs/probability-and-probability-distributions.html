@@ -380,9 +380,9 @@ div.csl-indent {
 <h2><span class="header-section-number">2.6</span> Generating new variables<a href="probability-and-probability-distributions.html#generating-new-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Our health survey data contains information on height and weight. We often summarise body size using BMI: body mass index which is calculated as: <span class="math inline">\(\frac{\text{weight (kg)}}{(\text{height (m)})^2}\)</span></p>
 <p>We can create a new column in our data frame in many ways, such as using the following approach:</p>
-<p><code>dataframe$new_column = &lt;formula&gt;</code></p>
+<p><code>dataframe$new_column &lt;- &lt;formula&gt;</code></p>
 <p>For example:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="probability-and-probability-distributions.html#cb64-1" aria-hidden="true" tabindex="-1"></a>survey<span class="sc">$</span>bmi <span class="ot">=</span> survey<span class="sc">$</span>weight <span class="sc">/</span> (survey<span class="sc">$</span>height<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="probability-and-probability-distributions.html#cb64-1" aria-hidden="true" tabindex="-1"></a>survey<span class="sc">$</span>bmi <span class="ot">&lt;-</span> survey<span class="sc">$</span>weight <span class="sc">/</span> (survey<span class="sc">$</span>height<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <p>We should check the construction of the new variable by examining some records. The <code>head()</code> and <code>tail()</code> functions list the first and last 6 records in any dataset. We can also examine a histogram and boxplot:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="probability-and-probability-distributions.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(survey)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-64">

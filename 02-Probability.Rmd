@@ -177,12 +177,12 @@ Our health survey data contains information on height and weight. We often summa
 
 We can create a new column in our data frame in many ways, such as using the following approach:
 
-`dataframe$new_column = <formula>`
+`dataframe$new_column <- <formula>`
 
 For example:
 
 ```{r}
-survey$bmi = survey$weight / (survey$height^2)
+survey$bmi <- survey$weight / (survey$height^2)
 ```
 
 We should check the construction of the new variable by examining some records. The `head()` and `tail()` functions list the first and last 6 records in any dataset. We can also examine a histogram and boxplot:

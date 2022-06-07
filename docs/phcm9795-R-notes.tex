@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{05 June, 2022}
+\date{07 June, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-06-07}
+
+{[}Changed{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 2.6: Use the \texttt{\textless{}-} operator instead of \texttt{=}
+\end{itemize}
 
 \textbf{2022-06-05}
 
@@ -1779,13 +1789,13 @@ Our health survey data contains information on height and weight. We often summa
 
 We can create a new column in our data frame in many ways, such as using the following approach:
 
-\texttt{dataframe\$new\_column\ =\ \textless{}formula\textgreater{}}
+\texttt{dataframe\$new\_column\ \textless{}-\ \textless{}formula\textgreater{}}
 
 For example:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi }\OtherTok{=}\NormalTok{ survey}\SpecialCharTok{$}\NormalTok{weight }\SpecialCharTok{/}\NormalTok{ (survey}\SpecialCharTok{$}\NormalTok{height}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi }\OtherTok{\textless{}{-}}\NormalTok{ survey}\SpecialCharTok{$}\NormalTok{weight }\SpecialCharTok{/}\NormalTok{ (survey}\SpecialCharTok{$}\NormalTok{height}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
