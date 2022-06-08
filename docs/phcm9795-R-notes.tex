@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{07 June, 2022}
+\date{09 June, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-06-09}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 2.8 - Summarising a single column of data using the \texttt{descriptives()} function from \texttt{jmv} package.
+\end{itemize}
 
 \textbf{2022-06-07}
 
@@ -2040,6 +2050,95 @@ We will often want to calculate the same summary statistics by another variable.
 ##  ────────────────────────────────────────────
 \end{verbatim}
 
+\hypertarget{summarising-a-single-column-of-data}{%
+\section{Summarising a single column of data}\label{summarising-a-single-column-of-data}}
+
+In Module 1, we started with a very simple analysis: reading in six ages, and them using \texttt{summary()} to calculate descriptive statistics. We then went on to use the \texttt{decriptives()} function in the \texttt{jmv} package as more flexible way of calculating descriptive statistics. Let's revisit this analysis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Author: Timothy Dobbins}
+\CommentTok{\# Date: 5 April 2022}
+\CommentTok{\# Purpose: My first R script}
+\FunctionTok{library}\NormalTok{(jmv)}
+
+\NormalTok{age }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{27}\NormalTok{)}
+
+\CommentTok{\# Use "summary" to obtain descriptive statistics}
+\FunctionTok{summary}\NormalTok{(age)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   20.00   21.50   24.00   24.17   26.50   29.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use "descriptives" to obtain descriptive statistics}
+\FunctionTok{descriptives}\NormalTok{(age)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error: Argument 'data' must be a data frame
+\end{verbatim}
+
+The \texttt{summary()} function has worked correctly, but the \texttt{descriptives()} function has given an error: \texttt{Error:\ Argument\ \textquotesingle{}data\textquotesingle{}\ must\ be\ a\ data\ frame}. What on earth is going on here?
+
+The error gives us a clue here - the \texttt{descriptives()} function requires a data frame for analysis. We have provided the object \texttt{age}: a \textbf{vector}. As we saw in Section \ref{data-structures}, a vector is a single column of data, while a data frame is a collection of columns.
+
+In order to summarise a vector using the \texttt{descriptives()} function, we must first convert the vector into a data frame using \texttt{as.data.frame()}. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Author: Timothy Dobbins}
+\CommentTok{\# Date: 5 April 2022}
+\CommentTok{\# Purpose: My first R script}
+\FunctionTok{library}\NormalTok{(jmv)}
+
+\NormalTok{age }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{27}\NormalTok{)}
+
+\CommentTok{\# Use "summary" to obtain descriptive statistics}
+\FunctionTok{summary}\NormalTok{(age)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   20.00   21.50   24.00   24.17   26.50   29.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a new data frame from the vector age:}
+
+\NormalTok{age\_df }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(age)}
+
+\CommentTok{\# Use "descriptives" to obtain descriptive statistics for age\_df}
+\FunctionTok{descriptives}\NormalTok{(age\_df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  DESCRIPTIVES
+## 
+##  Descriptives                       
+##  ────────────────────────────────── 
+##                          age        
+##  ────────────────────────────────── 
+##    N                            6   
+##    Missing                      0   
+##    Mean                  24.16667   
+##    Median                24.00000   
+##    Standard deviation    3.488075   
+##    Minimum               20.00000   
+##    Maximum               29.00000   
+##  ──────────────────────────────────
+\end{verbatim}
+
 \hypertarget{plotting-data-by-another-variable}{%
 \section{Plotting data by another variable}\label{plotting-data-by-another-variable}}
 
@@ -2076,7 +2175,7 @@ When we are done plotting multiple graphs, we can reset the graphics parameters 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-70-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]

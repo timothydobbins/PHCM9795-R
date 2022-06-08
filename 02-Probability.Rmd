@@ -206,6 +206,56 @@ library(jmv)
 descriptives(data=survey, vars=bmi, splitBy = sex)
 ```
 
+## Summarising a single column of data
+
+In Module 1, we started with a very simple analysis: reading in six ages, and them using `summary()` to calculate descriptive statistics. We then went on to use the `decriptives()` function in the `jmv` package as more flexible way of calculating descriptive statistics. Let's revisit this analysis:
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+detach(package:jmv, unload=TRUE)
+```
+
+
+```{r, error=TRUE}
+# Author: Timothy Dobbins
+# Date: 5 April 2022
+# Purpose: My first R script
+library(jmv)
+
+age <- c(20, 25, 23, 29, 21, 27)
+
+# Use "summary" to obtain descriptive statistics
+summary(age)
+
+# Use "descriptives" to obtain descriptive statistics
+descriptives(age)
+```
+
+The `summary()` function has worked correctly, but the `descriptives()` function has given an error: `Error: Argument 'data' must be a data frame`. What on earth is going on here?
+
+The error gives us a clue here - the `descriptives()` function requires a data frame for analysis. We have provided the object `age`: a **vector**. As we saw in Section \@ref(data-structures), a vector is a single column of data, while a data frame is a collection of columns.
+
+In order to summarise a vector using the `descriptives()` function, we must first convert the vector into a data frame using `as.data.frame()`. For example:
+
+```{r}
+# Author: Timothy Dobbins
+# Date: 5 April 2022
+# Purpose: My first R script
+library(jmv)
+
+age <- c(20, 25, 23, 29, 21, 27)
+
+# Use "summary" to obtain descriptive statistics
+summary(age)
+
+# Create a new data frame from the vector age:
+
+age_df <- as.data.frame(age)
+
+# Use "descriptives" to obtain descriptive statistics for age_df
+descriptives(age_df)
+```
+
+
 ## Plotting data by another variable
 
 Unfortunately, it is not straight-forward to create separate plots for every level of another variable. We will demonstrate by plotting BMI by sex using our health survey data.
