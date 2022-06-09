@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{09 June, 2022}
+\date{10 June, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-06-10}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 2.10 - Added instructions on labelling groups using the \texttt{cut()} function
+\end{itemize}
 
 \textbf{2022-06-09}
 
@@ -2207,11 +2217,12 @@ In this example, we can recode BMI into the following categories as suggested by
   Obesity Class III: BMI \(\ge\) 40
 \end{itemize}
 
-The quickest way to recode a continuous variable into categories is to use the \texttt{cut} command which takes a continuous variable, and ``cuts'' it into groups based on the specified ``cutpoints'':
+The quickest way to recode a continuous variable into categories is to use the \texttt{cut} command which takes a continuous variable, and ``cuts'' it into groups based on the specified ``cutpoints''
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi\_cat }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi, }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{100}\NormalTok{))}
+\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi\_cat }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi, }
+                      \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{100}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2236,7 +2247,10 @@ We can specify this recoding using the \texttt{right=FALSE} option:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi\_cat }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi, }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{100}\NormalTok{), }\AttributeTok{right=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi\_cat }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi,}
+                      \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{100}\NormalTok{),}
+                      \AttributeTok{right=}\ConstantTok{FALSE}\NormalTok{)}
+
 \FunctionTok{summary}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi\_cat)}
 \end{Highlighting}
 \end{Shaded}
@@ -2244,6 +2258,28 @@ We can specify this recoding using the \texttt{right=FALSE} option:
 \begin{verbatim}
 ##  [0,18.5) [18.5,25)   [25,30)   [30,35)   [35,40)  [40,100) 
 ##        18       362       411       201       101        47
+\end{verbatim}
+
+Finally, we can specify labels for the groups using the \texttt{labels} option:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{survey}\SpecialCharTok{$}\NormalTok{bmi\_cat }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi,}
+                      \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{100}\NormalTok{),}
+                      \AttributeTok{right=}\ConstantTok{FALSE}\NormalTok{,}
+                      \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Underweight"}\NormalTok{, }\StringTok{"Normal"}\NormalTok{, }\StringTok{"Pre{-}obesity"}\NormalTok{,}
+                                 \StringTok{"Obesity Class I"}\NormalTok{, }\StringTok{"Obesity Class II"}\NormalTok{,}
+                                 \StringTok{"Obesity Class III"}\NormalTok{))}
+
+\FunctionTok{summary}\NormalTok{(survey}\SpecialCharTok{$}\NormalTok{bmi\_cat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Underweight            Normal       Pre-obesity   Obesity Class I 
+##                18               362               411               201 
+##  Obesity Class II Obesity Class III 
+##               101                47
 \end{verbatim}
 
 \hypertarget{computing-binomial-probabilities-using-r}{%

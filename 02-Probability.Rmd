@@ -303,10 +303,11 @@ In this example, we can recode BMI into the following categories as suggested by
 -   Obesity Class II: 35 $\le$ BMI \< 40
 -   Obesity Class III: BMI $\ge$ 40
 
-The quickest way to recode a continuous variable into categories is to use the `cut` command which takes a continuous variable, and "cuts" it into groups based on the specified "cutpoints":
+The quickest way to recode a continuous variable into categories is to use the `cut` command which takes a continuous variable, and "cuts" it into groups based on the specified "cutpoints"
 
 ```{r}
-survey$bmi_cat <- cut(survey$bmi, c(0, 18.5, 25, 30, 35, 40, 100))
+survey$bmi_cat <- cut(survey$bmi, 
+                      breaks = c(0, 18.5, 25, 30, 35, 40, 100))
 ```
 
 Notice that lower (BMI=0) and upper (BMI=100) bounds have been specified, as both a lower and upper limit must be defined for each group.
@@ -322,7 +323,23 @@ we see that each group has been labelled (a, b]. This notation is equivalent to:
 We can specify this recoding using the `right=FALSE` option:
 
 ```{r}
-survey$bmi_cat <- cut(survey$bmi, c(0, 18.5, 25, 30, 35, 40, 100), right=FALSE)
+survey$bmi_cat <- cut(survey$bmi,
+                      breaks = c(0, 18.5, 25, 30, 35, 40, 100),
+                      right=FALSE)
+
+summary(survey$bmi_cat)
+```
+
+Finally, we can specify labels for the groups using the `labels` option:
+
+```{r}
+survey$bmi_cat <- cut(survey$bmi,
+                      breaks = c(0, 18.5, 25, 30, 35, 40, 100),
+                      right=FALSE,
+                      labels = c("Underweight", "Normal", "Pre-obesity",
+                                 "Obesity Class I", "Obesity Class II",
+                                 "Obesity Class III"))
+
 summary(survey$bmi_cat)
 ```
 

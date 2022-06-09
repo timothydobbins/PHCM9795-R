@@ -22,6 +22,12 @@ This is the first year that R has been offered as an option. I am keen to receiv
 
 ### Changelog {-}
 
+**2022-06-10**
+
+[Added]
+
+- Section 2.10 - Added instructions on labelling groups using the `cut()` function
+
 **2022-06-09**
 
 [Added]
