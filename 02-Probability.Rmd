@@ -380,7 +380,7 @@ pbinom(q=2, size=6, prob=0.198)
 We can use the `pnorm` function to calculate probabilities from a Normal distribution:
 
 -   `pnorm(q, mean, sd)` calculates the probability of observing a value of `q` or less, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`. Note that if `mean` and `sd` are not entered, they are assumed to be 0 and 1 respectively (i.e. a standard normal distribution.)
--   `pnorm(q, mean, sd, lower.tail=FALSE)` calculates the probability of observing a value of `q` or more, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`.
+-   `pnorm(q, mean, sd, lower.tail=FALSE)` calculates the probability of observing a value of more than `q`, from a Normal distribution with a mean of `mean` and a standard deviation of `sd`.
 
 To obtain the probability of obtaining 0.5 or greater from a standard normal distribution:
 

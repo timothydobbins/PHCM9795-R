@@ -91,7 +91,22 @@ sbp$diff = sbp$sbp_dp - sbp$sbp_tp
 hist(sbp$diff, xlab="Blood pressure (mmHg)", main="Difference in systolic blood pressure")
 ```
 
- 
+We might want to plot a Normal curve over this distribution, as we did in Module 2:
+
+```{r}
+hist(sbp$diff,
+     xlab="Systolic blood pressure (mmHg)",
+     main="Difference in systolic blood pressure",
+     probability = TRUE)
+
+curve(dnorm(x,
+            mean=mean(sbp$diff),
+            sd=sd(sbp$diff)),
+      col="darkblue",
+      add=TRUE)
+```
+
+
 ## Paired t-Test
 
 To perform a paired t-test we will use the dataset `Example_5.2.rds`.

@@ -243,25 +243,21 @@ div.csl-indent {
 ##  Mean   :70.00              
 ##  3rd Qu.:74.38              
 ##  Max.   :80.00</code></pre>
-<p>The mean and its 95% confidence interval can be obtained many ways in R. One way is to use the <code>descriptives</code> function in the <code>jmv</code> package. By default, <code>descriptives</code> does not provide a confidence interval, but we can request it by specifying <code>ci=TRUE</code>:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="precision-r-notes.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>students, <span class="at">vars=</span>weight, <span class="at">ci=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>The mean and its 95% confidence interval can be obtained many ways in R. We will use the <code>t.test()</code> function installed in R to calculate the confidence interval:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="precision-r-notes.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(students<span class="sc">$</span>weight)</span></code></pre></div>
 <pre><code>## 
-##  DESCRIPTIVES
+##  One Sample t-test
 ## 
-##  Descriptives                            
-##  ─────────────────────────────────────── 
-##                               weight     
-##  ─────────────────────────────────────── 
-##    N                                30   
-##    Missing                           0   
-##    Mean                       70.00000   
-##    95% CI mean lower bound    68.19545   
-##    95% CI mean upper bound    71.80455   
-##    Median                     70.00000   
-##    Standard deviation         5.042919   
-##    Minimum                    60.00000   
-##    Maximum                    80.00000   
-##  ───────────────────────────────────────</code></pre>
+## data:  students$weight
+## t = 76.029, df = 29, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  68.11694 71.88306
+## sample estimates:
+## mean of x 
+##        70</code></pre>
+<p>The output of the <code>t.test()</code> function gives us the sample mean (70.0 kg) as well as the 95% confidence interval around the mean: 68.1 to 71.9 kg.</p>
+<p>Note: the <code>descriptives()</code> function within the <code>jmv</code> package also calculates a 95% confidence interval around the mean. <strong>It is recommended not to use this function</strong> as it currently (as of June 2022) uses a <em>z</em> value to calculate the confidence interval, rather than a <em>t</em> value.</p>
 </div>
 <div id="summarised-data" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Summarised data<a href="precision-r-notes.html#summarised-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>

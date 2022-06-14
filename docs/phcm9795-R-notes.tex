@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{10 June, 2022}
+\date{14 June, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,17 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-06-14}
+
+{[}Changed{]}
+
+\begin{itemize}
+\item
+  Section 2.12 - corrected the \texttt{pnorm(q,\ mean,\ sd,\ lower.tail=FALSE)} documentation to state that the it is the probablity of obtaining \textbf{more than} q that is calculated.
+\item
+  Section 3.1 - recommendation to use \texttt{t.test()} to calculate a 95\% confidence interval for a mean, and not the \texttt{descriptives()} function as \texttt{descriptives()} uses a z-value instead of a t-value.
+\end{itemize}
 
 \textbf{2022-06-10}
 
@@ -2355,7 +2366,7 @@ We can use the \texttt{pnorm} function to calculate probabilities from a Normal 
 \item
   \texttt{pnorm(q,\ mean,\ sd)} calculates the probability of observing a value of \texttt{q} or less, from a Normal distribution with a mean of \texttt{mean} and a standard deviation of \texttt{sd}. Note that if \texttt{mean} and \texttt{sd} are not entered, they are assumed to be 0 and 1 respectively (i.e.~a standard normal distribution.)
 \item
-  \texttt{pnorm(q,\ mean,\ sd,\ lower.tail=FALSE)} calculates the probability of observing a value of \texttt{q} or more, from a Normal distribution with a mean of \texttt{mean} and a standard deviation of \texttt{sd}.
+  \texttt{pnorm(q,\ mean,\ sd,\ lower.tail=FALSE)} calculates the probability of observing a value of more than \texttt{q}, from a Normal distribution with a mean of \texttt{mean} and a standard deviation of \texttt{sd}.
 \end{itemize}
 
 To obtain the probability of obtaining 0.5 or greater from a standard normal distribution:
@@ -2413,33 +2424,31 @@ To demonstrate the computation of the 95\% confidence interval of a mean we have
 ##  Max.   :80.00
 \end{verbatim}
 
-The mean and its 95\% confidence interval can be obtained many ways in R. One way is to use the \texttt{descriptives} function in the \texttt{jmv} package. By default, \texttt{descriptives} does not provide a confidence interval, but we can request it by specifying \texttt{ci=TRUE}:
+The mean and its 95\% confidence interval can be obtained many ways in R. We will use the \texttt{t.test()} function installed in R to calculate the confidence interval:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{descriptives}\NormalTok{(}\AttributeTok{data=}\NormalTok{students, }\AttributeTok{vars=}\NormalTok{weight, }\AttributeTok{ci=}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{t.test}\NormalTok{(students}\SpecialCharTok{$}\NormalTok{weight)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## 
-##  DESCRIPTIVES
+##  One Sample t-test
 ## 
-##  Descriptives                            
-##  ─────────────────────────────────────── 
-##                               weight     
-##  ─────────────────────────────────────── 
-##    N                                30   
-##    Missing                           0   
-##    Mean                       70.00000   
-##    95% CI mean lower bound    68.19545   
-##    95% CI mean upper bound    71.80455   
-##    Median                     70.00000   
-##    Standard deviation         5.042919   
-##    Minimum                    60.00000   
-##    Maximum                    80.00000   
-##  ───────────────────────────────────────
+## data:  students$weight
+## t = 76.029, df = 29, p-value < 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  68.11694 71.88306
+## sample estimates:
+## mean of x 
+##        70
 \end{verbatim}
+
+The output of the \texttt{t.test()} function gives us the sample mean (70.0 kg) as well as the 95\% confidence interval around the mean: 68.1 to 71.9 kg.
+
+Note: the \texttt{descriptives()} function within the \texttt{jmv} package also calculates a 95\% confidence interval around the mean. \textbf{It is recommended not to use this function} as it currently (as of June 2022) uses a \emph{z} value to calculate the confidence interval, rather than a \emph{t} value.
 
 \hypertarget{summarised-data}{%
 \subsection{Summarised data}\label{summarised-data}}

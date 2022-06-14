@@ -603,7 +603,7 @@ div.csl-indent {
 <p>We can use the <code>pnorm</code> function to calculate probabilities from a Normal distribution:</p>
 <ul>
 <li><code>pnorm(q, mean, sd)</code> calculates the probability of observing a value of <code>q</code> or less, from a Normal distribution with a mean of <code>mean</code> and a standard deviation of <code>sd</code>. Note that if <code>mean</code> and <code>sd</code> are not entered, they are assumed to be 0 and 1 respectively (i.e. a standard normal distribution.)</li>
-<li><code>pnorm(q, mean, sd, lower.tail=FALSE)</code> calculates the probability of observing a value of <code>q</code> or more, from a Normal distribution with a mean of <code>mean</code> and a standard deviation of <code>sd</code>.</li>
+<li><code>pnorm(q, mean, sd, lower.tail=FALSE)</code> calculates the probability of observing a value of more than <code>q</code>, from a Normal distribution with a mean of <code>mean</code> and a standard deviation of <code>sd</code>.</li>
 </ul>
 <p>To obtain the probability of obtaining 0.5 or greater from a standard normal distribution:</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="probability-and-probability-distributions.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">0.5</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>

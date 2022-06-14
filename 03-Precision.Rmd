@@ -14,11 +14,16 @@ students <- readRDS("data/examples/Example_1.3.rds")
 summary(students)
 ```
 
-The mean and its 95% confidence interval can be obtained many ways in R. One way is to use the `descriptives` function in the `jmv` package. By default, `descriptives` does not provide a confidence interval, but we can request it by specifying `ci=TRUE`:
+The mean and its 95% confidence interval can be obtained many ways in R. We will use the `t.test()` function installed in R to calculate the confidence interval:
 
 ```{r}
-descriptives(data=students, vars=weight, ci=TRUE)
+t.test(students$weight)
 ```
+
+The output of the `t.test()` function gives us the sample mean (70.0 kg) as well as the 95% confidence interval around the mean: 68.1 to 71.9 kg.
+
+Note: the `descriptives()` function within the `jmv` package also calculates a 95% confidence interval around the mean. **It is recommended not to use this function** as it currently (as of June 2022) uses a *z* value to calculate the confidence interval, rather than a *t* value.
+
 
 ### Summarised data
 

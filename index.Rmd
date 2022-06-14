@@ -22,6 +22,14 @@ This is the first year that R has been offered as an option. I am keen to receiv
 
 ### Changelog {-}
 
+**2022-06-14**
+
+[Changed]
+
+- Section 2.12 - corrected the `pnorm(q, mean, sd, lower.tail=FALSE)` documentation to state that the it is the probablity of obtaining **more than** q that is calculated.
+
+- Section 3.1 - recommendation to use `t.test()` to calculate a 95% confidence interval for a mean, and not the `descriptives()` function as `descriptives()` uses a z-value instead of a t-value.
+
 **2022-06-10**
 
 [Added]
