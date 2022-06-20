@@ -208,10 +208,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="comparing-two-means.html"><a href="comparing-two-means.html"><i class="fa fa-check"></i><b>5</b> Comparing two means</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>5.1</b> Checking data for the independent samples t-test</a></li>
-<li class="chapter" data-level="5.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>5.2</b> Independent samples t-test</a></li>
-<li class="chapter" data-level="5.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>5.3</b> Checking the assumptions for a Paired t-test</a></li>
-<li class="chapter" data-level="5.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>5.4</b> Paired t-Test</a></li>
+<li class="chapter" data-level="5.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#setting-an-observation-to-missing"><i class="fa fa-check"></i><b>5.1</b> Setting an observation to missing</a></li>
+<li class="chapter" data-level="5.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>5.2</b> Checking data for the independent samples t-test</a></li>
+<li class="chapter" data-level="5.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>5.3</b> Independent samples t-test</a></li>
+<li class="chapter" data-level="5.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>5.4</b> Checking the assumptions for a Paired t-test</a></li>
+<li class="chapter" data-level="5.5" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>5.5</b> Paired t-Test</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -233,16 +234,57 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="comparing-two-means" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Module 5</span> Comparing two means<a href="comparing-two-means.html#comparing-two-means" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="checking-data-for-the-independent-samples-t-test" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Checking data for the independent samples t-test<a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="producing-histograms-and-boxplots-by-a-second-variable" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Producing histograms and boxplots by a second variable<a href="comparing-two-means.html#producing-histograms-and-boxplots-by-a-second-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="setting-an-observation-to-missing" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Setting an observation to missing<a href="comparing-two-means.html#setting-an-observation-to-missing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Setting an incorrect observation to missing is straightforward in Stata by using the Data Editor. While RStudio allows browsing a data set as a spreadsheet, it will not let a user replace an observation with a missing value: this should be done using code.</p>
+<p>A missing value in R is denoted <code>NA</code>, and this is consistent for any variable type: continuous, string (i.e. character) and even a factor.</p>
+<p>Recall the <code>weights</code> data used in Module 2. In viewing a boxplot of <code>weight</code>, we saw an obvious outlier of 700.2kg for ID 58:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="comparing-two-means.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb114-2"><a href="comparing-two-means.html#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-3"><a href="comparing-two-means.html#cb114-3" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/examples/Weight_s2.csv&quot;</span>)</span>
+<span id="cb114-4"><a href="comparing-two-means.html#cb114-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-5"><a href="comparing-two-means.html#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(sample<span class="sc">$</span>weight, <span class="at">xlab=</span><span class="st">&quot;Weight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of 1000 weights&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="comparing-two-means.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(sample, weight<span class="sc">&gt;</span><span class="dv">200</span>)</span></code></pre></div>
+<pre><code>##    id weight
+## 58 58  700.2</code></pre>
+<p>We previously set this value to 70.2kg using an <code>ifelse()</code> command. Here, let’s create a new, cleaned weight variable, and set the incorrect value to missing:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="comparing-two-means.html#cb117-1" aria-hidden="true" tabindex="-1"></a>sample<span class="sc">$</span>weight_clean <span class="ot">=</span> <span class="fu">ifelse</span>(sample<span class="sc">$</span>weight<span class="sc">==</span><span class="fl">700.2</span>, <span class="cn">NA</span>, sample<span class="sc">$</span>weight)</span></code></pre></div>
+<p>Our code will create a new column (called weight_clean) in the <code>sample</code> dataframe. We will test whether weight is equal to 700.2; if this is true, we will assign weight_clean to be NA (i.e. missing), otherwise weight_clean will equal the value of weight.</p>
+<p>Let’s view the data from ID 58, and summarise the cleaned weight variable using <code>descriptives()</code> and a boxplot:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="comparing-two-means.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(sample, sample<span class="sc">$</span>id<span class="sc">==</span><span class="dv">58</span>)</span></code></pre></div>
+<pre><code>##    id weight weight_clean
+## 58 58  700.2           NA</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="comparing-two-means.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>sample, <span class="at">vars=</span>weight_clean)</span></code></pre></div>
+<pre><code>## 
+##  DESCRIPTIVES
+## 
+##  Descriptives                           
+##  ────────────────────────────────────── 
+##                          weight_clean   
+##  ────────────────────────────────────── 
+##    N                              999   
+##    Missing                          1   
+##    Mean                      69.76406   
+##    Median                    69.80000   
+##    Standard deviation        5.055188   
+##    Minimum                   53.80000   
+##    Maximum                   85.80000   
+##  ──────────────────────────────────────</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="comparing-two-means.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(sample<span class="sc">$</span>weight_clean, <span class="at">xlab=</span><span class="st">&quot;Weight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Boxplot of 999 weights&quot;</span>,</span>
+<span id="cb122-2"><a href="comparing-two-means.html#cb122-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">sub=</span><span class="st">&quot;(Excluding 1 observation of 700.2kg)&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+</div>
+<div id="checking-data-for-the-independent-samples-t-test" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Checking data for the independent samples t-test<a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="producing-histograms-and-boxplots-by-a-second-variable" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Producing histograms and boxplots by a second variable<a href="comparing-two-means.html#producing-histograms-and-boxplots-by-a-second-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have seen how to create histograms and boxplots separated by a second variable in Module 2 (Section <a href="probability-and-probability-distributions.html#plotting-data-by-another-variable">2.9</a>). We will demonstrate using the birthweight data in <code>Example_5.1.rds</code>.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="comparing-two-means.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
-<span id="cb111-2"><a href="comparing-two-means.html#cb111-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-3"><a href="comparing-two-means.html#cb111-3" aria-hidden="true" tabindex="-1"></a>bwt <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_5.1.rds&quot;</span>)</span>
-<span id="cb111-4"><a href="comparing-two-means.html#cb111-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-5"><a href="comparing-two-means.html#cb111-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bwt)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="comparing-two-means.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb123-2"><a href="comparing-two-means.html#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="comparing-two-means.html#cb123-3" aria-hidden="true" tabindex="-1"></a>bwt <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_5.1.rds&quot;</span>)</span>
+<span id="cb123-4"><a href="comparing-two-means.html#cb123-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-5"><a href="comparing-two-means.html#cb123-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bwt)</span></code></pre></div>
 <pre><code>##     gender    birthweight   
 ##  Female:56   Min.   :2.750  
 ##  Male  :44   1st Qu.:3.257  
@@ -250,27 +292,27 @@ div.csl-indent {
 ##              Mean   :3.514  
 ##              3rd Qu.:3.772  
 ##              Max.   :4.250</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="comparing-two-means.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bwt<span class="sc">$</span>gender)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="comparing-two-means.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bwt<span class="sc">$</span>gender)</span></code></pre></div>
 <pre><code>## Female   Male 
 ##     56     44</code></pre>
 <p>We can create subsets of the birthweight data, subsetted for males and females separately. Note here that <code>gender</code> is a factor, so we need to select based on the factor labels, not the underlying numeric code.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="comparing-two-means.html#cb115-1" aria-hidden="true" tabindex="-1"></a>bwt_m <span class="ot">&lt;-</span> <span class="fu">subset</span>(bwt, bwt<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;Male&quot;</span>)</span>
-<span id="cb115-2"><a href="comparing-two-means.html#cb115-2" aria-hidden="true" tabindex="-1"></a>bwt_f <span class="ot">&lt;-</span> <span class="fu">subset</span>(bwt, bwt<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;Female&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="comparing-two-means.html#cb127-1" aria-hidden="true" tabindex="-1"></a>bwt_m <span class="ot">&lt;-</span> <span class="fu">subset</span>(bwt, bwt<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;Male&quot;</span>)</span>
+<span id="cb127-2"><a href="comparing-two-means.html#cb127-2" aria-hidden="true" tabindex="-1"></a>bwt_f <span class="ot">&lt;-</span> <span class="fu">subset</span>(bwt, bwt<span class="sc">$</span>gender<span class="sc">==</span><span class="st">&quot;Female&quot;</span>)</span></code></pre></div>
 <p>We can now create histograms and boxplots for males and females separately, in the usual way, using the <code>par</code> function to set the graphics parameters to display graphs in a 2-by-2 grid:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="comparing-two-means.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb116-2"><a href="comparing-two-means.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bwt_m<span class="sc">$</span>birthweight, <span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">xlab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Males&quot;</span>)</span>
-<span id="cb116-3"><a href="comparing-two-means.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bwt_f<span class="sc">$</span>birthweight, <span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">xlab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Females&quot;</span>)</span>
-<span id="cb116-4"><a href="comparing-two-means.html#cb116-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-5"><a href="comparing-two-means.html#cb116-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(bwt_m<span class="sc">$</span>birthweight, <span class="at">ylim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">ylab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Males&quot;</span>)</span>
-<span id="cb116-6"><a href="comparing-two-means.html#cb116-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(bwt_f<span class="sc">$</span>birthweight, <span class="at">ylim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">ylab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Females&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="comparing-two-means.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="comparing-two-means.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb128-2"><a href="comparing-two-means.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bwt_m<span class="sc">$</span>birthweight, <span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">xlab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Males&quot;</span>)</span>
+<span id="cb128-3"><a href="comparing-two-means.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bwt_f<span class="sc">$</span>birthweight, <span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">xlab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Females&quot;</span>)</span>
+<span id="cb128-4"><a href="comparing-two-means.html#cb128-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-5"><a href="comparing-two-means.html#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(bwt_m<span class="sc">$</span>birthweight, <span class="at">ylim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">ylab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Males&quot;</span>)</span>
+<span id="cb128-6"><a href="comparing-two-means.html#cb128-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(bwt_f<span class="sc">$</span>birthweight, <span class="at">ylim=</span><span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">4.5</span>), <span class="at">ylab=</span><span class="st">&quot;Birthweight (kg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Females&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="comparing-two-means.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 <p>When we are done plotting multiple graphs, we can reset the plot window by submitting <code>par(mfrow=c(1,1))</code>.</p>
 </div>
-<div id="producing-split-summary-statistics" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Producing split summary statistics<a href="comparing-two-means.html#producing-split-summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="producing-split-summary-statistics" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Producing split summary statistics<a href="comparing-two-means.html#producing-split-summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>descriptives</code> function within the <code>jmv</code> function allows summary statistics to be calculated within subgroups using the <code>splitBy</code> argument:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="comparing-two-means.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>bwt, <span class="at">vars=</span>birthweight, <span class="at">splitBy=</span>gender)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="comparing-two-means.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">data=</span>bwt, <span class="at">vars=</span>birthweight, <span class="at">splitBy=</span>gender)</span></code></pre></div>
 <pre><code>## 
 ##  DESCRIPTIVES
 ## 
@@ -295,10 +337,10 @@ div.csl-indent {
 ##  ───────────────────────────────────────────────</code></pre>
 </div>
 </div>
-<div id="independent-samples-t-test" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Independent samples t-test<a href="comparing-two-means.html#independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="independent-samples-t-test" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Independent samples t-test<a href="comparing-two-means.html#independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>ttestIS()</code> (t-test, independent samples) function from the <code>jmv</code> package to perform the independent samples t-test. We include the <code>meanDiff=TRUE</code> and <code>ci=TRUE</code> options to obtain the difference in means, with its 95% confidence interval. We can request a Welch’s test (which does not assume equal variances) by the <code>welchs=TRUE</code> option:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="comparing-two-means.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestIS</span>(<span class="at">data=</span>bwt, <span class="at">vars=</span>birthweight, <span class="at">group=</span>gender, <span class="at">meanDiff=</span><span class="cn">TRUE</span>, <span class="at">ci=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="comparing-two-means.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestIS</span>(<span class="at">data=</span>bwt, <span class="at">vars=</span>birthweight, <span class="at">group=</span>gender, <span class="at">meanDiff=</span><span class="cn">TRUE</span>, <span class="at">ci=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  INDEPENDENT SAMPLES T-TEST
 ## 
@@ -308,7 +350,7 @@ div.csl-indent {
 ##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
 ##    birthweight    Student&#39;s t     2.296556    98.00000    0.0237731          0.1660471       0.07230265    0.02256481    0.3095293   
 ##  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="comparing-two-means.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestIS</span>(<span class="at">data=</span>bwt, <span class="at">vars=</span>birthweight, <span class="at">group=</span>gender, <span class="at">meanDiff=</span><span class="cn">TRUE</span>, <span class="at">ci=</span><span class="cn">TRUE</span>, <span class="at">welchs=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="comparing-two-means.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestIS</span>(<span class="at">data=</span>bwt, <span class="at">vars=</span>birthweight, <span class="at">group=</span>gender, <span class="at">meanDiff=</span><span class="cn">TRUE</span>, <span class="at">ci=</span><span class="cn">TRUE</span>, <span class="at">welchs=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  INDEPENDENT SAMPLES T-TEST
 ## 
@@ -325,31 +367,31 @@ div.csl-indent {
           mu=0, alternative=&quot;two.sided&quot;, var.equal = TRUE)</code></pre>
 <p>Here we specify the mean, standard deviation and sample size for the first group (on the first line) and the second group (on the second line). We can relax the assumption of equal variances using <code>var.equal=FALSE</code>.</p>
 </div>
-<div id="checking-the-assumptions-for-a-paired-t-test" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Checking the assumptions for a Paired t-test<a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="checking-the-assumptions-for-a-paired-t-test" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Checking the assumptions for a Paired t-test<a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before performing a paired t-test, you must check that the assumptions for the test have been met. Using the dataset <code>Example_5.2.rds</code> to show that the difference between the pair of measurements between the sites is normally distributed, we first need to compute a new variable of the differences and examine its histogram.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="comparing-two-means.html#cb125-1" aria-hidden="true" tabindex="-1"></a>sbp <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_5.2.rds&quot;</span>)</span>
-<span id="cb125-2"><a href="comparing-two-means.html#cb125-2" aria-hidden="true" tabindex="-1"></a>sbp<span class="sc">$</span>diff <span class="ot">=</span> sbp<span class="sc">$</span>sbp_dp <span class="sc">-</span> sbp<span class="sc">$</span>sbp_tp</span>
-<span id="cb125-3"><a href="comparing-two-means.html#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sbp<span class="sc">$</span>diff, <span class="at">xlab=</span><span class="st">&quot;Blood pressure (mmHg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Difference in systolic blood pressure&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="comparing-two-means.html#cb137-1" aria-hidden="true" tabindex="-1"></a>sbp <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_5.2.rds&quot;</span>)</span>
+<span id="cb137-2"><a href="comparing-two-means.html#cb137-2" aria-hidden="true" tabindex="-1"></a>sbp<span class="sc">$</span>diff <span class="ot">=</span> sbp<span class="sc">$</span>sbp_dp <span class="sc">-</span> sbp<span class="sc">$</span>sbp_tp</span>
+<span id="cb137-3"><a href="comparing-two-means.html#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sbp<span class="sc">$</span>diff, <span class="at">xlab=</span><span class="st">&quot;Blood pressure (mmHg)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Difference in systolic blood pressure&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 <p>We might want to plot a Normal curve over this distribution, as we did in Module 2:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="comparing-two-means.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sbp<span class="sc">$</span>diff,</span>
-<span id="cb126-2"><a href="comparing-two-means.html#cb126-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Systolic blood pressure (mmHg)&quot;</span>,</span>
-<span id="cb126-3"><a href="comparing-two-means.html#cb126-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Difference in systolic blood pressure&quot;</span>,</span>
-<span id="cb126-4"><a href="comparing-two-means.html#cb126-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb126-5"><a href="comparing-two-means.html#cb126-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-6"><a href="comparing-two-means.html#cb126-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,</span>
-<span id="cb126-7"><a href="comparing-two-means.html#cb126-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean=</span><span class="fu">mean</span>(sbp<span class="sc">$</span>diff),</span>
-<span id="cb126-8"><a href="comparing-two-means.html#cb126-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd=</span><span class="fu">sd</span>(sbp<span class="sc">$</span>diff)),</span>
-<span id="cb126-9"><a href="comparing-two-means.html#cb126-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>,</span>
-<span id="cb126-10"><a href="comparing-two-means.html#cb126-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="comparing-two-means.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sbp<span class="sc">$</span>diff,</span>
+<span id="cb138-2"><a href="comparing-two-means.html#cb138-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Systolic blood pressure (mmHg)&quot;</span>,</span>
+<span id="cb138-3"><a href="comparing-two-means.html#cb138-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Difference in systolic blood pressure&quot;</span>,</span>
+<span id="cb138-4"><a href="comparing-two-means.html#cb138-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb138-5"><a href="comparing-two-means.html#cb138-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-6"><a href="comparing-two-means.html#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,</span>
+<span id="cb138-7"><a href="comparing-two-means.html#cb138-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean=</span><span class="fu">mean</span>(sbp<span class="sc">$</span>diff),</span>
+<span id="cb138-8"><a href="comparing-two-means.html#cb138-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd=</span><span class="fu">sd</span>(sbp<span class="sc">$</span>diff)),</span>
+<span id="cb138-9"><a href="comparing-two-means.html#cb138-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>,</span>
+<span id="cb138-10"><a href="comparing-two-means.html#cb138-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 <p>While there is a large difference in blood pressure (around 60 mmHg) that warrents further checking, the curve is roughly symmetric with an approximately Normal distribution.</p>
 </div>
-<div id="paired-t-test" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Paired t-Test<a href="comparing-two-means.html#paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="paired-t-test" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Paired t-Test<a href="comparing-two-means.html#paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To perform a paired t-test we will use the dataset <code>Example_5.2.rds</code>. We can perform a paired t-test using the <code>ttestPS()</code> function within the <code>jmv</code> package, where we defined the paired observations as: `pairs=list(list(i1 = ‘variable1’, i2 = ‘variable2’))</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="comparing-two-means.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestPS</span>(<span class="at">data=</span>sbp, <span class="at">pairs=</span><span class="fu">list</span>(<span class="fu">list</span>(<span class="at">i1 =</span> <span class="st">&#39;sbp_dp&#39;</span>, <span class="at">i2 =</span> <span class="st">&#39;sbp_tp&#39;</span>)), <span class="at">meanDiff=</span><span class="cn">TRUE</span>, <span class="at">ci=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="comparing-two-means.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestPS</span>(<span class="at">data=</span>sbp, <span class="at">pairs=</span><span class="fu">list</span>(<span class="fu">list</span>(<span class="at">i1 =</span> <span class="st">&#39;sbp_dp&#39;</span>, <span class="at">i2 =</span> <span class="st">&#39;sbp_tp&#39;</span>)), <span class="at">meanDiff=</span><span class="cn">TRUE</span>, <span class="at">ci=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  PAIRED SAMPLES T-TEST
 ## 
@@ -360,7 +402,7 @@ div.csl-indent {
 ##    sbp_dp    sbp_tp    Student&#39;s t    -0.9621117    106.0000    0.3381832          -1.261682         1.311368    -3.861596    1.338232   
 ##  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 <p>The syntax of the ttestPS function is a little cumbersome. The <code>t.test</code> function can be used as an alternative:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="comparing-two-means.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sbp<span class="sc">$</span>sbp_dp, sbp<span class="sc">$</span>sbp_tp, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="comparing-two-means.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sbp<span class="sc">$</span>sbp_dp, sbp<span class="sc">$</span>sbp_tp, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 

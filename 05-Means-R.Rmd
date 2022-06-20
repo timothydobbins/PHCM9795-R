@@ -24,7 +24,7 @@ We previously set this value to 70.2kg using an `ifelse()` command. Here, let's 
 sample$weight_clean = ifelse(sample$weight==700.2, NA, sample$weight)
 ```
 
-Our code will create a new column (called weight_clean) in the sample dataframe. We will test whether weight is equal to 700.2; if this is true, we will assign weight_clean to be NA (i.e. missing), otherwise weight_clean will equal the value of weight.
+Our code will create a new column (called weight_clean) in the `sample` dataframe. We will test whether weight is equal to 700.2; if this is true, we will assign weight_clean to be NA (i.e. missing), otherwise weight_clean will equal the value of weight.
 
 Let's view the data from ID 58, and summarise the cleaned weight variable using `descriptives()` and a boxplot:
 

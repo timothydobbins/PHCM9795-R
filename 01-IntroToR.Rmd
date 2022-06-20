@@ -381,8 +381,8 @@ In saying all of this, I think the tidyverse is an excellent set of packages, wh
 In this exercise, we will analyse data to complete a descriptive table from a research study. The data come from a study in primary biliary cirrhosis, a condition of the liver, from Modeling Survival Data: Extending the Cox Model @therneau_grambsch10. By the end of this exercise, we will have completed the following table.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(huxtable)
 library(tidyverse)
+library(magrittr)
 
 tab <- tibble::tribble(
                      ~Characteristic,                   ~` `,                    ~Summary,
@@ -400,12 +400,12 @@ tab <- tibble::tribble(
          "Vital status at study end",             "Deceased",                     "n (%)"
          )
 
-huxtable(tab) %>% 
-  theme_article() %>% 
-  merge_repeated_rows(everywhere, 1) %>% 
-  set_width(0.95) %>% 
-  set_caption("Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)") %>% 
-  add_footnote("* asparate aminotransferase")
+huxtable::huxtable(tab) %>% 
+  huxtable::theme_article() %>% 
+  huxtable::merge_repeated_rows(huxtable::everywhere, 1) %>% 
+  huxtable::set_width(0.95) %>% 
+  huxtable::set_caption("Summary of 418 participants from the PBC study (Therneau and Grambsch, 2000)") %>% 
+  huxtable::add_footnote("* asparate aminotransferase")
 ```
 
 This table is available in Table1.docx, saved on Moodle.
