@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{14 June, 2022}
+\date{20 June, 2022}
 
 \begin{document}
 \maketitle
@@ -2538,6 +2538,249 @@ To test whether the mean diastolic blood pressure of the population from which t
 \end{verbatim}
 
 The output gives a test statistic, degrees of freedom and a P values from the two-sided test. The mean of the sample is provided, as well as the 95\% confidence interval.
+
+\hypertarget{comparing-two-means}{%
+\chapter{Comparing two means}\label{comparing-two-means}}
+
+\hypertarget{checking-data-for-the-independent-samples-t-test}{%
+\section{Checking data for the independent samples t-test}\label{checking-data-for-the-independent-samples-t-test}}
+
+\hypertarget{producing-histograms-and-boxplots-by-a-second-variable}{%
+\subsection{Producing histograms and boxplots by a second variable}\label{producing-histograms-and-boxplots-by-a-second-variable}}
+
+We have seen how to create histograms and boxplots separated by a second variable in Module 2 (Section \ref{plotting-data-by-another-variable}). We will demonstrate using the birthweight data in \texttt{Example\_5.1.rds}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(jmv)}
+
+\NormalTok{bwt }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_5.1.rds"}\NormalTok{)}
+
+\FunctionTok{summary}\NormalTok{(bwt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     gender    birthweight   
+##  Female:56   Min.   :2.750  
+##  Male  :44   1st Qu.:3.257  
+##              Median :3.450  
+##              Mean   :3.514  
+##              3rd Qu.:3.772  
+##              Max.   :4.250
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(bwt}\SpecialCharTok{$}\NormalTok{gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Female   Male 
+##     56     44
+\end{verbatim}
+
+We can create subsets of the birthweight data, subsetted for males and females separately. Note here that \texttt{gender} is a factor, so we need to select based on the factor labels, not the underlying numeric code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bwt\_m }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(bwt, bwt}\SpecialCharTok{$}\NormalTok{gender}\SpecialCharTok{==}\StringTok{"Male"}\NormalTok{)}
+\NormalTok{bwt\_f }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(bwt, bwt}\SpecialCharTok{$}\NormalTok{gender}\SpecialCharTok{==}\StringTok{"Female"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We can now create histograms and boxplots for males and females separately, in the usual way, using the \texttt{par} function to set the graphics parameters to display graphs in a 2-by-2 grid:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(bwt\_m}\SpecialCharTok{$}\NormalTok{birthweight, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\FloatTok{4.5}\NormalTok{), }\AttributeTok{xlab=}\StringTok{"Birthweight (kg)"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Males"}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(bwt\_f}\SpecialCharTok{$}\NormalTok{birthweight, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\FloatTok{4.5}\NormalTok{), }\AttributeTok{xlab=}\StringTok{"Birthweight (kg)"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Females"}\NormalTok{)}
+
+\FunctionTok{boxplot}\NormalTok{(bwt\_m}\SpecialCharTok{$}\NormalTok{birthweight, }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\FloatTok{4.5}\NormalTok{), }\AttributeTok{ylab=}\StringTok{"Birthweight (kg)"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Males"}\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(bwt\_f}\SpecialCharTok{$}\NormalTok{birthweight, }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\FloatTok{4.5}\NormalTok{), }\AttributeTok{ylab=}\StringTok{"Birthweight (kg)"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Females"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-87-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+When we are done plotting multiple graphs, we can reset the plot window by submitting \texttt{par(mfrow=c(1,1))}.
+
+\hypertarget{producing-split-summary-statistics}{%
+\subsection{Producing split summary statistics}\label{producing-split-summary-statistics}}
+
+The \texttt{descriptives} function within the \texttt{jmv} function allows summary statistics to be calculated within subgroups using the \texttt{splitBy} argument:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{descriptives}\NormalTok{(}\AttributeTok{data=}\NormalTok{bwt, }\AttributeTok{vars=}\NormalTok{birthweight, }\AttributeTok{splitBy=}\NormalTok{gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  DESCRIPTIVES
+## 
+##  Descriptives                                    
+##  ─────────────────────────────────────────────── 
+##                          gender    birthweight   
+##  ─────────────────────────────────────────────── 
+##    N                     Female             56   
+##                          Male               44   
+##    Missing               Female              0   
+##                          Male                0   
+##    Mean                  Female       3.587411   
+##                          Male         3.421364   
+##    Median                Female       3.530000   
+##                          Male         3.430000   
+##    Standard deviation    Female      0.3629788   
+##                          Male        0.3536165   
+##    Minimum               Female       2.950000   
+##                          Male         2.750000   
+##    Maximum               Female       4.250000   
+##                          Male         4.100000   
+##  ───────────────────────────────────────────────
+\end{verbatim}
+
+\hypertarget{independent-samples-t-test}{%
+\section{Independent samples t-test}\label{independent-samples-t-test}}
+
+We can use the \texttt{ttestIS()} (t-test, independent samples) function from the \texttt{jmv} package to perform the independent samples t-test. We include the \texttt{meanDiff=TRUE} and \texttt{ci=TRUE} options to obtain the difference in means, with its 95\% confidence interval. We can request a Welch's test (which does not assume equal variances) by the \texttt{welchs=TRUE} option:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ttestIS}\NormalTok{(}\AttributeTok{data=}\NormalTok{bwt, }\AttributeTok{vars=}\NormalTok{birthweight, }\AttributeTok{group=}\NormalTok{gender, }\AttributeTok{meanDiff=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{ci=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  INDEPENDENT SAMPLES T-TEST
+## 
+##  Independent Samples T-Test                                                                                                          
+##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+##                                  Statistic    df          p            Mean difference    SE difference    Lower         Upper       
+##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+##    birthweight    Student's t     2.296556    98.00000    0.0237731          0.1660471       0.07230265    0.02256481    0.3095293   
+##  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ttestIS}\NormalTok{(}\AttributeTok{data=}\NormalTok{bwt, }\AttributeTok{vars=}\NormalTok{birthweight, }\AttributeTok{group=}\NormalTok{gender, }\AttributeTok{meanDiff=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{ci=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{welchs=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  INDEPENDENT SAMPLES T-TEST
+## 
+##  Independent Samples T-Test                                                                                                          
+##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+##                                  Statistic    df          p            Mean difference    SE difference    Lower         Upper       
+##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+##    birthweight    Student's t     2.296556    98.00000    0.0237731          0.1660471       0.07230265    0.02256481    0.3095293   
+##                   Welch's t       2.303840    93.54377    0.0234458          0.1660471       0.07207403    0.02293328    0.3091609   
+##  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+\end{verbatim}
+
+There is no built-in function to calculate an independent t-test from summarised data, nor is there a function within \texttt{jmv}. We can use the \texttt{tsum.test()} function within the \texttt{BSDA} package, with the following syntax:
+
+\begin{verbatim}
+tsum.test(mean.x=, s.x=, n.x=,
+          mean.y=, s.y=, n.y=,
+          mu=0, alternative="two.sided", var.equal = TRUE)
+\end{verbatim}
+
+Here we specify the mean, standard deviation and sample size for the first group (on the first line) and the second group (on the second line). We can relax the assumption of equal variances using \texttt{var.equal=FALSE}.
+
+\hypertarget{checking-the-assumptions-for-a-paired-t-test}{%
+\section{Checking the assumptions for a Paired t-test}\label{checking-the-assumptions-for-a-paired-t-test}}
+
+Before performing a paired t-test, you must check that the assumptions for the test have been met. Using the dataset \texttt{Example\_5.2.rds} to show that the difference between the pair of measurements between the sites is normally distributed, we first need to compute a new variable of the differences and examine its histogram.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sbp }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_5.2.rds"}\NormalTok{)}
+\NormalTok{sbp}\SpecialCharTok{$}\NormalTok{diff }\OtherTok{=}\NormalTok{ sbp}\SpecialCharTok{$}\NormalTok{sbp\_dp }\SpecialCharTok{{-}}\NormalTok{ sbp}\SpecialCharTok{$}\NormalTok{sbp\_tp}
+\FunctionTok{hist}\NormalTok{(sbp}\SpecialCharTok{$}\NormalTok{diff, }\AttributeTok{xlab=}\StringTok{"Blood pressure (mmHg)"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Difference in systolic blood pressure"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-90-1.pdf}
+
+We might want to plot a Normal curve over this distribution, as we did in Module 2:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(sbp}\SpecialCharTok{$}\NormalTok{diff,}
+     \AttributeTok{xlab=}\StringTok{"Systolic blood pressure (mmHg)"}\NormalTok{,}
+     \AttributeTok{main=}\StringTok{"Difference in systolic blood pressure"}\NormalTok{,}
+     \AttributeTok{probability =} \ConstantTok{TRUE}\NormalTok{)}
+
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{dnorm}\NormalTok{(x,}
+            \AttributeTok{mean=}\FunctionTok{mean}\NormalTok{(sbp}\SpecialCharTok{$}\NormalTok{diff),}
+            \AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(sbp}\SpecialCharTok{$}\NormalTok{diff)),}
+      \AttributeTok{col=}\StringTok{"darkblue"}\NormalTok{,}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-91-1.pdf}
+
+While there is a large difference in blood pressure (around 60 mmHg) that warrents further checking, the curve is roughly symmetric with an approximately Normal distribution.
+
+\hypertarget{paired-t-test}{%
+\section{Paired t-Test}\label{paired-t-test}}
+
+To perform a paired t-test we will use the dataset \texttt{Example\_5.2.rds}. We can perform a paired t-test using the \texttt{ttestPS()} function within the \texttt{jmv} package, where we defined the paired observations as: `pairs=list(list(i1 = `variable1', i2 = `variable2'))
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ttestPS}\NormalTok{(}\AttributeTok{data=}\NormalTok{sbp, }\AttributeTok{pairs=}\FunctionTok{list}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{i1 =} \StringTok{\textquotesingle{}sbp\_dp\textquotesingle{}}\NormalTok{, }\AttributeTok{i2 =} \StringTok{\textquotesingle{}sbp\_tp\textquotesingle{}}\NormalTok{)), }\AttributeTok{meanDiff=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{ci=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  PAIRED SAMPLES T-TEST
+## 
+##  Paired Samples T-Test                                                                                                                   
+##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+##                                       statistic     df          p            Mean difference    SE difference    Lower        Upper      
+##  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+##    sbp_dp    sbp_tp    Student's t    -0.9621117    106.0000    0.3381832          -1.261682         1.311368    -3.861596    1.338232   
+##  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+\end{verbatim}
+
+The syntax of the ttestPS function is a little cumbersome. The \texttt{t.test} function can be used as an alternative:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(sbp}\SpecialCharTok{$}\NormalTok{sbp\_dp, sbp}\SpecialCharTok{$}\NormalTok{sbp\_tp, }\AttributeTok{paired=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Paired t-test
+## 
+## data:  sbp$sbp_dp and sbp$sbp_tp
+## t = -0.96211, df = 106, p-value = 0.3382
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  -3.861596  1.338232
+## sample estimates:
+## mean difference 
+##       -1.261682
+\end{verbatim}
 
   \bibliography{PHCM9795.bib}
 
