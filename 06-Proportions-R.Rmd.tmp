@@ -20,8 +20,6 @@ binom.test(x=54, n=300, p=0.2)
 ## Computing a relative risk and its 95% confidence interval
 
 ```{r}
-library(haven)
-library(labelled)
 library(jmv)
 
 drug <- readRDS("data/examples/Example_6.4.rds")
