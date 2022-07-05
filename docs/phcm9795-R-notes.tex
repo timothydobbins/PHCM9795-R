@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{20 June, 2022}
+\date{05 July, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-07-05}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Module 6: first release.
+\end{itemize}
 
 \textbf{2022-06-20}
 
@@ -2699,6 +2709,353 @@ The syntax of the ttestPS function is a little cumbersome. The \texttt{t.test} f
 ## mean difference 
 ##       -1.261682
 \end{verbatim}
+
+\hypertarget{proportions}{%
+\chapter{Proportions}\label{proportions}}
+
+\hypertarget{confidence-intervals-for-proportions}{%
+\section{95\% confidence intervals for proportions}\label{confidence-intervals-for-proportions}}
+
+We can use the \texttt{BinomCI(x=,\ n=,\ method=)} function within the \texttt{DescTools} package to compute 95\% confidence intervals for proportions. Here we specify \texttt{x}: the number of successes, \texttt{n}: the sample size, and optionally, the \texttt{method} (which defaults to Wilson's method).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(DescTools)}
+
+\FunctionTok{BinomCI}\NormalTok{(}\AttributeTok{x=}\DecValTok{47}\NormalTok{, }\AttributeTok{n=}\DecValTok{215}\NormalTok{, }\AttributeTok{method=}\StringTok{\textquotesingle{}wald\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            est    lwr.ci    upr.ci
+## [1,] 0.2186047 0.1633595 0.2738498
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{BinomCI}\NormalTok{(}\AttributeTok{x=}\DecValTok{47}\NormalTok{, }\AttributeTok{n=}\DecValTok{215}\NormalTok{, }\AttributeTok{method=}\StringTok{\textquotesingle{}wilson\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            est    lwr.ci    upr.ci
+## [1,] 0.2186047 0.1685637 0.2785246
+\end{verbatim}
+
+\hypertarget{significance-test-for-single-proportion}{%
+\section{Significance test for single proportion}\label{significance-test-for-single-proportion}}
+
+We can use the \texttt{binom.test} function to perform a significance test for a single proportion: \texttt{binom.test(x=,\ n=,\ p=)}. Here we specify \texttt{x}: the number of successes, \texttt{n}: the sample size, and \texttt{p}: the hypothesised proportion (which defaults to 0.5 if nothing is entered).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{binom.test}\NormalTok{(}\AttributeTok{x=}\DecValTok{54}\NormalTok{, }\AttributeTok{n=}\DecValTok{300}\NormalTok{, }\AttributeTok{p=}\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Exact binomial test
+## 
+## data:  54 and 300
+## number of successes = 54, number of trials = 300, p-value = 0.4273
+## alternative hypothesis: true probability of success is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1382104 0.2282394
+## sample estimates:
+## probability of success 
+##                   0.18
+\end{verbatim}
+
+Note that the \texttt{binom.test} function also produces a 95\% confidence interval around the estimated proportion. This confidence interval is based on the inferior Wald method: \emph{the confidence interval derived from the Wilson method is preferred}.
+
+\hypertarget{computing-a-relative-risk-and-its-95-confidence-interval}{%
+\section{Computing a relative risk and its 95\% confidence interval}\label{computing-a-relative-risk-and-its-95-confidence-interval}}
+
+We will use Worked Example 6.4 to demonstrate calculating a relative risk and its 95\% CI:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(jmv)}
+
+\NormalTok{drug }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_6.4.rds"}\NormalTok{)}
+
+\FunctionTok{summary}\NormalTok{(drug)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      group       side_effect
+##  Placebo:50   No nausea:81  
+##  Active :50   Nausea   :19
+\end{verbatim}
+
+By using the \texttt{head()} function to view the first six lines of data, we see that both \texttt{group} and \texttt{side\_effect} have been entered as factors. Notice the order in which the factor levels are presented: \texttt{group} has the \texttt{Placebo} level defined as the first level, and the \texttt{Active} level defined as the second; \texttt{side\_effect} has \texttt{No\ nausea} defined as the first level, and the \texttt{Nausea} level defined as the second.
+
+We will use \texttt{jmv} to calculate relative risks, odds ratios and risk differences. To calculate these estimates correctly, \textbf{we must define the positive exposure and positive outcome to be the first level of a factor}. When defining an exposure for example, we should define the active treatment or the positive exposure as the first category. When defining an outcome, we should define the category of interest (e.g.~disease, or side effect) as the first category.
+
+In this example, we will define \texttt{Active} as the first level in the \texttt{group} factor, and \texttt{Nausea} to be the first level of the \texttt{side\_effect} factor.
+
+We can do this using the \texttt{relevel()} function, which re-orders the levels of a factor so that the level specified is defined as the first level, and the others are moved down:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define "Active" as the first level of group:}
+\NormalTok{drug}\SpecialCharTok{$}\NormalTok{group }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{group, }\AttributeTok{ref=}\StringTok{"Active"}\NormalTok{)}
+
+
+\CommentTok{\# Define "Nausea" as the first level of side\_effect:}
+\NormalTok{drug}\SpecialCharTok{$}\NormalTok{side\_effect }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{side\_effect, }\AttributeTok{ref=}\StringTok{"Nausea"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Upon re-leveling the factors, we can check that the levels of interest have been defined as the first levels:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(drug)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      group       side_effect
+##  Active :50   Nausea   :19  
+##  Placebo:50   No nausea:81
+\end{verbatim}
+
+To construct the 2-by-2 table and calculate a relative risk, we use the \texttt{contTables()} function in \texttt{jmv}. We request the row-percents using \texttt{pcRow\ =\ TRUE} and the relative risk and confidence interval using \texttt{relRisk\ =\ TRUE}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{drug, }
+           \AttributeTok{rows=}\NormalTok{group, }\AttributeTok{cols=}\NormalTok{side\_effect, }
+           \AttributeTok{pcRow=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{relRisk =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                                 
+##  ────────────────────────────────────────────────────────────────── 
+##    group                      Nausea       No nausea    Total       
+##  ────────────────────────────────────────────────────────────────── 
+##    Active     Observed               15           35           50   
+##               % within row     30.00000     70.00000    100.00000   
+##                                                                     
+##    Placebo    Observed                4           46           50   
+##               % within row      8.00000     92.00000    100.00000   
+##                                                                     
+##    Total      Observed               19           81          100   
+##               % within row     19.00000     81.00000    100.00000   
+##  ────────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                              
+##  ───────────────────────────────────── 
+##          Value       df    p           
+##  ───────────────────────────────────── 
+##    χ²    7.862248     1    0.0050478   
+##    N          100                      
+##  ───────────────────────────────────── 
+## 
+## 
+##  Comparative Measures                                    
+##  ─────────────────────────────────────────────────────── 
+##                     Value         Lower       Upper      
+##  ─────────────────────────────────────────────────────── 
+##    Relative risk    3.750000 ᵃ    1.337540    10.51370   
+##  ─────────────────────────────────────────────────────── 
+##    ᵃ Rows compared
+\end{verbatim}
+
+If you only have the cross-tabulated data (i.e.~aggregated), you will need to enter your data into a new data frame. For example, to recreate the above analyses, we can re-write the 2-by-2 table as follows:
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Group & side\_effect & Number \\
+\midrule
+\endhead
+Active & Nausea & 15 \\
+Active & No nausea & 35 \\
+Placebo & Nausea & 4 \\
+Placebo & No nausea & 46 \\
+\bottomrule
+\end{longtable}
+
+We can enter these data in a dataframe, comprising three vectors, as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{drug\_aggregated }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{group =} \FunctionTok{c}\NormalTok{(}\StringTok{"Active"}\NormalTok{, }\StringTok{"Active"}\NormalTok{, }\StringTok{"Placebo"}\NormalTok{, }\StringTok{"Placebo"}\NormalTok{),}
+  \AttributeTok{side\_effect =} \FunctionTok{c}\NormalTok{(}\StringTok{"Nausea"}\NormalTok{, }\StringTok{"No nausea"}\NormalTok{, }\StringTok{"Nausea"}\NormalTok{, }\StringTok{"No nausea"}\NormalTok{),}
+  \AttributeTok{n =} \FunctionTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{46}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We need to define group and side\_effect as factors. Here we must define the \texttt{levels} \textbf{in the order we want the categories to appear in the table}. Note that as group and side\_effect are entered as text variables, we can omit \texttt{labels} command when defining the factors, and the factor will be labelled using the text entry:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{drug\_aggregated}\SpecialCharTok{$}\NormalTok{group }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(drug\_aggregated}\SpecialCharTok{$}\NormalTok{group, }\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Active"}\NormalTok{, }\StringTok{"Placebo"}\NormalTok{))}
+\NormalTok{drug\_aggregated}\SpecialCharTok{$}\NormalTok{side\_effect }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(drug\_aggregated}\SpecialCharTok{$}\NormalTok{side\_effect, }\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Nausea"}\NormalTok{, }\StringTok{"No nausea"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+We can calculate the relative risk using the summarised data in the same was done previously. However, we need to include the number of observations in each cell using the \texttt{counts} command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{drug\_aggregated,}
+           \AttributeTok{rows=}\NormalTok{group, }\AttributeTok{cols=}\NormalTok{side\_effect, }\AttributeTok{count=}\NormalTok{n,}
+           \AttributeTok{pcRow=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{relRisk =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                                 
+##  ────────────────────────────────────────────────────────────────── 
+##    group                      Nausea       No nausea    Total       
+##  ────────────────────────────────────────────────────────────────── 
+##    Active     Observed               15           35           50   
+##               % within row     30.00000     70.00000    100.00000   
+##                                                                     
+##    Placebo    Observed                4           46           50   
+##               % within row      8.00000     92.00000    100.00000   
+##                                                                     
+##    Total      Observed               19           81          100   
+##               % within row     19.00000     81.00000    100.00000   
+##  ────────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                              
+##  ───────────────────────────────────── 
+##          Value       df    p           
+##  ───────────────────────────────────── 
+##    χ²    7.862248     1    0.0050478   
+##    N          100                      
+##  ───────────────────────────────────── 
+## 
+## 
+##  Comparative Measures                                    
+##  ─────────────────────────────────────────────────────── 
+##                     Value         Lower       Upper      
+##  ─────────────────────────────────────────────────────── 
+##    Relative risk    3.750000 ᵃ    1.337540    10.51370   
+##  ─────────────────────────────────────────────────────── 
+##    ᵃ Rows compared
+\end{verbatim}
+
+\hypertarget{computing-a-difference-in-proportions-and-its-95-confidence-interval}{%
+\section{Computing a difference in proportions and its 95\% confidence interval}\label{computing-a-difference-in-proportions-and-its-95-confidence-interval}}
+
+We can use the \texttt{contTables} function to obtain a difference in proportions and its 95\% CI, by specifying \texttt{diffProp=TRUE}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{drug, }
+           \AttributeTok{rows=}\NormalTok{group, }\AttributeTok{cols=}\NormalTok{side\_effect, }
+           \AttributeTok{pcRow=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{diffProp=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                                 
+##  ────────────────────────────────────────────────────────────────── 
+##    group                      Nausea       No nausea    Total       
+##  ────────────────────────────────────────────────────────────────── 
+##    Active     Observed               15           35           50   
+##               % within row     30.00000     70.00000    100.00000   
+##                                                                     
+##    Placebo    Observed                4           46           50   
+##               % within row      8.00000     92.00000    100.00000   
+##                                                                     
+##    Total      Observed               19           81          100   
+##               % within row     19.00000     81.00000    100.00000   
+##  ────────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                              
+##  ───────────────────────────────────── 
+##          Value       df    p           
+##  ───────────────────────────────────── 
+##    χ²    7.862248     1    0.0050478   
+##    N          100                      
+##  ───────────────────────────────────── 
+## 
+## 
+##  Comparative Measures                                                      
+##  ───────────────────────────────────────────────────────────────────────── 
+##                                   Value          Lower         Upper       
+##  ───────────────────────────────────────────────────────────────────────── 
+##    Difference in 2 proportions    0.2200000 ᵃ    0.07238986    0.3676101   
+##  ───────────────────────────────────────────────────────────────────────── 
+##    ᵃ Rows compared
+\end{verbatim}
+
+\hypertarget{computing-an-odds-ratio-and-its-95-confidence-interval}{%
+\section{Computing an odds ratio and its 95\% confidence interval}\label{computing-an-odds-ratio-and-its-95-confidence-interval}}
+
+We can use the \texttt{contTables} function to obtain an odds ratio and its 95\% CI, by specifying \texttt{odds=TRUE}. Here we will use the summarised HPV data from Module 6.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hpv }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{hpv =} \FunctionTok{c}\NormalTok{(}\StringTok{"HPV +"}\NormalTok{, }\StringTok{"HPV +"}\NormalTok{, }\StringTok{"HPV {-}"}\NormalTok{, }\StringTok{"HPV {-}"}\NormalTok{),}
+  \AttributeTok{cancer =} \FunctionTok{c}\NormalTok{(}\StringTok{"Case"}\NormalTok{, }\StringTok{"Control"}\NormalTok{, }\StringTok{"Case"}\NormalTok{, }\StringTok{"Control"}\NormalTok{),}
+  \AttributeTok{n =} \FunctionTok{c}\NormalTok{(}\DecValTok{57}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{186}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{hpv}\SpecialCharTok{$}\NormalTok{cancer }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(hpv}\SpecialCharTok{$}\NormalTok{cancer, }\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Case"}\NormalTok{, }\StringTok{"Control"}\NormalTok{))}
+\NormalTok{hpv}\SpecialCharTok{$}\NormalTok{hpv }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(hpv}\SpecialCharTok{$}\NormalTok{hpv, }\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"HPV +"}\NormalTok{, }\StringTok{"HPV {-}"}\NormalTok{))}
+
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{hpv, }
+           \AttributeTok{rows=}\NormalTok{hpv, }\AttributeTok{cols=}\NormalTok{cancer, }\AttributeTok{count=}\NormalTok{n,}
+           \AttributeTok{odds =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                    
+##  ───────────────────────────────────── 
+##    hpv      Case    Control    Total   
+##  ───────────────────────────────────── 
+##    HPV +      57         14       71   
+##    HPV -      43        186      229   
+##    Total     100        200      300   
+##  ───────────────────────────────────── 
+## 
+## 
+##  χ² Tests                               
+##  ────────────────────────────────────── 
+##          Value       df    p            
+##  ────────────────────────────────────── 
+##    χ²    92.25660     1    < .0000001   
+##    N          300                       
+##  ────────────────────────────────────── 
+## 
+## 
+##  Comparative Measures                               
+##  ────────────────────────────────────────────────── 
+##                  Value       Lower       Upper      
+##  ────────────────────────────────────────────────── 
+##    Odds ratio    17.61130    8.992580    34.49041   
+##  ──────────────────────────────────────────────────
+\end{verbatim}
+
+Note that 95\% confidence intervals for the odds ratio based on \texttt{jmv} may differ from those calculated by Stata. At this stage, the method used by \texttt{jmv} to calculate the confidence interval is not documented.
 
   \bibliography{PHCM9795.bib}
 
