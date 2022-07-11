@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{05 July, 2022}
+\date{11 July, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-07-14}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Module 7: first release.
+\end{itemize}
 
 \textbf{2022-07-05}
 
@@ -2710,8 +2720,8 @@ The syntax of the ttestPS function is a little cumbersome. The \texttt{t.test} f
 ##       -1.261682
 \end{verbatim}
 
-\hypertarget{proportions}{%
-\chapter{Proportions}\label{proportions}}
+\hypertarget{summary-statistics-for-binary-data}{%
+\chapter{Summary statistics for binary data}\label{summary-statistics-for-binary-data}}
 
 \hypertarget{confidence-intervals-for-proportions}{%
 \section{95\% confidence intervals for proportions}\label{confidence-intervals-for-proportions}}
@@ -3056,6 +3066,391 @@ We can use the \texttt{contTables} function to obtain an odds ratio and its 95\%
 \end{verbatim}
 
 Note that 95\% confidence intervals for the odds ratio based on \texttt{jmv} may differ from those calculated by Stata. At this stage, the method used by \texttt{jmv} to calculate the confidence interval is not documented.
+
+\hypertarget{hypothesis-testing-for-categorical-data}{%
+\chapter{Hypothesis testing for categorical data}\label{hypothesis-testing-for-categorical-data}}
+
+\hypertarget{pearsons-chi-squared-test}{%
+\section{Pearson's chi-squared test}\label{pearsons-chi-squared-test}}
+
+\hypertarget{individual-data-1}{%
+\subsection{Individual data}\label{individual-data-1}}
+
+We will demonstrate how to use R to conduct a Pearson chi-squared test using Worked Example 7.1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(jmv)}
+
+\NormalTok{nausea }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_7.1.rds"}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(nausea)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     group side_effect
+## 1 Placebo      Nausea
+## 2 Placebo      Nausea
+## 3 Placebo      Nausea
+## 4 Placebo      Nausea
+## 5 Placebo   No nausea
+## 6 Placebo   No nausea
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(nausea}\SpecialCharTok{$}\NormalTok{group)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "Placebo","Active": 1 1 1 1 1 1 1 1 1 1 ...
+##  - attr(*, "label")= chr "Group"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(nausea}\SpecialCharTok{$}\NormalTok{side\_effect)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "No nausea","Nausea": 2 2 2 2 1 1 1 1 1 1 ...
+##  - attr(*, "label")= chr "Side effect"
+\end{verbatim}
+
+The columns \texttt{group} and \texttt{side\_effect} have been entered as factors, with ``Placebo'' and ``No nausea'' as the first levels. We should use the \texttt{relevel()} command to re-order the factor levels.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nausea}\SpecialCharTok{$}\NormalTok{group }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(nausea}\SpecialCharTok{$}\NormalTok{group, }\AttributeTok{ref=}\StringTok{"Active"}\NormalTok{)}
+\NormalTok{nausea}\SpecialCharTok{$}\NormalTok{side\_effect }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(nausea}\SpecialCharTok{$}\NormalTok{side\_effect, }\AttributeTok{ref=}\StringTok{"Nausea"}\NormalTok{)}
+
+\FunctionTok{str}\NormalTok{(nausea}\SpecialCharTok{$}\NormalTok{group)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "Active","Placebo": 2 2 2 2 2 2 2 2 2 2 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(nausea}\SpecialCharTok{$}\NormalTok{side\_effect)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "Nausea","No nausea": 1 1 1 1 2 2 2 2 2 2 ...
+\end{verbatim}
+
+After confirming the factors are appropriately defined, we can construct our 2-by-2 table and view the expected frequencies.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{nausea,}
+           \AttributeTok{rows=}\NormalTok{group, }\AttributeTok{cols=}\NormalTok{side\_effect,}
+           \AttributeTok{exp=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                             
+##  ────────────────────────────────────────────────────────────── 
+##    group                  Nausea       No nausea    Total       
+##  ────────────────────────────────────────────────────────────── 
+##    Active     Observed           15           35           50   
+##               Expected     9.500000     40.50000     50.00000   
+##                                                                 
+##    Placebo    Observed            4           46           50   
+##               Expected     9.500000     40.50000     50.00000   
+##                                                                 
+##    Total      Observed           19           81          100   
+##               Expected    19.000000     81.00000    100.00000   
+##  ────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                              
+##  ───────────────────────────────────── 
+##          Value       df    p           
+##  ───────────────────────────────────── 
+##    χ²    7.862248     1    0.0050478   
+##    N          100                      
+##  ─────────────────────────────────────
+\end{verbatim}
+
+After confirming that there are no cells with small expected frequencies, we can interpret the chi-square test. The last section reports the chi-squared test statistic which has a value of 7.86 with 1 degree of freedom and a P-value of 0.005.
+
+If there are small values of expected frequencies, Fisher's exact test can be requested using \texttt{fisher\ =\ TRUE}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{nausea,}
+           \AttributeTok{rows=}\NormalTok{group, }\AttributeTok{cols=}\NormalTok{side\_effect,}
+           \AttributeTok{fisher =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                          
+##  ─────────────────────────────────────────── 
+##    group      Nausea    No nausea    Total   
+##  ─────────────────────────────────────────── 
+##    Active         15           35       50   
+##    Placebo         4           46       50   
+##    Total          19           81      100   
+##  ─────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                                               
+##  ────────────────────────────────────────────────────── 
+##                           Value       df    p           
+##  ────────────────────────────────────────────────────── 
+##    χ²                     7.862248     1    0.0050478   
+##    Fisher's exact test                      0.0094886   
+##    N                           100                      
+##  ──────────────────────────────────────────────────────
+\end{verbatim}
+
+\hypertarget{summarised-data-1}{%
+\subsection{Summarised data}\label{summarised-data-1}}
+
+When you only have the summarised date (for example, the cross-tabulated data), you need to enter the summarised data manually. As we did in Module 6, the 2-by-2 table can be entered as four lines of data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{drug\_aggregated }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{group =} \FunctionTok{c}\NormalTok{(}\StringTok{"Active"}\NormalTok{, }\StringTok{"Active"}\NormalTok{, }\StringTok{"Placebo"}\NormalTok{, }\StringTok{"Placebo"}\NormalTok{),}
+  \AttributeTok{side\_effect =} \FunctionTok{c}\NormalTok{(}\StringTok{"Nausea"}\NormalTok{, }\StringTok{"No nausea"}\NormalTok{, }\StringTok{"Nausea"}\NormalTok{, }\StringTok{"No nausea"}\NormalTok{),}
+  \AttributeTok{n =} \FunctionTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{46}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The \texttt{contTables()} function is used in the usual way, specifying \texttt{count=n}.
+
+\hypertarget{chi-squared-test-for-tables-larger-than-2-by-2}{%
+\section{Chi-squared test for tables larger than 2-by-2}\label{chi-squared-test-for-tables-larger-than-2-by-2}}
+
+Use the data in \texttt{Example\_7.2.rds}. We use similar steps as described above for a 2-by-2 table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{allergy }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_7.2.rds"}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(allergy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   id asthma hdmallergy catallergy infection    sex maternalasthma
+## 1  1     No        Yes         No       Yes Female             No
+## 2  2    Yes         No         No        No Female             No
+## 3  3    Yes         No         No        No Female             No
+## 4  4     No         No         No        No   Male             No
+## 5  4    Yes        Yes        Yes        No Female             No
+## 6  5    Yes        Yes        Yes        No Female             No
+##   allergy_severity
+## 1 Moderate allergy
+## 2     Non-allergic
+## 3     Non-allergic
+## 4     Non-allergic
+## 5 Moderate allergy
+## 6 Moderate allergy
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTables}\NormalTok{(}\AttributeTok{data=}\NormalTok{allergy, }
+           \AttributeTok{rows=}\NormalTok{allergy\_severity, }\AttributeTok{cols=}\NormalTok{sex, }
+           \AttributeTok{pcCol=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CONTINGENCY TABLES
+## 
+##  Contingency Tables                                                             
+##  ────────────────────────────────────────────────────────────────────────────── 
+##    allergy_severity                       Female       Male         Total       
+##  ────────────────────────────────────────────────────────────────────────────── 
+##    Non-allergic        Observed                 150          137          287   
+##                        % within column     61.98347     53.10078     57.40000   
+##                                                                                 
+##    Slight allergy      Observed                  50           70          120   
+##                        % within column     20.66116     27.13178     24.00000   
+##                                                                                 
+##    Moderate allergy    Observed                  27           32           59   
+##                        % within column     11.15702     12.40310     11.80000   
+##                                                                                 
+##    Severe allergy      Observed                  15           19           34   
+##                        % within column      6.19835      7.36434      6.80000   
+##                                                                                 
+##    Total               Observed                 242          258          500   
+##                        % within column    100.00000    100.00000    100.00000   
+##  ────────────────────────────────────────────────────────────────────────────── 
+## 
+## 
+##  χ² Tests                              
+##  ───────────────────────────────────── 
+##          Value       df    p           
+##  ───────────────────────────────────── 
+##    χ²    4.308913     3    0.2299813   
+##    N          500                      
+##  ─────────────────────────────────────
+\end{verbatim}
+
+\hypertarget{mcnemars-test-for-paired-proportions}{%
+\section{McNemar's test for paired proportions}\label{mcnemars-test-for-paired-proportions}}
+
+To perform this test in R, we will use the dataset \texttt{Example\_7.3.rds}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{drug }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_7.3.rds"}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(drug)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   druga drugb
+## 1   Yes   Yes
+## 2   Yes   Yes
+## 3   Yes   Yes
+## 4   Yes   Yes
+## 5   Yes   Yes
+## 6   Yes   Yes
+\end{verbatim}
+
+As usual, we should check that the variables being tabulated are factors, with the first level of the factor being the outcome of interest. We can use the \texttt{relevel()} function to re-order levels as necessary.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{druga)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 2 2 2 2 ...
+##  - attr(*, "label")= chr "Response to Drug A"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{drugb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 2 2 2 2 ...
+##  - attr(*, "label")= chr "Response to Drug B"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{drug}\SpecialCharTok{$}\NormalTok{druga }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{druga, }\AttributeTok{ref=}\StringTok{"Yes"}\NormalTok{)}
+\NormalTok{drug}\SpecialCharTok{$}\NormalTok{drugb }\OtherTok{\textless{}{-}} \FunctionTok{relevel}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{drugb, }\AttributeTok{ref=}\StringTok{"Yes"}\NormalTok{)}
+
+\FunctionTok{str}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{druga)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "Yes","No": 1 1 1 1 1 1 1 1 1 1 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(drug}\SpecialCharTok{$}\NormalTok{drugb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "Yes","No": 1 1 1 1 1 1 1 1 1 1 ...
+\end{verbatim}
+
+We can use the \texttt{contTablesPaired()} function within the \texttt{jmv} library to conduct McNemar's test of paired proportions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{contTablesPaired}\NormalTok{(}\AttributeTok{data=}\NormalTok{drug, }\AttributeTok{rows=}\NormalTok{druga, }\AttributeTok{cols=}\NormalTok{drugb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  PAIRED SAMPLES CONTINGENCY TABLES
+## 
+##  Contingency Tables              
+##  ─────────────────────────────── 
+##    druga    Yes    No    Total   
+##  ─────────────────────────────── 
+##    Yes       21    20       41   
+##    No        14     5       19   
+##    Total     35    25       60   
+##  ─────────────────────────────── 
+## 
+## 
+##  McNemar Test                          
+##  ───────────────────────────────────── 
+##          Value       df    p           
+##  ───────────────────────────────────── 
+##    χ²    1.058824     1    0.3034837   
+##    N           60                      
+##  ─────────────────────────────────────
+\end{verbatim}
+
+Note that \texttt{contTablesPaired()} does not calculate an exact P-value.
+
+To estimate the proportion in each of the paired samples, its difference, and the 95\% confidence interval of the difference, we can use the \texttt{mcNemarDiff()} function which is stored in Microsoft Teams and \href{https://gist.githubusercontent.com/timothydobbins/525d25271b04b2ea72aae70c4aac8b01/raw/6b69f5b229d50daeac4c2f4cf4331e88b0c65717/mcNemarDiff.R}{here}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\# Copied from Microsoft Teams}
+\NormalTok{mcNemarDiff }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data, var1, var2, }\AttributeTok{digits =} \DecValTok{3}\NormalTok{) \{}
+  \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{requireNamespace}\NormalTok{(}\StringTok{"epibasix"}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{)) \{}
+    \FunctionTok{stop}\NormalTok{(}\StringTok{"This function requires epibasix to be installed"}\NormalTok{)}
+\NormalTok{  \}}
+  
+\NormalTok{  tab }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(data[[var1]], data[[var2]])}
+\NormalTok{  p1 }\OtherTok{\textless{}{-}}\NormalTok{ (tab[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ tab[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(tab)}
+\NormalTok{  p2 }\OtherTok{\textless{}{-}}\NormalTok{ (tab[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ tab[}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{]) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(tab)}
+\NormalTok{  pd }\OtherTok{\textless{}{-}}\NormalTok{ epibasix}\SpecialCharTok{::}\FunctionTok{mcNemar}\NormalTok{(tab)}\SpecialCharTok{$}\NormalTok{rd}
+\NormalTok{  pd.cil }\OtherTok{\textless{}{-}}\NormalTok{ epibasix}\SpecialCharTok{::}\FunctionTok{mcNemar}\NormalTok{(tab)}\SpecialCharTok{$}\NormalTok{rd.CIL}
+\NormalTok{  pd.ciu }\OtherTok{\textless{}{-}}\NormalTok{ epibasix}\SpecialCharTok{::}\FunctionTok{mcNemar}\NormalTok{(tab)}\SpecialCharTok{$}\NormalTok{rd.CIU}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}
+    \StringTok{"Proportion 1: "}\NormalTok{,}
+    \FunctionTok{format}\NormalTok{(}\FunctionTok{round}\NormalTok{(p1, }\AttributeTok{digits =}\NormalTok{ digits), }\AttributeTok{nsmall =}\NormalTok{ digits),}
+    \StringTok{"; Proportion 2: "}\NormalTok{, }\FunctionTok{format}\NormalTok{(}\FunctionTok{round}\NormalTok{(p2, }\AttributeTok{digits =}\NormalTok{ digits), }\AttributeTok{nsmall =}\NormalTok{ digits)}
+\NormalTok{  ))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}
+    \StringTok{"Difference in paired proportions: "}\NormalTok{,}
+    \FunctionTok{format}\NormalTok{(}\FunctionTok{round}\NormalTok{(pd, }\AttributeTok{digits =}\NormalTok{ digits), }\AttributeTok{nsmall =}\NormalTok{ digits),}
+    \StringTok{"; 95\% CI: "}\NormalTok{, }\FunctionTok{format}\NormalTok{(}\FunctionTok{round}\NormalTok{(pd.cil, }\AttributeTok{digits =}\NormalTok{ digits), }\AttributeTok{nsmall =}\NormalTok{ digits),}
+    \StringTok{" to "}\NormalTok{, }\FunctionTok{format}\NormalTok{(}\FunctionTok{round}\NormalTok{(pd.ciu, }\AttributeTok{digits =}\NormalTok{ digits), }\AttributeTok{nsmall =}\NormalTok{ digits)}
+\NormalTok{  ))}
+\NormalTok{\}}
+\DocumentationTok{\#\#\# End copy}
+
+\FunctionTok{mcNemarDiff}\NormalTok{(}\AttributeTok{data =}\NormalTok{ drug, }\AttributeTok{var1 =} \StringTok{"druga"}\NormalTok{, }\AttributeTok{var2 =} \StringTok{"drugb"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Proportion 1: 0.68; Proportion 2: 0.58"
+## [1] "Difference in paired proportions: 0.10; 95% CI: -0.11 to 0.31"
+\end{verbatim}
+
+In this study of 60 participants, where each participant received both drugs, 41 (68\%) responded to Drug A and 35 (58\%) responded to Drug B. The difference in the proportions responding is estimated as 10\% (95\% CI -11\% to 31\%). There is no evidence that the response differed between the two drugs (McNemar's chi-squared = 1.06 with 1df, P=0.30).
 
   \bibliography{PHCM9795.bib}
 

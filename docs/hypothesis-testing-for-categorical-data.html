@@ -118,6 +118,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -231,11 +253,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="individual-data-1" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Individual data<a href="hypothesis-testing-for-categorical-data.html#individual-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will demonstrate how to use R to conduct a Pearson chi-squared test using Worked Example 7.1.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="hypothesis-testing-for-categorical-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
-<span id="cb5-2"><a href="hypothesis-testing-for-categorical-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="hypothesis-testing-for-categorical-data.html#cb5-3" aria-hidden="true" tabindex="-1"></a>nausea <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_7.1.rds&quot;</span>)</span>
-<span id="cb5-4"><a href="hypothesis-testing-for-categorical-data.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="hypothesis-testing-for-categorical-data.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nausea)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="hypothesis-testing-for-categorical-data.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv)</span>
+<span id="cb164-2"><a href="hypothesis-testing-for-categorical-data.html#cb164-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-3"><a href="hypothesis-testing-for-categorical-data.html#cb164-3" aria-hidden="true" tabindex="-1"></a>nausea <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_7.1.rds&quot;</span>)</span>
+<span id="cb164-4"><a href="hypothesis-testing-for-categorical-data.html#cb164-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-5"><a href="hypothesis-testing-for-categorical-data.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nausea)</span></code></pre></div>
 <pre><code>##     group side_effect
 ## 1 Placebo      Nausea
 ## 2 Placebo      Nausea
@@ -243,24 +265,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Placebo      Nausea
 ## 5 Placebo   No nausea
 ## 6 Placebo   No nausea</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="hypothesis-testing-for-categorical-data.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>group)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="hypothesis-testing-for-categorical-data.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>group)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Placebo&quot;,&quot;Active&quot;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  - attr(*, &quot;label&quot;)= chr &quot;Group&quot;</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="hypothesis-testing-for-categorical-data.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>side_effect)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="hypothesis-testing-for-categorical-data.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>side_effect)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;No nausea&quot;,&quot;Nausea&quot;: 2 2 2 2 1 1 1 1 1 1 ...
 ##  - attr(*, &quot;label&quot;)= chr &quot;Side effect&quot;</code></pre>
 <p>The columns <code>group</code> and <code>side_effect</code> have been entered as factors, with “Placebo” and “No nausea” as the first levels. We should use the <code>relevel()</code> command to re-order the factor levels.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="hypothesis-testing-for-categorical-data.html#cb11-1" aria-hidden="true" tabindex="-1"></a>nausea<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">relevel</span>(nausea<span class="sc">$</span>group, <span class="at">ref=</span><span class="st">&quot;Active&quot;</span>)</span>
-<span id="cb11-2"><a href="hypothesis-testing-for-categorical-data.html#cb11-2" aria-hidden="true" tabindex="-1"></a>nausea<span class="sc">$</span>side_effect <span class="ot">&lt;-</span> <span class="fu">relevel</span>(nausea<span class="sc">$</span>side_effect, <span class="at">ref=</span><span class="st">&quot;Nausea&quot;</span>)</span>
-<span id="cb11-3"><a href="hypothesis-testing-for-categorical-data.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="hypothesis-testing-for-categorical-data.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>group)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="hypothesis-testing-for-categorical-data.html#cb170-1" aria-hidden="true" tabindex="-1"></a>nausea<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">relevel</span>(nausea<span class="sc">$</span>group, <span class="at">ref=</span><span class="st">&quot;Active&quot;</span>)</span>
+<span id="cb170-2"><a href="hypothesis-testing-for-categorical-data.html#cb170-2" aria-hidden="true" tabindex="-1"></a>nausea<span class="sc">$</span>side_effect <span class="ot">&lt;-</span> <span class="fu">relevel</span>(nausea<span class="sc">$</span>side_effect, <span class="at">ref=</span><span class="st">&quot;Nausea&quot;</span>)</span>
+<span id="cb170-3"><a href="hypothesis-testing-for-categorical-data.html#cb170-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-4"><a href="hypothesis-testing-for-categorical-data.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>group)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Active&quot;,&quot;Placebo&quot;: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="hypothesis-testing-for-categorical-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>side_effect)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="hypothesis-testing-for-categorical-data.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nausea<span class="sc">$</span>side_effect)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Nausea&quot;,&quot;No nausea&quot;: 1 1 1 1 2 2 2 2 2 2 ...</code></pre>
 <p>After confirming the factors are appropriately defined, we can construct our 2-by-2 table and view the expected frequencies.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="hypothesis-testing-for-categorical-data.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>nausea,</span>
-<span id="cb15-2"><a href="hypothesis-testing-for-categorical-data.html#cb15-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect,</span>
-<span id="cb15-3"><a href="hypothesis-testing-for-categorical-data.html#cb15-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">exp=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="hypothesis-testing-for-categorical-data.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>nausea,</span>
+<span id="cb174-2"><a href="hypothesis-testing-for-categorical-data.html#cb174-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect,</span>
+<span id="cb174-3"><a href="hypothesis-testing-for-categorical-data.html#cb174-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">exp=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  CONTINGENCY TABLES
 ## 
@@ -288,9 +310,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  ─────────────────────────────────────</code></pre>
 <p>After confirming that there are no cells with small expected frequencies, we can interpret the chi-square test. The last section reports the chi-squared test statistic which has a value of 7.86 with 1 degree of freedom and a P-value of 0.005.</p>
 <p>If there are small values of expected frequencies, Fisher’s exact test can be requested using <code>fisher = TRUE</code>:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="hypothesis-testing-for-categorical-data.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>nausea,</span>
-<span id="cb17-2"><a href="hypothesis-testing-for-categorical-data.html#cb17-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect,</span>
-<span id="cb17-3"><a href="hypothesis-testing-for-categorical-data.html#cb17-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fisher =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="hypothesis-testing-for-categorical-data.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>nausea,</span>
+<span id="cb176-2"><a href="hypothesis-testing-for-categorical-data.html#cb176-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">rows=</span>group, <span class="at">cols=</span>side_effect,</span>
+<span id="cb176-3"><a href="hypothesis-testing-for-categorical-data.html#cb176-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fisher =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  CONTINGENCY TABLES
 ## 
@@ -316,20 +338,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="summarised-data-1" class="section level3 hasAnchor" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Summarised data<a href="hypothesis-testing-for-categorical-data.html#summarised-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When you only have the summarised date (for example, the cross-tabulated data), you need to enter the summarised data manually. As we did in Module 6, the 2-by-2 table can be entered as four lines of data:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="hypothesis-testing-for-categorical-data.html#cb19-1" aria-hidden="true" tabindex="-1"></a>drug_aggregated <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb19-2"><a href="hypothesis-testing-for-categorical-data.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Placebo&quot;</span>),</span>
-<span id="cb19-3"><a href="hypothesis-testing-for-categorical-data.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">side_effect =</span> <span class="fu">c</span>(<span class="st">&quot;Nausea&quot;</span>, <span class="st">&quot;No nausea&quot;</span>, <span class="st">&quot;Nausea&quot;</span>, <span class="st">&quot;No nausea&quot;</span>),</span>
-<span id="cb19-4"><a href="hypothesis-testing-for-categorical-data.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">35</span>, <span class="dv">4</span>, <span class="dv">46</span>)</span>
-<span id="cb19-5"><a href="hypothesis-testing-for-categorical-data.html#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="hypothesis-testing-for-categorical-data.html#cb178-1" aria-hidden="true" tabindex="-1"></a>drug_aggregated <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb178-2"><a href="hypothesis-testing-for-categorical-data.html#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Placebo&quot;</span>),</span>
+<span id="cb178-3"><a href="hypothesis-testing-for-categorical-data.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">side_effect =</span> <span class="fu">c</span>(<span class="st">&quot;Nausea&quot;</span>, <span class="st">&quot;No nausea&quot;</span>, <span class="st">&quot;Nausea&quot;</span>, <span class="st">&quot;No nausea&quot;</span>),</span>
+<span id="cb178-4"><a href="hypothesis-testing-for-categorical-data.html#cb178-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">35</span>, <span class="dv">4</span>, <span class="dv">46</span>)</span>
+<span id="cb178-5"><a href="hypothesis-testing-for-categorical-data.html#cb178-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>The <code>contTables()</code> function is used in the usual way, specifying <code>count=n</code>.</p>
 </div>
 </div>
 <div id="chi-squared-test-for-tables-larger-than-2-by-2" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Chi-squared test for tables larger than 2-by-2<a href="hypothesis-testing-for-categorical-data.html#chi-squared-test-for-tables-larger-than-2-by-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use the data in <code>Example_7.2.rds</code>. We use similar steps as described above for a 2-by-2 table.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="hypothesis-testing-for-categorical-data.html#cb20-1" aria-hidden="true" tabindex="-1"></a>allergy <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_7.2.rds&quot;</span>)</span>
-<span id="cb20-2"><a href="hypothesis-testing-for-categorical-data.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="hypothesis-testing-for-categorical-data.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allergy)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="hypothesis-testing-for-categorical-data.html#cb179-1" aria-hidden="true" tabindex="-1"></a>allergy <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_7.2.rds&quot;</span>)</span>
+<span id="cb179-2"><a href="hypothesis-testing-for-categorical-data.html#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-3"><a href="hypothesis-testing-for-categorical-data.html#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allergy)</span></code></pre></div>
 <pre><code>##   id asthma hdmallergy catallergy infection    sex maternalasthma
 ## 1  1     No        Yes         No       Yes Female             No
 ## 2  2    Yes         No         No        No Female             No
@@ -344,9 +366,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4     Non-allergic
 ## 5 Moderate allergy
 ## 6 Moderate allergy</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="hypothesis-testing-for-categorical-data.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>allergy, </span>
-<span id="cb22-2"><a href="hypothesis-testing-for-categorical-data.html#cb22-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">rows=</span>allergy_severity, <span class="at">cols=</span>sex, </span>
-<span id="cb22-3"><a href="hypothesis-testing-for-categorical-data.html#cb22-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">pcCol=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="hypothesis-testing-for-categorical-data.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTables</span>(<span class="at">data=</span>allergy, </span>
+<span id="cb181-2"><a href="hypothesis-testing-for-categorical-data.html#cb181-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">rows=</span>allergy_severity, <span class="at">cols=</span>sex, </span>
+<span id="cb181-3"><a href="hypothesis-testing-for-categorical-data.html#cb181-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">pcCol=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  CONTINGENCY TABLES
 ## 
@@ -382,9 +404,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="mcnemars-test-for-paired-proportions" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> McNemar’s test for paired proportions<a href="hypothesis-testing-for-categorical-data.html#mcnemars-test-for-paired-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To perform this test in R, we will use the dataset <code>Example_7.3.rds</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="hypothesis-testing-for-categorical-data.html#cb24-1" aria-hidden="true" tabindex="-1"></a>drug <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_7.3.rds&quot;</span>)</span>
-<span id="cb24-2"><a href="hypothesis-testing-for-categorical-data.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="hypothesis-testing-for-categorical-data.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drug)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="hypothesis-testing-for-categorical-data.html#cb183-1" aria-hidden="true" tabindex="-1"></a>drug <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_7.3.rds&quot;</span>)</span>
+<span id="cb183-2"><a href="hypothesis-testing-for-categorical-data.html#cb183-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-3"><a href="hypothesis-testing-for-categorical-data.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drug)</span></code></pre></div>
 <pre><code>##   druga drugb
 ## 1   Yes   Yes
 ## 2   Yes   Yes
@@ -393,21 +415,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5   Yes   Yes
 ## 6   Yes   Yes</code></pre>
 <p>As usual, we should check that the variables being tabulated are factors, with the first level of the factor being the outcome of interest. We can use the <code>relevel()</code> function to re-order levels as necessary.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="hypothesis-testing-for-categorical-data.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>druga)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="hypothesis-testing-for-categorical-data.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>druga)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 2 2 2 2 2 2 2 2 2 2 ...
 ##  - attr(*, &quot;label&quot;)= chr &quot;Response to Drug A&quot;</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="hypothesis-testing-for-categorical-data.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>drugb)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="hypothesis-testing-for-categorical-data.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>drugb)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 2 2 2 2 2 2 2 2 2 2 ...
 ##  - attr(*, &quot;label&quot;)= chr &quot;Response to Drug B&quot;</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="hypothesis-testing-for-categorical-data.html#cb30-1" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>druga <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>druga, <span class="at">ref=</span><span class="st">&quot;Yes&quot;</span>)</span>
-<span id="cb30-2"><a href="hypothesis-testing-for-categorical-data.html#cb30-2" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>drugb <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>drugb, <span class="at">ref=</span><span class="st">&quot;Yes&quot;</span>)</span>
-<span id="cb30-3"><a href="hypothesis-testing-for-categorical-data.html#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="hypothesis-testing-for-categorical-data.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>druga)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="hypothesis-testing-for-categorical-data.html#cb189-1" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>druga <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>druga, <span class="at">ref=</span><span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb189-2"><a href="hypothesis-testing-for-categorical-data.html#cb189-2" aria-hidden="true" tabindex="-1"></a>drug<span class="sc">$</span>drugb <span class="ot">&lt;-</span> <span class="fu">relevel</span>(drug<span class="sc">$</span>drugb, <span class="at">ref=</span><span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb189-3"><a href="hypothesis-testing-for-categorical-data.html#cb189-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-4"><a href="hypothesis-testing-for-categorical-data.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>druga)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Yes&quot;,&quot;No&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="hypothesis-testing-for-categorical-data.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>drugb)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="hypothesis-testing-for-categorical-data.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(drug<span class="sc">$</span>drugb)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Yes&quot;,&quot;No&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <p>We can use the <code>contTablesPaired()</code> function within the <code>jmv</code> library to conduct McNemar’s test of paired proportions:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="hypothesis-testing-for-categorical-data.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTablesPaired</span>(<span class="at">data=</span>drug, <span class="at">rows=</span>druga, <span class="at">cols=</span>drugb)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="hypothesis-testing-for-categorical-data.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contTablesPaired</span>(<span class="at">data=</span>drug, <span class="at">rows=</span>druga, <span class="at">cols=</span>drugb)</span></code></pre></div>
 <pre><code>## 
 ##  PAIRED SAMPLES CONTINGENCY TABLES
 ## 
@@ -429,34 +451,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    N           60                      
 ##  ─────────────────────────────────────</code></pre>
 <p>Note that <code>contTablesPaired()</code> does not calculate an exact P-value.</p>
-<p>To estimate the proportion in each of the paired samples, its difference, and the 95% confidence interval of the difference, we can use the <code>mcNemarDiff()</code> function which is stored in Microsoft Teams.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="hypothesis-testing-for-categorical-data.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Copied from Microsoft Teams</span></span>
-<span id="cb36-2"><a href="hypothesis-testing-for-categorical-data.html#cb36-2" aria-hidden="true" tabindex="-1"></a>mcNemarDiff <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var1, var2, <span class="at">digits =</span> <span class="dv">3</span>) {</span>
-<span id="cb36-3"><a href="hypothesis-testing-for-categorical-data.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;epibasix&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb36-4"><a href="hypothesis-testing-for-categorical-data.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;This function requires epibasix to be installed&quot;</span>)</span>
-<span id="cb36-5"><a href="hypothesis-testing-for-categorical-data.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb36-6"><a href="hypothesis-testing-for-categorical-data.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-7"><a href="hypothesis-testing-for-categorical-data.html#cb36-7" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> <span class="fu">table</span>(data[[var1]], data[[var2]])</span>
-<span id="cb36-8"><a href="hypothesis-testing-for-categorical-data.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> (tab[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> tab[<span class="dv">1</span>, <span class="dv">2</span>]) <span class="sc">/</span> <span class="fu">sum</span>(tab)</span>
-<span id="cb36-9"><a href="hypothesis-testing-for-categorical-data.html#cb36-9" aria-hidden="true" tabindex="-1"></a>  p2 <span class="ot">&lt;-</span> (tab[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> tab[<span class="dv">2</span>, <span class="dv">1</span>]) <span class="sc">/</span> <span class="fu">sum</span>(tab)</span>
-<span id="cb36-10"><a href="hypothesis-testing-for-categorical-data.html#cb36-10" aria-hidden="true" tabindex="-1"></a>  pd <span class="ot">&lt;-</span> epibasix<span class="sc">::</span><span class="fu">mcNemar</span>(tab)<span class="sc">$</span>rd</span>
-<span id="cb36-11"><a href="hypothesis-testing-for-categorical-data.html#cb36-11" aria-hidden="true" tabindex="-1"></a>  pd.cil <span class="ot">&lt;-</span> epibasix<span class="sc">::</span><span class="fu">mcNemar</span>(tab)<span class="sc">$</span>rd.CIL</span>
-<span id="cb36-12"><a href="hypothesis-testing-for-categorical-data.html#cb36-12" aria-hidden="true" tabindex="-1"></a>  pd.ciu <span class="ot">&lt;-</span> epibasix<span class="sc">::</span><span class="fu">mcNemar</span>(tab)<span class="sc">$</span>rd.CIU</span>
-<span id="cb36-13"><a href="hypothesis-testing-for-categorical-data.html#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(</span>
-<span id="cb36-14"><a href="hypothesis-testing-for-categorical-data.html#cb36-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Proportion 1: &quot;</span>,</span>
-<span id="cb36-15"><a href="hypothesis-testing-for-categorical-data.html#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="fu">round</span>(p1, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits),</span>
-<span id="cb36-16"><a href="hypothesis-testing-for-categorical-data.html#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;; Proportion 2: &quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(p2, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits)</span>
-<span id="cb36-17"><a href="hypothesis-testing-for-categorical-data.html#cb36-17" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb36-18"><a href="hypothesis-testing-for-categorical-data.html#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(</span>
-<span id="cb36-19"><a href="hypothesis-testing-for-categorical-data.html#cb36-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Difference in paired proportions: &quot;</span>,</span>
-<span id="cb36-20"><a href="hypothesis-testing-for-categorical-data.html#cb36-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="fu">round</span>(pd, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits),</span>
-<span id="cb36-21"><a href="hypothesis-testing-for-categorical-data.html#cb36-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;; 95% CI: &quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(pd.cil, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits),</span>
-<span id="cb36-22"><a href="hypothesis-testing-for-categorical-data.html#cb36-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot; to &quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(pd.ciu, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits)</span>
-<span id="cb36-23"><a href="hypothesis-testing-for-categorical-data.html#cb36-23" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb36-24"><a href="hypothesis-testing-for-categorical-data.html#cb36-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb36-25"><a href="hypothesis-testing-for-categorical-data.html#cb36-25" aria-hidden="true" tabindex="-1"></a><span class="do">### End copy</span></span>
-<span id="cb36-26"><a href="hypothesis-testing-for-categorical-data.html#cb36-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-27"><a href="hypothesis-testing-for-categorical-data.html#cb36-27" aria-hidden="true" tabindex="-1"></a><span class="fu">mcNemarDiff</span>(<span class="at">data =</span> drug, <span class="at">var1 =</span> <span class="st">&quot;druga&quot;</span>, <span class="at">var2 =</span> <span class="st">&quot;drugb&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p>To estimate the proportion in each of the paired samples, its difference, and the 95% confidence interval of the difference, we can use the <code>mcNemarDiff()</code> function which is stored in Microsoft Teams and <a href="https://gist.githubusercontent.com/timothydobbins/525d25271b04b2ea72aae70c4aac8b01/raw/6b69f5b229d50daeac4c2f4cf4331e88b0c65717/mcNemarDiff.R">here</a>.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="hypothesis-testing-for-categorical-data.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Copied from Microsoft Teams</span></span>
+<span id="cb195-2"><a href="hypothesis-testing-for-categorical-data.html#cb195-2" aria-hidden="true" tabindex="-1"></a>mcNemarDiff <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var1, var2, <span class="at">digits =</span> <span class="dv">3</span>) {</span>
+<span id="cb195-3"><a href="hypothesis-testing-for-categorical-data.html#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;epibasix&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb195-4"><a href="hypothesis-testing-for-categorical-data.html#cb195-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;This function requires epibasix to be installed&quot;</span>)</span>
+<span id="cb195-5"><a href="hypothesis-testing-for-categorical-data.html#cb195-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb195-6"><a href="hypothesis-testing-for-categorical-data.html#cb195-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb195-7"><a href="hypothesis-testing-for-categorical-data.html#cb195-7" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> <span class="fu">table</span>(data[[var1]], data[[var2]])</span>
+<span id="cb195-8"><a href="hypothesis-testing-for-categorical-data.html#cb195-8" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> (tab[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> tab[<span class="dv">1</span>, <span class="dv">2</span>]) <span class="sc">/</span> <span class="fu">sum</span>(tab)</span>
+<span id="cb195-9"><a href="hypothesis-testing-for-categorical-data.html#cb195-9" aria-hidden="true" tabindex="-1"></a>  p2 <span class="ot">&lt;-</span> (tab[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> tab[<span class="dv">2</span>, <span class="dv">1</span>]) <span class="sc">/</span> <span class="fu">sum</span>(tab)</span>
+<span id="cb195-10"><a href="hypothesis-testing-for-categorical-data.html#cb195-10" aria-hidden="true" tabindex="-1"></a>  pd <span class="ot">&lt;-</span> epibasix<span class="sc">::</span><span class="fu">mcNemar</span>(tab)<span class="sc">$</span>rd</span>
+<span id="cb195-11"><a href="hypothesis-testing-for-categorical-data.html#cb195-11" aria-hidden="true" tabindex="-1"></a>  pd.cil <span class="ot">&lt;-</span> epibasix<span class="sc">::</span><span class="fu">mcNemar</span>(tab)<span class="sc">$</span>rd.CIL</span>
+<span id="cb195-12"><a href="hypothesis-testing-for-categorical-data.html#cb195-12" aria-hidden="true" tabindex="-1"></a>  pd.ciu <span class="ot">&lt;-</span> epibasix<span class="sc">::</span><span class="fu">mcNemar</span>(tab)<span class="sc">$</span>rd.CIU</span>
+<span id="cb195-13"><a href="hypothesis-testing-for-categorical-data.html#cb195-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(</span>
+<span id="cb195-14"><a href="hypothesis-testing-for-categorical-data.html#cb195-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Proportion 1: &quot;</span>,</span>
+<span id="cb195-15"><a href="hypothesis-testing-for-categorical-data.html#cb195-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="fu">round</span>(p1, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits),</span>
+<span id="cb195-16"><a href="hypothesis-testing-for-categorical-data.html#cb195-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;; Proportion 2: &quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(p2, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits)</span>
+<span id="cb195-17"><a href="hypothesis-testing-for-categorical-data.html#cb195-17" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb195-18"><a href="hypothesis-testing-for-categorical-data.html#cb195-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(</span>
+<span id="cb195-19"><a href="hypothesis-testing-for-categorical-data.html#cb195-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Difference in paired proportions: &quot;</span>,</span>
+<span id="cb195-20"><a href="hypothesis-testing-for-categorical-data.html#cb195-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="fu">round</span>(pd, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits),</span>
+<span id="cb195-21"><a href="hypothesis-testing-for-categorical-data.html#cb195-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;; 95% CI: &quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(pd.cil, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits),</span>
+<span id="cb195-22"><a href="hypothesis-testing-for-categorical-data.html#cb195-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot; to &quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(pd.ciu, <span class="at">digits =</span> digits), <span class="at">nsmall =</span> digits)</span>
+<span id="cb195-23"><a href="hypothesis-testing-for-categorical-data.html#cb195-23" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb195-24"><a href="hypothesis-testing-for-categorical-data.html#cb195-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb195-25"><a href="hypothesis-testing-for-categorical-data.html#cb195-25" aria-hidden="true" tabindex="-1"></a><span class="do">### End copy</span></span>
+<span id="cb195-26"><a href="hypothesis-testing-for-categorical-data.html#cb195-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-27"><a href="hypothesis-testing-for-categorical-data.html#cb195-27" aria-hidden="true" tabindex="-1"></a><span class="fu">mcNemarDiff</span>(<span class="at">data =</span> drug, <span class="at">var1 =</span> <span class="st">&quot;druga&quot;</span>, <span class="at">var2 =</span> <span class="st">&quot;drugb&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Proportion 1: 0.68; Proportion 2: 0.58&quot;
 ## [1] &quot;Difference in paired proportions: 0.10; 95% CI: -0.11 to 0.31&quot;</code></pre>
 <p>In this study of 60 participants, where each participant received both drugs, 41 (68%) responded to Drug A and 35 (58%) responded to Drug B. The difference in the proportions responding is estimated as 10% (95% CI -11% to 31%). There is no evidence that the response differed between the two drugs (McNemar’s chi-squared = 1.06 with 1df, P=0.30).</p>
@@ -523,6 +545,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

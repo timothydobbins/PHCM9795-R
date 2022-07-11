@@ -22,6 +22,12 @@ This is the first year that R has been offered as an option. I am keen to receiv
 
 ### Changelog {-}
 
+**2022-07-14**
+
+[Added]
+
+- Module 7: first release.
+
 **2022-07-05**
 
 [Added]
