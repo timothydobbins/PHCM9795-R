@@ -1,4 +1,4 @@
-# Testing proportions
+# Hypothesis testing for categorical data
 
 ## Pearson’s chi-squared test
 
@@ -20,8 +20,8 @@ str(nausea$side_effect)
 The columns `group` and `side_effect` have been entered as factors, with "Placebo" and "No nausea" as the first levels. We should use the `relevel()` command to re-order the factor levels.
 
 ```{r}
-nausea$group <- releve(nausea$group, ref="Active")
-nausea$side_effect <- releve(nausea$side_effect, ref="Nausea")
+nausea$group <- relevel(nausea$group, ref="Active")
+nausea$side_effect <- relevel(nausea$side_effect, ref="Nausea")
 
 str(nausea$group)
 str(nausea$side_effect)
@@ -84,23 +84,58 @@ drug <- readRDS("data/examples/Example_7.3.rds")
 head(drug)
 ```
 
-Responses to each drug should be in separate variables in the dataset as shown in Table 7.2 using the `tabulate2` command (**Statistics > Summaries, tables, and tests > Frequency tables > Two-way table with measures of association**). In the tabulate2 dialog box, tick **Relative frequencies** under **Cell contents** as shown below.
+As usual, we should check that the variables being tabulated are factors, with the first level of the factor being the outcome of interest. We can use the `relevel()` function to re-order levels as necessary.
 
 ```{r}
-tab_drug <- table(drug$druga, drug$drugb)
-tab_drug
+str(drug$druga)
+str(drug$drugb)
 
-prop.table(tab_drug)
+drug$druga <- relevel(drug$druga, ref="Yes")
+drug$drugb <- relevel(drug$drugb, ref="Yes")
+
+str(drug$druga)
+str(drug$drugb)
 ```
 
-
-To perform the McNemar’s test, go to **Statistics > Epidemiology and related > Tables for epidemiologists > Matched case-control studies**. In the `mcc` dialog box, select the variable `drugb` as the **Exposed case variable** and `druga` as the **Exposed control variable** as shown below.
+We can use the `contTablesPaired()` function within the `jmv` library to conduct McNemar's test of paired proportions:
 
 ```{r}
-mcnemar.test(tab_drug)
-
-epibasix::mcNemar(tab_drug)$rd
-epibasix::mcNemar(tab_drug)$rd.CIL
-epibasix::mcNemar(tab_drug)$rd.CIU
+contTablesPaired(data=drug, rows=druga, cols=drugb)
 ```
 
+Note that `contTablesPaired()` does not calculate an exact P-value.
+
+To estimate the proportion in each of the paired samples, its difference, and the 95% confidence interval of the difference, we can use the `mcNemarDiff()` function which is stored in Microsoft Teams and [here](https://gist.githubusercontent.com/timothydobbins/525d25271b04b2ea72aae70c4aac8b01/raw/6b69f5b229d50daeac4c2f4cf4331e88b0c65717/mcNemarDiff.R).
+
+```{r}
+
+### Copied from Microsoft Teams
+mcNemarDiff <- function(data, var1, var2, digits = 3) {
+  if (!requireNamespace("epibasix", quietly = TRUE)) {
+    stop("This function requires epibasix to be installed")
+  }
+  
+  tab <- table(data[[var1]], data[[var2]])
+  p1 <- (tab[1, 1] + tab[1, 2]) / sum(tab)
+  p2 <- (tab[1, 1] + tab[2, 1]) / sum(tab)
+  pd <- epibasix::mcNemar(tab)$rd
+  pd.cil <- epibasix::mcNemar(tab)$rd.CIL
+  pd.ciu <- epibasix::mcNemar(tab)$rd.CIU
+  print(paste0(
+    "Proportion 1: ",
+    format(round(p1, digits = digits), nsmall = digits),
+    "; Proportion 2: ", format(round(p2, digits = digits), nsmall = digits)
+  ))
+  print(paste0(
+    "Difference in paired proportions: ",
+    format(round(pd, digits = digits), nsmall = digits),
+    "; 95% CI: ", format(round(pd.cil, digits = digits), nsmall = digits),
+    " to ", format(round(pd.ciu, digits = digits), nsmall = digits)
+  ))
+}
+### End copy
+
+mcNemarDiff(data = drug, var1 = "druga", var2 = "drugb", digits = 2)
+```
+
+In this study of 60 participants, where each participant received both drugs, 41 (68%) responded to Drug A and 35 (58%) responded to Drug B. The difference in the proportions responding is estimated as 10% (95% CI -11% to 31%). There is no evidence that the response differed between the two drugs (McNemar’s chi-squared = 1.06 with 1df, P=0.30).
