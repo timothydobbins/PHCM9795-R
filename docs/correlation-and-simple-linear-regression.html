@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="testing-proportions.html"/>
-<link rel="next" href="analysing-non-normal-data.html"/>
+<link rel="prev" href="hypothesis-testing-for-categorical-data.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -118,28 +118,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -168,33 +146,35 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#simpleR"><i class="fa fa-check"></i><b>1.4</b> A simple R analysis</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#the-rstudio-environment"><i class="fa fa-check"></i><b>1.5</b> The RStudio environment</a></li>
 <li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#some-r-basics"><i class="fa fa-check"></i><b>1.6</b> Some R basics</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#what-is-this-thing-called-the-tidyverse"><i class="fa fa-check"></i><b>1.7</b> What is this thing called the tidyverse?</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-2-obtaining-basic-descriptive-statistics"><i class="fa fa-check"></i>Part 2: Obtaining basic descriptive statistics</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#set-up-your-data"><i class="fa fa-check"></i><b>1.7</b> Set up your data</a></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#reading-a-data-file"><i class="fa fa-check"></i><b>1.8</b> Reading a data file</a></li>
-<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#summarising-continuous-variables"><i class="fa fa-check"></i><b>1.9</b> Summarising continuous variables</a></li>
-<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-histogram"><i class="fa fa-check"></i><b>1.10</b> Producing a histogram</a></li>
-<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-boxplot"><i class="fa fa-check"></i><b>1.11</b> Producing a boxplot</a></li>
-<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-one-way-frequency-table"><i class="fa fa-check"></i><b>1.12</b> Producing a one-way frequency table</a></li>
-<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#defining-categorical-variables-as-factors"><i class="fa fa-check"></i><b>1.13</b> Defining categorical variables as factors</a></li>
-<li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#saving-data-in-r"><i class="fa fa-check"></i><b>1.14</b> Saving data in R</a></li>
-<li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#copying-output-from-r"><i class="fa fa-check"></i><b>1.15</b> Copying output from R</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#set-up-your-data"><i class="fa fa-check"></i><b>1.8</b> Set up your data</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#reading-a-data-file"><i class="fa fa-check"></i><b>1.9</b> Reading a data file</a></li>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#summarising-continuous-variables"><i class="fa fa-check"></i><b>1.10</b> Summarising continuous variables</a></li>
+<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-histogram"><i class="fa fa-check"></i><b>1.11</b> Producing a histogram</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-boxplot"><i class="fa fa-check"></i><b>1.12</b> Producing a boxplot</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-one-way-frequency-table"><i class="fa fa-check"></i><b>1.13</b> Producing a one-way frequency table</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#producing-a-two-way-frequency-table"><i class="fa fa-check"></i><b>1.14</b> Producing a two-way frequency table</a></li>
+<li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#saving-data-in-r"><i class="fa fa-check"></i><b>1.15</b> Saving data in R</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#copying-output-from-r"><i class="fa fa-check"></i><b>1.16</b> Copying output from R</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#part-3-creating-other-types-of-graphs"><i class="fa fa-check"></i>Part 3: Creating other types of graphs</a></li>
-<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#bar-graphs"><i class="fa fa-check"></i><b>1.16</b> Bar graphs</a></li>
-<li class="chapter" data-level="1.17" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-line-graphs"><i class="fa fa-check"></i><b>1.17</b> Creating line graphs</a></li>
+<li class="chapter" data-level="1.17" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#bar-graphs"><i class="fa fa-check"></i><b>1.17</b> Bar graphs</a></li>
+<li class="chapter" data-level="1.18" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-line-graphs"><i class="fa fa-check"></i><b>1.18</b> Creating line graphs</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions: R notes</a>
+<li class="chapter" data-level="2" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>2</b> Probability and probability distributions</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#importing-data-into-stata"><i class="fa fa-check"></i><b>2.1</b> Importing data into Stata</a></li>
-<li class="chapter" data-level="2.2" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#checking-your-data-for-errors-in-r"><i class="fa fa-check"></i><b>2.2</b> Checking your data for errors in R</a></li>
-<li class="chapter" data-level="2.3" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#overlaying-a-normal-curve-on-a-histogram"><i class="fa fa-check"></i><b>2.3</b> Overlaying a Normal curve on a histogram</a></li>
-<li class="chapter" data-level="2.4" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#ggplot2"><i class="fa fa-check"></i><b>2.4</b> ggplot2</a></li>
-<li class="chapter" data-level="2.5" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#descriptive-statistics-for-checking-normality"><i class="fa fa-check"></i><b>2.5</b> Descriptive statistics for checking normality</a></li>
-<li class="chapter" data-level="2.6" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#import-excel"><i class="fa fa-check"></i><b>2.6</b> Importing Excel data into Stata</a></li>
-<li class="chapter" data-level="2.7" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#generating-new-variables"><i class="fa fa-check"></i><b>2.7</b> Generating new variables</a></li>
-<li class="chapter" data-level="2.8" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#summarising-data-by-another-variable"><i class="fa fa-check"></i><b>2.8</b> Summarising data by another variable</a></li>
-<li class="chapter" data-level="2.9" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#recoding-data"><i class="fa fa-check"></i><b>2.9</b> Recoding data</a></li>
-<li class="chapter" data-level="2.10" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#computing-binomial-probabilities-using-r"><i class="fa fa-check"></i><b>2.10</b> Computing binomial probabilities using R</a></li>
-<li class="chapter" data-level="2.11" data-path="probability-and-probability-distributions-r-notes.html"><a href="probability-and-probability-distributions-r-notes.html#computing-probabilities-from-a-normal-distribution"><i class="fa fa-check"></i><b>2.11</b> Computing probabilities from a Normal distribution</a></li>
+<li class="chapter" data-level="2.1" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#importing-data-into-r"><i class="fa fa-check"></i><b>2.1</b> Importing data into R</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#checking-your-data-for-errors-in-r"><i class="fa fa-check"></i><b>2.2</b> Checking your data for errors in R</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#overlaying-a-normal-curve-on-a-histogram"><i class="fa fa-check"></i><b>2.3</b> Overlaying a Normal curve on a histogram</a></li>
+<li class="chapter" data-level="2.4" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#descriptive-statistics-for-checking-normality"><i class="fa fa-check"></i><b>2.4</b> Descriptive statistics for checking normality</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#import-excel"><i class="fa fa-check"></i><b>2.5</b> Importing Excel data into R</a></li>
+<li class="chapter" data-level="2.6" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#generating-new-variables"><i class="fa fa-check"></i><b>2.6</b> Generating new variables</a></li>
+<li class="chapter" data-level="2.7" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#summarising-data-by-another-variable"><i class="fa fa-check"></i><b>2.7</b> Summarising data by another variable</a></li>
+<li class="chapter" data-level="2.8" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#summarising-a-single-column-of-data"><i class="fa fa-check"></i><b>2.8</b> Summarising a single column of data</a></li>
+<li class="chapter" data-level="2.9" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#plotting-data-by-another-variable"><i class="fa fa-check"></i><b>2.9</b> Plotting data by another variable</a></li>
+<li class="chapter" data-level="2.10" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#recoding-data"><i class="fa fa-check"></i><b>2.10</b> Recoding data</a></li>
+<li class="chapter" data-level="2.11" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#computing-binomial-probabilities-using-r"><i class="fa fa-check"></i><b>2.11</b> Computing binomial probabilities using R</a></li>
+<li class="chapter" data-level="2.12" data-path="probability-and-probability-distributions.html"><a href="probability-and-probability-distributions.html#computing-probabilities-from-a-normal-distribution"><i class="fa fa-check"></i><b>2.12</b> Computing probabilities from a Normal distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="precision-r-notes.html"><a href="precision-r-notes.html"><i class="fa fa-check"></i><b>3</b> Precision: R notes</a>
 <ul>
@@ -206,45 +186,33 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="comparing-two-means.html"><a href="comparing-two-means.html"><i class="fa fa-check"></i><b>5</b> Comparing two means</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>5.1</b> Checking data for the independent samples t-test</a></li>
-<li class="chapter" data-level="5.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>5.2</b> Independent samples t-test</a></li>
-<li class="chapter" data-level="5.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>5.3</b> Checking the assumptions for a Paired t-test</a></li>
-<li class="chapter" data-level="5.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>5.4</b> Paired t-Test</a></li>
+<li class="chapter" data-level="5.1" data-path="comparing-two-means.html"><a href="comparing-two-means.html#setting-an-observation-to-missing"><i class="fa fa-check"></i><b>5.1</b> Setting an observation to missing</a></li>
+<li class="chapter" data-level="5.2" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-data-for-the-independent-samples-t-test"><i class="fa fa-check"></i><b>5.2</b> Checking data for the independent samples t-test</a></li>
+<li class="chapter" data-level="5.3" data-path="comparing-two-means.html"><a href="comparing-two-means.html#independent-samples-t-test"><i class="fa fa-check"></i><b>5.3</b> Independent samples t-test</a></li>
+<li class="chapter" data-level="5.4" data-path="comparing-two-means.html"><a href="comparing-two-means.html#checking-the-assumptions-for-a-paired-t-test"><i class="fa fa-check"></i><b>5.4</b> Checking the assumptions for a Paired t-test</a></li>
+<li class="chapter" data-level="5.5" data-path="comparing-two-means.html"><a href="comparing-two-means.html#paired-t-test"><i class="fa fa-check"></i><b>5.5</b> Paired t-Test</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="proportions.html"><a href="proportions.html"><i class="fa fa-check"></i><b>6</b> Proportions</a>
+<li class="chapter" data-level="6" data-path="summary-statistics-for-binary-data.html"><a href="summary-statistics-for-binary-data.html"><i class="fa fa-check"></i><b>6</b> Summary statistics for binary data</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="proportions.html"><a href="proportions.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>6.1</b> 95% confidence intervals for proportions</a></li>
-<li class="chapter" data-level="6.2" data-path="proportions.html"><a href="proportions.html#significance-test-for-single-proportion"><i class="fa fa-check"></i><b>6.2</b> Significance test for single proportion</a></li>
-<li class="chapter" data-level="6.3" data-path="proportions.html"><a href="proportions.html#computing-a-relative-risk-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>6.3</b> Computing a relative risk and its 95% confidence interval</a></li>
-<li class="chapter" data-level="6.4" data-path="proportions.html"><a href="proportions.html#computing-an-odds-ratio-and-its-95ci"><i class="fa fa-check"></i><b>6.4</b> Computing an odds ratio and its 95%CI</a></li>
+<li class="chapter" data-level="6.1" data-path="summary-statistics-for-binary-data.html"><a href="summary-statistics-for-binary-data.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>6.1</b> 95% confidence intervals for proportions</a></li>
+<li class="chapter" data-level="6.2" data-path="summary-statistics-for-binary-data.html"><a href="summary-statistics-for-binary-data.html#significance-test-for-single-proportion"><i class="fa fa-check"></i><b>6.2</b> Significance test for single proportion</a></li>
+<li class="chapter" data-level="6.3" data-path="summary-statistics-for-binary-data.html"><a href="summary-statistics-for-binary-data.html#computing-a-relative-risk-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>6.3</b> Computing a relative risk and its 95% confidence interval</a></li>
+<li class="chapter" data-level="6.4" data-path="summary-statistics-for-binary-data.html"><a href="summary-statistics-for-binary-data.html#computing-a-difference-in-proportions-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>6.4</b> Computing a difference in proportions and its 95% confidence interval</a></li>
+<li class="chapter" data-level="6.5" data-path="summary-statistics-for-binary-data.html"><a href="summary-statistics-for-binary-data.html#computing-an-odds-ratio-and-its-95-confidence-interval"><i class="fa fa-check"></i><b>6.5</b> Computing an odds ratio and its 95% confidence interval</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="testing-proportions.html"><a href="testing-proportions.html"><i class="fa fa-check"></i><b>7</b> Testing proportions</a>
+<li class="chapter" data-level="7" data-path="hypothesis-testing-for-categorical-data.html"><a href="hypothesis-testing-for-categorical-data.html"><i class="fa fa-check"></i><b>7</b> Hypothesis testing for categorical data</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="testing-proportions.html"><a href="testing-proportions.html#pearsons-chi-squared-test"><i class="fa fa-check"></i><b>7.1</b> Pearson’s chi-squared test</a></li>
-<li class="chapter" data-level="7.2" data-path="testing-proportions.html"><a href="testing-proportions.html#chi-squared-test-for-tables-larger-than-2-by-2"><i class="fa fa-check"></i><b>7.2</b> Chi-squared test for tables larger than 2-by-2</a></li>
-<li class="chapter" data-level="7.3" data-path="testing-proportions.html"><a href="testing-proportions.html#mcnemars-test-for-paired-proportions"><i class="fa fa-check"></i><b>7.3</b> McNemar’s test for paired proportions</a></li>
+<li class="chapter" data-level="7.1" data-path="hypothesis-testing-for-categorical-data.html"><a href="hypothesis-testing-for-categorical-data.html#pearsons-chi-squared-test"><i class="fa fa-check"></i><b>7.1</b> Pearson’s chi-squared test</a></li>
+<li class="chapter" data-level="7.2" data-path="hypothesis-testing-for-categorical-data.html"><a href="hypothesis-testing-for-categorical-data.html#chi-squared-test-for-tables-larger-than-2-by-2"><i class="fa fa-check"></i><b>7.2</b> Chi-squared test for tables larger than 2-by-2</a></li>
+<li class="chapter" data-level="7.3" data-path="hypothesis-testing-for-categorical-data.html"><a href="hypothesis-testing-for-categorical-data.html#mcnemars-test-for-paired-proportions"><i class="fa fa-check"></i><b>7.3</b> McNemar’s test for paired proportions</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>8</b> Correlation and simple linear regression</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#creating-a-scatter-plot"><i class="fa fa-check"></i><b>8.1</b> Creating a scatter plot</a></li>
-<li class="chapter" data-level="8.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient"><i class="fa fa-check"></i><b>8.2</b> Calculating a correlation coefficient</a></li>
-<li class="chapter" data-level="8.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model"><i class="fa fa-check"></i><b>8.3</b> Fitting a simple linear regression model</a></li>
-<li class="chapter" data-level="8.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression"><i class="fa fa-check"></i><b>8.4</b> Plotting residuals from a simple linear regression</a></li>
+<li class="chapter" data-level="8.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model"><i class="fa fa-check"></i><b>8.2</b> Fitting a simple linear regression model</a></li>
+<li class="chapter" data-level="8.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression"><i class="fa fa-check"></i><b>8.3</b> Plotting residuals from a simple linear regression</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html"><i class="fa fa-check"></i><b>9</b> Analysing non-normal data</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#transforming-non-normally-distributed-variables"><i class="fa fa-check"></i><b>9.1</b> Transforming non-normally distributed variables</a></li>
-<li class="chapter" data-level="9.2" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-ranked-sum-test"><i class="fa fa-check"></i><b>9.2</b> Wilcoxon ranked-sum test</a></li>
-<li class="chapter" data-level="9.3" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#wilcoxon-matched-pairs-signed-rank-test"><i class="fa fa-check"></i><b>9.3</b> Wilcoxon matched-pairs signed-rank test</a></li>
-<li class="chapter" data-level="9.4" data-path="analysing-non-normal-data.html"><a href="analysing-non-normal-data.html#estimating-rank-correlation-coefficients"><i class="fa fa-check"></i><b>9.4</b> Estimating rank correlation coefficients</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="sample-size.html"><a href="sample-size.html"><i class="fa fa-check"></i><b>10</b> Sample size</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-two-independent-samples-t-test"><i class="fa fa-check"></i><b>10.1</b> Sample size calculation for two independent samples t-test</a></li>
-<li class="chapter" data-level="10.2" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-for-difference-between-two-independent-proportions"><i class="fa fa-check"></i><b>10.2</b> Sample size calculation for difference between two independent proportions</a></li>
-<li class="chapter" data-level="10.3" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-a-relative-risk"><i class="fa fa-check"></i><b>10.3</b> Sample size calculation with a relative risk</a></li>
-<li class="chapter" data-level="10.4" data-path="sample-size.html"><a href="sample-size.html#sample-size-calculation-with-an-odds-ratio"><i class="fa fa-check"></i><b>10.4</b> Sample size calculation with an odds ratio</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -265,36 +233,22 @@ div.csl-indent {
 <div id="correlation-and-simple-linear-regression" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Module 8</span> Correlation and simple linear regression<a href="correlation-and-simple-linear-regression.html#correlation-and-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We will demonstrate using Stata for correlation and simple linear regression using the dataset <code>Example_8.1.rds</code>.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="correlation-and-simple-linear-regression.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)   <span class="co"># Optional, for nicer looking scatterplots</span></span>
-<span id="cb188-2"><a href="correlation-and-simple-linear-regression.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)     <span class="co"># For importing data</span></span>
-<span id="cb188-3"><a href="correlation-and-simple-linear-regression.html#cb188-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-4"><a href="correlation-and-simple-linear-regression.html#cb188-4" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_8.1.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="correlation-and-simple-linear-regression.html#cb5-1" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_8.1.rds&quot;</span>)</span></code></pre></div>
 <div id="creating-a-scatter-plot" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Creating a scatter plot<a href="correlation-and-simple-linear-regression.html#creating-a-scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>plot</code> function to create a scatter plot to explore the association between height and FVC, assigning meaningful labels with the <code>xlab</code> and <code>ylab</code> commands:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="correlation-and-simple-linear-regression.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>lung<span class="sc">$</span>Height, <span class="at">y=</span>lung<span class="sc">$</span>FVC, <span class="at">xlab=</span><span class="st">&quot;Height (cm)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
-<p>To add a fitted line, we can use the <code>abline()</code> function which adds a straight line to the plot. The equation of this straight line will be determined from the estimated regression line, which we specify with <code>lm(y ~ x)</code>. Putting this all together:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="correlation-and-simple-linear-regression.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>lung<span class="sc">$</span>Height, <span class="at">y=</span>lung<span class="sc">$</span>FVC, <span class="at">xlab=</span><span class="st">&quot;Height (cm)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span>
-<span id="cb190-2"><a href="correlation-and-simple-linear-regression.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height))</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
-<p>To create a scatter plot using <code>ggplot2</code>, we define the x and y aesthetics as the <code>Height</code> and <code>FVC</code>. We then specify that we want to plot points, by specifying the point geometry using <code>geom_point</code>. We can add labels in the usual way. Putting it all together:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="correlation-and-simple-linear-regression.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>lung, <span class="fu">aes</span>(<span class="at">x=</span>Height, <span class="at">y=</span>FVC)) <span class="sc">+</span> </span>
-<span id="cb191-2"><a href="correlation-and-simple-linear-regression.html#cb191-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb191-3"><a href="correlation-and-simple-linear-regression.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Height (cm)&quot;</span>, <span class="at">y=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
-<p>We can add an estimated regression line by adding a <code>geom_smooth</code>, specifying that the line should be based on a linear model (<code>lm</code>), and no error shading should be included (<code>se=FALSE</code>):</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="correlation-and-simple-linear-regression.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>lung, <span class="fu">aes</span>(<span class="at">x=</span>Height, <span class="at">y=</span>FVC)) <span class="sc">+</span> </span>
-<span id="cb192-2"><a href="correlation-and-simple-linear-regression.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb192-3"><a href="correlation-and-simple-linear-regression.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb192-4"><a href="correlation-and-simple-linear-regression.html#cb192-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Height (cm)&quot;</span>, <span class="at">y=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
-</div>
-<div id="calculating-a-correlation-coefficient" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Calculating a correlation coefficient<a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can use the <code>cor.test</code> function to calculate a Pearson’s correlation coefficient:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="correlation-and-simple-linear-regression.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="correlation-and-simple-linear-regression.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>lung<span class="sc">$</span>Height, <span class="at">y=</span>lung<span class="sc">$</span>FVC, </span>
+<span id="cb6-2"><a href="correlation-and-simple-linear-regression.html#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Height (cm)&quot;</span>, </span>
+<span id="cb6-3"><a href="correlation-and-simple-linear-regression.html#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>To add a fitted line, we can use the <code>abline()</code> function which adds a straight line to the plot. The equation of this straight line will be determined from the estimated regression line, which we specify with <code>lm(y ~ x)</code> where <code>y</code> represents the <em>outcome</em> variable, and <code>x</code> represents the <em>explanatory</em> variable. Putting this all together:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="correlation-and-simple-linear-regression.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>lung<span class="sc">$</span>Height, <span class="at">y=</span>lung<span class="sc">$</span>FVC, <span class="at">xlab=</span><span class="st">&quot;Height (cm)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span>
+<span id="cb7-2"><a href="correlation-and-simple-linear-regression.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height))</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div id="calculating-a-correlation-coefficient" class="section level3 unnumbered hasAnchor">
+<h3>Calculating a correlation coefficient<a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use the <code>cor.test(x, y)</code> function to calculate a Pearson’s correlation coefficient:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="correlation-and-simple-linear-regression.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -307,23 +261,24 @@ div.csl-indent {
 ##      cor 
 ## 0.697628</code></pre>
 </div>
-<div id="fitting-a-simple-linear-regression-model" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Fitting a simple linear regression model<a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can use the <code>lm</code> function to fit a simple linear regression model, specifying the model as <code>y ~ x</code>. Using <code>Example_8.1.rds</code>, we can quantify the relationship between FVC and height.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="correlation-and-simple-linear-regression.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(FVC <span class="sc">~</span> Height, <span class="at">data=</span>lung)</span></code></pre></div>
+</div>
+<div id="fitting-a-simple-linear-regression-model" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Fitting a simple linear regression model<a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use the <code>lm</code> function to fit a simple linear regression model, specifying the model as <code>y ~ x</code> where <code>y</code> represents the <em>outcome</em> variable, and <code>x</code> represents the <em>explanatory</em> variable. Using <code>Example_8.1.rds</code>, we can quantify the relationship between FVC and height.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="correlation-and-simple-linear-regression.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## lm(formula = FVC ~ Height, data = lung)
+## lm(formula = lung$FVC ~ lung$Height)
 ## 
 ## Coefficients:
-## (Intercept)       Height  
+## (Intercept)  lung$Height  
 ##    -18.8735       0.1408</code></pre>
 <p>The default output from the <code>lm</code> function is rather sparse. We can obtain much more useful information by defining the model as an object, then using the <code>summary()</code> function:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="correlation-and-simple-linear-regression.html#cb198-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FVC <span class="sc">~</span> Height, <span class="at">data=</span>lung)</span>
-<span id="cb198-2"><a href="correlation-and-simple-linear-regression.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="correlation-and-simple-linear-regression.html#cb12-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height)</span>
+<span id="cb12-2"><a href="correlation-and-simple-linear-regression.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## lm(formula = FVC ~ Height, data = lung)
+## lm(formula = lung$FVC ~ lung$Height)
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
@@ -332,7 +287,7 @@ div.csl-indent {
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
 ## (Intercept) -18.87347    2.19365  -8.604 3.89e-14 ***
-## Height        0.14076    0.01331  10.577  &lt; 2e-16 ***
+## lung$Height   0.14076    0.01331  10.577  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -340,32 +295,22 @@ div.csl-indent {
 ## Multiple R-squared:  0.4867, Adjusted R-squared:  0.4823 
 ## F-statistic: 111.9 on 1 and 118 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Finally, we can obtain 95% confidence intervals for the regression coefficients using the <code>confint</code> function:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="correlation-and-simple-linear-regression.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model1)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="correlation-and-simple-linear-regression.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model1)</span></code></pre></div>
 <pre><code>##                   2.5 %      97.5 %
 ## (Intercept) -23.2174967 -14.5294444
-## Height        0.1144042   0.1671092</code></pre>
+## lung$Height   0.1144042   0.1671092</code></pre>
 </div>
-<div id="plotting-residuals-from-a-simple-linear-regression" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Plotting residuals from a simple linear regression<a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="plotting-residuals-from-a-simple-linear-regression" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Plotting residuals from a simple linear regression<a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <code>resid</code> function to obtain the residuals from a saved model. These residuals can then be plotted using a histogram in the usual way:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="correlation-and-simple-linear-regression.html#cb202-1" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> <span class="fu">resid</span>(model1)</span>
-<span id="cb202-2"><a href="correlation-and-simple-linear-regression.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(residuals)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="correlation-and-simple-linear-regression.html#cb16-1" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> <span class="fu">resid</span>(model1)</span>
+<span id="cb16-2"><a href="correlation-and-simple-linear-regression.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(residuals)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>A Normal curve can be overlaid if we plot the residuals using a probability scale.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="correlation-and-simple-linear-regression.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(residuals, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb203-2"><a href="correlation-and-simple-linear-regression.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="fu">mean</span>(residuals), <span class="at">sd=</span><span class="fu">sd</span>(residuals)), </span>
-<span id="cb203-3"><a href="correlation-and-simple-linear-regression.html#cb203-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
-<p>Alternatively, a <code>ggplot2</code> approach can be used, after converting the single vector of residuals into a dataframe:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="correlation-and-simple-linear-regression.html#cb204-1" aria-hidden="true" tabindex="-1"></a>resid <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(residuals)</span>
-<span id="cb204-2"><a href="correlation-and-simple-linear-regression.html#cb204-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-3"><a href="correlation-and-simple-linear-regression.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resid, <span class="fu">aes</span>(<span class="at">x=</span>residuals)) <span class="sc">+</span> </span>
-<span id="cb204-4"><a href="correlation-and-simple-linear-regression.html#cb204-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary=</span><span class="sc">-</span><span class="fl">1.5</span>, <span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="correlation-and-simple-linear-regression.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resid, <span class="fu">aes</span>(<span class="at">x=</span>residuals)) <span class="sc">+</span> </span>
-<span id="cb205-2"><a href="correlation-and-simple-linear-regression.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary=</span><span class="sc">-</span><span class="fl">1.5</span>, <span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb205-3"><a href="correlation-and-simple-linear-regression.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(resid<span class="sc">$</span>residuals), <span class="at">sd =</span> <span class="fu">sd</span>(resid<span class="sc">$</span>residuals)))</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-114-2.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="correlation-and-simple-linear-regression.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(residuals, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-2"><a href="correlation-and-simple-linear-regression.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="fu">mean</span>(residuals), <span class="at">sd=</span><span class="fu">sd</span>(residuals)), </span>
+<span id="cb17-3"><a href="correlation-and-simple-linear-regression.html#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -374,8 +319,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="testing-proportions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="analysing-non-normal-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hypothesis-testing-for-categorical-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -429,20 +374,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
