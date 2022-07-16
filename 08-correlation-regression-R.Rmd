@@ -21,7 +21,10 @@ To add a fitted line, we can use the `abline()` function which adds a straight l
 The basic syntax of the `lm()` function is: `lm(y ~ x)` where `y` represents the *outcome* variable, and `x` represents the *explanatory* variable. Putting this all together:
 
 ```{r}
-plot(x=lung$Height, y=lung$FVC, xlab="Height (cm)", ylab="Forced vital capacity (L)")
+plot(x=lung$Height, y=lung$FVC,
+     xlab="Height (cm)",
+     ylab="Forced vital capacity (L)")
+
 abline(lm(lung$FVC ~ lung$Height))
 ```
 
@@ -51,7 +54,7 @@ summary(model)
 Finally, we can obtain 95% confidence intervals for the regression coefficients using the `confint` function:
 
 ```{r}
-confint(model1)
+confint(model)
 ```
 
 ## Plotting residuals from a simple linear regression
@@ -66,7 +69,9 @@ hist(residuals)
 A Normal curve can be overlaid if we plot the residuals using a probability scale.
 
 ```{r}
-hist(residuals, probability = TRUE)
+hist(residuals, probability = TRUE,
+     ylim = c(0, 1))
+
 curve(dnorm(x, mean=mean(residuals), sd=sd(residuals)), 
       col="darkblue", lwd=2, add=TRUE)
 ```

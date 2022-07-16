@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{11 July, 2022}
+\date{16 July, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-07-16}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Module 8: first release.
+\end{itemize}
 
 \textbf{2022-07-14}
 
@@ -3451,6 +3461,167 @@ To estimate the proportion in each of the paired samples, its difference, and th
 \end{verbatim}
 
 In this study of 60 participants, where each participant received both drugs, 41 (68\%) responded to Drug A and 35 (58\%) responded to Drug B. The difference in the proportions responding is estimated as 10\% (95\% CI -11\% to 31\%). There is no evidence that the response differed between the two drugs (McNemar's chi-squared = 1.06 with 1df, P=0.30).
+
+\hypertarget{correlation-and-simple-linear-regression}{%
+\chapter{Correlation and simple linear regression}\label{correlation-and-simple-linear-regression}}
+
+We will demonstrate using Stata for correlation and simple linear regression using the dataset \texttt{Example\_8.1.rds}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lung }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_8.1.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{creating-a-scatter-plot}{%
+\section{Creating a scatter plot}\label{creating-a-scatter-plot}}
+
+We can use the \texttt{plot} function to create a scatter plot to explore the association between height and FVC, assigning meaningful labels with the \texttt{xlab} and \texttt{ylab} commands:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x=}\NormalTok{lung}\SpecialCharTok{$}\NormalTok{Height, }\AttributeTok{y=}\NormalTok{lung}\SpecialCharTok{$}\NormalTok{FVC, }
+     \AttributeTok{xlab=}\StringTok{"Height (cm)"}\NormalTok{, }
+     \AttributeTok{ylab=}\StringTok{"Forced vital capacity (L)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-120-1.pdf}
+
+To add a fitted line, we can use the \texttt{abline()} function which adds a straight line to the plot. The equation of this straight line will be determined from the estimated regression line, which we specify with the \texttt{lm()} function, which fits a \emph{linear model}.
+
+The basic syntax of the \texttt{lm()} function is: \texttt{lm(y\ \textasciitilde{}\ x)} where \texttt{y} represents the \emph{outcome} variable, and \texttt{x} represents the \emph{explanatory} variable. Putting this all together:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x=}\NormalTok{lung}\SpecialCharTok{$}\NormalTok{Height, }\AttributeTok{y=}\NormalTok{lung}\SpecialCharTok{$}\NormalTok{FVC,}
+     \AttributeTok{xlab=}\StringTok{"Height (cm)"}\NormalTok{,}
+     \AttributeTok{ylab=}\StringTok{"Forced vital capacity (L)"}\NormalTok{)}
+
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(lung}\SpecialCharTok{$}\NormalTok{FVC }\SpecialCharTok{\textasciitilde{}}\NormalTok{ lung}\SpecialCharTok{$}\NormalTok{Height))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-121-1.pdf}
+
+\hypertarget{calculating-a-correlation-coefficient}{%
+\subsection*{Calculating a correlation coefficient}\label{calculating-a-correlation-coefficient}}
+\addcontentsline{toc}{subsection}{Calculating a correlation coefficient}
+
+We can use the \texttt{cor.test(x,\ y)} function to calculate a Pearson's correlation coefficient:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(lung}\SpecialCharTok{$}\NormalTok{Height, lung}\SpecialCharTok{$}\NormalTok{FVC)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  lung$Height and lung$FVC
+## t = 10.577, df = 118, p-value < 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.5924715 0.7794090
+## sample estimates:
+##      cor 
+## 0.697628
+\end{verbatim}
+
+\hypertarget{fitting-a-simple-linear-regression-model}{%
+\section{Fitting a simple linear regression model}\label{fitting-a-simple-linear-regression-model}}
+
+We can use the \texttt{lm} function to fit a simple linear regression model, specifying the model as \texttt{y\ \textasciitilde{}\ x} where \texttt{y} represents the \emph{outcome} variable, and \texttt{x} represents the \emph{explanatory} variable. Using \texttt{Example\_8.1.rds}, we can quantify the relationship between FVC and height:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{lm}\NormalTok{(lung}\SpecialCharTok{$}\NormalTok{FVC }\SpecialCharTok{\textasciitilde{}}\NormalTok{ lung}\SpecialCharTok{$}\NormalTok{Height)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = lung$FVC ~ lung$Height)
+## 
+## Coefficients:
+## (Intercept)  lung$Height  
+##    -18.8735       0.1408
+\end{verbatim}
+
+The default output from the \texttt{lm} function is rather sparse. We can obtain much more useful information by defining the linear regression model as an object, then using the \texttt{summary()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(lung}\SpecialCharTok{$}\NormalTok{FVC }\SpecialCharTok{\textasciitilde{}}\NormalTok{ lung}\SpecialCharTok{$}\NormalTok{Height)}
+\FunctionTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = lung$FVC ~ lung$Height)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.01139 -0.23643 -0.02082  0.24918  1.31786 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -18.87347    2.19365  -8.604 3.89e-14 ***
+## lung$Height   0.14076    0.01331  10.577  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3965 on 118 degrees of freedom
+## Multiple R-squared:  0.4867, Adjusted R-squared:  0.4823 
+## F-statistic: 111.9 on 1 and 118 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Finally, we can obtain 95\% confidence intervals for the regression coefficients using the \texttt{confint} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{confint}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   2.5 %      97.5 %
+## (Intercept) -23.2174967 -14.5294444
+## lung$Height   0.1144042   0.1671092
+\end{verbatim}
+
+\hypertarget{plotting-residuals-from-a-simple-linear-regression}{%
+\section{Plotting residuals from a simple linear regression}\label{plotting-residuals-from-a-simple-linear-regression}}
+
+We can use the \texttt{resid} function to obtain the residuals from a saved model. These residuals can then be plotted using a histogram in the usual way:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{residuals }\OtherTok{\textless{}{-}} \FunctionTok{resid}\NormalTok{(model)}
+\FunctionTok{hist}\NormalTok{(residuals)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-126-1.pdf}
+
+A Normal curve can be overlaid if we plot the residuals using a probability scale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(residuals, }\AttributeTok{probability =} \ConstantTok{TRUE}\NormalTok{,}
+     \AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{dnorm}\NormalTok{(x, }\AttributeTok{mean=}\FunctionTok{mean}\NormalTok{(residuals), }\AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(residuals)), }
+      \AttributeTok{col=}\StringTok{"darkblue"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{, }\AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-127-1.pdf}
 
   \bibliography{PHCM9795.bib}
 
