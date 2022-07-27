@@ -36,14 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={PHCM9795 Foundations of Biostatistics},
-  pdfauthor={Pilot Notes for R},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -152,10 +144,18 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={PHCM9795 Foundations of Biostatistics},
+  pdfauthor={Pilot Notes for R},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{16 July, 2022}
+\date{27 July, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-07-27}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Module 9: first release.
+\end{itemize}
 
 \textbf{2022-07-16}
 
@@ -378,16 +388,16 @@ Note: even though we recommend that you use RStudio, you still need install R. \
 \begin{longtable}[]{@{}
   >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
   >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\centering
 R: Don't run this
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 RStudio: Run this instead
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 & \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{installing-r-and-rstudio}{%
@@ -2722,12 +2732,12 @@ The syntax of the ttestPS function is a little cumbersome. The \texttt{t.test} f
 ## 
 ## data:  sbp$sbp_dp and sbp$sbp_tp
 ## t = -0.96211, df = 106, p-value = 0.3382
-## alternative hypothesis: true mean difference is not equal to 0
+## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
 ##  -3.861596  1.338232
 ## sample estimates:
-## mean difference 
-##       -1.261682
+## mean of the differences 
+##               -1.261682
 \end{verbatim}
 
 \hypertarget{summary-statistics-for-binary-data}{%
@@ -2893,15 +2903,15 @@ To construct the 2-by-2 table and calculate a relative risk, we use the \texttt{
 If you only have the cross-tabulated data (i.e.~aggregated), you will need to enter your data into a new data frame. For example, to recreate the above analyses, we can re-write the 2-by-2 table as follows:
 
 \begin{longtable}[]{@{}ccc@{}}
-\toprule
+\toprule()
 Group & side\_effect & Number \\
-\midrule
+\midrule()
 \endhead
 Active & Nausea & 15 \\
 Active & No nausea & 35 \\
 Placebo & Nausea & 4 \\
 Placebo & No nausea & 46 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 We can enter these data in a dataframe, comprising three vectors, as follows:
@@ -3622,6 +3632,187 @@ A Normal curve can be overlaid if we plot the residuals using a probability scal
 \end{Shaded}
 
 \includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-127-1.pdf}
+
+\hypertarget{analysing-non-normal-data}{%
+\chapter{Analysing non-normal data}\label{analysing-non-normal-data}}
+
+\hypertarget{transforming-non-normally-distributed-variables}{%
+\section{Transforming non-normally distributed variables}\label{transforming-non-normally-distributed-variables}}
+
+One option for dealing with a non-normally distributed varaible is to transform it into its square, square root or logarithmic value. The new transformed variable may be normally distributed and therefore a parametric test can be used. First we check the distribution of the variable for normality, e.g.~by plotting a histogram.
+
+You can calculate a new, transformed, variable using standard commands. For example, to create a new column of data based on the log of length of stay:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(jmv)}
+
+\NormalTok{hospital }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_9.1.rds"}\NormalTok{)}
+
+\NormalTok{hospital}\SpecialCharTok{$}\NormalTok{ln\_los }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(hospital}\SpecialCharTok{$}\NormalTok{los}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}
+\FunctionTok{descriptives}\NormalTok{(}\AttributeTok{data=}\NormalTok{hospital, }\AttributeTok{vars=}\FunctionTok{c}\NormalTok{(los, ln\_los))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  DESCRIPTIVES
+## 
+##  Descriptives                                    
+##  ─────────────────────────────────────────────── 
+##                          los         ln_los      
+##  ─────────────────────────────────────────────── 
+##    N                          132          132   
+##    Missing                      0            0   
+##    Mean                  38.05303     3.407232   
+##    Median                27.00000     3.332205   
+##    Standard deviation    35.78057    0.7149892   
+##    Minimum               0.000000     0.000000   
+##    Maximum               244.0000     5.501258   
+##  ───────────────────────────────────────────────
+\end{verbatim}
+
+You can now check whether this logged variable is normally distributed as described in Module 2, for example by plotting a histogram as shown in Figure 9.2.
+
+To obtain the back-transformed mean, we can use the \texttt{exp} command to \texttt{anti-log} the mean:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{exp}\NormalTok{(}\FloatTok{3.407232}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30.18159
+\end{verbatim}
+
+If your transformed variable is approximately normally distributed, you can apply parametric tests such as the t-test. In the Worked Example 9.1 dataset, the variable \texttt{infect} (presence of nosocomial infection) is a binary categorical variable. To test the hypothesis that patients with nosocomial infection have a different length of stay to patients without infection, you can conduct a t-test on the \texttt{ln\_los} variable. You will need to back transform your mean values, as shown in Worked Example 9.1 in the course notes when reporting your results.
+
+\hypertarget{wilcoxon-ranked-sum-test}{%
+\section{Wilcoxon ranked-sum test}\label{wilcoxon-ranked-sum-test}}
+
+We use the \texttt{wilcox.test} function to perform the Wilcoxon ranked-sum test:
+
+\begin{verbatim}
+wilcox.test(continuous_variable ~ group_variable, data=df)
+\end{verbatim}
+
+Note that the implementation of R's Wilcoxon rank-sum test uses a ``continuity correction'' for calculating the P-value from the ranks. This differs from Stata which does not use the continuity correction. While the use of the continuity correction is preferable, in most cases the difference in P-values between the methods will be minimal.
+
+To obtain results that are consistent with Stata, the \texttt{correct=FALSE} option can be used:
+
+\begin{verbatim}
+wilcox.test(continuous_variable ~ group_variable, data=df, correct=FALSE)
+\end{verbatim}
+
+The Wilcoxon ranked-sum test will be demonstrated using the length of stay data in \texttt{Example\_9.1.rds}. Here, out continuous variable is \texttt{los} and the grouping variable is \texttt{infect}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(los }\SpecialCharTok{\textasciitilde{}}\NormalTok{ infect, }\AttributeTok{data=}\NormalTok{hospital)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  los by infect
+## W = 949, p-value = 0.01413
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\hypertarget{wilcoxon-matched-pairs-signed-rank-test}{%
+\section{Wilcoxon matched-pairs signed-rank test}\label{wilcoxon-matched-pairs-signed-rank-test}}
+
+The \texttt{wilcox.test} function can also be used to conduct the Wilcoxon matched-pairs signed-rank test. The specification of the variables is a little different, in that each variable is specified as \texttt{dataframe\$variable}:
+
+\begin{verbatim}
+wilcox.test(df$continuous_variable_1, df$continuous_variable_1, paired=TRUE)
+\end{verbatim}
+
+We will demonstrate using the dataset on the arthritis drug cross-over trial (\texttt{Example\_9.2.rds}). Like the paired t-test the paired data need to be in separate columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{arthritis }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_9.2.rds"}\NormalTok{)}
+
+\NormalTok{arthritis}\SpecialCharTok{$}\NormalTok{difference }\OtherTok{=}\NormalTok{ arthritis}\SpecialCharTok{$}\NormalTok{drug\_1 }\SpecialCharTok{{-}}\NormalTok{ arthritis}\SpecialCharTok{$}\NormalTok{drug\_2}
+
+\FunctionTok{hist}\NormalTok{(arthritis}\SpecialCharTok{$}\NormalTok{difference, }\AttributeTok{xlab=}\StringTok{"Difference"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Histogram of differences in pain scores"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{phcm9795-R-notes_files/figure-latex/unnamed-chunk-131-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(arthritis}\SpecialCharTok{$}\NormalTok{drug\_1, arthritis}\SpecialCharTok{$}\NormalTok{drug\_2, }
+            \AttributeTok{paired=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(arthritis$drug_1, arthritis$drug_2, paired =
+## TRUE): cannot compute exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  arthritis$drug_1 and arthritis$drug_2
+## V = 10.5, p-value = 0.04898
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\hypertarget{estimating-rank-correlation-coefficients}{%
+\section{Estimating rank correlation coefficients}\label{estimating-rank-correlation-coefficients}}
+
+The analyses for Spearman's and Kendall's rank correlation are conducted in similar ways:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lung }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/examples/Example\_8.1.rds"}\NormalTok{)}
+
+\FunctionTok{cor.test}\NormalTok{(lung}\SpecialCharTok{$}\NormalTok{Height, lung}\SpecialCharTok{$}\NormalTok{FVC, }\AttributeTok{method=}\StringTok{"spearman"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in cor.test.default(lung$Height, lung$FVC, method = "spearman"): Cannot
+## compute exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Spearman's rank correlation rho
+## 
+## data:  lung$Height and lung$FVC
+## S = 72699, p-value < 2.2e-16
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.7475566
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(lung}\SpecialCharTok{$}\NormalTok{Height, lung}\SpecialCharTok{$}\NormalTok{FVC, }\AttributeTok{method=}\StringTok{"kendall"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Kendall's rank correlation tau
+## 
+## data:  lung$Height and lung$FVC
+## z = 8.8244, p-value < 2.2e-16
+## alternative hypothesis: true tau is not equal to 0
+## sample estimates:
+##       tau 
+## 0.5609431
+\end{verbatim}
 
   \bibliography{PHCM9795.bib}
 
