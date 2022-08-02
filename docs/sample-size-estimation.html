@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 8 Correlation and simple linear regression | PHCM9795 Foundations of Biostatistics</title>
-  <meta name="description" content="Module 8 Correlation and simple linear regression | PHCM9795 Foundations of Biostatistics" />
+  <title>Module 10 Sample size estimation | PHCM9795 Foundations of Biostatistics</title>
+  <meta name="description" content="Module 10 Sample size estimation | PHCM9795 Foundations of Biostatistics" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 8 Correlation and simple linear regression | PHCM9795 Foundations of Biostatistics" />
+  <meta property="og:title" content="Module 10 Sample size estimation | PHCM9795 Foundations of Biostatistics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 8 Correlation and simple linear regression | PHCM9795 Foundations of Biostatistics" />
+  <meta name="twitter:title" content="Module 10 Sample size estimation | PHCM9795 Foundations of Biostatistics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hypothesis-testing-for-categorical-data.html"/>
-<link rel="next" href="analysing-non-normal-data.html"/>
+<link rel="prev" href="analysing-non-normal-data.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -267,93 +267,207 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="correlation-and-simple-linear-regression" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Module 8</span> Correlation and simple linear regression<a href="correlation-and-simple-linear-regression.html#correlation-and-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We will demonstrate using Stata for correlation and simple linear regression using the dataset <code>Example_8.1.rds</code>.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="correlation-and-simple-linear-regression.html#cb197-1" aria-hidden="true" tabindex="-1"></a>lung <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/examples/Example_8.1.rds&quot;</span>)</span></code></pre></div>
-<div id="creating-a-scatter-plot" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Creating a scatter plot<a href="correlation-and-simple-linear-regression.html#creating-a-scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can use the <code>plot</code> function to create a scatter plot to explore the association between height and FVC, assigning meaningful labels with the <code>xlab</code> and <code>ylab</code> commands:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="correlation-and-simple-linear-regression.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>lung<span class="sc">$</span>Height, <span class="at">y=</span>lung<span class="sc">$</span>FVC, </span>
-<span id="cb198-2"><a href="correlation-and-simple-linear-regression.html#cb198-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Height (cm)&quot;</span>, </span>
-<span id="cb198-3"><a href="correlation-and-simple-linear-regression.html#cb198-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
-<p>To add a fitted line, we can use the <code>abline()</code> function which adds a straight line to the plot. The equation of this straight line will be determined from the estimated regression line, which we specify with the <code>lm()</code> function, which fits a <em>linear model</em>.</p>
-<p>The basic syntax of the <code>lm()</code> function is: <code>lm(y ~ x)</code> where <code>y</code> represents the <em>outcome</em> variable, and <code>x</code> represents the <em>explanatory</em> variable. Putting this all together:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="correlation-and-simple-linear-regression.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>lung<span class="sc">$</span>Height, <span class="at">y=</span>lung<span class="sc">$</span>FVC,</span>
-<span id="cb199-2"><a href="correlation-and-simple-linear-regression.html#cb199-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Height (cm)&quot;</span>,</span>
-<span id="cb199-3"><a href="correlation-and-simple-linear-regression.html#cb199-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Forced vital capacity (L)&quot;</span>)</span>
-<span id="cb199-4"><a href="correlation-and-simple-linear-regression.html#cb199-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-5"><a href="correlation-and-simple-linear-regression.html#cb199-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height))</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
-<div id="calculating-a-correlation-coefficient" class="section level3 unnumbered hasAnchor">
-<h3>Calculating a correlation coefficient<a href="correlation-and-simple-linear-regression.html#calculating-a-correlation-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We can use the <code>cor.test(x, y)</code> function to calculate a Pearson’s correlation coefficient:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="correlation-and-simple-linear-regression.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lung<span class="sc">$</span>Height, lung<span class="sc">$</span>FVC)</span></code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s product-moment correlation
+<div id="sample-size-estimation" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Module 10</span> Sample size estimation<a href="sample-size-estimation.html#sample-size-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Many power and sample size procedures are available in the <code>epiR</code> package. We will also use one function from the <code>pwr</code> package.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="sample-size-estimation.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not yet installed, submit the following:</span></span>
+<span id="cb228-2"><a href="sample-size-estimation.html#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;epiR&quot;)</span></span>
+<span id="cb228-3"><a href="sample-size-estimation.html#cb228-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;pwr&quot;)</span></span>
+<span id="cb228-4"><a href="sample-size-estimation.html#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epiR)</span>
+<span id="cb228-5"><a href="sample-size-estimation.html#cb228-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span></code></pre></div>
+<p>We will use three functions from the <code>epiR</code> package in this module:</p>
+<ul>
+<li><code>epi.sscompc</code> to estimate the sample size to compare continuous outcomes</li>
+<li><code>epi.sscohortc</code> to estimate the sample size to compare two independent proportions from a cohort or cross-sectional study</li>
+<li><code>epi.sscc</code> to estimate the sample size to compare two independent proportions from a case-control study</li>
+</ul>
+<p>We will use one function from the <code>pwr</code> package:</p>
+<ul>
+<li><code>pwr.t.test</code> estimate the sample size to compare means from a paired study</li>
+</ul>
+<div id="sample-size-calculation-for-the-independent-samples-t-test" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Sample size calculation for the independent samples t-test<a href="sample-size-estimation.html#sample-size-calculation-for-the-independent-samples-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To do the problem discussed in Worked Example 10.2, we use the <code>epi.sscompc</code> function:</p>
+<pre><code>epi.sscompc(treat, control, n, sigma, power, 
+   r = 1, design = 1, sided.test = 2, nfractional = FALSE, conf.level = 0.95)</code></pre>
+<p>The first line contains parameters that we usually specify, with the second line usually left as the defaults. We must define the expected mean in the treatment and control groups, and the standard deviation of the measure. We specify one of <code>n</code> or <code>power</code> to be the measure to estimate, by specifying the unknown value as being equal to R’s missing value, <code>NA</code>.</p>
+<p>For example, to calculate the required sample size in Worked Example 10.2, we specify:</p>
+<ul>
+<li>the assumed mean in the experimental, or treatment, group: 90mmHg</li>
+<li>the assumed mean in the control group: 95mmHg</li>
+<li>the standard deviation of blood pressure: 25mmHg</li>
+<li>the required power, 0.9 (representing 90%)</li>
+</ul>
+<p>The values on the second line of the function are defined by default, and we can leave these as default.</p>
+<p>Putting this all together, and specifying the sample size as unknown:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="sample-size-estimation.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscompc</span>(<span class="at">treat=</span><span class="dv">90</span>, <span class="at">control=</span><span class="dv">95</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">sigma=</span><span class="dv">25</span>, <span class="at">power=</span><span class="fl">0.9</span>) </span></code></pre></div>
+<pre><code>## $n.total
+## [1] 1052
 ## 
-## data:  lung$Height and lung$FVC
-## t = 10.577, df = 118, p-value &lt; 2.2e-16
-## alternative hypothesis: true correlation is not equal to 0
-## 95 percent confidence interval:
-##  0.5924715 0.7794090
-## sample estimates:
-##      cor 
-## 0.697628</code></pre>
+## $n.treat
+## [1] 526
+## 
+## $n.control
+## [1] 526
+## 
+## $power
+## [1] 0.9
+## 
+## $delta
+## [1] 5</code></pre>
+<p>The results indicate that we need 526 participants in each group, or 1052 in total. Note that these numbers are slightly different from the Stata estimates (527 in each group).</p>
+<p>We can define whether we want unequal numbers in each group by specifying <code>r</code>: the number in the treatment group divided by the number in the control group.</p>
 </div>
-</div>
-<div id="fitting-a-simple-linear-regression-model" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Fitting a simple linear regression model<a href="correlation-and-simple-linear-regression.html#fitting-a-simple-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can use the <code>lm</code> function to fit a simple linear regression model, specifying the model as <code>y ~ x</code> where <code>y</code> represents the <em>outcome</em> variable, and <code>x</code> represents the <em>explanatory</em> variable. Using <code>Example_8.1.rds</code>, we can quantify the relationship between FVC and height:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="correlation-and-simple-linear-regression.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height)</span></code></pre></div>
+<div id="sample-size-calculation-for-the-paired-t-test" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Sample size calculation for the paired t-test<a href="sample-size-estimation.html#sample-size-calculation-for-the-paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calculating the sample size required for a paired t-test is a little more cumbersome. We can use the following code to specify:</p>
+<ul>
+<li><code>m1</code>: the mean of the first paired observations</li>
+<li><code>m2</code>: the mean of the second paired observations</li>
+<li><code>s_group</code>: the common standard deviation</li>
+<li><code>corr</code>: the assumed correlation between the paired observations (conservatively set to 0)</li>
+</ul>
+<p>The code below then uses the <code>pwr.t.test</code> function within the <code>pwr</code> library to estimate the number of pairs. For example, to replicate Output 10.2:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="sample-size-estimation.html#cb232-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="dv">90</span></span>
+<span id="cb232-2"><a href="sample-size-estimation.html#cb232-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="dv">95</span></span>
+<span id="cb232-3"><a href="sample-size-estimation.html#cb232-3" aria-hidden="true" tabindex="-1"></a>s_group <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb232-4"><a href="sample-size-estimation.html#cb232-4" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb232-5"><a href="sample-size-estimation.html#cb232-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-6"><a href="sample-size-estimation.html#cb232-6" aria-hidden="true" tabindex="-1"></a>s_paired <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> s_group<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>corr<span class="sc">*</span>s_group<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb232-7"><a href="sample-size-estimation.html#cb232-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-8"><a href="sample-size-estimation.html#cb232-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> ((m1 <span class="sc">-</span> m2)<span class="sc">/</span>s_paired)</span>
+<span id="cb232-9"><a href="sample-size-estimation.html#cb232-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-10"><a href="sample-size-estimation.html#cb232-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d=</span>d, <span class="at">power=</span><span class="fl">0.9</span>, <span class="at">type=</span><span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## Call:
-## lm(formula = lung$FVC ~ lung$Height)
+##      Paired t test power calculation 
 ## 
-## Coefficients:
-## (Intercept)  lung$Height  
-##    -18.8735       0.1408</code></pre>
-<p>The default output from the <code>lm</code> function is rather sparse. We can obtain much more useful information by defining the linear regression model as an object, then using the <code>summary()</code> function:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="correlation-and-simple-linear-regression.html#cb204-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(lung<span class="sc">$</span>FVC <span class="sc">~</span> lung<span class="sc">$</span>Height)</span>
-<span id="cb204-2"><a href="correlation-and-simple-linear-regression.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = lung$FVC ~ lung$Height)
+##               n = 527.2954
+##               d = 0.1414214
+##       sig.level = 0.05
+##           power = 0.9
+##     alternative = two.sided
 ## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.01139 -0.23643 -0.02082  0.24918  1.31786 
-## 
-## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -18.87347    2.19365  -8.604 3.89e-14 ***
-## lung$Height   0.14076    0.01331  10.577  &lt; 2e-16 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 0.3965 on 118 degrees of freedom
-## Multiple R-squared:  0.4867, Adjusted R-squared:  0.4823 
-## F-statistic: 111.9 on 1 and 118 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>Finally, we can obtain 95% confidence intervals for the regression coefficients using the <code>confint</code> function:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="correlation-and-simple-linear-regression.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code></pre></div>
-<pre><code>##                   2.5 %      97.5 %
-## (Intercept) -23.2174967 -14.5294444
-## lung$Height   0.1144042   0.1671092</code></pre>
+## NOTE: n is number of *pairs*</code></pre>
+<p>As per the Stata calculations, we require 528 pairs of observations (noting that <strong>sample sizes are always rounded up</strong>).</p>
 </div>
-<div id="plotting-residuals-from-a-simple-linear-regression" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Plotting residuals from a simple linear regression<a href="correlation-and-simple-linear-regression.html#plotting-residuals-from-a-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can use the <code>resid</code> function to obtain the residuals from a saved model. These residuals can then be plotted using a histogram in the usual way:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="correlation-and-simple-linear-regression.html#cb208-1" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> <span class="fu">resid</span>(model)</span>
-<span id="cb208-2"><a href="correlation-and-simple-linear-regression.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(residuals)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
-<p>A Normal curve can be overlaid if we plot the residuals using a probability scale.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="correlation-and-simple-linear-regression.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(residuals, <span class="at">probability =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb209-2"><a href="correlation-and-simple-linear-regression.html#cb209-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb209-3"><a href="correlation-and-simple-linear-regression.html#cb209-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb209-4"><a href="correlation-and-simple-linear-regression.html#cb209-4" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="fu">mean</span>(residuals), <span class="at">sd=</span><span class="fu">sd</span>(residuals)), </span>
-<span id="cb209-5"><a href="correlation-and-simple-linear-regression.html#cb209-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="phcm9795-R-notes_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<div id="sample-size-calculation-for-difference-between-two-independent-proportions" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Sample size calculation for difference between two independent proportions<a href="sample-size-estimation.html#sample-size-calculation-for-difference-between-two-independent-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To do the problem discussed in Worked Example 10.3, we use the <code>epi.sscohortc</code> function:</p>
+<pre><code>epi.sscohortc(irexp1, irexp0, pexp = NA, n = NA, power = 0.80, 
+   r = 1, N, design = 1, sided.test = 2, finite.correction = FALSE, 
+   nfractional = FALSE, conf.level = 0.95)</code></pre>
+<p>We can enter:</p>
+<ul>
+<li>irexp1: the assumed risk of the outcome in the exposed group: here 0.35</li>
+<li>irexp0: the assumed risk of the outcome in the unexposed group: here 0.2</li>
+<li>n: the total sample size, to be determined</li>
+<li>power: the required power: here 0.8 (representing 80%)</li>
+</ul>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="sample-size-estimation.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscohortc</span>(<span class="at">irexp1=</span><span class="fl">0.35</span>, <span class="at">irexp0=</span><span class="fl">0.2</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.8</span>) </span></code></pre></div>
+<pre><code>## $n.total
+## [1] 276
+## 
+## $n.exp1
+## [1] 138
+## 
+## $n.exp0
+## [1] 138
+## 
+## $power
+## [1] 0.8
+## 
+## $irr
+## [1] 1.75
+## 
+## $or
+## [1] 2.153846</code></pre>
+<p>Note: It doesn’t matter if you swap the proportions for the <strong>exposed</strong> and <strong>unexposed</strong> groups, i.e. the command <code>epi.sscohortc(irexp1=0.2, irexp0=0.35, n=NA, power=0.8)</code> gives the same results.</p>
+</div>
+<div id="sample-size-calculation-with-a-relative-risk" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Sample size calculation with a relative risk<a href="sample-size-estimation.html#sample-size-calculation-with-a-relative-risk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>epiR</code> package does not have a function to estimate sample size and power directly for a relative risk, but we can use the <code>epi.sscohortc</code> function. To do this, we recognise that the assumed rate in the exposed group will equal the rate in the unexposed group multiplied by the relative risk.</p>
+<p>Here we will replicate Output 10.4, where p0=0.5 and the desired relative risk to detect is 1.5. So we specify <code>irexp0 = 0.5</code> and <code>irexp1 = 1.5 * 0.5</code>:</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="sample-size-estimation.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscohortc</span>(<span class="at">irexp1=</span><span class="fl">1.5</span><span class="sc">*</span><span class="fl">0.5</span>, <span class="at">irexp0=</span><span class="fl">0.5</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span></code></pre></div>
+<pre><code>## $n.total
+## [1] 154
+## 
+## $n.exp1
+## [1] 77
+## 
+## $n.exp0
+## [1] 77
+## 
+## $power
+## [1] 0.9
+## 
+## $irr
+## [1] 1.5
+## 
+## $or
+## [1] 3</code></pre>
+<p>Hence we require 77 participants in each group, or 154 participants in total.</p>
+</div>
+<div id="sample-size-calculation-with-an-odds-ratio" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Sample size calculation with an odds ratio<a href="sample-size-estimation.html#sample-size-calculation-with-an-odds-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use the <code>epi.sscc</code> function to calculate a sample size based on an odds ratio in a case-control study:</p>
+<pre><code>epi.sscc(OR, p1 = NA, p0, n, power, r = 1, 
+   phi.coef = 0, design = 1, sided.test = 2, nfractional = FALSE, 
+   conf.level = 0.95, method = &quot;unmatched&quot;, fleiss = FALSE)</code></pre>
+<p>Using information from Worked Example 10.4, we specify:</p>
+<ul>
+<li>OR: the odds ratio to be detected, here 1.5</li>
+<li>p0: the proportion of the outcome in the controls, here 0.5</li>
+<li>n: the sample size, here to be calculated</li>
+<li>power: the required study power, here 0.9</li>
+</ul>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="sample-size-estimation.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="fl">1.5</span>, <span class="at">p0=</span><span class="fl">0.5</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span></code></pre></div>
+<pre><code>## $n.total
+## [1] 1038
+## 
+## $n.case
+## [1] 519
+## 
+## $n.control
+## [1] 519
+## 
+## $power
+## [1] 0.9
+## 
+## $OR
+## [1] 1.5</code></pre>
+<p>Now we calculate the sample size for Worked Example 10.5:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="sample-size-estimation.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="dv">2</span>, <span class="at">p0=</span><span class="fl">0.3</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.9</span>)</span></code></pre></div>
+<pre><code>## $n.total
+## [1] 376
+## 
+## $n.case
+## [1] 188
+## 
+## $n.control
+## [1] 188
+## 
+## $power
+## [1] 0.9
+## 
+## $OR
+## [1] 2</code></pre>
+<p>Here we see that we require a total of 376 participants to detect an odds ratio of 2.0 with 90% power;</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="sample-size-estimation.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epi.sscc</span>(<span class="at">OR=</span><span class="dv">2</span>, <span class="at">p0=</span><span class="fl">0.3</span>, <span class="at">n=</span><span class="cn">NA</span>, <span class="at">power=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<pre><code>## $n.total
+## [1] 282
+## 
+## $n.case
+## [1] 141
+## 
+## $n.control
+## [1] 141
+## 
+## $power
+## [1] 0.8
+## 
+## $OR
+## [1] 2</code></pre>
+<p>or a total of 282 participants to detect an odds ratio of 2.0 with 80% power.</p>
 
 </div>
 </div>
@@ -362,8 +476,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="hypothesis-testing-for-categorical-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="analysing-non-normal-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="analysing-non-normal-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -155,7 +155,7 @@
 
 \title{PHCM9795 Foundations of Biostatistics}
 \author{Pilot Notes for R}
-\date{27 July, 2022}
+\date{02 August, 2022}
 
 \begin{document}
 \maketitle
@@ -177,6 +177,16 @@ This is the first year that R has been offered as an option. I am keen to receiv
 \hypertarget{changelog}{%
 \subsection*{Changelog}\label{changelog}}
 \addcontentsline{toc}{subsection}{Changelog}
+
+\textbf{2022-08-02}
+
+{[}Added{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Module 10: first release.
+\end{itemize}
 
 \textbf{2022-07-27}
 
@@ -3813,6 +3823,335 @@ The analyses for Spearman's and Kendall's rank correlation are conducted in simi
 ##       tau 
 ## 0.5609431
 \end{verbatim}
+
+\hypertarget{sample-size-estimation}{%
+\chapter{Sample size estimation}\label{sample-size-estimation}}
+
+Many power and sample size procedures are available in the \texttt{epiR} package. We will also use one function from the \texttt{pwr} package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# If not yet installed, submit the following:}
+\CommentTok{\# install.packages("epiR")}
+\CommentTok{\# install.packages("pwr")}
+\FunctionTok{library}\NormalTok{(epiR)}
+\FunctionTok{library}\NormalTok{(pwr)}
+\end{Highlighting}
+\end{Shaded}
+
+We will use three functions from the \texttt{epiR} package in this module:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{epi.sscompc} to estimate the sample size to compare continuous outcomes
+\item
+  \texttt{epi.sscohortc} to estimate the sample size to compare two independent proportions from a cohort or cross-sectional study
+\item
+  \texttt{epi.sscc} to estimate the sample size to compare two independent proportions from a case-control study
+\end{itemize}
+
+We will use one function from the \texttt{pwr} package:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pwr.t.test} estimate the sample size to compare means from a paired study
+\end{itemize}
+
+\hypertarget{sample-size-calculation-for-the-independent-samples-t-test}{%
+\section{Sample size calculation for the independent samples t-test}\label{sample-size-calculation-for-the-independent-samples-t-test}}
+
+To do the problem discussed in Worked Example 10.2, we use the \texttt{epi.sscompc} function:
+
+\begin{verbatim}
+epi.sscompc(treat, control, n, sigma, power, 
+   r = 1, design = 1, sided.test = 2, nfractional = FALSE, conf.level = 0.95)
+\end{verbatim}
+
+The first line contains parameters that we usually specify, with the second line usually left as the defaults. We must define the expected mean in the treatment and control groups, and the standard deviation of the measure. We specify one of \texttt{n} or \texttt{power} to be the measure to estimate, by specifying the unknown value as being equal to R's missing value, \texttt{NA}.
+
+For example, to calculate the required sample size in Worked Example 10.2, we specify:
+
+\begin{itemize}
+\tightlist
+\item
+  the assumed mean in the experimental, or treatment, group: 90mmHg
+\item
+  the assumed mean in the control group: 95mmHg
+\item
+  the standard deviation of blood pressure: 25mmHg
+\item
+  the required power, 0.9 (representing 90\%)
+\end{itemize}
+
+The values on the second line of the function are defined by default, and we can leave these as default.
+
+Putting this all together, and specifying the sample size as unknown:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{epi.sscompc}\NormalTok{(}\AttributeTok{treat=}\DecValTok{90}\NormalTok{, }\AttributeTok{control=}\DecValTok{95}\NormalTok{, }\AttributeTok{n=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{sigma=}\DecValTok{25}\NormalTok{, }\AttributeTok{power=}\FloatTok{0.9}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $n.total
+## [1] 1052
+## 
+## $n.treat
+## [1] 526
+## 
+## $n.control
+## [1] 526
+## 
+## $power
+## [1] 0.9
+## 
+## $delta
+## [1] 5
+\end{verbatim}
+
+The results indicate that we need 526 participants in each group, or 1052 in total. Note that these numbers are slightly different from the Stata estimates (527 in each group).
+
+We can define whether we want unequal numbers in each group by specifying \texttt{r}: the number in the treatment group divided by the number in the control group.
+
+\hypertarget{sample-size-calculation-for-the-paired-t-test}{%
+\section{Sample size calculation for the paired t-test}\label{sample-size-calculation-for-the-paired-t-test}}
+
+Calculating the sample size required for a paired t-test is a little more cumbersome. We can use the following code to specify:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{m1}: the mean of the first paired observations
+\item
+  \texttt{m2}: the mean of the second paired observations
+\item
+  \texttt{s\_group}: the common standard deviation
+\item
+  \texttt{corr}: the assumed correlation between the paired observations (conservatively set to 0)
+\end{itemize}
+
+The code below then uses the \texttt{pwr.t.test} function within the \texttt{pwr} library to estimate the number of pairs. For example, to replicate Output 10.2:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 }\OtherTok{\textless{}{-}} \DecValTok{90}
+\NormalTok{m2 }\OtherTok{\textless{}{-}} \DecValTok{95}
+\NormalTok{s\_group }\OtherTok{\textless{}{-}} \DecValTok{25}
+\NormalTok{corr }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\NormalTok{s\_paired }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ s\_group}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{{-}} \DecValTok{2}\SpecialCharTok{*}\NormalTok{corr}\SpecialCharTok{*}\NormalTok{s\_group}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+
+\NormalTok{d }\OtherTok{\textless{}{-}}\NormalTok{ ((m1 }\SpecialCharTok{{-}}\NormalTok{ m2)}\SpecialCharTok{/}\NormalTok{s\_paired)}
+
+\FunctionTok{pwr.t.test}\NormalTok{(}\AttributeTok{d=}\NormalTok{d, }\AttributeTok{power=}\FloatTok{0.9}\NormalTok{, }\AttributeTok{type=}\StringTok{"paired"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##      Paired t test power calculation 
+## 
+##               n = 527.2954
+##               d = 0.1414214
+##       sig.level = 0.05
+##           power = 0.9
+##     alternative = two.sided
+## 
+## NOTE: n is number of *pairs*
+\end{verbatim}
+
+As per the Stata calculations, we require 528 pairs of observations (noting that \textbf{sample sizes are always rounded up}).
+
+\hypertarget{sample-size-calculation-for-difference-between-two-independent-proportions}{%
+\section{Sample size calculation for difference between two independent proportions}\label{sample-size-calculation-for-difference-between-two-independent-proportions}}
+
+To do the problem discussed in Worked Example 10.3, we use the \texttt{epi.sscohortc} function:
+
+\begin{verbatim}
+epi.sscohortc(irexp1, irexp0, pexp = NA, n = NA, power = 0.80, 
+   r = 1, N, design = 1, sided.test = 2, finite.correction = FALSE, 
+   nfractional = FALSE, conf.level = 0.95)
+\end{verbatim}
+
+We can enter:
+
+\begin{itemize}
+\tightlist
+\item
+  irexp1: the assumed risk of the outcome in the exposed group: here 0.35
+\item
+  irexp0: the assumed risk of the outcome in the unexposed group: here 0.2
+\item
+  n: the total sample size, to be determined
+\item
+  power: the required power: here 0.8 (representing 80\%)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{epi.sscohortc}\NormalTok{(}\AttributeTok{irexp1=}\FloatTok{0.35}\NormalTok{, }\AttributeTok{irexp0=}\FloatTok{0.2}\NormalTok{, }\AttributeTok{n=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{power=}\FloatTok{0.8}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $n.total
+## [1] 276
+## 
+## $n.exp1
+## [1] 138
+## 
+## $n.exp0
+## [1] 138
+## 
+## $power
+## [1] 0.8
+## 
+## $irr
+## [1] 1.75
+## 
+## $or
+## [1] 2.153846
+\end{verbatim}
+
+Note: It doesn't matter if you swap the proportions for the \textbf{exposed} and \textbf{unexposed} groups, i.e.~the command \texttt{epi.sscohortc(irexp1=0.2,\ irexp0=0.35,\ n=NA,\ power=0.8)} gives the same results.
+
+\hypertarget{sample-size-calculation-with-a-relative-risk}{%
+\section{Sample size calculation with a relative risk}\label{sample-size-calculation-with-a-relative-risk}}
+
+The \texttt{epiR} package does not have a function to estimate sample size and power directly for a relative risk, but we can use the \texttt{epi.sscohortc} function. To do this, we recognise that the assumed rate in the exposed group will equal the rate in the unexposed group multiplied by the relative risk.
+
+Here we will replicate Output 10.4, where p0=0.5 and the desired relative risk to detect is 1.5. So we specify \texttt{irexp0\ =\ 0.5} and \texttt{irexp1\ =\ 1.5\ *\ 0.5}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{epi.sscohortc}\NormalTok{(}\AttributeTok{irexp1=}\FloatTok{1.5}\SpecialCharTok{*}\FloatTok{0.5}\NormalTok{, }\AttributeTok{irexp0=}\FloatTok{0.5}\NormalTok{, }\AttributeTok{n=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{power=}\FloatTok{0.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $n.total
+## [1] 154
+## 
+## $n.exp1
+## [1] 77
+## 
+## $n.exp0
+## [1] 77
+## 
+## $power
+## [1] 0.9
+## 
+## $irr
+## [1] 1.5
+## 
+## $or
+## [1] 3
+\end{verbatim}
+
+Hence we require 77 participants in each group, or 154 participants in total.
+
+\hypertarget{sample-size-calculation-with-an-odds-ratio}{%
+\section{Sample size calculation with an odds ratio}\label{sample-size-calculation-with-an-odds-ratio}}
+
+We can use the \texttt{epi.sscc} function to calculate a sample size based on an odds ratio in a case-control study:
+
+\begin{verbatim}
+epi.sscc(OR, p1 = NA, p0, n, power, r = 1, 
+   phi.coef = 0, design = 1, sided.test = 2, nfractional = FALSE, 
+   conf.level = 0.95, method = "unmatched", fleiss = FALSE)
+\end{verbatim}
+
+Using information from Worked Example 10.4, we specify:
+
+\begin{itemize}
+\tightlist
+\item
+  OR: the odds ratio to be detected, here 1.5
+\item
+  p0: the proportion of the outcome in the controls, here 0.5
+\item
+  n: the sample size, here to be calculated
+\item
+  power: the required study power, here 0.9
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{epi.sscc}\NormalTok{(}\AttributeTok{OR=}\FloatTok{1.5}\NormalTok{, }\AttributeTok{p0=}\FloatTok{0.5}\NormalTok{, }\AttributeTok{n=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{power=}\FloatTok{0.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $n.total
+## [1] 1038
+## 
+## $n.case
+## [1] 519
+## 
+## $n.control
+## [1] 519
+## 
+## $power
+## [1] 0.9
+## 
+## $OR
+## [1] 1.5
+\end{verbatim}
+
+Now we calculate the sample size for Worked Example 10.5:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{epi.sscc}\NormalTok{(}\AttributeTok{OR=}\DecValTok{2}\NormalTok{, }\AttributeTok{p0=}\FloatTok{0.3}\NormalTok{, }\AttributeTok{n=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{power=}\FloatTok{0.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $n.total
+## [1] 376
+## 
+## $n.case
+## [1] 188
+## 
+## $n.control
+## [1] 188
+## 
+## $power
+## [1] 0.9
+## 
+## $OR
+## [1] 2
+\end{verbatim}
+
+Here we see that we require a total of 376 participants to detect an odds ratio of 2.0 with 90\% power;
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{epi.sscc}\NormalTok{(}\AttributeTok{OR=}\DecValTok{2}\NormalTok{, }\AttributeTok{p0=}\FloatTok{0.3}\NormalTok{, }\AttributeTok{n=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{power=}\FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $n.total
+## [1] 282
+## 
+## $n.case
+## [1] 141
+## 
+## $n.control
+## [1] 141
+## 
+## $power
+## [1] 0.8
+## 
+## $OR
+## [1] 2
+\end{verbatim}
+
+or a total of 282 participants to detect an odds ratio of 2.0 with 80\% power.
 
   \bibliography{PHCM9795.bib}
 
