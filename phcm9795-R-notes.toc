@@ -1,0 +1,102 @@
+\contentsline {chapter}{Contents}{1}{section*.1}%
+\contentsline {chapter}{Introduction}{5}{chapter*.2}%
+\contentsline {subsection}{Changelog}{5}{section*.3}%
+\contentsline {chapter}{\chapternumberline {1}Introduction to R and RStudio}{9}{chapter.1}%
+\contentsline {section}{Learning outcomes}{9}{section*.4}%
+\contentsline {section}{Part 1: An introduction to R}{9}{section*.5}%
+\contentsline {section}{\numberline {1.1}R vs RStudio}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Installing R and RStudio}{10}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}To install R on your computer}{10}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}To install RStudio on your computer}{11}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Recommended setup}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}RStudio preferences}{12}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Set up a project}{12}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}A simple R analysis}{15}{section.1.4}%
+\contentsline {section}{\numberline {1.5}The RStudio environment}{17}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Some R basics}{18}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Scripts}{18}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Objects}{18}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}Data structures}{19}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}Functions}{19}{subsection.1.6.4}%
+\contentsline {subsubsection}{\numberline {1.6.4.1}The curse of inconsistency}{21}{subsubsection.1.6.4.1}%
+\contentsline {subsection}{\numberline {1.6.5}Packages}{22}{subsection.1.6.5}%
+\contentsline {subsection}{\numberline {1.6.6}How to install a package}{22}{subsection.1.6.6}%
+\contentsline {subsection}{\numberline {1.6.7}How to load a package}{23}{subsection.1.6.7}%
+\contentsline {subsubsection}{Installing vs loading packages}{23}{section*.6}%
+\contentsline {section}{\numberline {1.7}What is this thing called the tidyverse?}{23}{section.1.7}%
+\contentsline {section}{Part 2: Obtaining basic descriptive statistics}{24}{section*.7}%
+\contentsline {section}{\numberline {1.8}Set up your data}{25}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Reading a data file}{26}{section.1.9}%
+\contentsline {section}{\numberline {1.10}Summarising continuous variables}{27}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Producing a histogram}{29}{section.1.11}%
+\contentsline {section}{\numberline {1.12}Producing a boxplot}{31}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Producing a one-way frequency table}{32}{section.1.13}%
+\contentsline {subsection}{\numberline {1.13.1}Defining categorical variables as factors}{32}{subsection.1.13.1}%
+\contentsline {section}{\numberline {1.14}Producing a two-way frequency table}{33}{section.1.14}%
+\contentsline {section}{\numberline {1.15}Saving data in R}{35}{section.1.15}%
+\contentsline {section}{\numberline {1.16}Copying output from R}{35}{section.1.16}%
+\contentsline {section}{Part 3: Creating other types of graphs}{35}{section*.10}%
+\contentsline {section}{\numberline {1.17}Bar graphs}{36}{section.1.17}%
+\contentsline {subsection}{\numberline {1.17.1}Clustered bar graph}{36}{subsection.1.17.1}%
+\contentsline {subsection}{\numberline {1.17.2}Stacked bar graph}{37}{subsection.1.17.2}%
+\contentsline {subsection}{\numberline {1.17.3}Stacked bar graph of relative frequencies}{38}{subsection.1.17.3}%
+\contentsline {section}{\numberline {1.18}Creating line graphs}{39}{section.1.18}%
+\contentsline {chapter}{\chapternumberline {2}Probability and probability distributions}{43}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Importing data into R}{43}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Importing plain text data into R}{43}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Checking your data for errors in R}{44}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}What on earth: == ?}{46}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Overlaying a Normal curve on a histogram}{46}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Descriptive statistics for checking normality}{48}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Importing Excel data into R}{49}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Generating new variables}{49}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Summarising data by another variable}{51}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Summarising a single column of data}{52}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Plotting data by another variable}{53}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Recoding data}{54}{section.2.10}%
+\contentsline {section}{\numberline {2.11}Computing binomial probabilities using R}{55}{section.2.11}%
+\contentsline {section}{\numberline {2.12}Computing probabilities from a Normal distribution}{56}{section.2.12}%
+\contentsline {chapter}{\chapternumberline {3}Precision: R notes}{57}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Calculating a 95\% confidence interval of a mean}{57}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Individual data}{57}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Summarised data}{58}{subsection.3.1.2}%
+\contentsline {chapter}{\chapternumberline {4}Hypothesis testing}{59}{chapter.4}%
+\contentsline {section}{\numberline {4.1}One sample t-test}{59}{section.4.1}%
+\contentsline {chapter}{\chapternumberline {5}Comparing two means}{61}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Setting an observation to missing}{61}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Checking data for the independent samples t-test}{63}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Producing histograms and boxplots by a second variable}{63}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Producing split summary statistics}{65}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Independent samples t-test}{65}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Checking the assumptions for a Paired t-test}{66}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Paired t-Test}{68}{section.5.5}%
+\contentsline {chapter}{\chapternumberline {6}Summary statistics for binary data}{71}{chapter.6}%
+\contentsline {section}{\numberline {6.1}95\% confidence intervals for proportions}{71}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Significance test for single proportion}{71}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Computing a relative risk and its 95\% confidence interval}{72}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Computing a difference in proportions and its 95\% confidence interval}{75}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Computing an odds ratio and its 95\% confidence interval}{75}{section.6.5}%
+\contentsline {chapter}{\chapternumberline {7}Hypothesis testing for categorical data}{77}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Pearson's chi-squared test}{77}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Individual data}{77}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Summarised data}{79}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Chi-squared test for tables larger than 2-by-2}{79}{section.7.2}%
+\contentsline {section}{\numberline {7.3}McNemar's test for paired proportions}{80}{section.7.3}%
+\contentsline {chapter}{\chapternumberline {8}Correlation and simple linear regression}{83}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Creating a scatter plot}{83}{section.8.1}%
+\contentsline {subsection}{Calculating a correlation coefficient}{84}{section*.11}%
+\contentsline {section}{\numberline {8.2}Fitting a simple linear regression model}{85}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Plotting residuals from a simple linear regression}{86}{section.8.3}%
+\contentsline {chapter}{\chapternumberline {9}Analysing non-normal data}{89}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Transforming non-normally distributed variables}{89}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Wilcoxon ranked-sum test}{90}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Wilcoxon matched-pairs signed-rank test}{90}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Estimating rank correlation coefficients}{91}{section.9.4}%
+\contentsline {chapter}{\chapternumberline {10}Sample size estimation}{93}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Sample size calculation for the independent samples t-test}{93}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Sample size calculation for the paired t-test}{94}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Sample size calculation for difference between two independent proportions}{95}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Sample size calculation with a relative risk}{96}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Sample size calculation with an odds ratio}{96}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Estimating sample sizes with unequal groups}{98}{section.10.6}%
+\contentsline {chapter}{Bibliography}{99}{chapter*.12}%

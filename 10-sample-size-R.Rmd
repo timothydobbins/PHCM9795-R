@@ -143,3 +143,11 @@ epi.sscc(OR=2, p0=0.3, n=NA, power=0.8)
 ```
 
 or a total of 282 participants to detect an odds ratio of 2.0 with 80% power.
+
+## Estimating sample sizes with unequal groups
+
+To change the allocation ratio in any of these study type, we can specify `r`. Note that the definition of `r` differs slightly depending on the function used, so it pays to check the help-file for each function. In summary:
+
+- for `epi.sscompc()`,  `r` is the number in the treatment group divided by the number in the control group
+- for `epi.sscohortc()`, `r` is the number in the exposed group divided by the number in the unexposed group
+- for `epi.sscc()`, `r` is the number in the control group divided by the number in the case group

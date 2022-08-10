@@ -248,6 +248,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3" data-path="sample-size-estimation.html"><a href="sample-size-estimation.html#sample-size-calculation-for-difference-between-two-independent-proportions"><i class="fa fa-check"></i><b>10.3</b> Sample size calculation for difference between two independent proportions</a></li>
 <li class="chapter" data-level="10.4" data-path="sample-size-estimation.html"><a href="sample-size-estimation.html#sample-size-calculation-with-a-relative-risk"><i class="fa fa-check"></i><b>10.4</b> Sample size calculation with a relative risk</a></li>
 <li class="chapter" data-level="10.5" data-path="sample-size-estimation.html"><a href="sample-size-estimation.html#sample-size-calculation-with-an-odds-ratio"><i class="fa fa-check"></i><b>10.5</b> Sample size calculation with an odds ratio</a></li>
+<li class="chapter" data-level="10.6" data-path="sample-size-estimation.html"><a href="sample-size-estimation.html#estimating-sample-sizes-with-unequal-groups"><i class="fa fa-check"></i><b>10.6</b> Estimating sample sizes with unequal groups</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -468,6 +469,15 @@ div.csl-indent {
 ## $OR
 ## [1] 2</code></pre>
 <p>or a total of 282 participants to detect an odds ratio of 2.0 with 80% power.</p>
+</div>
+<div id="estimating-sample-sizes-with-unequal-groups" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Estimating sample sizes with unequal groups<a href="sample-size-estimation.html#estimating-sample-sizes-with-unequal-groups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To change the allocation ratio in any of these study type, we can specify <code>r</code>. Note that the definition of <code>r</code> differs slightly depending on the function used, so it pays to check the help-file for each function. In summary:</p>
+<ul>
+<li>for <code>epi.sscompc()</code>, <code>r</code> is the number in the treatment group divided by the number in the control group</li>
+<li>for <code>epi.sscohortc()</code>, <code>r</code> is the number in the exposed group divided by the number in the unexposed group</li>
+<li>for <code>epi.sscc()</code>, <code>r</code> is the number in the control group divided by the number in the case group</li>
+</ul>
 
 </div>
 </div>
